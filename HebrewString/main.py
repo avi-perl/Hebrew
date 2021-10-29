@@ -96,7 +96,9 @@ class HebrewString:
 
     @property
     def strip_non_letters(self) -> str:
-        string = "".join([l for l in self.string if l in self.LETTERS or l in (" ", self.MAQAF)])
+        string = "".join(
+            [l for l in self.string if l in self.LETTERS or l in (" ", self.MAQAF)]
+        )
         return " ".join(string.split())
 
     @property
