@@ -1,2 +1,2 @@
-# HebrewString - `בְּרֵאשִׁ֖ית == בְּרֵאשִׁית == בראשית`
-A python class with methods for handling Hebrew strings.
+# `בְּרֵאשִׁ֖ית == בְּרֵאשִׁית == בראשית`
+`HebrewString()` - A python class with methods for handling Hebrew strings.
