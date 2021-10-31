@@ -5,6 +5,11 @@ from grapheme.finder import GraphemeIterator
 
 
 class GraphemeString:
+    """
+    An object that unifies the functions available from the grapheme library under an object.
+    Functions all work as they do in the grapheme library, this is simply an interface.
+    """
+
     UNICODE_VERSION: str = grapheme.UNICODE_VERSION
 
     def __init__(self, string: str):
