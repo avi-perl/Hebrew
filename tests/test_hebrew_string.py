@@ -112,28 +112,60 @@ def test_as_str(pasuk):
 
 
 @pytest.mark.parametrize("pasuk", [(p) for p in taamei_hamikra])
-def test_without_maqaf(pasuk):
-    assert HebrewString(pasuk).without_maqaf == pasuk.replace(HebrewString.MAQAF, " ")
-
-
-@pytest.mark.parametrize(
-    "pasuk,pasuk_text_only", [p for p in zip(taamei_hamikra, text_only)]
-)
-def test_strip_non_letters(pasuk, pasuk_text_only):
-    hs = HebrewString(pasuk)
-    assert hs.strip_non_letters == pasuk_text_only
-
-
-@pytest.mark.parametrize(
-    "pasuk,pasuk_text_only", [p for p in zip(taamei_hamikra, text_only)]
-)
-def test_strip_non_letters_no_maqaf(pasuk, pasuk_text_only):
-    hs = HebrewString(pasuk)
-    assert hs.strip_non_letters_no_maqaf == pasuk_text_only.replace(
+def test_no_maqaf(pasuk):
+    assert HebrewString(pasuk).no_maqaf().string == pasuk.replace(
         HebrewString.MAQAF, " "
     )
 
 
-def test_strip_trup():
-    hs = HebrewString(taamei_hamikra[0])
-    assert hs.strip_trup == nikkud[0]
+@pytest.mark.parametrize("pasuk", [(p) for p in taamei_hamikra])
+def test_no_sof_passuk(pasuk):
+    assert HebrewString(pasuk).no_sof_passuk().string == pasuk.replace(
+        HebrewString.SOF_PASSUK, ""
+    )
+
+
+@pytest.mark.parametrize(
+    "pasuk,pasuk_text_only", [p for p in zip(taamei_hamikra, text_only)]
+)
+def test_text_only(pasuk, pasuk_text_only):
+    hs = HebrewString(pasuk)
+    assert hs.text_only(remove_maqaf=False).string == pasuk_text_only
+    assert hs.text_only(remove_maqaf=True).string == pasuk_text_only.replace(
+        HebrewString.MAQAF, " "
+    )
+
+
+def test_text_only_with_other_chars():
+    hs = HebrewString(
+        "In the beginning of this text is english followed by בְּרֵאשִׁ֖ית\tCool, eh? 😊"
+    )
+    assert (
+        hs.text_only().string
+        == "In the beginning of this text is english followed by בראשית\tCool, eh? 😊"
+    )
+
+
+def test_words():
+    pasuk = HebrewString(taamei_hamikra[1])
+    assert len(pasuk.words(split_maqaf=False)) == 12
+    assert len(pasuk.words(split_maqaf=True)) == 14
+
+
+def test_no_niqqud():
+    hs = HebrewString("וַֽיְהִי־עֶ֥רֶב וַֽיְהִי־בֹ֖קֶר י֥וֹם רְבִיעִֽי׃")
+    assert hs.no_niqqud().string == "וֽיהי־ע֥רב וֽיהי־ב֖קר י֥ום רביעֽי׃"
+
+
+def test_no_punctuation():
+    hs = HebrewString(taamei_hamikra[1])
+    assert (
+        hs.no_punctuation(remove_maqaf=False, remove_sof_passuk=False).string
+        == nikkud[1]
+    )
+    assert hs.no_punctuation(
+        remove_maqaf=False, remove_sof_passuk=True
+    ).string == nikkud[1].replace(HebrewString.SOF_PASSUK, "")
+    assert hs.no_punctuation(
+        remove_maqaf=True, remove_sof_passuk=False
+    ).string == nikkud[1].replace(HebrewString.MAQAF, " ")
