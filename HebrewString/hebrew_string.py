@@ -84,10 +84,30 @@ class HebrewString(GraphemeString):
     ZAQEF_GADOL = "֕"
     TIFCHA = "֖"
     REVIA = "֗"
-    ZARQA = "֮"
+    ZINOR = "֮"
     PASHTA = "֙"
-    PASHTA_2 = "֨"
+    PASHTA_2 = QADMA = "֨"
     YETIV = "֚"
+    TEVIR = "֛"
+    PAZER = "֡"
+    TELISHA_GEDOLA = "֠"
+    TELISHA_KETANNAH = "֩"
+    PAZER_GADOL = "֟"
+    AZLA_GERESH = "֜"
+    GERSHAYIM = "֞"
+    MERCHA = "֥"
+    MUNACH = "֣"
+    MAHPACH = "֤"
+    DARGA = "֧"
+    MERCHA_KEFULA = "֦"
+    YERACH_BEN_YOMO = "֪"
+    MASORA = "֯"
+    DEHI = "֭"
+    ZARQA = "֘"
+    GERESH_MUQDAM = "֝"
+    QARNEY_PARA = "֟"
+    OLA = "֫"
+    ILUY = "֬"
     PUNCTUATION = [
         MAQAF,
         PASEQ,
@@ -104,29 +124,30 @@ class HebrewString(GraphemeString):
         ZAQEF_GADOL,
         TIFCHA,
         REVIA,
-        ZARQA,
+        ZINOR,
         PASHTA,
         PASHTA_2,
         YETIV,
-        "֘",
-        "֛",
-        "֜",
-        "֝",
-        "֞",
-        "֟",
-        "֠",
-        "֡",
-        "֣",
-        "֤",
-        "֥",
-        "֦",
-        "֧",
-        "֩",
-        "֪",
-        "֫",
-        "֬",
-        "֭",
-        "֯",
+        TEVIR,
+        PAZER,
+        PAZER_GADOL,
+        TELISHA_GEDOLA,
+        TELISHA_KETANNAH,
+        AZLA_GERESH,
+        GERSHAYIM,
+        MERCHA,
+        MUNACH,
+        MAHPACH,
+        DARGA,
+        MERCHA_KEFULA,
+        YERACH_BEN_YOMO,
+        MASORA,
+        DEHI,
+        ZARQA,
+        GERESH_MUQDAM,
+        QARNEY_PARA,
+        OLA,
+        ILUY,
     ]
 
     def __init__(self, string: str):
@@ -180,7 +201,7 @@ class HebrewString(GraphemeString):
             p for p in self.PUNCTUATION if p not in (self.MAQAF, self.PASEQ)
         ]
         string = string.replace(
-            " ׀ ", " "
+            f" {self.PASEQ} ", " "
         )  # Handled separately to avoid double spaces.
         for char in chars_to_remove:
             string = string.replace(char, "")
@@ -219,7 +240,7 @@ class HebrewString(GraphemeString):
             if p not in (self.MAQAF, self.PASEQ, self.SOF_PASSUK)
         ]
         string = string.replace(
-            " ׀ ", " "
+            f" {self.PASEQ} ", " "
         )  # Handled separately to avoid double spaces.
         for char in chars_to_remove:
             string = string.replace(char, "")
