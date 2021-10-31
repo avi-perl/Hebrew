@@ -96,6 +96,8 @@ The text in these examples and used in testing were sourced from [Sefaria](https
 >>>
 >>> HS(HS.ALEPH + HS.KUMATZ)
 אָ
+>>> HS.YIDDISH_LETTERS
+['ײ', 'װ', 'ױ']
 ```
 
 ## Future Plans
