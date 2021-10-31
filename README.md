@@ -86,6 +86,11 @@ interact with the text like so:
 
 The text in these examples and used in testing were sourced from [Sefaria](https://github.com/Sefaria/Sefaria-Export).
 
+## Future Plans
+My intention is to override some built-in python functions for a more seamless but opinionated developer experience. 
+For example, slicing using the python `[0:1]` syntax, `len(my_he_string)`, equality checks, and more. 
+`my_he_string.string` is always available when access to the true unicode characters is needed. 
+
 ## Contributing 
 Contributions in the form of pull requests are very welcome! I'm sure many more helpful methods related to hebrew text 
 could be helpful.
