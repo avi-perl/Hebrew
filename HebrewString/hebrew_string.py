@@ -1,11 +1,11 @@
 from typing import List, TypeVar
 
-import grapheme
+from .grapheme_string import GraphemeString
 
 HebrewStringT = TypeVar("HebrewStringT", bound="HebrewString")
 
 
-class HebrewString:
+class HebrewString(GraphemeString):
     YIDDISH_LETTERS = ["װ", "ױ", "ײ"]
     HEBREW_LETTERS = [
         "א",
@@ -74,8 +74,7 @@ class HebrewString:
     ]
 
     def __init__(self, string: str):
-        self.string = string
-        self.graphemes = [g for g in grapheme.graphemes(string)]
+        super().__init__(string)
 
     def __str__(self) -> str:
         return self.string

@@ -1,2 +1,2 @@
 from .hebrew_string import *
-from .grapheme import *
+from .grapheme_string import *
