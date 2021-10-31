@@ -35,12 +35,6 @@ class HebrewString(GraphemeString):
     SHIN = "ש"
     TAV = "ת"
 
-    # Yiddish specific letters
-    DOUBLE_YUD = "ײ"
-    DOUBLE_VAV = "װ"
-    VAV_YUD = "ױ"
-
-    YIDDISH_LETTERS = [DOUBLE_YUD, DOUBLE_VAV, VAV_YUD]
     HEBREW_LETTERS = [
         ALEPH,
         VET,
@@ -70,16 +64,57 @@ class HebrewString(GraphemeString):
         SHIN,
         TAV,
     ]
+
+    # Yiddish specific letters
+    DOUBLE_YUD = "ײ"
+    DOUBLE_VAV = "װ"
+    VAV_YUD = "ױ"
+
+    YIDDISH_LETTERS = [DOUBLE_YUD, DOUBLE_VAV, VAV_YUD]
+
     LETTERS = YIDDISH_LETTERS + HEBREW_LETTERS
 
     # Niqqudot or Vowel characters
     SIN_DOT = "ׂ"
-    NIQQUD = [SIN_DOT, "ׁ", "ּ", "ֻ", "ֹ", "ָ", "ַ", "ֶ", "ֵ", "ִ", "ֳ", "ֲ", "ֱ", "ְ", "ׄ"]
+    SHIN_DOT = "ׁ"
+    DAGESH = "ּ"
+    QUBUTS = KUBUTZ = "ֻ"
+    SHURUK = "וּ"
+    HOLAM = "ֹ"
+    QAMATS = KUMATZ = "ָ"
+    PATAH = PATACH = "ַ"
+    SEGOL = "ֶ"
+    TSERE = "ֵ"
+    HIRIQ = CHIRIK = "ִ"
+    HATAF_QAMATS = "ֳ"
+    HATAF_PATAH = "ֲ"
+    HATAF_SEGOL = "ֱ"
+    SHEVA = SHIVAH = "ְ"
+    UPPER_DOT = "ׄ"
+    NIQQUD = [
+        SIN_DOT,
+        SHIN_DOT,
+        DAGESH,
+        QUBUTS,
+        HOLAM,
+        QAMATS,
+        PATAH,
+        SEGOL,
+        TSERE,
+        HIRIQ,
+        HATAF_QAMATS,
+        HATAF_PATAH,
+        HATAF_SEGOL,
+        SHEVA,
+        UPPER_DOT,
+    ]
+
+    # Punctuation characters
     MAQAF = "־"
     PASEQ = "׀"
     SOF_PASSUK = "׃"
     ETNAHTA = "֑"
-    SEGOL = "֒"
+    SEGOL_TOP = "֒"
     SHALSHELET = "֓"
     ZAQEF_QATAN = "֔"
     ZAQEF_GADOL = "֕"
@@ -123,7 +158,7 @@ class HebrewString(GraphemeString):
         RAFE,
         METEG,
         ETNAHTA,
-        SEGOL,
+        SEGOL_TOP,
         SHALSHELET,
         ZAQEF_QATAN,
         ZAQEF_GADOL,
