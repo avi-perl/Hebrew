@@ -77,6 +77,17 @@ class HebrewString(GraphemeString):
     MAQAF = "־"
     PASEQ = "׀"
     SOF_PASSUK = "׃"
+    ETNAHTA = "֑"
+    SEGOL = "֒"
+    SHALSHELET = "֓"
+    ZAQEF_QATAN = "֔"
+    ZAQEF_GADOL = "֕"
+    TIFCHA = "֖"
+    REVIA = "֗"
+    ZARQA = "֮"
+    PASHTA = "֙"
+    PASHTA_2 = "֨"
+    YETIV = "֚"
     PUNCTUATION = [
         MAQAF,
         PASEQ,
@@ -86,16 +97,18 @@ class HebrewString(GraphemeString):
         "ׂ",
         "ֿ",
         "ֽ",
-        "֑",
-        "֒",
-        "֓",
-        "֔",
-        "֕",
-        "֖",
-        "֗",
+        ETNAHTA,
+        SEGOL,
+        SHALSHELET,
+        ZAQEF_QATAN,
+        ZAQEF_GADOL,
+        TIFCHA,
+        REVIA,
+        ZARQA,
+        PASHTA,
+        PASHTA_2,
+        YETIV,
         "֘",
-        "֙",
-        "֚",
         "֛",
         "֜",
         "֝",
@@ -108,13 +121,11 @@ class HebrewString(GraphemeString):
         "֥",
         "֦",
         "֧",
-        "֨",
         "֩",
         "֪",
         "֫",
         "֬",
         "֭",
-        "֮",
         "֯",
     ]
 
