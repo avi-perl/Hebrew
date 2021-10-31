@@ -73,7 +73,8 @@ class HebrewString(GraphemeString):
     LETTERS = YIDDISH_LETTERS + HEBREW_LETTERS
 
     # Niqqudot or Vowel characters
-    NIQQUD = ["ׂ", "ׁ", "ּ", "ֻ", "ֹ", "ָ", "ַ", "ֶ", "ֵ", "ִ", "ֳ", "ֲ", "ֱ", "ְ", "ׄ"]
+    SIN_DOT = "ׂ"
+    NIQQUD = [SIN_DOT, "ׁ", "ּ", "ֻ", "ֹ", "ָ", "ַ", "ֶ", "ֵ", "ִ", "ֳ", "ֲ", "ֱ", "ְ", "ׄ"]
     MAQAF = "־"
     PASEQ = "׀"
     SOF_PASSUK = "׃"
@@ -93,8 +94,10 @@ class HebrewString(GraphemeString):
     TELISHA_GEDOLA = "֠"
     TELISHA_KETANNAH = "֩"
     PAZER_GADOL = "֟"
+    GERESH = "׳"
     AZLA_GERESH = "֜"
-    GERSHAYIM = "֞"
+    GERSHAYIM = "״"
+    GERSHAYIM_2 = "֞"
     MERCHA = "֥"
     MUNACH = "֣"
     MAHPACH = "֤"
@@ -108,15 +111,17 @@ class HebrewString(GraphemeString):
     QARNEY_PARA = "֟"
     OLA = "֫"
     ILUY = "֬"
+    RAFE = "ֿ"
+    METEG = "ֽ"
     PUNCTUATION = [
         MAQAF,
         PASEQ,
         SOF_PASSUK,
-        "״",
-        "׳",
-        "ׂ",
-        "ֿ",
-        "ֽ",
+        GERESH,
+        GERSHAYIM,
+        GERSHAYIM_2,
+        RAFE,
+        METEG,
         ETNAHTA,
         SEGOL,
         SHALSHELET,
@@ -134,7 +139,6 @@ class HebrewString(GraphemeString):
         TELISHA_GEDOLA,
         TELISHA_KETANNAH,
         AZLA_GERESH,
-        GERSHAYIM,
         MERCHA,
         MUNACH,
         MAHPACH,
