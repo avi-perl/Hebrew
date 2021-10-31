@@ -7,9 +7,9 @@ characteristics. Additionally, methods for common Hebrew text processing are pro
 
 
 ```python
->>> from HebrewString import HebrewString
+>>> from HebrewString import HebrewString as HS
 >>>
->>> v2 = HebrewString("וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֙הוּ֙ וָבֹ֔הוּ וְחֹ֖שֶׁךְ עַל־פְּנֵ֣י תְה֑וֹם וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־פְּנֵ֥י הַמָּֽיִם׃")
+>>> v2 = HS("וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֙הוּ֙ וָבֹ֔הוּ וְחֹ֖שֶׁךְ עַל־פְּנֵ֣י תְה֑וֹם וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־פְּנֵ֥י הַמָּֽיִם׃")
 >>>
 >>> v2.no_punctuation()
 וְהָאָרֶץ הָיְתָה תֹהוּ וָבֹהוּ וְחֹשֶׁךְ עַל־פְּנֵי תְהוֹם וְרוּחַ אֱלֹהִים מְרַחֶפֶת עַל־פְּנֵי הַמָּיִם׃
@@ -68,9 +68,9 @@ This library includes 2 classes. `GraphemeString` is a class that supports all t
 The 2nd class `HebrewString` subclasses `GraphemeString` and adds methods for handling Hebrew text. This allows us to 
 interact with the text like so:
 ```python
->>> from HebrewString import HebrewString
+>>> from HebrewString import HebrewString as HS
 >>>
->>> v2 = HebrewString("וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֙הוּ֙ וָבֹ֔הוּ וְחֹ֖שֶׁךְ עַל־פְּנֵ֣י תְה֑וֹם וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־פְּנֵ֥י הַמָּֽיִם׃")
+>>> v2 = HS("וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֙הוּ֙ וָבֹ֔הוּ וְחֹ֖שֶׁךְ עַל־פְּנֵ֣י תְה֑וֹם וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־פְּנֵ֥י הַמָּֽיִם׃")
 >>>
 >>> v2.no_punctuation()
 וְהָאָרֶץ הָיְתָה תֹהוּ וָבֹהוּ וְחֹשֶׁךְ עַל־פְּנֵי תְהוֹם וְרוּחַ אֱלֹהִים מְרַחֶפֶת עַל־פְּנֵי הַמָּיִם׃
@@ -85,6 +85,18 @@ interact with the text like so:
 ```
 
 The text in these examples and used in testing were sourced from [Sefaria](https://github.com/Sefaria/Sefaria-Export).
+
+## Constants
+`HebrewString` as constants for every letter as well as lists of character category's:
+```python
+>>> from HebrewString import HebrewString as HS
+>>>
+>>> HS.FINAL_LETTERS
+['ך', 'ם', 'ן', 'ף', 'ץ']
+>>>
+>>> HS(HS.ALEPH + HS.KUMATZ)
+אָ
+```
 
 ## Future Plans
 My intention is to override some built-in python functions for a more seamless but opinionated developer experience. 

@@ -65,6 +65,8 @@ class HebrewString(GraphemeString):
         TAV,
     ]
 
+    FINAL_LETTERS = [FINAL_KAF, FINAL_MEM, FINAL_NUN, FINAL_PE, FINAL_TSADI]
+
     # Yiddish specific letters
     DOUBLE_YUD = "ײ"
     DOUBLE_VAV = "װ"
