@@ -31,9 +31,9 @@ words, separate them, and cantillation marks "used as a guide for chanting the t
 in the case of the public reading of the Torah" [^2].   
 
 Because of the above, from the perspective of a hebrew reader, the following 3 words are the same:
-1. בְּרֵאשִׁ֖ית
-2. בְּרֵאשִׁית
-3. בראשית
+1. `בְּרֵאשִׁ֖ית`
+2. `בְּרֵאשִׁית`
+3. `בראשית`
 
 However, as a unicode string, they are entirely different because of the additional characters.
 ```python
