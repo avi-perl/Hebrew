@@ -225,7 +225,9 @@ def test_equality_unequal_type():
     one = GraphemeString(
         "והארץ היתה תהו ובהו וחשך על־פני תהום ורוח אלהים מרחפת על־פני המים"
     )
-    two = GraphemeString("והארץ")
+    two = GraphemeString(
+        "והארץ היתה תהו ובהו וחשך על־פני תהום ורוח אלהים מרחפת על־פני המים"
+    )
     assert one != str(two)
 
 
