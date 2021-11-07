@@ -5,7 +5,6 @@
 `HebrewString` assists in working with Hebrew text by providing methods to handle the text according to user-perceived
 characteristics. Additionally, methods for common Hebrew text processing are provided.
 
-
 ```python
 >>> from HebrewString import HebrewString as HS
 >>>

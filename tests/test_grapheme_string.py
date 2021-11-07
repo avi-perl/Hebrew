@@ -1,6 +1,6 @@
 import pytest
 
-from HebrewString import GraphemeString
+from hebrewstring import GraphemeString
 
 
 @pytest.fixture

@@ -1,6 +1,6 @@
 import pytest
 
-from HebrewString import HebrewString
+from hebrewstring import HebrewString
 
 taamei_hamikra = [
     "בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָרֶץ׃",

@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "hebrewstring"
+version = "0.1.2"
+description = "A python package with methods to handle Hebrew text."
+authors = ["Avi Perl <avi@aviperl.me>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/avi-perl/HebrewString"
+keywords = ["hebrew", "grapheme"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Typing :: Typed",
+]
+
+[tool.poetry.dependencies]
+python = "^3.6.2"
+grapheme = "^0.6.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+black = "^21.10b0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
