@@ -221,5 +221,20 @@ def test_equality():
     assert one == two
 
 
-def test_hashable(hebrew_grapheme_string):
-    assert isinstance(hebrew_grapheme_string, Hashable)
+def test_not_equality():
+    one = GraphemeString(
+        "והארץ היתה תהו ובהו וחשך על־פני תהום ורוח אלהים מרחפת על־פני המים"
+    )
+    two = GraphemeString("והארץ")
+    assert one != two
+
+
+def test_hashable():
+    one = GraphemeString(
+        "והארץ היתה תהו ובהו וחשך על־פני תהום ורוח אלהים מרחפת על־פני המים"
+    )
+    two = GraphemeString(
+        "והארץ היתה תהו ובהו וחשך על־פני תהום ורוח אלהים מרחפת על־פני המים"
+    )
+    assert isinstance(one, Hashable)
+    assert one.__hash__() == two.__hash__()
