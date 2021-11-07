@@ -1,7 +1,9 @@
-from typing import Iterator
+from typing import Iterator, TypeVar
 
 import grapheme
 from grapheme.finder import GraphemeIterator
+
+GraphemeStringT = TypeVar("GraphemeStringT", bound="GraphemeString")
 
 
 class GraphemeString:
@@ -172,3 +174,17 @@ class GraphemeString:
 
     def __repr__(self) -> str:
         return self.__str__()
+
+    def __add__(self, other) -> GraphemeStringT:
+        return GraphemeString(self.string + str(other))
+
+    def __key(self) -> str:
+        return self.string
+
+    def __eq__(self, other) -> bool:
+        if isinstance(other, GraphemeString):
+            return self.__key() == other.__key()
+        return False
+
+    def __hash__(self):
+        return hash(self.__key())

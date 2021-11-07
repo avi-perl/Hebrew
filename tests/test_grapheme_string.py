@@ -1,3 +1,5 @@
+from collections.abc import Hashable
+
 import pytest
 
 from hebrewstring import GraphemeString
@@ -197,3 +199,27 @@ def test_string_repr(hebrew_grapheme_string):
     assert isinstance(hebrew_grapheme_string.string, str)
     assert hebrew_grapheme_string.__str__() == hebrew_grapheme_string.string
     assert hebrew_grapheme_string.__repr__() == hebrew_grapheme_string.string
+
+
+def test_add():
+    full = GraphemeString(
+        "והארץ היתה תהו ובהו וחשך על־פני תהום ורוח אלהים מרחפת על־פני המים"
+    )
+    start = GraphemeString("והארץ היתה תהו ובהו")
+    end = GraphemeString("וחשך על־פני תהום ורוח אלהים מרחפת על־פני המים")
+    new = start + " " + end
+    assert new.string == full.string
+
+
+def test_equality():
+    one = GraphemeString(
+        "והארץ היתה תהו ובהו וחשך על־פני תהום ורוח אלהים מרחפת על־פני המים"
+    )
+    two = GraphemeString(
+        "והארץ היתה תהו ובהו וחשך על־פני תהום ורוח אלהים מרחפת על־פני המים"
+    )
+    assert one == two
+
+
+def test_hashable(hebrew_grapheme_string):
+    assert isinstance(hebrew_grapheme_string, Hashable)
