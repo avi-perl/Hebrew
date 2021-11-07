@@ -21,11 +21,18 @@
 </a>
 </p>
 
+# Installation
+```bash
+$ pip install hebrewstring
+```
+
+# Example
+
 `HebrewString` assists in working with Hebrew text by providing methods to handle the text according to user-perceived
 characteristics. Additionally, methods for common Hebrew text processing are provided.
 
 ```python
->>> from HebrewString import HebrewString as HS
+>>> from hebrewstring import HebrewString as HS
 >>>
 >>> v2 = HS("וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֙הוּ֙ וָבֹ֔הוּ וְחֹ֖שֶׁךְ עַל־פְּנֵ֣י תְה֑וֹם וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־פְּנֵ֥י הַמָּֽיִם׃")
 >>>
@@ -125,7 +132,7 @@ For example, slicing using the python `[0:1]` syntax, `len(my_he_string)`, equal
 
 ## Contributing 
 Contributions in the form of pull requests are very welcome! I'm sure many more helpful methods related to hebrew text 
-could be helpful.
+could be helpful. More information and instructions for contributing can be found [here](CONTRIBUTING.md).
 
 [^1]: [https://en.wikipedia.org/wiki/Niqqud](https://en.wikipedia.org/wiki/Niqqud)
 [^2]: [https://en.wikipedia.org/wiki/Hebrew_cantillation](https://en.wikipedia.org/wiki/Hebrew_cantillation)
