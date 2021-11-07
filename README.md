@@ -1,6 +1,25 @@
-# `בְּרֵאשִׁ֖ית == בְּרֵאשִׁית == בראשית`
-
-[![Test](https://github.com/avi-perl/HebrewString/actions/workflows/test.yml/badge.svg)](https://github.com/avi-perl/HebrewString/actions/workflows/test.yml)
+<h1 align="center" style="font-family:'Courier New'">HebrewString("בְּרֵאשִׁ֖ית")</h1>
+<p align="center">
+    <em>A python package with methods to handle Hebrew text.</em>
+</p>
+<p align="center">
+<a href="https://pypi.org/project/hebrewstring/" target="_blank">
+    <img src="https://badge.fury.io/py/hebrewstring.svg" alt="PyPI version">
+</a>
+<a href="https://badge.fury.io/py/hebrewstring">
+    <img src="https://img.shields.io/pypi/pyversions/hebrewstring" alt="Supported Python Versions">
+</a>
+<a href="https://github.com/avi-perl/hebrewstring/actions/workflows/test.yml" target="_blank">
+    <img src="https://github.com/avi-perl/hebrewstring/actions/workflows/test.yml/badge.svg" alt="Test">
+</a>
+<a href="https://codecov.io/gh/avi-perl/hebrewstring" target="_blank">
+  <img src="https://codecov.io/gh/avi-perl/HebrewString/branch/master/graph/badge.svg?token=0DA1R9IY6S"/>
+</a>
+󠀠󠀠
+<a href="https://twitter.com/__aviperl__" target="_blank">
+    <img src="https://badgen.net/badge/icon/twitter?icon=twitter&label=Chat%20with%20me" alt="Twitter">
+</a>
+</p>
 
 `HebrewString` assists in working with Hebrew text by providing methods to handle the text according to user-perceived
 characteristics. Additionally, methods for common Hebrew text processing are provided.
