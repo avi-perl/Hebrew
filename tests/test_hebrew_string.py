@@ -105,6 +105,16 @@ text_only = [
 ]
 
 
+def test_str():
+    hs = HebrewString("בְּרֵאשִׁ֖ית")
+    assert hs.__str__() == "בְּרֵאשִׁ֖ית"
+
+
+def test_repr():
+    hs = HebrewString("בְּרֵאשִׁ֖ית")
+    assert hs.__repr__() == "בְּרֵאשִׁ֖ית"
+
+
 @pytest.mark.parametrize("pasuk", [(p) for p in taamei_hamikra])
 def test_as_str(pasuk):
     hs = HebrewString(pasuk)
