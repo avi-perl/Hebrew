@@ -221,6 +221,14 @@ def test_equality():
     assert one == two
 
 
+def test_equality_unequal_type():
+    one = GraphemeString(
+        "והארץ היתה תהו ובהו וחשך על־פני תהום ורוח אלהים מרחפת על־פני המים"
+    )
+    two = GraphemeString("והארץ")
+    assert one != str(two)
+
+
 def test_not_equality():
     one = GraphemeString(
         "והארץ היתה תהו ובהו וחשך על־פני תהום ורוח אלהים מרחפת על־פני המים"
