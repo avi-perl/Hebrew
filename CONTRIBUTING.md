@@ -1,4 +1,4 @@
-# Contributing to `HebrewString`
+# Contributing to `Hebrew`
 
 This project welcomes contributions in the form of Pull Requests.
 For clear bug-fixes / typos etc. just submit a PR.

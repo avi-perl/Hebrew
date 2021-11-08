@@ -1,11 +1,11 @@
 [tool.poetry]
-name = "hebrewstring"
-version = "0.2.1"
-description = "A python package with methods to handle Hebrew text."
+name = "hebrew"
+version = "0.3.0"
+description = "A python package with methods to handle the complexities of Hebrew text."
 authors = ["Avi Perl <avi@aviperl.me>"]
 license = "MIT"
 readme = "README.md"
-repository = "https://github.com/avi-perl/HebrewString"
+repository = "https://github.com/avi-perl/hebrew"
 keywords = ["hebrew", "grapheme"]
 classifiers = [
     "Development Status :: 4 - Beta",

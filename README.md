@@ -1,19 +1,19 @@
-<h1 align="center" style="font-family:'Courier New'">HebrewString("בְּרֵאשִׁ֖ית")</h1>
+<h1 align="center" style="font-family:'Courier New'">Hebrew("בְּרֵאשִׁ֖ית")</h1>
 <p align="center">
     <em>A python package with methods to handle Hebrew text.</em>
 </p>
 <p align="center">
-<a href="https://pypi.org/project/hebrewstring/" target="_blank">
-    <img src="https://badge.fury.io/py/hebrewstring.svg" alt="PyPI version">
+<a href="https://pypi.org/project/hebrew/" target="_blank">
+    <img src="https://badge.fury.io/py/hebrew.svg" alt="PyPI version">
 </a>
-<a href="https://badge.fury.io/py/hebrewstring">
-    <img src="https://img.shields.io/pypi/pyversions/hebrewstring" alt="Supported Python Versions">
+<a href="https://badge.fury.io/py/hebrew">
+    <img src="https://img.shields.io/pypi/pyversions/hebrew" alt="Supported Python Versions">
 </a>
-<a href="https://github.com/avi-perl/hebrewstring/actions/workflows/test.yml" target="_blank">
-    <img src="https://github.com/avi-perl/hebrewstring/actions/workflows/test.yml/badge.svg" alt="Test">
+<a href="https://github.com/avi-perl/hebrew/actions/workflows/test.yml" target="_blank">
+    <img src="https://github.com/avi-perl/hebrew/actions/workflows/test.yml/badge.svg" alt="Test">
 </a>
-<a href="https://codecov.io/gh/avi-perl/hebrewstring" target="_blank">
-  <img src="https://codecov.io/gh/avi-perl/HebrewString/branch/master/graph/badge.svg?token=0DA1R9IY6S"/>
+<a href="https://codecov.io/gh/avi-perl/hebrew" target="_blank">
+  <img src="https://codecov.io/gh/avi-perl/Hebrew/branch/master/graph/badge.svg?token=0DA1R9IY6S"/>
 </a>
 󠀠󠀠
 <a href="https://twitter.com/__aviperl__" target="_blank">
@@ -23,29 +23,53 @@
 
 # Installation
 ```bash
-$ pip install hebrewstring
+$ pip install hebrew
 ```
 
 # Example
 
-`HebrewString` assists in working with Hebrew text by providing methods to handle the text according to user-perceived
+`Hebrew` assists in working with Hebrew text by providing methods to handle the text according to user-perceived
 characteristics. Additionally, methods for common Hebrew text processing are provided.
 
 ```python
->>> from hebrewstring import HebrewString as HS
->>>
->>> v2 = HS("וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֙הוּ֙ וָבֹ֔הוּ וְחֹ֖שֶׁךְ עַל־פְּנֵ֣י תְה֑וֹם וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־פְּנֵ֥י הַמָּֽיִם׃")
->>>
->>> v2.no_punctuation()
-וְהָאָרֶץ הָיְתָה תֹהוּ וָבֹהוּ וְחֹשֶׁךְ עַל־פְּנֵי תְהוֹם וְרוּחַ אֱלֹהִים מְרַחֶפֶת עַל־פְּנֵי הַמָּיִם׃
->>>
->>> v2.text_only()
-והארץ היתה תהו ובהו וחשך על־פני תהום ורוח אלהים מרחפת על־פני המים
->>>
->>> v2.length
+>> > from hebrew import Hebrew
+>> >
+>> > v2 = Hebrew(
+    "וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֙הוּ֙ וָבֹ֔הוּ וְחֹ֖שֶׁךְ עַל־פְּנֵ֣י תְה֑וֹם וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־פְּנֵ֥י הַמָּֽיִם׃")
+>> >
+>> > v2.no_punctuation()
+וְהָאָרֶץ
+הָיְתָה
+תֹהוּ
+וָבֹהוּ
+וְחֹשֶׁךְ
+עַל־פְּנֵי
+תְהוֹם
+וְרוּחַ
+אֱלֹהִים
+מְרַחֶפֶת
+עַל־פְּנֵי
+הַמָּיִם׃
+>> >
+>> > v2.text_only()
+והארץ
+היתה
+תהו
+ובהו
+וחשך
+על־פני
+תהום
+ורוח
+אלהים
+מרחפת
+על־פני
+המים
+>> >
+>> > v2.length
 35
->>> v2.words(split_maqaf=True)
-[וְהָאָ֗רֶץ, הָיְתָ֥ה, תֹ֙הוּ֙, וָבֹ֔הוּ, וְחֹ֖שֶׁךְ, עַל, פְּנֵ֣י, תְה֑וֹם, וְר֣וּחַ, אֱלֹהִ֔ים, מְרַחֶ֖פֶת, עַל, פְּנֵ֥י, הַמָּֽיִם׃]
+>> > v2.words(split_maqaf=True)
+[וְהָאָ֗רֶץ, הָיְתָ֥ה, תֹ֙הוּ֙, וָבֹ֔הוּ, וְחֹ֖שֶׁךְ, עַל, פְּנֵ֣י, תְה֑וֹם, וְר֣וּחַ, אֱלֹהִ֔ים, מְרַחֶ֖פֶת, עַל,
+ פְּנֵ֥י, הַמָּֽיִם׃]
 ```
 
 ## Grapheme Characters
@@ -90,12 +114,12 @@ characters as units. This allows us to get the right number of characters, slice
 'רֵאשִׁ֖ית'
 ```
 This library includes 2 classes. `GraphemeString` is a class that supports all the functions made available by `grapheme`.
-The 2nd class `HebrewString` subclasses `GraphemeString` and adds methods for handling Hebrew text. This allows us to 
+The 2nd class `Hebrew` subclasses `GraphemeString` and adds methods for handling Hebrew text. This allows us to 
 interact with the text like so:
 ```python
->>> from HebrewString import HebrewString as HS
+>>> from hebrew import Hebrew
 >>>
->>> v2 = HS("וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֙הוּ֙ וָבֹ֔הוּ וְחֹ֖שֶׁךְ עַל־פְּנֵ֣י תְה֑וֹם וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־פְּנֵ֥י הַמָּֽיִם׃")
+>>> v2 = Hebrew("וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֙הוּ֙ וָבֹ֔הוּ וְחֹ֖שֶׁךְ עַל־פְּנֵ֣י תְה֑וֹם וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־פְּנֵ֥י הַמָּֽיִם׃")
 >>>
 >>> v2.no_punctuation()
 וְהָאָרֶץ הָיְתָה תֹהוּ וָבֹהוּ וְחֹשֶׁךְ עַל־פְּנֵי תְהוֹם וְרוּחַ אֱלֹהִים מְרַחֶפֶת עַל־פְּנֵי הַמָּיִם׃
@@ -112,16 +136,16 @@ interact with the text like so:
 The text in these examples and used in testing were sourced from [Sefaria](https://github.com/Sefaria/Sefaria-Export).
 
 ## Constants
-`HebrewString` as constants for every letter as well as lists of character category's:
+`Hebrew` as constants for every letter as well as lists of character category's:
 ```python
->>> from HebrewString import HebrewString as HS
+>>> from hebrew import Hebrew
 >>>
->>> HS.FINAL_LETTERS
+>>> Hebrew.FINAL_LETTERS
 ['ך', 'ם', 'ן', 'ף', 'ץ']
 >>>
->>> HS(HS.ALEPH + HS.KUMATZ)
+>>> Hebrew(HS.ALEPH + HS.KUMATZ)
 אָ
->>> HS.YIDDISH_LETTERS
+>>> Hebrew.YIDDISH_LETTERS
 ['ײ', 'װ', 'ױ']
 ```
 

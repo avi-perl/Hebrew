@@ -1,7 +1,7 @@
 import toml
 from pathlib import Path
 
-from hebrewstring import __version__
+from hebrew import __version__
 
 
 def test_versions_are_in_sync():

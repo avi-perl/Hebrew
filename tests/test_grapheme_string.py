@@ -2,7 +2,7 @@ from collections.abc import Hashable
 
 import pytest
 
-from hebrewstring import GraphemeString
+from hebrew import GraphemeString
 
 
 @pytest.fixture

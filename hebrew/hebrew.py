@@ -2,10 +2,10 @@ from typing import List, TypeVar
 
 from .grapheme_string import GraphemeString
 
-HebrewStringT = TypeVar("HebrewStringT", bound="HebrewString")
+HebrewT = TypeVar("HebrewT", bound="Hebrew")
 
 
-class HebrewString(GraphemeString):
+class Hebrew(GraphemeString):
     # Letters of the hebrew alphabet
     ALEPH = "א"
     VET = "ב"
@@ -200,7 +200,7 @@ class HebrewString(GraphemeString):
     def __repr__(self) -> str:
         return self.__str__()
 
-    def no_maqaf(self) -> HebrewStringT:
+    def no_maqaf(self) -> HebrewT:
         """
         Replaces all maqafs with spaces.
 
@@ -209,17 +209,17 @@ class HebrewString(GraphemeString):
 
         :return:
         """
-        return HebrewString(self.string.replace(self.MAQAF, " "))
+        return Hebrew(self.string.replace(self.MAQAF, " "))
 
-    def no_sof_passuk(self) -> HebrewStringT:
+    def no_sof_passuk(self) -> HebrewT:
         """
         Removes all sof_passuk chars.
 
         :return:
         """
-        return HebrewString(self.string.replace(self.SOF_PASSUK, ""))
+        return Hebrew(self.string.replace(self.SOF_PASSUK, ""))
 
-    def words(self, split_maqaf: bool = False) -> List[HebrewStringT]:
+    def words(self, split_maqaf: bool = False) -> List[HebrewT]:
         """
         Splits the string into a list of words.
 
@@ -227,9 +227,9 @@ class HebrewString(GraphemeString):
         :return:
         """
         string = self.string if not split_maqaf else self.no_maqaf().string
-        return [HebrewString(s) for s in string.split()]
+        return [Hebrew(s) for s in string.split()]
 
-    def text_only(self, remove_maqaf: bool = False) -> HebrewStringT:
+    def text_only(self, remove_maqaf: bool = False) -> HebrewT:
         """
         Returns a string with all non-letter characters removed.
         This will remove both niqqud and punctuation.
@@ -246,9 +246,9 @@ class HebrewString(GraphemeString):
         )  # Handled separately to avoid double spaces.
         for char in chars_to_remove:
             string = string.replace(char, "")
-        return HebrewString(string)
+        return Hebrew(string)
 
-    def no_niqqud(self) -> HebrewStringT:
+    def no_niqqud(self) -> HebrewT:
         """
         Removes all niqqud characters.
         This may be useful to practice reading from the torah.
@@ -258,11 +258,11 @@ class HebrewString(GraphemeString):
         string = self.string
         for char in self.NIQQUD:
             string = string.replace(char, "")
-        return HebrewString(string)
+        return Hebrew(string)
 
     def no_punctuation(
         self, remove_maqaf: bool = False, remove_sof_passuk: bool = False
-    ) -> HebrewStringT:
+    ) -> HebrewT:
         """
         Removes all punctuation characters.
         Result is a string with just letters and Nekkudot.
@@ -273,7 +273,7 @@ class HebrewString(GraphemeString):
         """
         string = self.no_maqaf().string if remove_maqaf else self.string
         string = (
-            HebrewString(string).no_sof_passuk().string if remove_sof_passuk else string
+            Hebrew(string).no_sof_passuk().string if remove_sof_passuk else string
         )
         chars_to_remove = [
             p
@@ -285,4 +285,4 @@ class HebrewString(GraphemeString):
         )  # Handled separately to avoid double spaces.
         for char in chars_to_remove:
             string = string.replace(char, "")
-        return HebrewString(string)
+        return Hebrew(string)
