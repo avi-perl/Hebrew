@@ -272,9 +272,7 @@ class Hebrew(GraphemeString):
         :return:
         """
         string = self.no_maqaf().string if remove_maqaf else self.string
-        string = (
-            Hebrew(string).no_sof_passuk().string if remove_sof_passuk else string
-        )
+        string = Hebrew(string).no_sof_passuk().string if remove_sof_passuk else string
         chars_to_remove = [
             p
             for p in self.PUNCTUATION

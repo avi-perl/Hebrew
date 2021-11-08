@@ -123,16 +123,12 @@ def test_as_str(pasuk):
 
 @pytest.mark.parametrize("pasuk", [(p) for p in taamei_hamikra])
 def test_no_maqaf(pasuk):
-    assert Hebrew(pasuk).no_maqaf().string == pasuk.replace(
-        Hebrew.MAQAF, " "
-    )
+    assert Hebrew(pasuk).no_maqaf().string == pasuk.replace(Hebrew.MAQAF, " ")
 
 
 @pytest.mark.parametrize("pasuk", [(p) for p in taamei_hamikra])
 def test_no_sof_passuk(pasuk):
-    assert Hebrew(pasuk).no_sof_passuk().string == pasuk.replace(
-        Hebrew.SOF_PASSUK, ""
-    )
+    assert Hebrew(pasuk).no_sof_passuk().string == pasuk.replace(Hebrew.SOF_PASSUK, "")
 
 
 @pytest.mark.parametrize(
