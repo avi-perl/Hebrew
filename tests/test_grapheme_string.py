@@ -13,7 +13,7 @@ def hebrew_grapheme_string():
 
 
 @pytest.fixture
-def hebrew_string_no_nikkud():
+def hebrew_no_nikkud():
     return "והארץ היתה תהו ובהו וחשך על־פני תהום ורוח אלהים מרחפת על־פני המים"
 
 
@@ -89,8 +89,8 @@ def test_graphemes(hebrew_grapheme_string):
     ]
 
 
-def test_length(hebrew_grapheme_string, hebrew_string_no_nikkud):
-    assert hebrew_grapheme_string.length == len(hebrew_string_no_nikkud)
+def test_length(hebrew_grapheme_string, hebrew_no_nikkud):
+    assert hebrew_grapheme_string.length == len(hebrew_no_nikkud)
 
 
 def test_get_length(hebrew_grapheme_string):
