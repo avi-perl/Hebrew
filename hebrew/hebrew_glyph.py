@@ -173,3 +173,17 @@ class HebrewGlyph(str):
         self.hebrew_name = self.metadata.hebrew_name
         self.names = self.metadata.hebrew_names
         self.name_alts = self.metadata.hebrew_name_alts
+
+    @classmethod
+    def search(cls, glyph_name: str) -> Optional["HebrewGlyph"]:
+        """
+        Search for a HebrewGlyph by one of its names.
+        :param glyph_name:
+        :return:
+        """
+        # TODO : Add search by hebrew_name, which will need to support hebrew text with or without nikud.
+        for glyph_metadata in _valid_hebrew_glyphs.values():
+            if glyph_name.lower() in [n.lower() for n in glyph_metadata.names]:
+                return cls(glyph_metadata.glyph)
+        return None
+

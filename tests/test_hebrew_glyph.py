@@ -40,3 +40,8 @@ def test_hebrew_names():
     assert metadata.hebrew_name_alts is None
     assert metadata.hebrew_name == "אָלֶף"
     assert metadata.hebrew_names == ["אָלֶף"]
+
+
+def test_glyph_search():
+    assert isinstance(HebrewGlyph.search("Aleph"), HebrewGlyph)
+    assert HebrewGlyph.search("Bad Value") is None
