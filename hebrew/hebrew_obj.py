@@ -1,39 +1,41 @@
 from typing import List, TypeVar
 
 from .grapheme_string import GraphemeString
+from .hebrew_glyph import HebrewGlyph
 
 HebrewT = TypeVar("HebrewT", bound="Hebrew")
 
 
 class Hebrew(GraphemeString):
+    # TODO Move all letter definitions to hebrew_glyph.py
     # Letters of the hebrew alphabet
-    ALEPH = "א"
-    VET = "ב"
-    GIMEL = "ג"
-    DALET = "ד"
-    HE = "ה"
-    VAV = "ו"
-    ZAYIN = "ז"
-    HET = "ח"
-    TET = "ט"
-    YOD = "י"
-    KAF = "כ"
-    FINAL_KAF = "ך"
-    LAMED = "ל"
-    MEM = "מ"
-    FINAL_MEM = "ם"
-    NUN = "נ"
-    FINAL_NUN = "ן"
-    SAMEKH = "ס"
-    AYIN = "ע"
-    PE = "פ"
-    FINAL_PE = "ף"
-    TSADI = "צ"
-    FINAL_TSADI = "ץ"
-    QOF = "ק"
-    RESH = "ר"
-    SHIN = "ש"
-    TAV = "ת"
+    ALEPH = HebrewGlyph("א")
+    VET = HebrewGlyph("ב")
+    GIMEL = HebrewGlyph("ג")
+    DALET = HebrewGlyph("ד")
+    HE = HebrewGlyph("ה")
+    VAV = HebrewGlyph("ו")
+    ZAYIN = HebrewGlyph("ז")
+    HET = HebrewGlyph("ח")
+    TET = HebrewGlyph("ט")
+    YOD = HebrewGlyph("י")
+    KAF = HebrewGlyph("כ")
+    FINAL_KAF = HebrewGlyph("ך")
+    LAMED = HebrewGlyph("ל")
+    MEM = HebrewGlyph("מ")
+    FINAL_MEM = HebrewGlyph("ם")
+    NUN = HebrewGlyph("נ")
+    FINAL_NUN = HebrewGlyph("ן")
+    SAMEKH = HebrewGlyph("ס")
+    AYIN = HebrewGlyph("ע")
+    PE = HebrewGlyph("פ")
+    FINAL_PE = HebrewGlyph("ף")
+    TSADI = HebrewGlyph("צ")
+    FINAL_TSADI = HebrewGlyph("ץ")
+    QOF = HebrewGlyph("ק")
+    RESH = HebrewGlyph("ר")
+    SHIN = HebrewGlyph("ש")
+    TAV = HebrewGlyph("ת")
 
     HEBREW_LETTERS = [
         ALEPH,
@@ -65,12 +67,12 @@ class Hebrew(GraphemeString):
         TAV,
     ]
 
-    FINAL_LETTERS = [FINAL_KAF, FINAL_MEM, FINAL_NUN, FINAL_PE, FINAL_TSADI]
+    FINAL_LETTERS = [letter for letter in HEBREW_LETTERS if letter.final_letter]
 
     # Yiddish specific letters
-    DOUBLE_YUD = "ײ"
-    DOUBLE_VAV = "װ"
-    VAV_YUD = "ױ"
+    DOUBLE_YUD = HebrewGlyph("ײ")
+    DOUBLE_VAV = HebrewGlyph("װ")
+    VAV_YUD = HebrewGlyph("ױ")
 
     YIDDISH_LETTERS = [DOUBLE_YUD, DOUBLE_VAV, VAV_YUD]
 
