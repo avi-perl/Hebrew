@@ -125,14 +125,16 @@ The text in these examples and used in testing were sourced from [Sefaria](https
 ['ײ', 'װ', 'ױ']
 ```
 
-## Future Plans
-My intention is to override some built-in python functions for a more seamless but opinionated developer experience. 
-For example, slicing using the python `[0:1]` syntax, `len(my_he_string)`, equality checks, and more. 
-`my_he_string.string` is always available when access to the true unicode characters is needed. 
-
 ## Contributing 
 Contributions in the form of pull requests are very welcome! I'm sure many more helpful methods related to hebrew text 
 could be helpful. More information and instructions for contributing can be found [here](CONTRIBUTING.md).
+
+If you are looking for a project, look for TODO comments around the code for ideas I'd like to get to one day. There may also be feature branches that have been started but not yet completed!
+
+Some things I'd like to get to:
+- [ ] Populate this readme with more examples.
+- [ ] Set up docs on readthedocs.
+- [ ] Translate this README into modern Hebrew.
 
 [^1]: [https://en.wikipedia.org/wiki/Niqqud](https://en.wikipedia.org/wiki/Niqqud)
 [^2]: [https://en.wikipedia.org/wiki/Hebrew_cantillation](https://en.wikipedia.org/wiki/Hebrew_cantillation)
