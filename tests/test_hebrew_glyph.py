@@ -1,7 +1,11 @@
 import pytest
 
 from hebrew import HebrewGlyph
-from hebrew.hebrew_glyph import _HebrewGlyphMetadata
+from hebrew.hebrew_glyph import _HebrewGlyphMetadata, HebrewGlyphTypes
+
+
+def test_hebrew_glyph_types():
+    assert str(HebrewGlyphTypes.LETTER) == "letter"
 
 
 def test_only_one_letter():
