@@ -17,6 +17,13 @@ class HebrewGlyphTypes(Enum):
         return self.value
 
 
+# TODO: Future properties:
+#  - Number/order of the glyph in aleph bes if the letter is HebrewGlyphTypes.Letter.
+#  - Maybe a reference to a minor/final letter when applicable.
+#  - Gematria value of the letter for future use in `Hebrew` methods such as
+#    `Hebrew.get_gematria_value(type=Gematria.MisparGadol)`.
+#     - This is a bit tricky because the gematria value of a letter is not a single value, there are different values
+#       used by different systems.
 @dataclass
 class _HebrewGlyphMetadata:
     """
@@ -42,6 +49,10 @@ class _HebrewGlyphMetadata:
         return [self.name] + (self.name_alts or [])
 
 
+# TODO:
+#  - Populate the alt hebrew and english names with additional spellings, this is helpful for the
+#    `HebrewGlyph.search()` method.
+#  - Add the rest of the hebrew unicode characters as seen in `hebrew_obj.Hebrew`.
 _valid_hebrew_glyphs = {
     "א": _HebrewGlyphMetadata(
         glyph="א", name="Aleph", hebrew_name="אָלֶף", name_alts=["Alef"]
@@ -132,6 +143,8 @@ _valid_hebrew_glyphs = {
     ),
     "ק": _HebrewGlyphMetadata(glyph="ק", name="Qof", hebrew_name="קוֹף"),
     "ר": _HebrewGlyphMetadata(glyph="ר", name="Resh", hebrew_name="רֵישׁ"),
+    # TODO: The naming here might need help. We should definitely support all 3 versions as this is likely to be found
+    #  in text, but the naming might be unexpected.
     "ש": _HebrewGlyphMetadata(
         glyph="ש", name="Shin", hebrew_name="שִׁין", hebrew_name_alts=["שִׂין"]
     ),
@@ -174,6 +187,8 @@ class HebrewGlyph(str):
         self.names = self.metadata.hebrew_names
         self.name_alts = self.metadata.hebrew_name_alts
 
+    # TODO: if a string like "HebrewGlyph" is the better way to Type this than the way I did HebrewStringT, update that
+    #  Typing, or Type it here.
     @classmethod
     def search(cls, glyph_name: str) -> Optional["HebrewGlyph"]:
         """
