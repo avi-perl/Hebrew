@@ -162,11 +162,11 @@ class HebrewGlyph(str):
     """
     A class representing a Hebrew character.
 
-    A HebrewGlyph represents a single user-perceived character that is part of the Hebrew alphabet such as a letter,
-    a letter with nikud, punctuation, or a nikud. This is done to support letters such as
+    A HebrewGlyph represents a single *user-perceived* character that is part of the Hebrew alphabet such as a letter,
+    a letter with nikud, a punctuation, or a nikud. This is done to support letters such as
     "Bet" and "Vet" who share a single unicode letter but differ in their nikud. However, arbitrary hebrew strings are
     not allowed, you may only initiate a HebrewGlyph that matches a pre specified set of Glyphs found in HebrewGlyphs.
-    (For arbitrary hebrew strings, see Hebrew.)
+    (For arbitrary hebrew strings, see `hebrew_obj.Hebrew`.)
     """
 
     def __init__(self, letter: str):
