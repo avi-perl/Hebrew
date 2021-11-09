@@ -171,6 +171,8 @@ class HebrewGlyph(str):
 
     def __init__(self, letter: str):
 
+        # TODO BUG: A letter may now have > 1 unicode char. \
+        #  Fix and add tests.
         if len(letter) > 1:
             raise ValueError(f"{letter} is not a single letter")
         if letter not in _valid_hebrew_glyphs:
