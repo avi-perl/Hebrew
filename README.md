@@ -1,6 +1,6 @@
 <h1 align="center" style="font-family:'Courier New'">Hebrew("בְּרֵאשִׁ֖ית")</h1>
 <p align="center">
-    <em>A python package with methods to handle Hebrew text.</em>
+    <em>A python package with methods to handle the complexities of Hebrew text.</em>
 </p>
 <p align="center">
 <a href="https://pypi.org/project/hebrew/" target="_blank">
@@ -33,19 +33,19 @@ characteristics. Additionally, methods for common Hebrew text processing are pro
 
 ```python
 >>> from hebrew import Hebrew
->>>
->>> v2 = Hebrew("וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֙הוּ֙ וָבֹ֔הוּ וְחֹ֖שֶׁךְ עַל־פְּנֵ֣י תְה֑וֹם וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־פְּנֵ֥י הַמָּֽיִם׃")
->>>
->>> v2.no_punctuation()
-וְהָאָרֶץ הָיְתָה תֹהוּ וָבֹהוּ וְחֹשֶׁךְ עַל־פְּנֵי תְהוֹם וְרוּחַ אֱלֹהִים מְרַחֶפֶת עַל־פְּנֵי הַמָּיִם׃
->>>
->>> v2.text_only()
-והארץ היתה תהו ובהו וחשך על־פני תהום ורוח אלהים מרחפת על־פני המים
->>>
->>> v2.length
-35
->>> v2.words(split_maqaf=True)
-[וְהָאָ֗רֶץ, הָיְתָ֥ה, תֹ֙הוּ֙, וָבֹ֔הוּ, וְחֹ֖שֶׁךְ, עַל, פְּנֵ֣י, תְה֑וֹם, וְר֣וּחַ, אֱלֹהִ֔ים, מְרַחֶ֖פֶת, עַל, פְּנֵ֥י, הַמָּֽיִם׃]
+>>> from hebrew.chars import HebrewChar, ALEPH
+
+>>> hs = Hebrew('בְּרֵאשִׁ֖ית')
+>>> list(hs.graphemes)
+['בְּ', 'רֵ', 'א', 'שִׁ֖', 'י', 'ת']
+>>> hs.text_only()
+בראשית
+
+>>> ALEPH
+HebrewChar(char='א', name='Aleph', hebrew_name='אָלֶף', name_alts=['Alef'], hebrew_name_alts=None, final_letter=False)
+
+>>> HebrewChar.search('bet')
+HebrewChar(char='בּ', name='Bet', hebrew_name='בֵּית', name_alts=None, hebrew_name_alts=None, final_letter=False)
 ```
 
 ## Grapheme Characters
@@ -94,15 +94,14 @@ The 2nd class `Hebrew` subclasses `GraphemeString` and adds methods for handling
 interact with the text like so:
 ```python
 >>> from hebrew import Hebrew
->>>
+
 >>> v2 = Hebrew("וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֙הוּ֙ וָבֹ֔הוּ וְחֹ֖שֶׁךְ עַל־פְּנֵ֣י תְה֑וֹם וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־פְּנֵ֥י הַמָּֽיִם׃")
->>>
 >>> v2.no_punctuation()
 וְהָאָרֶץ הָיְתָה תֹהוּ וָבֹהוּ וְחֹשֶׁךְ עַל־פְּנֵי תְהוֹם וְרוּחַ אֱלֹהִים מְרַחֶפֶת עַל־פְּנֵי הַמָּיִם׃
->>>
+
 >>> v2.text_only()
 והארץ היתה תהו ובהו וחשך על־פני תהום ורוח אלהים מרחפת על־פני המים
->>>
+
 >>> v2.length
 35
 >>> v2.words(split_maqaf=True)
@@ -111,24 +110,38 @@ interact with the text like so:
 
 The text in these examples and used in testing were sourced from [Sefaria](https://github.com/Sefaria/Sefaria-Export).
 
-## Constants
-`Hebrew` as constants for every letter as well as lists of character category's:
+## `hebrew.chars` and Character Constants
+`hebrew.Chars` contains constants for every letter as well as lists by character category's.
+Each value is an instance of a class that represents a character in the Hebrew character set with relevant properties. 
+Since this library seeks to support the use of the Hebrew language in the way it is used, characters such as "בּ" can be
+located (`BET`) even though, strictly speaking, "בּ" is not part of the hebrew alphabet; it is a Hebrew letter plus a dot.
 ```python
->>> from hebrew import Hebrew
->>>
->>> Hebrew.FINAL_LETTERS
-['ך', 'ם', 'ן', 'ף', 'ץ']
->>>
->>> Hebrew(HS.ALEPH + HS.KUMATZ)
-אָ
->>> Hebrew.YIDDISH_LETTERS
+>>> from hebrew.chars import FINAL_LETTERS, YIDDISH_CHARS, TSADI
+
+>>> TSADI
+HebrewChar(char='צ', name='Tsadi', hebrew_name='צַדִי', name_alts=['Tzadik'], hebrew_name_alts=['צדיק'], final_letter=False)
+
+>>> {c.name: c.char for c in FINAL_LETTERS}
+{'Chaf Sofit': 'ך', 'Mem Sofit': 'ם', 'Nun Sofit': 'ן', 'Fe Sofit': 'ף', 'Tsadi Sofit': 'ץ'}
+
+>>> [c.char for c in YIDDISH_CHARS]
 ['ײ', 'װ', 'ױ']
 ```
+A letter can be retrieved using the `CHARS` dict; A dict of all instances of all supported Char types where the key is 
+the char and the value is an instance of BaseHebrewChar. 
+```python
+>>> from hebrew.chars import CHARS
 
-## Future Plans
-My intention is to override some built-in python functions for a more seamless but opinionated developer experience. 
-For example, slicing using the python `[0:1]` syntax, `len(my_he_string)`, equality checks, and more. 
-`my_he_string.string` is always available when access to the true unicode characters is needed. 
+>>> CHARS.get('בּ')
+HebrewChar(char='בּ', name='Bet', hebrew_name='בֵּית', name_alts=None, hebrew_name_alts=None, final_letter=False)
+```
+Search is also supported so that letters can be retrieved by their name.
+```python
+>>> from hebrew.chars import HebrewChar
+
+>>> HebrewChar.search('bet')
+HebrewChar(char='בּ', name='Bet', hebrew_name='בֵּית', name_alts=None, hebrew_name_alts=None, final_letter=False)
+```
 
 ## Contributing 
 Contributions in the form of pull requests are very welcome! I'm sure many more helpful methods related to hebrew text 

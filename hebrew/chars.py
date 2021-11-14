@@ -88,7 +88,7 @@ class PunctuationChar(BaseHebrewChar):
 
 
 ALEPH = HebrewChar(char="א", name="Aleph", hebrew_name="אָלֶף", name_alts=["Alef"])
-BET = HebrewChar(char="בּ", name="Bet", hebrew_name="בֵּית")
+BET = BES = HebrewChar(char="בּ", name="Bet", hebrew_name="בֵּית")
 VET = HebrewChar(char="ב", name="Vet", hebrew_name="בֵית")
 GIMEL = HebrewChar(char="ג", name="Gimel", hebrew_name="גִימֵל")
 DALET = DALED = HebrewChar(
@@ -349,7 +349,8 @@ ALL_CHARS: List[Union[HebrewChar, YiddishChar, NiqqudChar, PunctuationChar]] = [
     METEG,
 ]
 
-# A dict of all instances of _CharMetadata supported where the key is the char and the value is its _CharMetadata.
+# A dict of all instances of all supported Char types where the key is the char
+# and the value is an instance of BaseHebrewChar.
 # This is useful for when you have a hebrew char and want to get its _CharMetadata.
 CHARS: Dict[str, Union[HebrewChar, YiddishChar, NiqqudChar, PunctuationChar]] = {
     c.char: c for c in ALL_CHARS
