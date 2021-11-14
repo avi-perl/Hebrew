@@ -13,6 +13,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Moved constants out of `Hebrew` and into `hebrew.chars`.
 - Constant values, previously strings, are now instances of a class with metadata for each letter.
 
+### Removed
+
+- Support for Python 3.6 was removed because we are now using `@dataclasse`. It is possible to make this work with 
+  3.6 but I am choosing not to at this time. If this is a problem for you, feel free to open an issue.
+
 ## [0.3.0] - 2021-11-08
 
 ### Changed
