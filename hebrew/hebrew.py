@@ -234,7 +234,7 @@ class Hebrew(GraphemeString):
         Returns a string with all non-letter characters removed.
         This will remove both niqqud and punctuation.
 
-        :param remove_maqaf: Wheather to remove the maqaf characters if they are encountered
+        :param remove_maqaf: Whether to remove the maqaf characters if they are encountered
         :return:
         """
         string = self.no_maqaf().string if remove_maqaf else self.string
