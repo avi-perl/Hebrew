@@ -1,5 +1,5 @@
 from hebrew.chars import *
-from hebrew.chars import _ALL_CHARS
+from hebrew.chars import ALL_CHARS
 
 
 def test_hebrew_char_hebrew_names():
@@ -23,28 +23,17 @@ def test_hebrew_char_str():
     assert str(aleph) == "א"
 
 
-def test_hebrew_char_search():
-    assert isinstance(
-        HebrewChar.search("Aleph"), HebrewChar
-    ), "HebrewChar.search should return a HebrewChar instance"
-    assert isinstance(
-        HebrewChar.search("aLEPH"), HebrewChar
-    ), "Should be case insensitive"
-    assert HebrewChar.search("Bad Value") is None
-
-
-def test_hebrew_char_search_use_alt_names():
-    search_result = HebrewChar.search("Hei")
-    assert isinstance(search_result, HebrewChar)
-    assert search_result.char == "ה"
-    assert search_result.name != "Hei"
-
-
 def test_final_letters():
     final_chars = ["ץ", "ף", "ן", "ם", "ך"]
     assert len(final_chars) == len(FINAL_LETTERS)
     for char in final_chars:
         assert char in [c.char for c in FINAL_LETTERS]
+
+
+def test_hebrew_chars():
+    assert len(HEBREW_CHARS) > 0
+    for char in HEBREW_CHARS:
+        assert type(char) == HebrewChar
 
 
 def test_yiddish_chars():
@@ -68,5 +57,46 @@ def test_punctuation_chars():
 
 def test_char_dict():
     assert len(CHARS) == len(
-        _ALL_CHARS
+        ALL_CHARS
     ), "The _ALL_CHARS array may contain values with duplicate char values"
+
+
+def test_char_search():
+    assert isinstance(
+        char_search("Aleph"), HebrewChar
+    ), "HebrewChar.search should return a HebrewChar instance"
+    assert isinstance(char_search("aLEPH"), HebrewChar), "Should be case insensitive"
+    assert char_search("Bad Value") is None
+
+
+def test_char_search_use_alt_names():
+    search_result = char_search("Hei")
+    assert isinstance(search_result, HebrewChar)
+    assert search_result.char == "ה"
+    assert search_result.name != "Hei"
+
+
+def test_char_search_use_char_list():
+    assert char_search("Aleph") == ALEPH
+    assert char_search("Alef", NIQQUD_CHARS) is None
+    assert char_search("Kumatz", NIQQUD_CHARS) == KUMATZ
+
+
+def test_hebrew_char_search():
+    assert HebrewChar.search("Aleph") == ALEPH
+    assert HebrewChar.search("Double Vav") is None
+
+
+def test_yiddish_char_search():
+    assert YiddishChar.search("Double Vav") == DOUBLE_VAV
+    assert YiddishChar.search("Aleph") is None
+
+
+def test_niqqud_char_search():
+    assert NiqqudChar.search("Kumatz") == KUMATZ
+    assert NiqqudChar.search("Double Vav") is None
+
+
+def test_punctuation_char_search():
+    assert PunctuationChar.search("Geresh") == GERESH
+    assert PunctuationChar.search("Kumatz") is None

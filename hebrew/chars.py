@@ -31,21 +31,6 @@ class BaseHebrewChar:
     def names(self) -> List[str]:
         return [self.name] + (self.name_alts or [])
 
-    # TODO: if a string like "HebrewGlyph" is the better way to Type this than the way I did HebrewStringT, update that
-    #  Typing, or Type it here.
-    @classmethod
-    def search(cls, char_name: str) -> Optional["HebrewChar"]:
-        """
-        Search for a HebrewChar by one of its names.
-        :param char_name:
-        :return:
-        """
-        # TODO : Add search by hebrew_name, which will need to support hebrew text with or without nikud.
-        for char in _ALL_CHARS:
-            if char_name.lower() in [n.lower() for n in char.names]:
-                return CHARS[char.char]
-        return None
-
     def __str__(self):
         return self.char
 
@@ -58,6 +43,10 @@ class HebrewChar(BaseHebrewChar):
 
     final_letter: bool = False
 
+    @classmethod
+    def search(cls, char_name: str) -> Optional["HebrewChar"]:
+        return char_search(char_name, HEBREW_CHARS)
+
 
 @dataclass
 class YiddishChar(BaseHebrewChar):
@@ -65,7 +54,9 @@ class YiddishChar(BaseHebrewChar):
     A class to hold the metadata for Hebrew chars that are specifically for use with in Yiddish.
     """
 
-    pass
+    @classmethod
+    def search(cls, char_name: str) -> Optional["YiddishChar"]:
+        return char_search(char_name, YIDDISH_CHARS)
 
 
 @dataclass
@@ -74,7 +65,9 @@ class NiqqudChar(BaseHebrewChar):
     A class to hold the metadata for Hebrew chars that are Niqqud chars.
     """
 
-    pass
+    @classmethod
+    def search(cls, char_name: str) -> Optional["NiqqudChar"]:
+        return char_search(char_name, NIQQUD_CHARS)
 
 
 @dataclass
@@ -83,7 +76,9 @@ class PunctuationChar(BaseHebrewChar):
     A class to hold the metadata for Hebrew chars that are Punctuation.
     """
 
-    pass
+    @classmethod
+    def search(cls, char_name: str) -> Optional["PunctuationChar"]:
+        return char_search(char_name, PUNCTUATION_CHARS)
 
 
 # TODO:
@@ -260,7 +255,7 @@ METEG = PunctuationChar(char="ֽ", name="Meteg")
 
 # Every instance of _CharMetadata in this file.
 # This is used for defining collections with list comprehensions based on the Chars metadata
-_ALL_CHARS: List[Union[HebrewChar, YiddishChar, NiqqudChar, PunctuationChar]] = [
+ALL_CHARS: List[Union[HebrewChar, YiddishChar, NiqqudChar, PunctuationChar]] = [
     ALEPH,
     BET,
     VET,
@@ -357,20 +352,46 @@ _ALL_CHARS: List[Union[HebrewChar, YiddishChar, NiqqudChar, PunctuationChar]] = 
 # A dict of all instances of _CharMetadata supported where the key is the char and the value is its _CharMetadata.
 # This is useful for when you have a hebrew char and want to get its _CharMetadata.
 CHARS: Dict[str, Union[HebrewChar, YiddishChar, NiqqudChar, PunctuationChar]] = {
-    c.char: c for c in _ALL_CHARS
+    c.char: c for c in ALL_CHARS
 }
 
 # Final letters in the Hebrew Alphabet
 FINAL_LETTERS: List[HebrewChar] = [
     c
-    for c in _ALL_CHARS
+    for c in ALL_CHARS
     if isinstance(c, HebrewChar) and c.final_letter and len(c.char) == 1
 ]
 
-YIDDISH_CHARS: List[YiddishChar] = [c for c in _ALL_CHARS if isinstance(c, YiddishChar)]
+HEBREW_CHARS: List[HebrewChar] = [c for c in ALL_CHARS if isinstance(c, HebrewChar)]
 
-NIQQUD_CHARS: List[NiqqudChar] = [c for c in _ALL_CHARS if isinstance(c, NiqqudChar)]
+YIDDISH_CHARS: List[YiddishChar] = [c for c in ALL_CHARS if isinstance(c, YiddishChar)]
+
+NIQQUD_CHARS: List[NiqqudChar] = [c for c in ALL_CHARS if isinstance(c, NiqqudChar)]
 
 PUNCTUATION_CHARS: List[PunctuationChar] = [
-    c for c in _ALL_CHARS if isinstance(c, PunctuationChar)
+    c for c in ALL_CHARS if isinstance(c, PunctuationChar)
 ]
+
+
+def char_search(
+    char_name: str,
+    char_list: Optional[
+        List[Union[HebrewChar, YiddishChar, NiqqudChar, PunctuationChar]]
+    ] = None,
+) -> Optional[Union[HebrewChar, YiddishChar, NiqqudChar, PunctuationChar]]:
+    """
+    Search for a character by its name.
+
+    Character classes contain alternate names which are supported by this function!
+    Currently, only english names are supported.
+    TODO: Support search in hebrew, which will need to support hebrew text with or without nikud.
+
+    :param char_name:
+    :param char_list: A list of `BaseHebrewChar` characters to use for this search. When None, defaults to all characters.
+    :return:
+    """
+    char_list = char_list if char_list else ALL_CHARS
+    for char in char_list:
+        if char_name.lower() in [n.lower() for n in char.names]:
+            return CHARS[char.char]
+    return None
