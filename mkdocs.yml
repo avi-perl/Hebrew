@@ -1,6 +1,6 @@
 site_name: Hebrew Documentation
 site_description: A python package with methods to handle the complexities of Hebrew text.
-site_url: https://avi-perl.github.io/Hebrew/
+site_url: https://hebrew.aviperl.me/
 theme:
   name: material
   palette:

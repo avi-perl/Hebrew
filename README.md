@@ -23,7 +23,7 @@
 
 ---
 
-**Documentation**: [https://avi-perl.github.io/Hebrew/](https://avi-perl.github.io/Hebrew/)
+**Documentation**: [https://hebrew.aviperl.me/](https://hebrew.aviperl.me/)
 
 **Repository**: [https://github.com/avi-perl/hebrew](https://github.com/avi-perl/hebrew)
 
