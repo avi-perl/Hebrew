@@ -21,6 +21,12 @@
 </a>
 </p>
 
+---
+
+**Documentation**: [https://avi-perl.github.io/Hebrew/](https://avi-perl.github.io/Hebrew/)
+
+---
+
 # Installation
 ```bash
 $ pip install hebrew
