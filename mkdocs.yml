@@ -1,0 +1,11 @@
+site_name: Hebrew Documentation
+site_description: A python package with methods to handle the complexities of Hebrew text.
+theme:
+  name: material
+repo_name: avi-perl/Hebrew
+repo_url: https://github.com/avi-perl/Hebrew
+plugins:
+  - search
+
+markdown_extensions:
+  - mdx_include
