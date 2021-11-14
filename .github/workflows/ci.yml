@@ -14,4 +14,8 @@ jobs:
       - run: pip install mkdocs-material
       - run: pip install mdx-include
       - run: pip install mkdocstrings
+      - run: |
+          python -m pip install --upgrade pip
+           pip install flake8 pytest
+           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - run: mkdocs gh-deploy --force
