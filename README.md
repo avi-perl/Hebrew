@@ -25,6 +25,8 @@
 
 **Documentation**: [https://avi-perl.github.io/Hebrew/](https://avi-perl.github.io/Hebrew/)
 
+**Repository**: [https://github.com/avi-perl/hebrew](https://github.com/avi-perl/hebrew)
+
 ---
 
 # Installation
