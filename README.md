@@ -145,7 +145,7 @@ HebrewChar(char='בּ', name='Bet', hebrew_name='בֵּית', name_alts=None, he
 
 ## Contributing 
 Contributions in the form of pull requests are very welcome! I'm sure many more helpful methods related to hebrew text 
-could be helpful. More information and instructions for contributing can be found [here](CONTRIBUTING.md).
+could be helpful. More information and instructions for contributing can be found [here](CONTRIBUTING).
 
 [^1]: [https://en.wikipedia.org/wiki/Niqqud](https://en.wikipedia.org/wiki/Niqqud)
 [^2]: [https://en.wikipedia.org/wiki/Hebrew_cantillation](https://en.wikipedia.org/wiki/Hebrew_cantillation)

@@ -30,6 +30,8 @@ black = "^21.10b0"
 coverage = "^6.1.1"
 pytest-cov = "^3.0.0"
 toml = "^0.10.2"
+mkdocs-material = "^7.3.6"
+mdx-include = "^1.4.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
