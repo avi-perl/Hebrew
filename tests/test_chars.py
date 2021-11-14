@@ -18,6 +18,11 @@ def test_hebrew_char_names():
     assert sorted(aleph.names) == sorted(["Aleph", "Alef"])
 
 
+def test_hebrew_char_str():
+    aleph = HebrewChar(char="א", name="Aleph", hebrew_name="אָלֶף", name_alts=["Alef"])
+    assert str(aleph) == "א"
+
+
 def test_hebrew_char_search():
     assert isinstance(
         HebrewChar.search("Aleph"), HebrewChar
