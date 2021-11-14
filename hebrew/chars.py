@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 from typing import Optional, List, Dict, Union
 
+from hebrew.gematria import MISPAR_HECHRACHI
+
 
 # TODO: Future properties:
 #  - Number/order of the char in aleph bes if the letter is HebrewCharTypes.Letter.
@@ -42,6 +44,26 @@ class HebrewChar(BaseHebrewChar):
     """
 
     final_letter: bool = False
+
+    @property
+    def base_letter(self) -> "HebrewChar":
+        """
+        Returns the base letter of the char.
+
+        This library provides HebrewChar values for both standard Hebrew letters and user-perceived letters such as "בּ".
+        This property will always return the base letter of the HebrewChar instance, in the above example, "ב".
+
+        :return:
+        """
+        return CHARS[self.char[0]]
+
+    @property
+    def mispar_hechrachi(self) -> int:
+        """
+        Returns the gematria value of the char for use in the mispar_hechrachi method of gematria.
+        :return:
+        """
+        return MISPAR_HECHRACHI.get(self.base_letter.char)
 
     @classmethod
     def search(cls, char_name: str) -> Optional["HebrewChar"]:
@@ -100,7 +122,10 @@ HE = HEI = HEY = HebrewChar(
 VAV = VUV = HebrewChar(char="ו", name="Vav", hebrew_name="וָו", name_alts=["Vuv"])
 ZAYIN = HebrewChar(char="ז", name="Zayin", hebrew_name="זַיִן")
 CHET = HET = CHES = HebrewChar(
-    char="ח", name="Chet", hebrew_name="חֵית", name_alts=["Het", "Ches"]
+    char="ח",
+    name="Chet",
+    hebrew_name="חֵית",
+    name_alts=["Het", "Ches"],
 )
 TET = TES = HebrewChar(char="ט", name="Tet", hebrew_name="טֵית", name_alts=["Tes"])
 YOD = YUD = HebrewChar(char="י", name="Yod", hebrew_name="יוֹד", name_alts=["Yud"])
@@ -121,7 +146,10 @@ CHAF_SOFIT = FINAL_CHAF = HebrewChar(
     name_alts=["Final Chaf"],
 )
 LAMED = LAMID = HebrewChar(
-    char="ל", name="Lamed", hebrew_name="לָמֶד", name_alts=["Lamid"]
+    char="ל",
+    name="Lamed",
+    hebrew_name="לָמֶד",
+    name_alts=["Lamid"],
 )
 MEM = HebrewChar(char="מ", name="Mem", hebrew_name="מֵם")
 MEM_SOFIT = FINAL_MEM = HebrewChar(
@@ -140,10 +168,13 @@ NUN_SOFIT = FINAL_NUN = HebrewChar(
     name_alts=["Final Nun"],
 )
 SAMEKH = SAMACH = HebrewChar(
-    char="ס", name="Samekh", hebrew_name="סָמֶך", name_alts=["Samach"]
+    char="ס",
+    name="Samekh",
+    hebrew_name="סָמֶך",
+    name_alts=["Samach"],
 )
 AYIN = HebrewChar(char="ע", name="Ayin", hebrew_name="עַיִן")
-PE = HebrewChar(char="פּ", name="Pe", hebrew_name="")
+PE = HebrewChar(char="פּ", name="Pe")
 FE = HebrewChar(char="פ", name="Fe", hebrew_name="פֵא")
 PE_SOFIT = FINAL_PE = HebrewChar(
     char="ףּ",

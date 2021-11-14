@@ -1,11 +1,9 @@
-from typing import List, TypeVar, Union
+from functools import reduce
+from typing import List, TypeVar
+from operator import add
 
 from .grapheme_string import GraphemeString
 from .chars import (
-    HebrewChar,
-    YiddishChar,
-    NiqqudChar,
-    PunctuationChar,
     MAQAF,
     NIQQUD_CHARS,
     PUNCTUATION_CHARS,
@@ -13,6 +11,7 @@ from .chars import (
     SOF_PASSUK,
     CHARS,
 )
+from hebrew.gematria import GematriaTypes
 
 HebrewT = TypeVar("HebrewT", bound="Hebrew")
 
@@ -110,14 +109,16 @@ class Hebrew(GraphemeString):
             string = string.replace(char, "")
         return Hebrew(string)
 
-    def _as_chars_array(
-        self,
-    ) -> List[Union[HebrewChar, YiddishChar, NiqqudChar, PunctuationChar]]:
+    def gematria(self, method: GematriaTypes = GematriaTypes.MISPAR_HECHRACHI) -> int:
         """
-        Returns the string as a list of classes representing Hebrew Characters.
-        With this, we can do things like make calculations about the characters in a hebrew string, such as gematria.
+        Returns the gematria of the string.
 
-        Possible values: HebrewChar, YiddishChar, NiqqudChar, PunctuationChar objects.
+        :param method: The method to use for calculating the gematria.
         :return:
         """
-        return [CHARS[c] if c in CHARS else c for c in self.string]
+        chars = [
+            CHARS[c]
+            for c in self.string
+            if CHARS.get(c) and hasattr(CHARS[c], method.value)
+        ]
+        return reduce(add, [getattr(c, method.value) for c in chars])

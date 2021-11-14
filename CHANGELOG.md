@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - 2021-11-14
+
+### Added
+
+- Added the method `Hebrew.gematria` method for calculating the gematria of a string.
+- Added `mispar_hechrachi` as a supported gematria type.
+  ```python
+  >>> from hebrew import Hebrew
+  >>> from hebrew.gematria import GematriaTypes
+
+  >>> Hebrew("בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָרֶץ׃").gematria(GematriaTypes.MISPAR_HECHRACHI)
+  2701
+  ```
+
 ## [0.4.0] - 2021-11-14
 
 ### Added

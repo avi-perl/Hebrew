@@ -23,6 +23,11 @@ def test_hebrew_char_str():
     assert str(aleph) == "א"
 
 
+def test_base_letter():
+    bet_with_dot = HebrewChar(char="בּ", name="Bet")
+    assert bet_with_dot.base_letter.char == "ב"
+
+
 def test_final_letters():
     final_chars = ["ץ", "ף", "ן", "ם", "ך"]
     assert len(final_chars) == len(FINAL_LETTERS)

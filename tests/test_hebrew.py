@@ -176,10 +176,3 @@ def test_no_punctuation():
     assert hs.no_punctuation(
         remove_maqaf=True, remove_sof_passuk=False
     ).string == nikkud[1].replace(MAQAF.char, " ")
-
-
-@pytest.mark.parametrize("pasuk", [(p) for p in taamei_hamikra])
-def test_as_chars_array_is_reversible(pasuk):
-    before = pasuk
-    after = Hebrew(before)._as_chars_array()
-    assert before == "".join([c.char if c in CHARS.values() else c for c in after])
