@@ -6,7 +6,8 @@ authors = ["Avi Perl <avi@aviperl.me>"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/avi-perl/hebrew"
-keywords = ["hebrew", "grapheme"]
+documentation = "https://avi-perl.github.io/Hebrew/"
+keywords = ["hebrew", "grapheme", "ivrit", "yiddish", "gematria"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
