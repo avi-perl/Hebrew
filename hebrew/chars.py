@@ -1,20 +1,5 @@
 from dataclasses import dataclass
-from enum import Enum
 from typing import Optional, List, Dict
-
-
-class HebrewCharTypes(Enum):
-    """
-    The types of chars used in Hebrew.
-    """
-
-    LETTER: str = "letter"
-    YIDDISH_LETTER: str = "yiddish_letter"
-    PUNCTUATION: str = "punctuation"
-    NIKUD: str = "nikud"
-
-    def __str__(self) -> str:
-        return self.value
 
 
 # TODO: Future properties:
@@ -34,11 +19,10 @@ class HebrewChar:
 
     char: str
     name: str
-    hebrew_name: str
+    hebrew_name: Optional[str] = None
     name_alts: Optional[List[str]] = None
     hebrew_name_alts: Optional[List[str]] = None
     final_letter: bool = False
-    type: HebrewCharTypes = HebrewCharTypes.LETTER
 
     @property
     def hebrew_names(self) -> List[str]:
@@ -62,6 +46,20 @@ class HebrewChar:
             if char_name.lower() in [n.lower() for n in char.names]:
                 return CHARS[char.char]
         return None
+
+
+class YiddishChar(HebrewChar):
+    """
+    A class to hold the metadata for Hebrew chars that are specifically for use with in Yiddish
+    """
+    ...
+
+
+class NiqqudChar(HebrewChar):
+    """
+    A class to hold the metadata for Hebrew chars that are Niqqud chars
+    """
+    ...
 
 
 # TODO:
@@ -167,58 +165,37 @@ PLAIN_SIN = HebrewChar(
 )
 TAV = TAF = HebrewChar(char="תּ", name="Tav", hebrew_name="תּו", name_alts=["Taf"])
 SAV = SAF = HebrewChar(char="ת", name="Sav", hebrew_name="תָו", name_alts=["Saf"])
-DOUBLE_YOD = DOUBLE_YUD = HebrewChar(
+DOUBLE_YOD = DOUBLE_YUD = YiddishChar(
     char="ײ",
     name="Double Yod",
-    hebrew_name="",
     name_alts=["Saf"],
-    type=HebrewCharTypes.YIDDISH_LETTER,
 )
-DOUBLE_VAV = DOUBLE_VUV = HebrewChar(
+DOUBLE_VAV = DOUBLE_VUV = YiddishChar(
     char="װ",
     name="Double Vav",
-    hebrew_name="",
     name_alts=["Double Vuv"],
-    type=HebrewCharTypes.YIDDISH_LETTER,
 )
-VAV_YOD = VAV_YUD = VUV_YOD = VUV_YUD = HebrewChar(
-    char="ױ", name="Vav Yod", hebrew_name="", type=HebrewCharTypes.YIDDISH_LETTER
+VAV_YOD = VAV_YUD = VUV_YOD = VUV_YUD = YiddishChar(
+    char="ױ", name="Vav Yod"
 )
 
 # Niqqudot or Vowel characters
-SIN_DOT = "ׂ"
-SHIN_DOT = "ׁ"
-DAGESH = "ּ"
-QUBUTS = KUBUTZ = "ֻ"
-SHURUK = "וּ"
-HOLAM = "ֹ"
-QAMATS = KUMATZ = "ָ"
-PATAH = PATACH = "ַ"
-SEGOL = "ֶ"
-TSERE = "ֵ"
-HIRIQ = CHIRIK = "ִ"
-HATAF_QAMATS = "ֳ"
-HATAF_PATAH = "ֲ"
-HATAF_SEGOL = "ֱ"
-SHEVA = SHIVAH = "ְ"
-UPPER_DOT = "ׄ"
-NIQQUD = [
-    SIN_DOT,
-    SHIN_DOT,
-    DAGESH,
-    QUBUTS,
-    HOLAM,
-    QAMATS,
-    PATAH,
-    SEGOL,
-    TSERE,
-    HIRIQ,
-    HATAF_QAMATS,
-    HATAF_PATAH,
-    HATAF_SEGOL,
-    SHEVA,
-    UPPER_DOT,
-]
+SIN_DOT = NiqqudChar(char="ׂ", name="Sin Dot")
+SHIN_DOT = NiqqudChar(char="ׁ", name="Shin Dot")
+DAGESH = NiqqudChar(char="ּ", name="Dagesh")
+QUBUTS = KUBUTZ = NiqqudChar(char="ֻ", name="Qubuts", name_alts=["Kubutz"])
+SHURUK = NiqqudChar(char="וּ", name="Shuruk")
+HOLAM = NiqqudChar(char="ֹ", name="Holam")
+QAMATS = KUMATZ = NiqqudChar(char="ָ", name="Qamats", name_alts=["Kumatz"])
+PATAH = PATACH = NiqqudChar(char="ַ", name="Patah", name_alts=["Patach"])
+SEGOL = NiqqudChar(char="ֶ", name="Segol")
+TSERE = NiqqudChar(char="ֵ", name="Tsere")
+HIRIQ = CHIRIK = NiqqudChar(char="ִ", name="Hiriq", name_alts=["Chirik"])
+HATAF_QAMATS = NiqqudChar(char="ֳ", name="Hataf Qamatz", name_alts=["Hataf Kumatz"])
+HATAF_PATAH = NiqqudChar(char="ֲ", name="Hataf Patah", name_alts=["Hataf Patach"])
+HATAF_SEGOL = NiqqudChar(char="ֱ", name="Hataf Segol")
+SHEVA = SHIVAH = NiqqudChar(char="ְ", name="Sheva", name_alts=["Shivah"])
+UPPER_DOT = NiqqudChar(char="ׄ", name="Upper Dot")
 
 # Punctuation characters
 MAQAF = "־"
@@ -341,6 +318,22 @@ _ALL_CHARS: List[HebrewChar] = [
     DOUBLE_YOD,
     DOUBLE_VAV,
     VAV_YOD,
+    SIN_DOT,
+    SHIN_DOT,
+    DAGESH,
+    QUBUTS,
+    SHURUK,
+    HOLAM,
+    QAMATS,
+    PATAH,
+    SEGOL,
+    TSERE,
+    HIRIQ,
+    HATAF_QAMATS,
+    HATAF_PATAH,
+    HATAF_SEGOL,
+    SHEVA,
+    UPPER_DOT,
 ]
 
 # A dict of all instances of _CharMetadata supported where the key is the char and the value is its _CharMetadata.
@@ -352,6 +345,10 @@ FINAL_LETTERS: List[HebrewChar] = [
     c for c in _ALL_CHARS if c.final_letter and len(c.char) == 1
 ]
 
-YIDDISH_LETTERS: List[HebrewChar] = [
-    c for c in _ALL_CHARS if c.type == HebrewCharTypes.YIDDISH_LETTER
+YIDDISH_CHARS: List[YiddishChar] = [
+    c for c in _ALL_CHARS if isinstance(c, YiddishChar)
+]
+
+NIQQUD_CHARS: List[NiqqudChar] = [
+    c for c in _ALL_CHARS if isinstance(c, NiqqudChar)
 ]

@@ -2,10 +2,6 @@ from hebrew.chars import *
 from hebrew.chars import _ALL_CHARS
 
 
-def test_hebrew_char_types():
-    assert str(HebrewCharTypes.LETTER) == "letter"
-
-
 def test_hebrew_char_hebrew_names():
     tsadi_sofit = HebrewChar(
         char="ץ",
@@ -48,9 +44,14 @@ def test_final_letters():
 
 def test_yiddish_letters():
     yiddish_letters = ["ױ", "װ", "ײ"]
-    assert len(yiddish_letters) == len(YIDDISH_LETTERS)
+    assert len(yiddish_letters) == len(YIDDISH_CHARS)
     for char in yiddish_letters:
-        assert char in [c.char for c in YIDDISH_LETTERS]
+        assert char in [c.char for c in YIDDISH_CHARS]
+
+
+def test_niqqud_letters():
+    for char in NIQQUD_CHARS:
+        assert type(char) == NiqqudChar
 
 
 def test_char_dict():

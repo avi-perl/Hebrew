@@ -1,7 +1,7 @@
 from typing import List, TypeVar
 
 from .grapheme_string import GraphemeString
-from .chars import MAQAF, NIQQUD, PUNCTUATION, PASEQ, SOF_PASSUK
+from .chars import MAQAF, NIQQUD_CHARS, PUNCTUATION, PASEQ, SOF_PASSUK
 
 HebrewT = TypeVar("HebrewT", bound="Hebrew")
 
@@ -54,7 +54,7 @@ class Hebrew(GraphemeString):
         :return:
         """
         string = self.no_maqaf().string if remove_maqaf else self.string
-        chars_to_remove = NIQQUD + [p for p in PUNCTUATION if p not in (MAQAF, PASEQ)]
+        chars_to_remove = [c.char for c in NIQQUD_CHARS] + [p for p in PUNCTUATION if p not in (MAQAF, PASEQ)]
         string = string.replace(
             f" {PASEQ} ", " "
         )  # Handled separately to avoid double spaces.
@@ -70,7 +70,7 @@ class Hebrew(GraphemeString):
         :return:
         """
         string = self.string
-        for char in NIQQUD:
+        for char in [c.char for c in NIQQUD_CHARS]:
             string = string.replace(char, "")
         return Hebrew(string)
 
