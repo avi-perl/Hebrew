@@ -1,6 +1,7 @@
 import pytest
 
 from hebrew import Hebrew
+from hebrew.chars import *
 
 taamei_hamikra = [
     "בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָרֶץ׃",
@@ -123,12 +124,12 @@ def test_as_str(pasuk):
 
 @pytest.mark.parametrize("pasuk", [(p) for p in taamei_hamikra])
 def test_no_maqaf(pasuk):
-    assert Hebrew(pasuk).no_maqaf().string == pasuk.replace(Hebrew.MAQAF, " ")
+    assert Hebrew(pasuk).no_maqaf().string == pasuk.replace(MAQAF, " ")
 
 
 @pytest.mark.parametrize("pasuk", [(p) for p in taamei_hamikra])
 def test_no_sof_passuk(pasuk):
-    assert Hebrew(pasuk).no_sof_passuk().string == pasuk.replace(Hebrew.SOF_PASSUK, "")
+    assert Hebrew(pasuk).no_sof_passuk().string == pasuk.replace(SOF_PASSUK, "")
 
 
 @pytest.mark.parametrize(
@@ -137,9 +138,7 @@ def test_no_sof_passuk(pasuk):
 def test_text_only(pasuk, pasuk_text_only):
     hs = Hebrew(pasuk)
     assert hs.text_only(remove_maqaf=False).string == pasuk_text_only
-    assert hs.text_only(remove_maqaf=True).string == pasuk_text_only.replace(
-        Hebrew.MAQAF, " "
-    )
+    assert hs.text_only(remove_maqaf=True).string == pasuk_text_only.replace(MAQAF, " ")
 
 
 def test_text_only_with_other_chars():
@@ -171,7 +170,7 @@ def test_no_punctuation():
     )
     assert hs.no_punctuation(
         remove_maqaf=False, remove_sof_passuk=True
-    ).string == nikkud[1].replace(Hebrew.SOF_PASSUK, "")
+    ).string == nikkud[1].replace(SOF_PASSUK, "")
     assert hs.no_punctuation(
         remove_maqaf=True, remove_sof_passuk=False
-    ).string == nikkud[1].replace(Hebrew.MAQAF, " ")
+    ).string == nikkud[1].replace(MAQAF, " ")
