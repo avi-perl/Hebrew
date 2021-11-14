@@ -1,7 +1,18 @@
-from typing import List, TypeVar
+from typing import List, TypeVar, Union
 
 from .grapheme_string import GraphemeString
-from .chars import MAQAF, NIQQUD_CHARS, PUNCTUATION_CHARS, PASEQ, SOF_PASSUK
+from .chars import (
+    HebrewChar,
+    YiddishChar,
+    NiqqudChar,
+    PunctuationChar,
+    MAQAF,
+    NIQQUD_CHARS,
+    PUNCTUATION_CHARS,
+    PASEQ,
+    SOF_PASSUK,
+    CHARS,
+)
 
 HebrewT = TypeVar("HebrewT", bound="Hebrew")
 
@@ -98,3 +109,15 @@ class Hebrew(GraphemeString):
         for char in chars_to_remove:
             string = string.replace(char, "")
         return Hebrew(string)
+
+    def _as_chars_array(
+        self,
+    ) -> List[Union[HebrewChar, YiddishChar, NiqqudChar, PunctuationChar]]:
+        """
+        Returns the string as a list of classes representing Hebrew Characters.
+        With this, we can do things like make calculations about the characters in a hebrew string, such as gematria.
+
+        Possible values: HebrewChar, YiddishChar, NiqqudChar, PunctuationChar objects.
+        :return:
+        """
+        return [CHARS[c] if c in CHARS else c for c in self.string]

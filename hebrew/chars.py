@@ -55,6 +55,7 @@ class HebrewChar(BaseHebrewChar):
     """
     A class to hold the metadata for Hebrew chars that are part of the alphabet.
     """
+
     final_letter: bool = False
 
 
@@ -63,7 +64,8 @@ class YiddishChar(BaseHebrewChar):
     """
     A class to hold the metadata for Hebrew chars that are specifically for use with in Yiddish.
     """
-    ...
+
+    pass
 
 
 @dataclass
@@ -72,15 +74,16 @@ class NiqqudChar(BaseHebrewChar):
     A class to hold the metadata for Hebrew chars that are Niqqud chars.
     """
 
-    ...
+    pass
 
 
+@dataclass
 class PunctuationChar(BaseHebrewChar):
     """
     A class to hold the metadata for Hebrew chars that are Punctuation.
     """
 
-    ...
+    pass
 
 
 # TODO:
@@ -359,7 +362,9 @@ CHARS: Dict[str, Union[HebrewChar, YiddishChar, NiqqudChar, PunctuationChar]] = 
 
 # Final letters in the Hebrew Alphabet
 FINAL_LETTERS: List[HebrewChar] = [
-    c for c in _ALL_CHARS if isinstance(c, HebrewChar) and c.final_letter and len(c.char) == 1
+    c
+    for c in _ALL_CHARS
+    if isinstance(c, HebrewChar) and c.final_letter and len(c.char) == 1
 ]
 
 YIDDISH_CHARS: List[YiddishChar] = [c for c in _ALL_CHARS if isinstance(c, YiddishChar)]
