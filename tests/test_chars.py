@@ -42,17 +42,26 @@ def test_final_letters():
         assert char in [c.char for c in FINAL_LETTERS]
 
 
-def test_yiddish_letters():
+def test_yiddish_chars():
     yiddish_letters = ["ױ", "װ", "ײ"]
     assert len(yiddish_letters) == len(YIDDISH_CHARS)
     for char in yiddish_letters:
         assert char in [c.char for c in YIDDISH_CHARS]
 
 
-def test_niqqud_letters():
+def test_niqqud_chars():
+    assert len(NIQQUD_CHARS) > 0
     for char in NIQQUD_CHARS:
         assert type(char) == NiqqudChar
 
 
+def test_punctuation_chars():
+    assert len(PUNCTUATION_CHARS) > 0
+    for char in PUNCTUATION_CHARS:
+        assert type(char) == PunctuationChar
+
+
 def test_char_dict():
-    assert len(CHARS) == len(_ALL_CHARS)
+    assert len(CHARS) == len(
+        _ALL_CHARS
+    ), "The _ALL_CHARS array may contain values with duplicate char values"

@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Optional, List, Dict
+from typing import Optional, List, Dict, Union
 
 
 # TODO: Future properties:
@@ -10,7 +10,7 @@ from typing import Optional, List, Dict
 #     - This is a bit tricky because the gematria value of a letter is not a single value, there are different values
 #       used by different systems.
 @dataclass
-class HebrewChar:
+class BaseHebrewChar:
     """
     A class to hold the metadata for a Hebrew glyph.
 
@@ -22,7 +22,6 @@ class HebrewChar:
     hebrew_name: Optional[str] = None
     name_alts: Optional[List[str]] = None
     hebrew_name_alts: Optional[List[str]] = None
-    final_letter: bool = False
 
     @property
     def hebrew_names(self) -> List[str]:
@@ -47,18 +46,40 @@ class HebrewChar:
                 return CHARS[char.char]
         return None
 
+    def __str__(self):
+        return self.char
 
-class YiddishChar(HebrewChar):
+
+@dataclass
+class HebrewChar(BaseHebrewChar):
     """
-    A class to hold the metadata for Hebrew chars that are specifically for use with in Yiddish
+    A class to hold the metadata for Hebrew chars that are part of the alphabet.
+    """
+    final_letter: bool = False
+
+
+@dataclass
+class YiddishChar(BaseHebrewChar):
+    """
+    A class to hold the metadata for Hebrew chars that are specifically for use with in Yiddish.
     """
     ...
 
 
-class NiqqudChar(HebrewChar):
+@dataclass
+class NiqqudChar(BaseHebrewChar):
     """
-    A class to hold the metadata for Hebrew chars that are Niqqud chars
+    A class to hold the metadata for Hebrew chars that are Niqqud chars.
     """
+
+    ...
+
+
+class PunctuationChar(BaseHebrewChar):
+    """
+    A class to hold the metadata for Hebrew chars that are Punctuation.
+    """
+
     ...
 
 
@@ -175,9 +196,7 @@ DOUBLE_VAV = DOUBLE_VUV = YiddishChar(
     name="Double Vav",
     name_alts=["Double Vuv"],
 )
-VAV_YOD = VAV_YUD = VUV_YOD = VUV_YUD = YiddishChar(
-    char="ױ", name="Vav Yod"
-)
+VAV_YOD = VAV_YUD = VUV_YOD = VUV_YUD = YiddishChar(char="ױ", name="Vav Yod")
 
 # Niqqudot or Vowel characters
 SIN_DOT = NiqqudChar(char="ׂ", name="Sin Dot")
@@ -198,88 +217,47 @@ SHEVA = SHIVAH = NiqqudChar(char="ְ", name="Sheva", name_alts=["Shivah"])
 UPPER_DOT = NiqqudChar(char="ׄ", name="Upper Dot")
 
 # Punctuation characters
-MAQAF = "־"
-PASEQ = "׀"
-SOF_PASSUK = "׃"
-ETNAHTA = "֑"
-SEGOL_TOP = "֒"
-SHALSHELET = "֓"
-ZAQEF_QATAN = "֔"
-ZAQEF_GADOL = "֕"
-TIFCHA = "֖"
-REVIA = "֗"
-ZINOR = "֮"
-PASHTA = "֙"
-PASHTA_2 = QADMA = "֨"
-YETIV = "֚"
-TEVIR = "֛"
-PAZER = "֡"
-TELISHA_GEDOLA = "֠"
-TELISHA_KETANNAH = "֩"
-PAZER_GADOL = "֟"
-GERESH = "׳"
-AZLA_GERESH = "֜"
-GERSHAYIM = "״"
-GERSHAYIM_2 = "֞"
-MERCHA = "֥"
-MUNACH = "֣"
-MAHPACH = "֤"
-DARGA = "֧"
-MERCHA_KEFULA = "֦"
-YERACH_BEN_YOMO = "֪"
-MASORA = "֯"
-DEHI = "֭"
-ZARQA = "֘"
-GERESH_MUQDAM = "֝"
-QARNEY_PARA = "֟"
-OLA = "֫"
-ILUY = "֬"
-RAFE = "ֿ"
-METEG = "ֽ"
-PUNCTUATION = [
-    MAQAF,
-    PASEQ,
-    SOF_PASSUK,
-    GERESH,
-    GERSHAYIM,
-    GERSHAYIM_2,
-    RAFE,
-    METEG,
-    ETNAHTA,
-    SEGOL_TOP,
-    SHALSHELET,
-    ZAQEF_QATAN,
-    ZAQEF_GADOL,
-    TIFCHA,
-    REVIA,
-    ZINOR,
-    PASHTA,
-    PASHTA_2,
-    YETIV,
-    TEVIR,
-    PAZER,
-    PAZER_GADOL,
-    TELISHA_GEDOLA,
-    TELISHA_KETANNAH,
-    AZLA_GERESH,
-    MERCHA,
-    MUNACH,
-    MAHPACH,
-    DARGA,
-    MERCHA_KEFULA,
-    YERACH_BEN_YOMO,
-    MASORA,
-    DEHI,
-    ZARQA,
-    GERESH_MUQDAM,
-    QARNEY_PARA,
-    OLA,
-    ILUY,
-]
+MAQAF = PunctuationChar(char="־", name="Maqaf")
+PASEQ = PunctuationChar(char="׀", name="Paseq")
+SOF_PASSUK = PunctuationChar(char="׃", name="Sof Passuk")
+ETNAHTA = PunctuationChar(char="֑", name="Etnahta")
+SEGOL_TOP = PunctuationChar(char="֒", name="Segol Top")
+SHALSHELET = PunctuationChar(char="֓", name="Shalshelet")
+ZAQEF_QATAN = PunctuationChar(char="֔", name="Zaqef Qatan")
+ZAQEF_GADOL = PunctuationChar(char="֕", name="Zaqef Gadol")
+TIFCHA = PunctuationChar(char="֖", name="Tifcha")
+REVIA = PunctuationChar(char="֗", name="Revia")
+ZINOR = PunctuationChar(char="֮", name="Zinor")
+PASHTA = PunctuationChar(char="֙", name="Pashta")
+PASHTA_2 = QADMA = PunctuationChar(char="֨", name="Pashta 2")
+YETIV = PunctuationChar(char="֚", name="Yetiv")
+TEVIR = PunctuationChar(char="֛", name="Tevir")
+PAZER = PunctuationChar(char="֡", name="Pazer")
+TELISHA_GEDOLA = PunctuationChar(char="֠", name="Telisha Gedola")
+TELISHA_KETANNAH = PunctuationChar(char="֩", name="Telisha Ketannah")
+GERESH = PunctuationChar(char="׳", name="Geresh")
+AZLA_GERESH = PunctuationChar(char="֜", name="Azla Geresh")
+GERSHAYIM = PunctuationChar(char="״", name="Gershayim")
+GERSHAYIM_2 = PunctuationChar(char="֞", name="Gershayim 2")
+MERCHA = PunctuationChar(char="֥", name="Mercha")
+MUNACH = PunctuationChar(char="֣", name="Munach")
+MAHPACH = PunctuationChar(char="֤", name="Mahpach")
+DARGA = PunctuationChar(char="֧", name="Darga")
+MERCHA_KEFULA = PunctuationChar(char="֦", name="Mercha Kefula")
+YERACH_BEN_YOMO = PunctuationChar(char="֪", name="Yerach Ben Yomo")
+MASORA = PunctuationChar(char="֯", name="Masora")
+DEHI = PunctuationChar(char="֭", name="Dehi")
+ZARQA = PunctuationChar(char="֘", name="Zarqa")
+GERESH_MUQDAM = PunctuationChar(char="֝", name="Geresh Muqdam")
+QARNEY_PARA = PAZER_GADOL = PunctuationChar(char="֟", name="Qarney Para")
+OLA = PunctuationChar(char="֫", name="Ola")
+ILUY = PunctuationChar(char="֬", name="Iluy")
+RAFE = PunctuationChar(char="ֿ", name="Rafe")
+METEG = PunctuationChar(char="ֽ", name="Meteg")
 
 # Every instance of _CharMetadata in this file.
 # This is used for defining collections with list comprehensions based on the Chars metadata
-_ALL_CHARS: List[HebrewChar] = [
+_ALL_CHARS: List[Union[HebrewChar, YiddishChar, NiqqudChar, PunctuationChar]] = [
     ALEPH,
     BET,
     VET,
@@ -334,21 +312,60 @@ _ALL_CHARS: List[HebrewChar] = [
     HATAF_SEGOL,
     SHEVA,
     UPPER_DOT,
+    MAQAF,
+    PASEQ,
+    SOF_PASSUK,
+    ETNAHTA,
+    SEGOL_TOP,
+    SHALSHELET,
+    ZAQEF_QATAN,
+    ZAQEF_GADOL,
+    TIFCHA,
+    REVIA,
+    ZINOR,
+    PASHTA,
+    PASHTA_2,
+    YETIV,
+    TEVIR,
+    PAZER,
+    TELISHA_GEDOLA,
+    TELISHA_KETANNAH,
+    GERESH,
+    AZLA_GERESH,
+    GERSHAYIM,
+    GERSHAYIM_2,
+    MERCHA,
+    MUNACH,
+    MAHPACH,
+    DARGA,
+    MERCHA_KEFULA,
+    YERACH_BEN_YOMO,
+    MASORA,
+    DEHI,
+    ZARQA,
+    GERESH_MUQDAM,
+    QARNEY_PARA,
+    OLA,
+    ILUY,
+    RAFE,
+    METEG,
 ]
 
 # A dict of all instances of _CharMetadata supported where the key is the char and the value is its _CharMetadata.
 # This is useful for when you have a hebrew char and want to get its _CharMetadata.
-CHARS: Dict[str, HebrewChar] = {c.char: c for c in _ALL_CHARS}
+CHARS: Dict[str, Union[HebrewChar, YiddishChar, NiqqudChar, PunctuationChar]] = {
+    c.char: c for c in _ALL_CHARS
+}
 
 # Final letters in the Hebrew Alphabet
 FINAL_LETTERS: List[HebrewChar] = [
-    c for c in _ALL_CHARS if c.final_letter and len(c.char) == 1
+    c for c in _ALL_CHARS if isinstance(c, HebrewChar) and c.final_letter and len(c.char) == 1
 ]
 
-YIDDISH_CHARS: List[YiddishChar] = [
-    c for c in _ALL_CHARS if isinstance(c, YiddishChar)
-]
+YIDDISH_CHARS: List[YiddishChar] = [c for c in _ALL_CHARS if isinstance(c, YiddishChar)]
 
-NIQQUD_CHARS: List[NiqqudChar] = [
-    c for c in _ALL_CHARS if isinstance(c, NiqqudChar)
+NIQQUD_CHARS: List[NiqqudChar] = [c for c in _ALL_CHARS if isinstance(c, NiqqudChar)]
+
+PUNCTUATION_CHARS: List[PunctuationChar] = [
+    c for c in _ALL_CHARS if isinstance(c, PunctuationChar)
 ]

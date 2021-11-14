@@ -1,7 +1,7 @@
 from typing import List, TypeVar
 
 from .grapheme_string import GraphemeString
-from .chars import MAQAF, NIQQUD_CHARS, PUNCTUATION, PASEQ, SOF_PASSUK
+from .chars import MAQAF, NIQQUD_CHARS, PUNCTUATION_CHARS, PASEQ, SOF_PASSUK
 
 HebrewT = TypeVar("HebrewT", bound="Hebrew")
 
@@ -25,7 +25,7 @@ class Hebrew(GraphemeString):
 
         :return:
         """
-        return Hebrew(self.string.replace(MAQAF, " "))
+        return Hebrew(self.string.replace(MAQAF.char, " "))
 
     def no_sof_passuk(self) -> HebrewT:
         """
@@ -33,7 +33,7 @@ class Hebrew(GraphemeString):
 
         :return:
         """
-        return Hebrew(self.string.replace(SOF_PASSUK, ""))
+        return Hebrew(self.string.replace(SOF_PASSUK.char, ""))
 
     def words(self, split_maqaf: bool = False) -> List[HebrewT]:
         """
@@ -54,9 +54,11 @@ class Hebrew(GraphemeString):
         :return:
         """
         string = self.no_maqaf().string if remove_maqaf else self.string
-        chars_to_remove = [c.char for c in NIQQUD_CHARS] + [p for p in PUNCTUATION if p not in (MAQAF, PASEQ)]
+        chars_to_remove = [c.char for c in NIQQUD_CHARS] + [
+            p.char for p in PUNCTUATION_CHARS if p not in (MAQAF, PASEQ)
+        ]
         string = string.replace(
-            f" {PASEQ} ", " "
+            f" {PASEQ.char} ", " "
         )  # Handled separately to avoid double spaces.
         for char in chars_to_remove:
             string = string.replace(char, "")
@@ -88,10 +90,10 @@ class Hebrew(GraphemeString):
         string = self.no_maqaf().string if remove_maqaf else self.string
         string = Hebrew(string).no_sof_passuk().string if remove_sof_passuk else string
         chars_to_remove = [
-            p for p in PUNCTUATION if p not in (MAQAF, PASEQ, SOF_PASSUK)
+            p.char for p in PUNCTUATION_CHARS if p not in (MAQAF, PASEQ, SOF_PASSUK)
         ]
         string = string.replace(
-            f" {PASEQ} ", " "
+            f" {PASEQ.char} ", " "
         )  # Handled separately to avoid double spaces.
         for char in chars_to_remove:
             string = string.replace(char, "")

@@ -124,12 +124,12 @@ def test_as_str(pasuk):
 
 @pytest.mark.parametrize("pasuk", [(p) for p in taamei_hamikra])
 def test_no_maqaf(pasuk):
-    assert Hebrew(pasuk).no_maqaf().string == pasuk.replace(MAQAF, " ")
+    assert Hebrew(pasuk).no_maqaf().string == pasuk.replace(MAQAF.char, " ")
 
 
 @pytest.mark.parametrize("pasuk", [(p) for p in taamei_hamikra])
 def test_no_sof_passuk(pasuk):
-    assert Hebrew(pasuk).no_sof_passuk().string == pasuk.replace(SOF_PASSUK, "")
+    assert Hebrew(pasuk).no_sof_passuk().string == pasuk.replace(SOF_PASSUK.char, "")
 
 
 @pytest.mark.parametrize(
@@ -138,7 +138,9 @@ def test_no_sof_passuk(pasuk):
 def test_text_only(pasuk, pasuk_text_only):
     hs = Hebrew(pasuk)
     assert hs.text_only(remove_maqaf=False).string == pasuk_text_only
-    assert hs.text_only(remove_maqaf=True).string == pasuk_text_only.replace(MAQAF, " ")
+    assert hs.text_only(remove_maqaf=True).string == pasuk_text_only.replace(
+        MAQAF.char, " "
+    )
 
 
 def test_text_only_with_other_chars():
@@ -170,7 +172,7 @@ def test_no_punctuation():
     )
     assert hs.no_punctuation(
         remove_maqaf=False, remove_sof_passuk=True
-    ).string == nikkud[1].replace(SOF_PASSUK, "")
+    ).string == nikkud[1].replace(SOF_PASSUK.char, "")
     assert hs.no_punctuation(
         remove_maqaf=True, remove_sof_passuk=False
-    ).string == nikkud[1].replace(MAQAF, " ")
+    ).string == nikkud[1].replace(MAQAF.char, " ")
