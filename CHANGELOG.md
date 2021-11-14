@@ -11,13 +11,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Added the method `Hebrew.gematria` method for calculating the gematria of a string.
 - Added `mispar_hechrachi` as a supported gematria type.
-  ```python
-  >>> from hebrew import Hebrew
-  >>> from hebrew.gematria import GematriaTypes
+  
+``` python
+>>> from hebrew import Hebrew
+>>> from hebrew.gematria import GematriaTypes
 
-  >>> Hebrew("בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָרֶץ׃").gematria(GematriaTypes.MISPAR_HECHRACHI)
-  2701
-  ```
+>>> Hebrew("בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָרֶץ׃").gematria(GematriaTypes.MISPAR_HECHRACHI)
+2701
+```
 
 ## [0.4.0] - 2021-11-14
 

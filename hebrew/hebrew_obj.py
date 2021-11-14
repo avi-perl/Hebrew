@@ -17,6 +17,11 @@ HebrewT = TypeVar("HebrewT", bound="Hebrew")
 
 
 class Hebrew(GraphemeString):
+    """
+    A class representing a Hebrew String.
+
+    A `Hebrew` string can contain pure Hebrew letters, or can be composed of any additional characters.
+    """
     def __init__(self, string: str):
         super().__init__(string)
 

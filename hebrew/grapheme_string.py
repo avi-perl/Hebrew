@@ -22,11 +22,13 @@ class GraphemeString:
         """
         Returns an iterator of all graphemes of given string.
 
+        ``` python
         >>> rainbow_flag = "🏳️‍🌈"
         >>> [codepoint for codepoint in rainbow_flag]
         ['🏳', '️', '\u200d', '🌈']
         >>> list(GraphemeString("multi codepoint grapheme: " + rainbow_flag).graphemes)
         ['m', 'u', 'l', 't', 'i', ' ', 'c', 'o', 'd', 'e', 'p', 'o', 'i', 'n', 't', ' ', 'g', 'r', 'a', 'p', 'h', 'e', 'm', 'e', ':', ' ', '🏳️‍🌈']
+        ```
         """
         return grapheme.graphemes(self.string)
 
@@ -42,11 +44,13 @@ class GraphemeString:
         Only counts up to the `until` argument, if given. This is useful when testing
         the length of a string against some limit and the excess length is not interesting.
 
+        ``` python
         >>> rainbow_flag = "🏳️‍🌈"
         >>> len(rainbow_flag)
         4
         >>> GraphemeString(rainbow_flag).length
         1
+        ```
         """
         return grapheme.length(self.string)
 
@@ -61,6 +65,7 @@ class GraphemeString:
         Only counts up to the `until` argument, if given. This is useful when testing
         the length of a string against some limit and the excess length is not interesting.
 
+        ``` python
         >>> rainbow_flag = "🏳️‍🌈"
         >>> len(rainbow_flag)
         4
@@ -68,6 +73,7 @@ class GraphemeString:
         1
         >>> GraphemeString("".join(str(i) for i in range(100))).get_length(30)
         30
+        ```
         """
         return grapheme.length(self.string, until)
 
@@ -83,6 +89,8 @@ class GraphemeString:
         Returns a substring of the given string, counting graphemes instead of codepoints.
 
         Negative indices is currently not supported.
+
+        ``` python
         >>> string = "tamil நி (ni)"
 
         >>> string[:7]
@@ -93,6 +101,7 @@ class GraphemeString:
         'ி (ni)'
         >>> GraphemeString(string).slice(start=7)
         ' (ni)'
+        ```
         """
         return grapheme.slice(self.string, start, end)
 
@@ -109,10 +118,12 @@ class GraphemeString:
         complexity in relation to the string length. It will traverse the sequence of graphemes until
         a match is found, so it will generally perform better for grapheme sequences that match early.
 
+        ``` python
         >>> "🇸🇪" in "🇪🇸🇪🇪"
         True
         >>> GraphemeString("🇪🇸🇪🇪").contains("🇸🇪")
         False
+        ```
         """
         return grapheme.contains(self.string, substring)
 
@@ -130,6 +141,7 @@ class GraphemeString:
 
         The return value will always be between `0` and `len(string)`.
 
+        ``` python
         >>> string = "tamil நி (ni)"
         >>> i = GraphemeString(string).safe_split_index(7)
         >>> i
@@ -138,6 +150,7 @@ class GraphemeString:
         'tamil '
         >>> string[i:]
         'நி (ni)'
+        ```
         """
         return grapheme.safe_split_index(self.string, max_length)
 
@@ -148,10 +161,12 @@ class GraphemeString:
         str.startswith may return true for a prefix that is not visually represented as a prefix if a grapheme cluster
         is continued after the prefix ends.
 
+        ``` python
         >>> GraphemeString("✊🏾").startswith("✊")
         False
         >>> "✊🏾".startswith("✊")
         True
+        ```
         """
         return grapheme.startswith(self.string, prefix)
 
@@ -162,10 +177,12 @@ class GraphemeString:
         str.endswith may return true for a suffix that is not visually represented as a suffix if a grapheme cluster
         is initiated before the suffix starts.
 
+        ``` python
         >>> GraphemeString("🏳️‍🌈").endswith("🌈")
         False
         >>> "🏳️‍🌈".endswith("🌈")
         True
+        ```
         """
         return grapheme.endswith(self.string, suffix)
 

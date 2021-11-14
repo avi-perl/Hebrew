@@ -38,3 +38,7 @@ MISPAR_HECHRACHI = {
     "ש": 300,
     "ת": 400,
 }
+"""
+A dictionary of values with each letter of the alphabet as a key, and the numerical value used in the mispar_hechrachi
+gematria method as its value.
+"""

@@ -14,9 +14,9 @@ from hebrew.gematria import MISPAR_HECHRACHI
 @dataclass
 class BaseHebrewChar:
     """
-    A class to hold the metadata for a Hebrew glyph.
+    A class to hold the metadata for a Hebrew character.
 
-    This class is used internally by HebrewGlyph only.
+    This class is used internally by `hebrew.Chars` only.
     """
 
     char: str
