@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "hebrew"
-version = "0.5.0"
+version = "0.5.1"
 description = "A python package with methods to handle the complexities of Hebrew text."
 authors = ["Avi Perl <avi@aviperl.me>"]
 license = "MIT"
@@ -21,7 +21,7 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.6.2"
+python = "^3.7.0"
 grapheme = "^0.6.0"
 
 [tool.poetry.dev-dependencies]
