@@ -22,6 +22,7 @@ class Hebrew(GraphemeString):
 
     A `Hebrew` string can contain pure Hebrew letters, or can be composed of any additional characters.
     """
+
     def __init__(self, string: str):
         super().__init__(string)
 
