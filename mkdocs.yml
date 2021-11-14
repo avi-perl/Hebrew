@@ -3,6 +3,15 @@ site_description: A python package with methods to handle the complexities of He
 site_url: https://avi-perl.github.io/Hebrew/
 theme:
   name: material
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
 repo_name: avi-perl/Hebrew
 repo_url: https://github.com/avi-perl/Hebrew
 plugins:
