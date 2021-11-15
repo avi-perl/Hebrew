@@ -1,4 +1,4 @@
 ::: hebrew.chars
     selection:
       docstring_style: restructured-text 
-      filters: ["!.*", "^[A-Z_]*$"]
+      filters: ["!.*", "^[A-Z_0-9]*$"]
