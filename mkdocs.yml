@@ -16,7 +16,9 @@ repo_name: avi-perl/Hebrew
 repo_url: https://github.com/avi-perl/Hebrew
 plugins:
   - search
-  - mkdocstrings
+  - mkdocstrings:
+      watch:
+        - hebrew/
 markdown_extensions:
   - mdx_include
 extra:
