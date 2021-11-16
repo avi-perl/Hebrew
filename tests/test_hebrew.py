@@ -164,15 +164,15 @@ def test_no_niqqud():
     assert hs.no_niqqud().string == "וֽיהי־ע֥רב וֽיהי־ב֖קר י֥ום רביעֽי׃"
 
 
-def test_no_punctuation():
+def test_no_taamim():
     hs = Hebrew(taamei_hamikra[1])
     assert (
-        hs.no_punctuation(remove_maqaf=False, remove_sof_passuk=False).string
+        hs.no_taamim(remove_maqaf=False, remove_sof_passuk=False).string
         == nikkud[1]
     )
-    assert hs.no_punctuation(
+    assert hs.no_taamim(
         remove_maqaf=False, remove_sof_passuk=True
     ).string == nikkud[1].replace(SOF_PASSUK.char, "")
-    assert hs.no_punctuation(
+    assert hs.no_taamim(
         remove_maqaf=True, remove_sof_passuk=False
     ).string == nikkud[1].replace(MAQAF.char, " ")

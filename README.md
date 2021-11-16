@@ -100,20 +100,45 @@ characters as units. This allows us to get the right number of characters, slice
 This library includes 2 classes. `GraphemeString` is a class that supports all the functions made available by `grapheme`.
 The 2nd class `Hebrew` subclasses `GraphemeString` and adds methods for handling Hebrew text. This allows us to 
 interact with the text like so:
+
 ```python
->>> from hebrew import Hebrew
+>> > from hebrew import Hebrew
 
->>> v2 = Hebrew("וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֙הוּ֙ וָבֹ֔הוּ וְחֹ֖שֶׁךְ עַל־פְּנֵ֣י תְה֑וֹם וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־פְּנֵ֥י הַמָּֽיִם׃")
->>> v2.no_punctuation()
-וְהָאָרֶץ הָיְתָה תֹהוּ וָבֹהוּ וְחֹשֶׁךְ עַל־פְּנֵי תְהוֹם וְרוּחַ אֱלֹהִים מְרַחֶפֶת עַל־פְּנֵי הַמָּיִם׃
+>> > v2 = Hebrew(
+    "וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֙הוּ֙ וָבֹ֔הוּ וְחֹ֖שֶׁךְ עַל־פְּנֵ֣י תְה֑וֹם וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־פְּנֵ֥י הַמָּֽיִם׃")
+>> > v2.no_taamim()
+וְהָאָרֶץ
+הָיְתָה
+תֹהוּ
+וָבֹהוּ
+וְחֹשֶׁךְ
+עַל־פְּנֵי
+תְהוֹם
+וְרוּחַ
+אֱלֹהִים
+מְרַחֶפֶת
+עַל־פְּנֵי
+הַמָּיִם׃
 
->>> v2.text_only()
-והארץ היתה תהו ובהו וחשך על־פני תהום ורוח אלהים מרחפת על־פני המים
+>> > v2.text_only()
+והארץ
+היתה
+תהו
+ובהו
+וחשך
+על־פני
+תהום
+ורוח
+אלהים
+מרחפת
+על־פני
+המים
 
->>> v2.length
+>> > v2.length
 35
->>> v2.words(split_maqaf=True)
-[וְהָאָ֗רֶץ, הָיְתָ֥ה, תֹ֙הוּ֙, וָבֹ֔הוּ, וְחֹ֖שֶׁךְ, עַל, פְּנֵ֣י, תְה֑וֹם, וְר֣וּחַ, אֱלֹהִ֔ים, מְרַחֶ֖פֶת, עַל, פְּנֵ֥י, הַמָּֽיִם׃]
+>> > v2.words(split_maqaf=True)
+[וְהָאָ֗רֶץ, הָיְתָ֥ה, תֹ֙הוּ֙, וָבֹ֔הוּ, וְחֹ֖שֶׁךְ, עַל, פְּנֵ֣י, תְה֑וֹם, וְר֣וּחַ, אֱלֹהִ֔ים, מְרַחֶ֖פֶת, עַל,
+ פְּנֵ֥י, הַמָּֽיִם׃]
 ```
 
 The text in these examples and used in testing were sourced from [Sefaria](https://github.com/Sefaria/Sefaria-Export).

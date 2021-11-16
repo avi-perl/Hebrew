@@ -91,12 +91,12 @@ class Hebrew(GraphemeString):
             string = string.replace(char, "")
         return Hebrew(string)
 
-    def no_punctuation(
+    def no_taamim(
         self, remove_maqaf: bool = False, remove_sof_passuk: bool = False
     ) -> HebrewT:
         """
-        Removes all punctuation characters.
-        Result is a string with just letters and Nekkudot.
+        Removes all [Ta'amim](https://en.wikipedia.org/wiki/Hebrew_cantillation) characters.
+        Result is a string with just letters and Niqqud characters.
 
         :param remove_maqaf: Whether to remove the maqaf characters if they are encountered.
         :param remove_sof_passuk: Whether to remove the remove_sof_passuk character if they are encountered.

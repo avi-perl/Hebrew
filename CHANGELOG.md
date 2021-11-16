@@ -10,6 +10,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 - Split the `PunctuationChar` type chars into `TaamimChar` and `OtherChar` types in `hebrew.char`.
+- Renamed the `no_punctuation` method of `Hebrew` to `no_taamim`.
 
 ## [0.5.0] - 2021-11-14
 
