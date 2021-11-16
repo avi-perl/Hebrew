@@ -144,24 +144,46 @@ class NiqqudChar(BaseHebrewChar):
 
 
 @dataclass
-class PunctuationChar(BaseHebrewChar):
+class TaamimChar(BaseHebrewChar):
     """
-    A class representing "punctuation" or "Trup" characters used in Hebrew text.
+    A class representing the "Trup" or [Hebrew cantillation](https://en.wikipedia.org/wiki/Hebrew_cantillation) 
+    characters used alongside Hebrew letters.
     """
 
     @classmethod
-    def search(cls, char_name: str) -> Optional["PunctuationChar"]:
+    def search(cls, char_name: str) -> Optional["TaamimChar"]:
         """
-        Searches for an instance of `PunctuationChar` by name.
+        Searches for an instance of `TaamimChar` by name.
         The search input is case insensitive and is compared to `names` list for this search.
 
         To search for any Hebrew character, use `hebrew.chars.char_search`.
 
         :param char_name: A single string representing the name of the character to search for.
-        :return: An instance of `PunctuationChar` representing the character with the given name, or `None` if no
+        :return: An instance of `TaamimChar` representing the character with the given name, or `None` if no
         character is found.
         """
-        return char_search(char_name, PUNCTUATION_CHARS)
+        return char_search(char_name, TAAMIM_CHARS)
+
+
+@dataclass
+class OtherChar(BaseHebrewChar):
+    """
+    A class representing the "other" or "uncharacterized" characters used in Hebrew (and Yiddish) text.
+    """
+
+    @classmethod
+    def search(cls, char_name: str) -> Optional["OtherChar"]:
+        """
+        Searches for an instance of `TaamimChar` by name.
+        The search input is case insensitive and is compared to `names` list for this search.
+
+        To search for any Hebrew character, use `hebrew.chars.char_search`.
+
+        :param char_name: A single string representing the name of the character to search for.
+        :return: An instance of `OtherChar` representing the character with the given name, or `None` if no
+        character is found.
+        """
+        return char_search(char_name, OTHER_CHARS)
 
 
 # TODO:
@@ -497,88 +519,90 @@ SHIVAH = SHEVA
 UPPER_DOT = NiqqudChar(char="ׄ", name="Upper Dot")
 """An instance of `NiqqudChar` representing the Niqqud **`'ׄ'`**."""
 
-# Punctuation characters
-MAQAF = PunctuationChar(char="־", name="Maqaf")
-"""An instance of `PunctuationChar` representing the Niqqud **`'־'`**."""
-PASEQ = PunctuationChar(char="׀", name="Paseq")
-"""An instance of `PunctuationChar` representing the Niqqud **`'׀'`**."""
-SOF_PASSUK = PunctuationChar(char="׃", name="Sof Passuk")
-"""An instance of `PunctuationChar` representing the Niqqud **`'׃'`**."""
-ETNAHTA = PunctuationChar(char="֑", name="Etnahta")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֑'`**."""
-SEGOL_TOP = PunctuationChar(char="֒", name="Segol Top")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֒'`**."""
-SHALSHELET = PunctuationChar(char="֓", name="Shalshelet")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֓'`**."""
-ZAQEF_QATAN = PunctuationChar(char="֔", name="Zaqef Qatan")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֔'`**."""
-ZAQEF_GADOL = PunctuationChar(char="֕", name="Zaqef Gadol")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֕'`**."""
-TIFCHA = PunctuationChar(char="֖", name="Tifcha")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֖'`**."""
-REVIA = PunctuationChar(char="֗", name="Revia")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֗'`**."""
-ZINOR = PunctuationChar(char="֮", name="Zinor")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֮'`**."""
-PASHTA = PunctuationChar(char="֙", name="Pashta")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֙'`**."""
-PASHTA_2 = PunctuationChar(char="֨", name="Pashta 2", name_alts=["Qadma"])
-"""An instance of `PunctuationChar` representing the Niqqud **`'֨'`**."""
+# Other characters
+MAQAF = OtherChar(char="־", name="Maqaf")
+"""An instance of `TaamimChar` representing the character **`'־'`**."""
+PASEQ = OtherChar(char="׀", name="Paseq")
+"""An instance of `TaamimChar` representing the character **`'׀'`**."""
+SOF_PASSUK = OtherChar(char="׃", name="Sof Passuk")
+"""An instance of `TaamimChar` representing the character **`'׃'`**."""
+GERSHAYIM = OtherChar(char="״", name="Gershayim")
+"""An instance of `OtherChar` representing the character **`'״'`**."""
+GERESH = OtherChar(char="׳", name="Geresh")
+"""An instance of `OtherChar` representing the character **`'׳'`**."""
+
+# Taamim characters
+ETNAHTA = TaamimChar(char="֑", name="Etnahta")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֑'`**."""
+SEGOL_TOP = TaamimChar(char="֒", name="Segol Top")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֒'`**."""
+SHALSHELET = TaamimChar(char="֓", name="Shalshelet")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֓'`**."""
+ZAQEF_QATAN = TaamimChar(char="֔", name="Zaqef Qatan")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֔'`**."""
+ZAQEF_GADOL = TaamimChar(char="֕", name="Zaqef Gadol")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֕'`**."""
+TIFCHA = TaamimChar(char="֖", name="Tifcha")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֖'`**."""
+REVIA = TaamimChar(char="֗", name="Revia")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֗'`**."""
+ZINOR = TaamimChar(char="֮", name="Zinor")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֮'`**."""
+PASHTA = TaamimChar(char="֙", name="Pashta")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֙'`**."""
+PASHTA_2 = TaamimChar(char="֨", name="Pashta 2", name_alts=["Qadma"])
+"""An instance of `TaamimChar` representing the Ta'amim **`'֨'`**."""
 QADMA = PASHTA_2
 """Simple pointer to `PASHTA_2` since they share the same Unicode character."""
-YETIV = PunctuationChar(char="֚", name="Yetiv")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֚'`**."""
-TEVIR = PunctuationChar(char="֛", name="Tevir")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֛'`**."""
-PAZER = PunctuationChar(char="֡", name="Pazer")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֡'`**."""
-TELISHA_GEDOLA = PunctuationChar(char="֠", name="Telisha Gedola")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֠'`**."""
-TELISHA_KETANNAH = PunctuationChar(char="֩", name="Telisha Ketannah")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֩'`**."""
-GERESH = PunctuationChar(char="׳", name="Geresh")
-"""An instance of `PunctuationChar` representing the Niqqud **`'׳'`**."""
-AZLA_GERESH = PunctuationChar(char="֜", name="Azla Geresh")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֜'`**."""
-GERSHAYIM = PunctuationChar(char="״", name="Gershayim")
-"""An instance of `PunctuationChar` representing the Niqqud **`'״'`**."""
-GERSHAYIM_2 = PunctuationChar(char="֞", name="Gershayim 2")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֞'`**."""
-MERCHA = PunctuationChar(char="֥", name="Mercha")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֥'`**."""
-MUNACH = PunctuationChar(char="֣", name="Munach")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֣'`**."""
-MAHPACH = PunctuationChar(char="֤", name="Mahpach")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֤'`**."""
-DARGA = PunctuationChar(char="֧", name="Darga")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֧'`**."""
-MERCHA_KEFULA = PunctuationChar(char="֦", name="Mercha Kefula")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֦'`**."""
-YERACH_BEN_YOMO = PunctuationChar(char="֪", name="Yerach Ben Yomo")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֪'`**."""
-MASORA = PunctuationChar(char="֯", name="Masora")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֯'`**."""
-DEHI = PunctuationChar(char="֭", name="Dehi")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֭'`**."""
-ZARQA = PunctuationChar(char="֘", name="Zarqa")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֘'`**."""
-GERESH_MUQDAM = PunctuationChar(char="֝", name="Geresh Muqdam")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֝'`**."""
-QARNEY_PARA = PunctuationChar(char="֟", name="Qarney Para", name_alts=["Pazer Gadol"])
-"""An instance of `PunctuationChar` representing the Niqqud **`'֟'`**."""
+YETIV = TaamimChar(char="֚", name="Yetiv")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֚'`**."""
+TEVIR = TaamimChar(char="֛", name="Tevir")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֛'`**."""
+PAZER = TaamimChar(char="֡", name="Pazer")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֡'`**."""
+TELISHA_GEDOLA = TaamimChar(char="֠", name="Telisha Gedola")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֠'`**."""
+TELISHA_KETANNAH = TaamimChar(char="֩", name="Telisha Ketannah")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֩'`**."""
+AZLA_GERESH = TaamimChar(char="֜", name="Azla Geresh")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֜'`**."""
+GERSHAYIM_2 = TaamimChar(char="֞", name="Gershayim 2")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֞'`**."""
+MERCHA = TaamimChar(char="֥", name="Mercha")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֥'`**."""
+MUNACH = TaamimChar(char="֣", name="Munach")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֣'`**."""
+MAHPACH = TaamimChar(char="֤", name="Mahpach")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֤'`**."""
+DARGA = TaamimChar(char="֧", name="Darga")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֧'`**."""
+MERCHA_KEFULA = TaamimChar(char="֦", name="Mercha Kefula")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֦'`**."""
+YERACH_BEN_YOMO = TaamimChar(char="֪", name="Yerach Ben Yomo")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֪'`**."""
+MASORA = TaamimChar(char="֯", name="Masora")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֯'`**."""
+DEHI = TaamimChar(char="֭", name="Dehi")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֭'`**."""
+ZARQA = TaamimChar(char="֘", name="Zarqa")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֘'`**."""
+GERESH_MUQDAM = TaamimChar(char="֝", name="Geresh Muqdam")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֝'`**."""
+QARNEY_PARA = TaamimChar(char="֟", name="Qarney Para", name_alts=["Pazer Gadol"])
+"""An instance of `TaamimChar` representing the Ta'amim **`'֟'`**."""
 PAZER_GADOL = QARNEY_PARA
 """Simple pointer to `QARNEY_PARA` since they share the same Unicode character."""
-OLA = PunctuationChar(char="֫", name="Ola")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֫'`**."""
-ILUY = PunctuationChar(char="֬", name="Iluy")
-"""An instance of `PunctuationChar` representing the Niqqud **`'֬'`**."""
-RAFE = PunctuationChar(char="ֿ", name="Rafe")
-"""An instance of `PunctuationChar` representing the Niqqud **`'ֿ'`**."""
-METEG = PunctuationChar(char="ֽ", name="Meteg")
-"""An instance of `PunctuationChar` representing the Niqqud **`'ֽ'`**."""
+OLA = TaamimChar(char="֫", name="Ola")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֫'`**."""
+ILUY = TaamimChar(char="֬", name="Iluy")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֬'`**."""
+RAFE = TaamimChar(char="ֿ", name="Rafe")
+"""An instance of `TaamimChar` representing the Ta'amim **`'ֿ'`**."""
+METEG = TaamimChar(char="ֽ", name="Meteg")
+"""An instance of `TaamimChar` representing the Ta'amim **`'ֽ'`**."""
 
 
-ALL_CHARS: List[Union[HebrewChar, YiddishChar, NiqqudChar, PunctuationChar]] = [
+ALL_CHARS: List[Union[HebrewChar, YiddishChar, NiqqudChar, TaamimChar, OtherChar]] = [
     ALEPH,
     BET,
     VET,
@@ -678,7 +702,7 @@ It can be relied on as being a complete list of Unicode characters used in Hebre
 """
 
 
-CHARS: Dict[str, Union[HebrewChar, YiddishChar, NiqqudChar, PunctuationChar]] = {
+CHARS: Dict[str, Union[HebrewChar, YiddishChar, NiqqudChar, TaamimChar, OtherChar]] = {
     c.char: c for c in ALL_CHARS
 }
 """
@@ -688,589 +712,6 @@ This is useful for when you have a hebrew char and want to get its metadata clas
 
 ``` python
 assert CHARS['א'] == ALEPH
-```
-
-``` python
-# It is possible this is out of date.
-
-{
-    "א": HebrewChar(
-        char="א",
-        name="Aleph",
-        hebrew_name="אָלֶף",
-        name_alts=["Alef"],
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "בּ": HebrewChar(
-        char="בּ",
-        name="Bet",
-        hebrew_name="בֵּית",
-        name_alts=None,
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "ב": HebrewChar(
-        char="ב",
-        name="Vet",
-        hebrew_name="בֵית",
-        name_alts=None,
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "ג": HebrewChar(
-        char="ג",
-        name="Gimel",
-        hebrew_name="גִימֵל",
-        name_alts=None,
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "ד": HebrewChar(
-        char="ד",
-        name="Dalet",
-        hebrew_name="דָלֶת",
-        name_alts=["Daled"],
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "ה": HebrewChar(
-        char="ה",
-        name="He",
-        hebrew_name="הֵא",
-        name_alts=["Hei", "Hey"],
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "ו": HebrewChar(
-        char="ו",
-        name="Vav",
-        hebrew_name="וָו",
-        name_alts=["Vuv"],
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "ז": HebrewChar(
-        char="ז",
-        name="Zayin",
-        hebrew_name="זַיִן",
-        name_alts=None,
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "ח": HebrewChar(
-        char="ח",
-        name="Chet",
-        hebrew_name="חֵית",
-        name_alts=["Het", "Ches"],
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "ט": HebrewChar(
-        char="ט",
-        name="Tet",
-        hebrew_name="טֵית",
-        name_alts=["Tes"],
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "י": HebrewChar(
-        char="י",
-        name="Yod",
-        hebrew_name="יוֹד",
-        name_alts=["Yud"],
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "כּ": HebrewChar(
-        char="כּ",
-        name="Kaf",
-        hebrew_name="כַּף",
-        name_alts=None,
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "ךּ": HebrewChar(
-        char="ךּ",
-        name="Kaf Sofit",
-        hebrew_name="כַּף סוֹפִית",
-        name_alts=["Final Kaf"],
-        hebrew_name_alts=None,
-        final_letter=True,
-    ),
-    "כ": HebrewChar(
-        char="כ",
-        name="Chaf",
-        hebrew_name="כַף",
-        name_alts=None,
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "ך": HebrewChar(
-        char="ך",
-        name="Chaf Sofit",
-        hebrew_name="כַף סוֹפִית",
-        name_alts=["Final Chaf"],
-        hebrew_name_alts=None,
-        final_letter=True,
-    ),
-    "ל": HebrewChar(
-        char="ל",
-        name="Lamed",
-        hebrew_name="לָמֶד",
-        name_alts=["Lamid"],
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "מ": HebrewChar(
-        char="מ",
-        name="Mem",
-        hebrew_name="מֵם",
-        name_alts=None,
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "ם": HebrewChar(
-        char="ם",
-        name="Mem Sofit",
-        hebrew_name="מֵם סוֹפִית",
-        name_alts=["Final Mem"],
-        hebrew_name_alts=None,
-        final_letter=True,
-    ),
-    "נ": HebrewChar(
-        char="נ",
-        name="Nun",
-        hebrew_name="נוּן",
-        name_alts=None,
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "ן": HebrewChar(
-        char="ן",
-        name="Nun Sofit",
-        hebrew_name="נוּן סוֹפִית",
-        name_alts=["Final Nun"],
-        hebrew_name_alts=None,
-        final_letter=True,
-    ),
-    "ס": HebrewChar(
-        char="ס",
-        name="Samekh",
-        hebrew_name="סָמֶך",
-        name_alts=["Samach"],
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "ע": HebrewChar(
-        char="ע",
-        name="Ayin",
-        hebrew_name="עַיִן",
-        name_alts=None,
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "פּ": HebrewChar(
-        char="פּ",
-        name="Pe",
-        hebrew_name=None,
-        name_alts=None,
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "פ": HebrewChar(
-        char="פ",
-        name="Fe",
-        hebrew_name="פֵא",
-        name_alts=None,
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "ףּ": HebrewChar(
-        char="ףּ",
-        name="Fe Sofit",
-        hebrew_name="פֵּא סוֹפִית",
-        name_alts=["Final Pe"],
-        hebrew_name_alts=None,
-        final_letter=True,
-    ),
-    "ף": HebrewChar(
-        char="ף",
-        name="Fe Sofit",
-        hebrew_name="פֵא סוֹפִית",
-        name_alts=["Final Fe"],
-        hebrew_name_alts=None,
-        final_letter=True,
-    ),
-    "צ": HebrewChar(
-        char="צ",
-        name="Tsadi",
-        hebrew_name="צַדִי",
-        name_alts=["Tzadik"],
-        hebrew_name_alts=["צדיק"],
-        final_letter=False,
-    ),
-    "ץ": HebrewChar(
-        char="ץ",
-        name="Tsadi Sofit",
-        hebrew_name="צַדִי סוֹפִית",
-        name_alts=None,
-        hebrew_name_alts=["צדיק סופית"],
-        final_letter=True,
-    ),
-    "ק": HebrewChar(
-        char="ק",
-        name="Qof",
-        hebrew_name="קוֹף",
-        name_alts=["Kuf"],
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "ר": HebrewChar(
-        char="ר",
-        name="Resh",
-        hebrew_name="רֵישׁ",
-        name_alts=None,
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "שׁ": HebrewChar(
-        char="שׁ",
-        name="Shin",
-        hebrew_name="שִׁין",
-        name_alts=None,
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "שׂ": HebrewChar(
-        char="שׂ",
-        name="Sin",
-        hebrew_name="שִׂין",
-        name_alts=None,
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "ש": HebrewChar(
-        char="ש",
-        name="Plain Sin",
-        hebrew_name="שִׁין",
-        name_alts=None,
-        hebrew_name_alts=["שִׂין"],
-        final_letter=False,
-    ),
-    "תּ": HebrewChar(
-        char="תּ",
-        name="Tav",
-        hebrew_name="תּו",
-        name_alts=["Taf"],
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "ת": HebrewChar(
-        char="ת",
-        name="Sav",
-        hebrew_name="תָו",
-        name_alts=["Saf"],
-        hebrew_name_alts=None,
-        final_letter=False,
-    ),
-    "ײ": YiddishChar(
-        char="ײ",
-        name="Double Yod",
-        hebrew_name=None,
-        name_alts=["Saf"],
-        hebrew_name_alts=None,
-    ),
-    "װ": YiddishChar(
-        char="װ",
-        name="Double Vav",
-        hebrew_name=None,
-        name_alts=["Double Vuv"],
-        hebrew_name_alts=None,
-    ),
-    "ױ": YiddishChar(
-        char="ױ",
-        name="Vav Yod",
-        hebrew_name=None,
-        name_alts=None,
-        hebrew_name_alts=None,
-    ),
-    "ׂ": NiqqudChar(
-        char="ׂ",
-        name="Sin Dot",
-        hebrew_name=None,
-        name_alts=None,
-        hebrew_name_alts=None,
-    ),
-    "ׁ": NiqqudChar(
-        char="ׁ",
-        name="Shin Dot",
-        hebrew_name=None,
-        name_alts=None,
-        hebrew_name_alts=None,
-    ),
-    "ּ": NiqqudChar(
-        char="ּ", name="Dagesh", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-    "ֻ": NiqqudChar(
-        char="ֻ",
-        name="Qubuts",
-        hebrew_name=None,
-        name_alts=["Kubutz"],
-        hebrew_name_alts=None,
-    ),
-    "וּ": NiqqudChar(
-        char="וּ",
-        name="Shuruk",
-        hebrew_name=None,
-        name_alts=None,
-        hebrew_name_alts=None,
-    ),
-    "ֹ": NiqqudChar(
-        char="ֹ", name="Holam", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-    "ָ": NiqqudChar(
-        char="ָ",
-        name="Qamats",
-        hebrew_name=None,
-        name_alts=["Kumatz"],
-        hebrew_name_alts=None,
-    ),
-    "ַ": NiqqudChar(
-        char="ַ",
-        name="Patah",
-        hebrew_name=None,
-        name_alts=["Patach"],
-        hebrew_name_alts=None,
-    ),
-    "ֶ": NiqqudChar(
-        char="ֶ", name="Segol", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-    "ֵ": NiqqudChar(
-        char="ֵ", name="Tsere", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-    "ִ": NiqqudChar(
-        char="ִ",
-        name="Hiriq",
-        hebrew_name=None,
-        name_alts=["Chirik"],
-        hebrew_name_alts=None,
-    ),
-    "ֳ": NiqqudChar(
-        char="ֳ",
-        name="Hataf Qamatz",
-        hebrew_name=None,
-        name_alts=["Hataf Kumatz"],
-        hebrew_name_alts=None,
-    ),
-    "ֲ": NiqqudChar(
-        char="ֲ",
-        name="Hataf Patah",
-        hebrew_name=None,
-        name_alts=["Hataf Patach"],
-        hebrew_name_alts=None,
-    ),
-    "ֱ": NiqqudChar(
-        char="ֱ",
-        name="Hataf Segol",
-        hebrew_name=None,
-        name_alts=None,
-        hebrew_name_alts=None,
-    ),
-    "ְ": NiqqudChar(
-        char="ְ",
-        name="Sheva",
-        hebrew_name=None,
-        name_alts=["Shivah"],
-        hebrew_name_alts=None,
-    ),
-    "ׄ": NiqqudChar(
-        char="ׄ",
-        name="Upper Dot",
-        hebrew_name=None,
-        name_alts=None,
-        hebrew_name_alts=None,
-    ),
-    "־": PunctuationChar(
-        char="־", name="Maqaf", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-    "׀": PunctuationChar(
-        char="׀", name="Paseq", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-    "׃": PunctuationChar(
-        char="׃",
-        name="Sof Passuk",
-        hebrew_name=None,
-        name_alts=None,
-        hebrew_name_alts=None,
-    ),
-    "֑": PunctuationChar(
-        char="֑",
-        name="Etnahta",
-        hebrew_name=None,
-        name_alts=None,
-        hebrew_name_alts=None,
-    ),
-    "֒": PunctuationChar(
-        char="֒",
-        name="Segol Top",
-        hebrew_name=None,
-        name_alts=None,
-        hebrew_name_alts=None,
-    ),
-    "֓": PunctuationChar(
-        char="֓",
-        name="Shalshelet",
-        hebrew_name=None,
-        name_alts=None,
-        hebrew_name_alts=None,
-    ),
-    "֔": PunctuationChar(
-        char="֔",
-        name="Zaqef Qatan",
-        hebrew_name=None,
-        name_alts=None,
-        hebrew_name_alts=None,
-    ),
-    "֕": PunctuationChar(
-        char="֕",
-        name="Zaqef Gadol",
-        hebrew_name=None,
-        name_alts=None,
-        hebrew_name_alts=None,
-    ),
-    "֖": PunctuationChar(
-        char="֖", name="Tifcha", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-    "֗": PunctuationChar(
-        char="֗", name="Revia", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-    "֮": PunctuationChar(
-        char="֮", name="Zinor", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-    "֙": PunctuationChar(
-        char="֙", name="Pashta", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-    "֨": PunctuationChar(
-        char="֨",
-        name="Pashta 2",
-        hebrew_name=None,
-        name_alts=["Qadma"],
-        hebrew_name_alts=None,
-    ),
-    "֚": PunctuationChar(
-        char="֚", name="Yetiv", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-    "֛": PunctuationChar(
-        char="֛", name="Tevir", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-    "֡": PunctuationChar(
-        char="֡", name="Pazer", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-    "֠": PunctuationChar(
-        char="֠",
-        name="Telisha Gedola",
-        hebrew_name=None,
-        name_alts=None,
-        hebrew_name_alts=None,
-    ),
-    "֩": PunctuationChar(
-        char="֩",
-        name="Telisha Ketannah",
-        hebrew_name=None,
-        name_alts=None,
-        hebrew_name_alts=None,
-    ),
-    "׳": PunctuationChar(
-        char="׳", name="Geresh", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-    "֜": PunctuationChar(
-        char="֜",
-        name="Azla Geresh",
-        hebrew_name=None,
-        name_alts=None,
-        hebrew_name_alts=None,
-    ),
-    "״": PunctuationChar(
-        char="״",
-        name="Gershayim",
-        hebrew_name=None,
-        name_alts=None,
-        hebrew_name_alts=None,
-    ),
-    "֞": PunctuationChar(
-        char="֞",
-        name="Gershayim 2",
-        hebrew_name=None,
-        name_alts=None,
-        hebrew_name_alts=None,
-    ),
-    "֥": PunctuationChar(
-        char="֥", name="Mercha", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-    "֣": PunctuationChar(
-        char="֣", name="Munach", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-    "֤": PunctuationChar(
-        char="֤",
-        name="Mahpach",
-        hebrew_name=None,
-        name_alts=None,
-        hebrew_name_alts=None,
-    ),
-    "֧": PunctuationChar(
-        char="֧", name="Darga", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-    "֦": PunctuationChar(
-        char="֦",
-        name="Mercha Kefula",
-        hebrew_name=None,
-        name_alts=None,
-        hebrew_name_alts=None,
-    ),
-    "֪": PunctuationChar(
-        char="֪",
-        name="Yerach Ben Yomo",
-        hebrew_name=None,
-        name_alts=None,
-        hebrew_name_alts=None,
-    ),
-    "֯": PunctuationChar(
-        char="֯", name="Masora", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-    "֭": PunctuationChar(
-        char="֭", name="Dehi", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-    "֘": PunctuationChar(
-        char="֘", name="Zarqa", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-    "֝": PunctuationChar(
-        char="֝",
-        name="Geresh Muqdam",
-        hebrew_name=None,
-        name_alts=None,
-        hebrew_name_alts=None,
-    ),
-    "֟": PunctuationChar(
-        char="֟",
-        name="Qarney Para",
-        hebrew_name=None,
-        name_alts=["Pazer Gadol"],
-        hebrew_name_alts=None,
-    ),
-    "֫": PunctuationChar(
-        char="֫", name="Ola", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-    "֬": PunctuationChar(
-        char="֬", name="Iluy", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-    "ֿ": PunctuationChar(
-        char="ֿ", name="Rafe", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-    "ֽ": PunctuationChar(
-        char="ֽ", name="Meteg", hebrew_name=None, name_alts=None, hebrew_name_alts=None
-    ),
-}
 ```
 """
 
@@ -1294,18 +735,28 @@ YIDDISH_CHARS: List[YiddishChar] = [c for c in ALL_CHARS if isinstance(c, Yiddis
 NIQQUD_CHARS: List[NiqqudChar] = [c for c in ALL_CHARS if isinstance(c, NiqqudChar)]
 """A List of all instances of `NiqqudChar`."""
 
-PUNCTUATION_CHARS: List[PunctuationChar] = [
-    c for c in ALL_CHARS if isinstance(c, PunctuationChar)
+TAAMIM_CHARS: List[TaamimChar] = [
+    c for c in ALL_CHARS if isinstance(c, TaamimChar)
 ]
-"""A List of all instances of `PunctuationChar`."""
+"""A List of all instances of `TaamimChar`."""
+
+OTHER_CHARS: List[OtherChar] = [
+    c for c in ALL_CHARS if isinstance(c, OtherChar)
+]
+"""A List of all instances of `OtherChar`."""
+
+_NON_LETTER_CHARS: List[Union[NiqqudChar, TaamimChar, OtherChar]] = [
+    c for c in ALL_CHARS if not isinstance(c, HebrewChar) and not isinstance(c, YiddishChar)
+]
+"""A List of all chars that are not letters. Used internally for filtering non letter chars."""
 
 
 def char_search(
     char_name: str,
     char_list: Optional[
-        List[Union[HebrewChar, YiddishChar, NiqqudChar, PunctuationChar]]
+        List[Union[HebrewChar, YiddishChar, NiqqudChar, TaamimChar, OtherChar]]
     ] = None,
-) -> Optional[Union[HebrewChar, YiddishChar, NiqqudChar, PunctuationChar]]:
+) -> Optional[Union[HebrewChar, YiddishChar, NiqqudChar, TaamimChar, OtherChar]]:
     """
     Search for a character by its name.
 

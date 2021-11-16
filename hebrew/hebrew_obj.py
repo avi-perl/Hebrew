@@ -6,10 +6,11 @@ from .grapheme_string import GraphemeString
 from .chars import (
     MAQAF,
     NIQQUD_CHARS,
-    PUNCTUATION_CHARS,
+    TAAMIM_CHARS,
     PASEQ,
     SOF_PASSUK,
     CHARS,
+    _NON_LETTER_CHARS,
 )
 from hebrew.gematria import GematriaTypes
 
@@ -66,13 +67,11 @@ class Hebrew(GraphemeString):
         Returns a string with all non-letter characters removed.
         This will remove both niqqud and punctuation.
 
-        :param remove_maqaf: Wheather to remove the maqaf characters if they are encountered
+        :param remove_maqaf: Whether to remove the maqaf characters if they are encountered
         :return:
         """
         string = self.no_maqaf().string if remove_maqaf else self.string
-        chars_to_remove = [c.char for c in NIQQUD_CHARS] + [
-            p.char for p in PUNCTUATION_CHARS if p not in (MAQAF, PASEQ)
-        ]
+        chars_to_remove = [c.char for c in _NON_LETTER_CHARS if c not in (MAQAF, PASEQ)]
         string = string.replace(
             f" {PASEQ.char} ", " "
         )  # Handled separately to avoid double spaces.
@@ -106,7 +105,7 @@ class Hebrew(GraphemeString):
         string = self.no_maqaf().string if remove_maqaf else self.string
         string = Hebrew(string).no_sof_passuk().string if remove_sof_passuk else string
         chars_to_remove = [
-            p.char for p in PUNCTUATION_CHARS if p not in (MAQAF, PASEQ, SOF_PASSUK)
+            p.char for p in TAAMIM_CHARS if p not in (MAQAF, PASEQ, SOF_PASSUK)
         ]
         string = string.replace(
             f" {PASEQ.char} ", " "

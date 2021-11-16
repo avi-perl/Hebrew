@@ -54,10 +54,16 @@ def test_niqqud_chars():
         assert type(char) == NiqqudChar
 
 
-def test_punctuation_chars():
-    assert len(PUNCTUATION_CHARS) > 0
-    for char in PUNCTUATION_CHARS:
-        assert type(char) == PunctuationChar
+def test_taamim_chars():
+    assert len(TAAMIM_CHARS) > 0
+    for char in TAAMIM_CHARS:
+        assert type(char) == TaamimChar
+
+
+def test_other_chars():
+    assert len(OTHER_CHARS) > 0
+    for char in OTHER_CHARS:
+        assert type(char) == OtherChar
 
 
 def test_char_dict():
@@ -102,6 +108,11 @@ def test_niqqud_char_search():
     assert NiqqudChar.search("Double Vav") is None
 
 
-def test_punctuation_char_search():
-    assert PunctuationChar.search("Geresh") == GERESH
-    assert PunctuationChar.search("Kumatz") is None
+def test_taamim_char_search():
+    assert TaamimChar.search("Shalshelet") == SHALSHELET
+    assert TaamimChar.search("Kumatz") is None
+
+
+def test_other_char_search():
+    assert OtherChar.search("Geresh") == GERESH
+    assert OtherChar.search("Kumatz") is None
