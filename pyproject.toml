@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "hebrew"
-version = "0.5.2"
+version = "0.5.3"
 description = "A python package with methods to handle the complexities of Hebrew text."
 authors = ["Avi Perl <avi@aviperl.me>"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/avi-perl/hebrew"
 documentation = "https://hebrew.aviperl.me/"
-keywords = ["hebrew", "grapheme", "ivrit", "yiddish", "gematria"]
+keywords = ["hebrew", "grapheme", "ivrit", "yiddish", "gematria", "taamim", "ta'amim"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
