@@ -146,7 +146,7 @@ class NiqqudChar(BaseHebrewChar):
 @dataclass
 class TaamimChar(BaseHebrewChar):
     """
-    A class representing the "Trup" or [Hebrew cantillation](https://en.wikipedia.org/wiki/Hebrew_cantillation) 
+    A class representing the "Trup" or [Hebrew cantillation](https://en.wikipedia.org/wiki/Hebrew_cantillation)
     characters used alongside Hebrew letters.
     """
 
@@ -735,18 +735,16 @@ YIDDISH_CHARS: List[YiddishChar] = [c for c in ALL_CHARS if isinstance(c, Yiddis
 NIQQUD_CHARS: List[NiqqudChar] = [c for c in ALL_CHARS if isinstance(c, NiqqudChar)]
 """A List of all instances of `NiqqudChar`."""
 
-TAAMIM_CHARS: List[TaamimChar] = [
-    c for c in ALL_CHARS if isinstance(c, TaamimChar)
-]
+TAAMIM_CHARS: List[TaamimChar] = [c for c in ALL_CHARS if isinstance(c, TaamimChar)]
 """A List of all instances of `TaamimChar`."""
 
-OTHER_CHARS: List[OtherChar] = [
-    c for c in ALL_CHARS if isinstance(c, OtherChar)
-]
+OTHER_CHARS: List[OtherChar] = [c for c in ALL_CHARS if isinstance(c, OtherChar)]
 """A List of all instances of `OtherChar`."""
 
 _NON_LETTER_CHARS: List[Union[NiqqudChar, TaamimChar, OtherChar]] = [
-    c for c in ALL_CHARS if not isinstance(c, HebrewChar) and not isinstance(c, YiddishChar)
+    c
+    for c in ALL_CHARS
+    if not isinstance(c, HebrewChar) and not isinstance(c, YiddishChar)
 ]
 """A List of all chars that are not letters. Used internally for filtering non letter chars."""
 
