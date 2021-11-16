@@ -331,7 +331,6 @@ NUN_SOFIT = HebrewChar(
 FINAL_NUN = NUN_SOFIT
 """Simple pointer to `NUN_SOFIT`."""
 
-
 SAMEKH = HebrewChar(
     char="ס",
     name="Samekh",
@@ -446,6 +445,103 @@ TAF = TAV
 SAV = HebrewChar(char="ת", name="Sav", hebrew_name="תָו", name_alts=["Saf"])
 """An instance of `HebrewChar` representing the letter **`'ת'`**."""
 
+ALEPH_SYMBOL = HebrewChar("ℵ", name="Aleph Symbol")
+"""An instance of `HebrewChar` representing the letter **`'ℵ'`**. This is a rarely used special character."""
+BET_SYMBOL = HebrewChar("ℶ", name="Bet Symbol")
+"""An instance of `HebrewChar` representing the letter **`'ℶ'`**. This is a rarely used special character."""
+GIMEL_SYMBOL = HebrewChar("ℷ", name="Gimel Symbol")
+"""An instance of `HebrewChar` representing the letter **`'ℷ'`**. This is a rarely used special character."""
+DALET_SYMBOL = HebrewChar("ℸ", name="Dalet Symbol")
+"""An instance of `HebrewChar` representing the letter **`'ℸ'`**. This is a rarely used special character."""
+YOD_HIRIQ = HebrewChar("יִ", name="Yod with Hiriq")
+"""An instance of `HebrewChar` representing the letter **`'יִ'`**. This is a rarely used special character."""
+YOD_YOD_PATAH = YiddishChar("ײַ", name="Yod Yod Patah")
+"""An instance of `HebrewChar` representing the letter **`'ײַ'`**. This is a rarely used special character."""
+AYIN_ALT = HebrewChar("ﬠ", name="Alternative Ayin")
+"""An instance of `HebrewChar` representing the letter **`'ﬠ'`**. This is a rarely used special character."""
+ALEF_WIDE = HebrewChar("ﬡ", name="Wide Alef")
+"""An instance of `HebrewChar` representing the letter **`'ﬡ'`**. This is a rarely used special character."""
+DALET_WIDE = HebrewChar("ﬢ", name="Wide Dalet")
+"""An instance of `HebrewChar` representing the letter **`'ﬢ'`**. This is a rarely used special character."""
+HE_WIDE = HebrewChar("ﬣ", name="Wide He")
+"""An instance of `HebrewChar` representing the letter **`'ﬣ'`**. This is a rarely used special character."""
+KAF_WIDE = HebrewChar("ﬤ", name="Wide Kaf")
+"""An instance of `HebrewChar` representing the letter **`'ﬤ'`**. This is a rarely used special character."""
+LAMED_WIDE = HebrewChar("ﬥ", name="Wide Lamed")
+"""An instance of `HebrewChar` representing the letter **`'ﬥ'`**. This is a rarely used special character."""
+FINAL_MEM_WIDE = HebrewChar("ﬦ", name="Wide Final Mem")
+"""An instance of `HebrewChar` representing the letter **`'ﬦ'`**. This is a rarely used special character."""
+RESH_WIDE = HebrewChar("ﬧ", name="Wide Resh")
+"""An instance of `HebrewChar` representing the letter **`'ﬧ'`**. This is a rarely used special character."""
+TAV_WIDE = HebrewChar("ﬨ", name="Wide Tav")
+"""An instance of `HebrewChar` representing the letter **`'ﬨ'`**. This is a rarely used special character."""
+SHIN_SHIN_DOT = HebrewChar("שׁ", name="Shin with Shin Dot")
+"""An instance of `HebrewChar` representing the letter **`'שׁ'`**. This is a rarely used special character."""
+SHIN_SIN_DOT = HebrewChar("שׂ", name="Shin with Sin Dot")
+"""An instance of `HebrewChar` representing the letter **`'שׂ'`**. This is a rarely used special character."""
+SHIN_DAGESH_SHIN_DOT = HebrewChar("שּׁ", name="Shin with Dagesh and Shin Dot")
+"""An instance of `HebrewChar` representing the letter **`'שּׁ'`**. This is a rarely used special character."""
+SHIN_DAGESH_SIN_DOT = HebrewChar("שּׂ", name="Shin with Dagesh and Sin Dot")
+"""An instance of `HebrewChar` representing the letter **`'שּׂ'`**. This is a rarely used special character."""
+ALEF_PATAH = HebrewChar("אַ", name="Alef with Patah")
+"""An instance of `HebrewChar` representing the letter **`'אַ'`**. This is a rarely used special character."""
+ALEF_QAMATZ = HebrewChar("אָ", name="Alef with Qamats")
+"""An instance of `HebrewChar` representing the letter **`'אָ'`**. This is a rarely used special character."""
+ALEF_MAPIQ = HebrewChar("אּ", name="Alef with Mapiq")
+"""An instance of `HebrewChar` representing the letter **`'אּ'`**. This is a rarely used special character."""
+BET_DAGESH = HebrewChar("בּ", name="Bet with Dagesh")
+"""An instance of `HebrewChar` representing the letter **`'בּ'`**. This is a rarely used special character."""
+GIMEL_DAGESH = HebrewChar("גּ", name="Gimel with Dagesh")
+"""An instance of `HebrewChar` representing the letter **`'גּ'`**. This is a rarely used special character."""
+DALET_DAGESH = HebrewChar("דּ", name="Dalet with Dagesh")
+"""An instance of `HebrewChar` representing the letter **`'דּ'`**. This is a rarely used special character."""
+HE_MAPIQ = HebrewChar("הּ", name="He with Mapiq")
+"""An instance of `HebrewChar` representing the letter **`'הּ'`**. This is a rarely used special character."""
+VAV_DAGESH = HebrewChar("וּ", name="Vav with Dagesh")
+"""An instance of `HebrewChar` representing the letter **`'וּ'`**. This is a rarely used special character."""
+ZAYIN_DAGESH = HebrewChar("זּ", name="Zayin with Dagesh")
+"""An instance of `HebrewChar` representing the letter **`'זּ'`**. This is a rarely used special character."""
+TET_DAGESH = HebrewChar("טּ", name="Tet with Dagesh")
+"""An instance of `HebrewChar` representing the letter **`'טּ'`**. This is a rarely used special character."""
+YOD_DAGESH = HebrewChar("יּ", name="Yod with Dagesh")
+"""An instance of `HebrewChar` representing the letter **`'יּ'`**. This is a rarely used special character."""
+FINAL_KAF_DAGESH = HebrewChar("ךּ", name="Final Kaf with Dagesh")
+"""An instance of `HebrewChar` representing the letter **`'ךּ'`**. This is a rarely used special character."""
+KAF_DAGESH = HebrewChar("כּ", name="Kaf with Dagesh")
+"""An instance of `HebrewChar` representing the letter **`'כּ'`**. This is a rarely used special character."""
+LAMED_DAGESH = HebrewChar("לּ", name="Lamed with Dagesh")
+"""An instance of `HebrewChar` representing the letter **`'לּ'`**. This is a rarely used special character."""
+MEM_DAGESH = HebrewChar("מּ", name="Mem with Dagesh")
+"""An instance of `HebrewChar` representing the letter **`'מּ'`**. This is a rarely used special character."""
+NUN_DAGESH = HebrewChar("נּ", name="Nun with Dagesh")
+"""An instance of `HebrewChar` representing the letter **`'נּ'`**. This is a rarely used special character."""
+SAMEKH_DAGESH = HebrewChar("סּ", name="Samekh with Dagesh")
+"""An instance of `HebrewChar` representing the letter **`'סּ'`**. This is a rarely used special character."""
+FINAL_PE_DAGESH = HebrewChar("ףּ", name="Final Pe with Dagesh")
+"""An instance of `HebrewChar` representing the letter **`'ףּ'`**. This is a rarely used special character."""
+PE_DAGESH = HebrewChar("פּ", name="Pe with Dagesh")
+"""An instance of `HebrewChar` representing the letter **`'פּ'`**. This is a rarely used special character."""
+TSADI_DAGESH = HebrewChar("צּ", name="Tsadi with Dagesh")
+"""An instance of `HebrewChar` representing the letter **`'צּ'`**. This is a rarely used special character."""
+QOF_DAGESH = HebrewChar("קּ", name="Qof with Dagesh")
+"""An instance of `HebrewChar` representing the letter **`'קּ'`**. This is a rarely used special character."""
+RESH_DAGESH = HebrewChar("רּ", name="Resh with Dagesh")
+"""An instance of `HebrewChar` representing the letter **`'רּ'`**. This is a rarely used special character."""
+SHIN_DAGESH = HebrewChar("שּ", name="Shin with Dagesh")
+"""An instance of `HebrewChar` representing the letter **`'שּ'`**. This is a rarely used special character."""
+TAV_DAGESH = HebrewChar("תּ", name="Tav with Dagesh")
+"""An instance of `HebrewChar` representing the letter **`'תּ'`**. This is a rarely used special character."""
+VAV_HOLAM = HebrewChar("וֹ", name="Vav with Holam")
+"""An instance of `HebrewChar` representing the letter **`'וֹ'`**. This is a rarely used special character."""
+BET_RAFE = HebrewChar("בֿ", name="Bet with Rafe")
+"""An instance of `HebrewChar` representing the letter **`'בֿ'`**. This is a rarely used special character."""
+KAF_RAFE = HebrewChar("כֿ", name="Kaf with Rafe")
+"""An instance of `HebrewChar` representing the letter **`'כֿ'`**. This is a rarely used special character."""
+PE_RAFE = HebrewChar("פֿ", name="Pe with Rafe")
+"""An instance of `HebrewChar` representing the letter **`'פֿ'`**. This is a rarely used special character."""
+ALEPH_LAMED = HebrewChar("ﭏ", name="Alef Lamed")
+"""An instance of `HebrewChar` representing the letter **`'ﭏ'`**. This is a rarely used special character."""
+
 SAF = SAV
 """Simple pointer to `SAV`."""
 
@@ -475,6 +571,13 @@ VAV_YOD = YiddishChar(char="ױ", name="Vav Yod")
 VAV_YUD = VUV_YOD = VUV_YUD = VAV_YOD
 """Simple pointer to `VAV_YOD`."""
 
+
+YOD_TRIANGLE = HebrewChar(char="ׯ", name="Yod Triangle", name_alts=["Yud Triangle"])
+"""An instance of `HebrewChar` representing the letter **`'ׯ'`**."""
+
+YUD_TRIANGLE = YOD_TRIANGLE
+"""Simple pointer to `YOD_TRIANGLE`."""
+
 # Niqqudot or Vowel characters
 SIN_DOT = NiqqudChar(char="ׂ", name="Sin Dot")
 """An instance of `NiqqudChar` representing the Niqqud **`'ׂ'`**."""
@@ -494,6 +597,8 @@ QAMATS = NiqqudChar(char="ָ", name="Qamats", name_alts=["Kumatz"])
 """An instance of `NiqqudChar` representing the Niqqud **`'ָ'`**."""
 KUMATZ = QAMATS
 """Simple pointer to `QAMATS`"""
+QAMATS_KATAN = NiqqudChar(char="ׇ", name="Qamats Qatan", name_alts=["Kumatz Katan"])
+"""An instance of `NiqqudChar` representing the Niqqud **`'ׇ'`**."""
 PATAH = NiqqudChar(char="ַ", name="Patah", name_alts=["Patach"])
 """An instance of `NiqqudChar` representing the Niqqud **`'ַ'`**."""
 PATACH = PATAH
@@ -518,6 +623,10 @@ SHIVAH = SHEVA
 """Simple pointer to `SHEVA`"""
 UPPER_DOT = NiqqudChar(char="ׄ", name="Upper Dot")
 """An instance of `NiqqudChar` representing the Niqqud **`'ׄ'`**."""
+HOLAM_HASER = NiqqudChar(char="ֺ", name="Holam Haser")
+"""An instance of `NiqqudChar` representing the Niqqud **`'ֺ'`**."""
+LOWER_DOT = NiqqudChar(char="ׅ", name="Lower Dot")
+"""An instance of `NiqqudChar` representing the Niqqud **`'ׅ'`**."""
 
 # Other characters
 MAQAF = OtherChar(char="־", name="Maqaf")
@@ -530,6 +639,15 @@ GERSHAYIM = OtherChar(char="״", name="Gershayim")
 """An instance of `OtherChar` representing the character **`'״'`**."""
 GERESH = OtherChar(char="׳", name="Geresh")
 """An instance of `OtherChar` representing the character **`'׳'`**."""
+ALTERNATIVE_PLUS_SIGN = OtherChar(char="﬩", name="Alternative Plus Sign")
+"""An instance of `OtherChar` representing the character **`'﬩'`**."""
+INVERTED_NUN = OtherChar(
+    char="׆", name="Inverted Nun", hebrew_name='נו"ן מנוזרת', name_alts=["Nun Hafukha"]
+)
+"""An instance of `OtherChar` representing the letter **`'׆'`**. This is a rarely used special character."""
+
+NUN_HAFUKHA = INVERTED_NUN
+"""Simple pointer to `INVERTED_NUN`."""
 
 # Taamim characters
 ETNAHTA = TaamimChar(char="֑", name="Etnahta")
@@ -600,7 +718,10 @@ RAFE = TaamimChar(char="ֿ", name="Rafe")
 """An instance of `TaamimChar` representing the Ta'amim **`'ֿ'`**."""
 METEG = TaamimChar(char="ֽ", name="Meteg")
 """An instance of `TaamimChar` representing the Ta'amim **`'ֽ'`**."""
-
+JUDEO_SPANISH_VARIKA = TaamimChar(char="ﬞ", name="Judeo-Spanish Varika")
+"""An instance of `TaamimChar` representing the Ta'amim **`'ﬞ'`**."""
+ATNAH_HAFUKH = TaamimChar(char="֢", name="Atnah Hafukh")
+"""An instance of `TaamimChar` representing the Ta'amim **`'֢'`**."""
 
 ALL_CHARS: List[Union[HebrewChar, YiddishChar, NiqqudChar, TaamimChar, OtherChar]] = [
     ALEPH,
@@ -694,13 +815,68 @@ ALL_CHARS: List[Union[HebrewChar, YiddishChar, NiqqudChar, TaamimChar, OtherChar
     ILUY,
     RAFE,
     METEG,
+    ATNAH_HAFUKH,
+    HOLAM_HASER,
+    LOWER_DOT,
+    INVERTED_NUN,
+    ALEPH_SYMBOL,
+    BET_SYMBOL,
+    GIMEL_SYMBOL,
+    DALET_SYMBOL,
+    YOD_HIRIQ,
+    YOD_YOD_PATAH,
+    AYIN_ALT,
+    ALEF_WIDE,
+    DALET_WIDE,
+    HE_WIDE,
+    KAF_WIDE,
+    LAMED_WIDE,
+    FINAL_MEM_WIDE,
+    RESH_WIDE,
+    TAV_WIDE,
+    SHIN_SHIN_DOT,
+    SHIN_SIN_DOT,
+    SHIN_DAGESH_SHIN_DOT,
+    SHIN_DAGESH_SIN_DOT,
+    ALEF_PATAH,
+    ALEF_QAMATZ,
+    ALEF_MAPIQ,
+    BET_DAGESH,
+    GIMEL_DAGESH,
+    DALET_DAGESH,
+    HE_MAPIQ,
+    VAV_DAGESH,
+    ZAYIN_DAGESH,
+    TET_DAGESH,
+    YOD_DAGESH,
+    FINAL_KAF_DAGESH,
+    KAF_DAGESH,
+    LAMED_DAGESH,
+    MEM_DAGESH,
+    NUN_DAGESH,
+    SAMEKH_DAGESH,
+    FINAL_PE_DAGESH,
+    PE_DAGESH,
+    TSADI_DAGESH,
+    QOF_DAGESH,
+    RESH_DAGESH,
+    SHIN_DAGESH,
+    TAV_DAGESH,
+    VAV_HOLAM,
+    BET_RAFE,
+    KAF_RAFE,
+    PE_RAFE,
+    ALEPH_LAMED,
+    QAMATS_KATAN,
+    YOD_TRIANGLE,
+    JUDEO_SPANISH_VARIKA,
+    ALTERNATIVE_PLUS_SIGN,
 ]
 """
 Every instance of a character class.  
 This is used for defining collections with list comprehensions based on the Chars metadata. 
 It can be relied on as being a complete list of Unicode characters used in Hebrew (and Yiddish etc).
 """
-
 
 CHARS: Dict[str, Union[HebrewChar, YiddishChar, NiqqudChar, TaamimChar, OtherChar]] = {
     c.char: c for c in ALL_CHARS
@@ -715,7 +891,6 @@ assert CHARS['א'] == ALEPH
 ```
 """
 
-
 FINAL_LETTERS: List[HebrewChar] = [
     c
     for c in ALL_CHARS
@@ -726,10 +901,16 @@ A list of all Hebrew characters that are final letters.
 While we do have letters like 'ףּ' defined, they do not return in this array; it contains only the plain final letters.
 """
 
-HEBREW_CHARS: List[HebrewChar] = [c for c in ALL_CHARS if isinstance(c, HebrewChar)]
+HEBREW_CHARS: List[HebrewChar] = [
+    c
+    for c in ALL_CHARS
+    if isinstance(c, HebrewChar) and c.char in "אבגדהוזחטיכךלמםנןסעפףצץקרשת"
+]
 """A List of all instances of `HebrewChar`. This will include letters like 'ףּ'"""
 
-YIDDISH_CHARS: List[YiddishChar] = [c for c in ALL_CHARS if isinstance(c, YiddishChar)]
+YIDDISH_CHARS: List[YiddishChar] = [
+    c for c in ALL_CHARS if isinstance(c, YiddishChar) and c.char in ["ױ", "װ", "ײ"]
+]
 """A List of all instances of `YiddishChar`."""
 
 NIQQUD_CHARS: List[NiqqudChar] = [c for c in ALL_CHARS if isinstance(c, NiqqudChar)]

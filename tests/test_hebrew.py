@@ -166,13 +166,10 @@ def test_no_niqqud():
 
 def test_no_taamim():
     hs = Hebrew(taamei_hamikra[1])
-    assert (
-        hs.no_taamim(remove_maqaf=False, remove_sof_passuk=False).string
-        == nikkud[1]
-    )
-    assert hs.no_taamim(
-        remove_maqaf=False, remove_sof_passuk=True
-    ).string == nikkud[1].replace(SOF_PASSUK.char, "")
-    assert hs.no_taamim(
-        remove_maqaf=True, remove_sof_passuk=False
-    ).string == nikkud[1].replace(MAQAF.char, " ")
+    assert hs.no_taamim(remove_maqaf=False, remove_sof_passuk=False).string == nikkud[1]
+    assert hs.no_taamim(remove_maqaf=False, remove_sof_passuk=True).string == nikkud[
+        1
+    ].replace(SOF_PASSUK.char, "")
+    assert hs.no_taamim(remove_maqaf=True, remove_sof_passuk=False).string == nikkud[
+        1
+    ].replace(MAQAF.char, " ")
