@@ -118,6 +118,8 @@ class Hebrew(GraphemeString):
         """
         Returns the gematria of the string.
 
+        If the contains no hebrew characters, the value returned is 0. Mixing hebrew and english characters is ok!
+
         :param method: The method to use for calculating the gematria.
         :return:
         """
@@ -126,4 +128,8 @@ class Hebrew(GraphemeString):
             for c in self.string
             if CHARS.get(c) and hasattr(CHARS[c], method.value)
         ]
-        return reduce(add, [getattr(c, method.value) for c in chars])
+        if len(chars) == 0:
+            # The list will be 0 if there are no letters in the string or if the letters are not hebrew.
+            return 0
+        else:
+            return reduce(add, [getattr(c, method.value) for c in chars])

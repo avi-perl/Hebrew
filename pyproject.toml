@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "hebrew"
-version = "0.5.3"
+version = "0.5.4"
 description = "A python package with methods to handle the complexities of Hebrew text."
 authors = ["Avi Perl <avi@aviperl.me>"]
 license = "MIT"
