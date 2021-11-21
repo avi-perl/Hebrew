@@ -34,6 +34,7 @@ toml = "^0.10.2"
 mkdocs-material = "^7.3.6"
 mdx-include = "^1.4.1"
 mkdocstrings = "^0.16.2"
+pytest-codeblocks = "^0.11.4"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

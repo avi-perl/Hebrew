@@ -404,6 +404,17 @@ toml = "*"
 testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xmlschema"]
 
 [[package]]
+name = "pytest-codeblocks"
+version = "0.11.4"
+description = "Test code blocks in your READMEs"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+pytest = ">=6"
+
+[[package]]
 name = "pytest-cov"
 version = "3.0.0"
 description = "Pytest plugin for measuring coverage."
@@ -546,7 +557,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7.0"
-content-hash = "a2736c00c22b9b470ac1b918d6d27c03015c51a044d1836d68581117cd4e2754"
+content-hash = "36b218f42ad4273ddba27cf4c8c54fe271dc8aaddc055dce7de4d417a531817e"
 
 [metadata.files]
 astunparse = [
@@ -790,6 +801,10 @@ pyparsing = [
 pytest = [
     {file = "pytest-6.2.5-py3-none-any.whl", hash = "sha256:7310f8d27bc79ced999e760ca304d69f6ba6c6649c0b60fb0e04a4a77cacc134"},
     {file = "pytest-6.2.5.tar.gz", hash = "sha256:131b36680866a76e6781d13f101efb86cf674ebb9762eb70d3082b6f29889e89"},
+]
+pytest-codeblocks = [
+    {file = "pytest-codeblocks-0.11.4.tar.gz", hash = "sha256:5d41e4a804ef068ded9daf339addc18c20ff6ad5f82291261d44c72aad2b118e"},
+    {file = "pytest_codeblocks-0.11.4-py3-none-any.whl", hash = "sha256:44da66d91cb60497d91ad261cb29e9f9fff31699ff9d5b35602cfa69ad0f8de8"},
 ]
 pytest-cov = [
     {file = "pytest-cov-3.0.0.tar.gz", hash = "sha256:e7f0f5b1617d2210a2cabc266dfe2f4c75a8d32fb89eafb7ad9d06f6d076d470"},
