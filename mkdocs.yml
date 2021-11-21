@@ -1,6 +1,9 @@
 site_name: Hebrew Documentation
 site_description: A python package with methods to handle the complexities of Hebrew text.
 site_url: https://hebrew.aviperl.me/
+repo_name: avi-perl/Hebrew
+repo_url: https://github.com/avi-perl/Hebrew
+
 theme:
   name: material
   palette:
@@ -12,15 +15,24 @@ theme:
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
-repo_name: avi-perl/Hebrew
-repo_url: https://github.com/avi-perl/Hebrew
+
 plugins:
   - search
   - mkdocstrings:
       watch:
         - hebrew/
+
+extra_css:
+- css/style.css
+- css/material.css
+- css/mkdocstrings.css
+
 markdown_extensions:
   - mdx_include
+  - toc:
+      permalink: "ל"  # Heh
+
+
 extra:
   social:
     - icon: fontawesome/brands/twitter
