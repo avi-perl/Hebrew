@@ -5,7 +5,7 @@ Constants for each Hebrew character and classes to represent them, and metadata 
 from dataclasses import dataclass
 from typing import Optional, List, Dict, Union
 
-from hebrew.gematria import MISPAR_HECHRACHI
+from hebrew.gematria import MISPAR_HECHRACHI, MISPAR_GADOL
 
 
 # TODO: Future properties:
@@ -85,6 +85,13 @@ class HebrewChar(BaseHebrewChar):
         :return: The value of the character for use in the mispar_hechrachi method of gematria.
         """
         return MISPAR_HECHRACHI.get(self.base_letter.char)
+
+    @property
+    def mispar_gadol(self) -> int:
+        """
+        :return: The value of the character for use in the mispar_gadol method of gematria.
+        """
+        return MISPAR_GADOL.get(self.base_letter.char)
 
     @classmethod
     def search(cls, char_name: str) -> Optional["HebrewChar"]:
