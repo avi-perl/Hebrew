@@ -26,8 +26,10 @@ poetry install
 Run tests with the following command:
 <!--pytest-codeblocks:skip-->
 ```bash
-poetry run pytest
+poetry run pytest --codeblocks
 ```
+
+_The `--codeblocks` flag runs tests on the python code blocks found in markdown files and is critical to testing!_
 
 New code should ideally have tests and not break existing tests.
 
