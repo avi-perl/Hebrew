@@ -45,10 +45,11 @@ def test_mispar_meshulash():
     assert Hebrew("ךָ").gematria(GematriaTypes.MISPAR_MESHULASH) == 8000
     assert Hebrew("כ").gematria(GematriaTypes.MISPAR_MESHULASH) == 8000
     assert Hebrew("מספר משולש").gematria(GematriaTypes.MISPAR_MESHULASH) == 62_883_216
-    assert Hebrew("English" + "מספר משולש").gematria(GematriaTypes.MISPAR_MESHULASH) == 62_883_216
     assert (
-        Hebrew(
-            "אבגדהוזחטיכךלמםנןסעפףצץקרשת"
-        ).gematria(GematriaTypes.MISPAR_MESHULASH)
+        Hebrew("English" + "מספר משולש").gematria(GematriaTypes.MISPAR_MESHULASH)
+        == 62_883_216
+    )
+    assert (
+        Hebrew("אבגדהוזחטיכךלמםנןסעפףצץקרשת").gematria(GematriaTypes.MISPAR_MESHULASH)
         == 103_465_025
     )

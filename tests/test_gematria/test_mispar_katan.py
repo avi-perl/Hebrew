@@ -47,8 +47,6 @@ def test_mispar_katan():
     assert Hebrew("מספר קטן").gematria(GematriaTypes.MISPAR_KATAN) == 35
     assert Hebrew("English" + "מספר קטן").gematria(GematriaTypes.MISPAR_KATAN) == 35
     assert (
-        Hebrew(
-            "אבגדהוזחטיכךלמםנןסעפףצץקרשת"
-        ).gematria(GematriaTypes.MISPAR_KATAN)
+        Hebrew("אבגדהוזחטיכךלמםנןסעפףצץקרשת").gematria(GematriaTypes.MISPAR_KATAN)
         == 128
     )

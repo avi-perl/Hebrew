@@ -46,9 +46,4 @@ def test_albam():
     assert Hebrew("כ").gematria(GematriaTypes.ALBAM) == 400
     assert Hebrew("אלב״ם").gematria(GematriaTypes.ALBAM) == 73
     assert Hebrew("English" + "אלב״ם").gematria(GematriaTypes.ALBAM) == 73
-    assert (
-        Hebrew(
-            "אבגדהוזחטיכךלמםנןסעפףצץקרשת"
-        ).gematria(GematriaTypes.ALBAM)
-        == 1913
-    )
+    assert Hebrew("אבגדהוזחטיכךלמםנןסעפףצץקרשת").gematria(GematriaTypes.ALBAM) == 1913

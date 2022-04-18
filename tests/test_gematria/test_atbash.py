@@ -46,9 +46,4 @@ def test_atbash():
     assert Hebrew("כ").gematria(GematriaTypes.ATBASH) == 30
     assert Hebrew("אתב״ש").gematria(GematriaTypes.ATBASH) == 703
     assert Hebrew("English" + "אתב״ש").gematria(GematriaTypes.ATBASH) == 703
-    assert (
-        Hebrew(
-            "אבגדהוזחטיכךלמםנןסעפףצץקרשת"
-        ).gematria(GematriaTypes.ATBASH)
-        == 1555
-    )
+    assert Hebrew("אבגדהוזחטיכךלמםנןסעפףצץקרשת").gematria(GematriaTypes.ATBASH) == 1555

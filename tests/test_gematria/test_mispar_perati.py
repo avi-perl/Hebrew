@@ -49,8 +49,6 @@ def test_mispar_perati():
         Hebrew("English" + "מספר הפרטי").gematria(GematriaTypes.MISPAR_PERATI) == 98206
     )
     assert (
-        Hebrew(
-            "אבגדהוזחטיכךלמםנןסעפףצץקרשת"
-        ).gematria(GematriaTypes.MISPAR_PERATI)
+        Hebrew("אבגדהוזחטיכךלמםנןסעפףצץקרשת").gematria(GematriaTypes.MISPAR_PERATI)
         == 347785
     )

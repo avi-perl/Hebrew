@@ -49,8 +49,6 @@ def test_mispar_siduri():
         Hebrew("English" + "מספר סידורי").gematria(GematriaTypes.MISPAR_SIDURI) == 130
     )
     assert (
-        Hebrew(
-            "אבגדהוזחטיכךלמםנןסעפףצץקרשת"
-        ).gematria(GematriaTypes.MISPAR_SIDURI)
+        Hebrew("אבגדהוזחטיכךלמםנןסעפףצץקרשת").gematria(GematriaTypes.MISPAR_SIDURI)
         == 378
     )

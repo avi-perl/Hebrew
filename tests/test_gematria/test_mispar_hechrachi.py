@@ -47,8 +47,6 @@ def test_mispar_hechrachi():
     assert Hebrew("תורה").gematria(GematriaTypes.MISPAR_HECHRACHI) == 611
     assert Hebrew("English" + "תורה").gematria(GematriaTypes.MISPAR_HECHRACHI) == 611
     assert (
-        Hebrew(
-            "אבגדהוזחטיכךלמםנןסעפףצץקרשת"
-        ).gematria(GematriaTypes.MISPAR_HECHRACHI)
+        Hebrew("אבגדהוזחטיכךלמםנןסעפףצץקרשת").gematria(GematriaTypes.MISPAR_HECHRACHI)
         == 1775
     )
