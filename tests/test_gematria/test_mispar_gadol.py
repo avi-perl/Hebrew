@@ -48,7 +48,7 @@ def test_mispar_gadol():
     assert Hebrew("English" + "קשת בענן").gematria(GematriaTypes.MISPAR_GADOL) == 1622
     assert (
         Hebrew(
-            "עֲשָׂרָה דְבָרִים נִבְרְאוּ בְּעֶרֶב שַׁבָּת בֵּין הַשְּׁמָשׁוֹת"
+            "אבגדהוזחטיכךלמםנןסעפףצץקרשת"
         ).gematria(GematriaTypes.MISPAR_GADOL)
-        == 4389
+        == 4995
     )

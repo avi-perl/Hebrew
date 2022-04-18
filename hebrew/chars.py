@@ -5,7 +5,16 @@ Constants for each Hebrew character and classes to represent them, and metadata 
 from dataclasses import dataclass
 from typing import Optional, List, Dict, Union
 
-from hebrew.gematria import MISPAR_HECHRACHI, MISPAR_GADOL, MISPAR_SIDURI
+from hebrew.gematria import (
+    MISPAR_HECHRACHI,
+    MISPAR_GADOL,
+    MISPAR_KATAN,
+    MISPAR_SIDURI,
+    MISPAR_PERATI,
+    ATBASH,
+    ALBAM,
+    MISPAR_MESHULASH,
+)
 
 
 # TODO: Future properties:
@@ -99,6 +108,41 @@ class HebrewChar(BaseHebrewChar):
         :return: The value of the character for use in the mispar_siduri method of gematria.
         """
         return MISPAR_SIDURI.get(self.base_letter.char)
+
+    @property
+    def mispar_katan(self) -> int:
+        """
+        :return: The value of the character for use in the mispar_katan method of gematria.
+        """
+        return MISPAR_KATAN.get(self.base_letter.char)
+
+    @property
+    def mispar_perati(self) -> int:
+        """
+        :return: The value of the character for use in the mispar_perati method of gematria.
+        """
+        return MISPAR_PERATI.get(self.base_letter.char)
+
+    @property
+    def atbash(self) -> int:
+        """
+        :return: The value of the character for use in the AtBash method of gematria.
+        """
+        return ATBASH.get(self.base_letter.char)
+
+    @property
+    def albam(self) -> int:
+        """
+        :return: The value of the character for use in the AtBash method of gematria.
+        """
+        return ALBAM.get(self.base_letter.char)
+
+    @property
+    def mispar_meshulash(self) -> int:
+        """
+        :return: The value of the character for use in the AtBash method of gematria.
+        """
+        return MISPAR_MESHULASH.get(self.base_letter.char)
 
     @classmethod
     def search(cls, char_name: str) -> Optional["HebrewChar"]:
