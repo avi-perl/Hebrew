@@ -33,7 +33,7 @@ _The `--codeblocks` flag runs tests on the python code blocks found in markdown 
 
 New code should ideally have tests and not break existing tests.
 
-If you are not familiar with writing tests but still want to contribute to this package, 
+If you are not familiar with writing tests but still want to contribute to this package,
 please feel free to submit your pull request, and I will work on tests. 🙂
 
 ### Type Checking

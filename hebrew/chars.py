@@ -211,7 +211,7 @@ ALEPH = HebrewChar(char="א", name="Aleph", hebrew_name="אָלֶף", name_alts=
 
 BET = HebrewChar(char="בּ", name="Bet", hebrew_name="בֵּית")
 """
-An instance of `HebrewChar` representing the letter **`'בּ'`**. 
+An instance of `HebrewChar` representing the letter **`'בּ'`**.
 *This is not strictly a letter, but is included because it is often treated as one.*
 """
 
@@ -270,7 +270,7 @@ YUD = YOD
 
 CAF = HebrewChar(char="כּ", name="Kaf", hebrew_name="כַּף")
 """
-An instance of `HebrewChar` representing the letter **`'כּ'`**. 
+An instance of `HebrewChar` representing the letter **`'כּ'`**.
 *This is not strictly a letter, but is included because it is often treated as one.*
 """
 
@@ -282,7 +282,7 @@ KAF_SOFIT = HebrewChar(
     name_alts=["Final Kaf"],
 )
 """
-An instance of `HebrewChar` representing the letter **`'ךּ'`**. 
+An instance of `HebrewChar` representing the letter **`'ךּ'`**.
 *This is not strictly a letter, but is included because it is often treated as one.*
 """
 
@@ -361,7 +361,7 @@ AYIN = HebrewChar(char="ע", name="Ayin", hebrew_name="עַיִן")
 
 PE = HebrewChar(char="פּ", name="Pe")
 """
-An instance of `HebrewChar` representing the letter **`'פּ'`**. 
+An instance of `HebrewChar` representing the letter **`'פּ'`**.
 *This is not strictly a letter, but is included because it is often treated as one.*
 """
 
@@ -376,7 +376,7 @@ PE_SOFIT = HebrewChar(
     name_alts=["Final Pe"],
 )
 """
-An instance of `HebrewChar` representing the letter **`'ףּ'`**. 
+An instance of `HebrewChar` representing the letter **`'ףּ'`**.
 *This is not strictly a letter, but is included because it is often treated as one.*
 """
 
@@ -432,13 +432,13 @@ RESH = HebrewChar(char="ר", name="Resh", hebrew_name="רֵישׁ")
 #  in text, but the naming might be unexpected.
 SHIN = HebrewChar(char="שׁ", name="Shin", hebrew_name="שִׁין")
 """
-An instance of `HebrewChar` representing the letter **`'שׁ'`**. 
+An instance of `HebrewChar` representing the letter **`'שׁ'`**.
 *This is not strictly a letter, but is included because it is often treated as one.*
 """
 
 SIN = HebrewChar(char="שׂ", name="Sin", hebrew_name="שִׂין")
 """
-An instance of `HebrewChar` representing the letter **`'שׂ'`**. 
+An instance of `HebrewChar` representing the letter **`'שׂ'`**.
 *This is not strictly a letter, but is included because it is often treated as one.*
 """
 
@@ -449,7 +449,7 @@ PLAIN_SIN = HebrewChar(
 
 TAV = HebrewChar(char="תּ", name="Tav", hebrew_name="תּו", name_alts=["Taf"])
 """
-An instance of `HebrewChar` representing the letter **`'תּ'`**. 
+An instance of `HebrewChar` representing the letter **`'תּ'`**.
 *This is not strictly a letter, but is included because it is often treated as one.*
 """
 
@@ -887,8 +887,8 @@ ALL_CHARS: List[Union[HebrewChar, YiddishChar, NiqqudChar, TaamimChar, OtherChar
     ALTERNATIVE_PLUS_SIGN,
 ]
 """
-Every instance of a character class.  
-This is used for defining collections with list comprehensions based on the Chars metadata. 
+Every instance of a character class.
+This is used for defining collections with list comprehensions based on the Chars metadata.
 It can be relied on as being a complete list of Unicode characters used in Hebrew (and Yiddish etc).
 """
 

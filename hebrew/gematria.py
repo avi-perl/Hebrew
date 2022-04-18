@@ -48,7 +48,7 @@ MISPAR_HECHRACHI = {
 """
 A dictionary of values with each letter of the alphabet as a key, and the numerical value used in the mispar_gadol
 gematria method as its value. Non-final letter values are all the same, but final kaf/chaf, mem, nun, pe/fe are
-moved to the end of the alphabet and continue on from where tav left off 
+moved to the end of the alphabet and continue on from where tav left off
 """
 MISPAR_GADOL = {
     "א": 1,

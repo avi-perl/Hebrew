@@ -31,7 +31,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Added the method `Hebrew.gematria` method for calculating the gematria of a string.
 - Added `mispar_hechrachi` as a supported gematria type.
-  
+
 ``` python
 >>> from hebrew import Hebrew
 >>> from hebrew.gematria import GematriaTypes
@@ -50,14 +50,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Removed
 
-- Support for Python 3.6 was removed because we are now using `@dataclasse`. It is possible to make this work with 
+- Support for Python 3.6 was removed because we are now using `@dataclasse`. It is possible to make this work with
   3.6 but I am choosing not to at this time. If this is a problem for you, feel free to open an issue.
 
 ## [0.3.0] - 2021-11-08
 
 ### Changed
 
-- Renamed the python package from `hebrewstring` to `hebrew`. 
+- Renamed the python package from `hebrewstring` to `hebrew`.
 
 ## [0.2.0] - 2021-11-07
 
