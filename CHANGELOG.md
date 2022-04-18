@@ -5,13 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.5.7] - 2021-11-22
+## [0.5.8] - 2022-04-18
+
+### Added
+
+- Added Gematria methods `MISPAR_MUSAFI`. This is the first of the complex Gematria types that goes deeper than just 
+adding up values assigned to each letter, necessitating internal changes to the `Hebrew` class.
+
+## [0.5.7] - 2022-04-18
 
 ### Added
 
 - Added Gematria methods `MISPAR_KATAN`, `MISPAR_PERATI`, `ATBASH`, `ALBAM`, `MISPAR_MESHULASH`.
 
-## [0.5.6] - 2021-11-22
+## [0.5.6] - 2022-04-18
 
 ### Added
 

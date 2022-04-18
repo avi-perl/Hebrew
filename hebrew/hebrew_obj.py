@@ -9,10 +9,10 @@ from .chars import (
     TAAMIM_CHARS,
     PASEQ,
     SOF_PASSUK,
-    CHARS,
     _NON_LETTER_CHARS,
+    CHARS, HEBREW_CHARS,
 )
-from hebrew.gematria import GematriaTypes
+from hebrew.gematria import GematriaTypes, SIMPLE_GEMATRIA_METHODS
 
 HebrewT = TypeVar("HebrewT", bound="Hebrew")
 
@@ -123,6 +123,16 @@ class Hebrew(GraphemeString):
         :param method: The method to use for calculating the gematria.
         :return:
         """
+        if method == GematriaTypes.MISPAR_MUSAFI:
+            # Mispar Musafi (Heb: מספר מוספי) adds the number of letters in the word or phrase to the value.
+            value = self.__calculate_simple_gematria(GematriaTypes.MISPAR_HECHRACHI)
+            hebrew_letters = [c for c in self.string if c in [x.char for x in HEBREW_CHARS]]
+            return value + len(hebrew_letters)
+        else:
+            # Simple gematria that can be calculated by simply adding each letters value up to a final number.
+            return self.__calculate_simple_gematria(method)
+
+    def __calculate_simple_gematria(self, method: GematriaTypes):
         chars = [
             CHARS[c]
             for c in self.string

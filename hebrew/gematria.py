@@ -15,6 +15,23 @@ class GematriaTypes(Enum):
     ALBAM = "albam"
     MISPAR_MESHULASH = "mispar_meshulash"
 
+    MISPAR_MUSAFI = "mispar_musafi"
+
+
+"""
+List of Gematria methods that can be calculated by simply adding each letters value
+up to a final number. 
+"""
+SIMPLE_GEMATRIA_METHODS = [
+    GematriaTypes.MISPAR_HECHRACHI,
+    GematriaTypes.MISPAR_GADOL,
+    GematriaTypes.MISPAR_SIDURI,
+    GematriaTypes.MISPAR_KATAN,
+    GematriaTypes.MISPAR_PERATI,
+    GematriaTypes.ATBASH,
+    GematriaTypes.ALBAM,
+    GematriaTypes.MISPAR_MESHULASH,
+]
 
 """
 A dictionary of values with each letter of the alphabet as a key, and the numerical value used in the mispar_hechrachi
