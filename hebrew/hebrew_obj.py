@@ -1,5 +1,5 @@
 from functools import reduce
-from typing import List, TypeVar
+from typing import List, TypeVar, Dict
 from operator import add
 
 from .grapheme_string import GraphemeString
@@ -10,11 +10,35 @@ from .chars import (
     PASEQ,
     SOF_PASSUK,
     _NON_LETTER_CHARS,
-    CHARS, HEBREW_CHARS,
+    CHARS,
+    HEBREW_CHARS,
+    FINAL_MINOR_LETTER_MAPPINGS,
+    HebrewChar,
 )
-from hebrew.gematria import GematriaTypes, SIMPLE_GEMATRIA_METHODS
+from hebrew.gematria import GematriaTypes
 
 HebrewT = TypeVar("HebrewT", bound="Hebrew")
+
+
+def get_hebrew_name(letter: HebrewChar, name_dict) -> str:
+    """
+    Helper function to get the letters name from the library definition
+    or from the alts provided by the user.
+
+    The name value passed *must* be a name that is defined in the characters `HebrewChar` instance or a
+    ValueError will be thrown. This is done to make sure that only valid naming is used.
+    """
+    if not name_dict:
+        name_dict = {}
+
+    if name_dict and letter.char in name_dict.keys():
+        name = name_dict.get(letter.char)
+        clean_name = Hebrew(name).text_only()
+        if clean_name not in [Hebrew(nm).text_only() for nm in letter.hebrew_names]:
+            raise ValueError(f"{name} is not a valid name for {letter}")
+        return clean_name.string
+    else:
+        return letter.hebrew_name
 
 
 class Hebrew(GraphemeString):
@@ -114,29 +138,138 @@ class Hebrew(GraphemeString):
             string = string.replace(char, "")
         return Hebrew(string)
 
-    def gematria(self, method: GematriaTypes = GematriaTypes.MISPAR_HECHRACHI) -> int:
+    def gematria(
+        self,
+        method: GematriaTypes = GematriaTypes.MISPAR_HECHRACHI,
+        alt_letter_name_spelling: Dict[str, str] = None,
+    ) -> int:
         """
         Returns the gematria of the string.
 
         If the contains no hebrew characters, the value returned is 0. Mixing hebrew and english characters is ok!
 
         :param method: The method to use for calculating the gematria.
+        :param alt_letter_name_spelling: Used only with MISPAR_SHEMI_MILUI: A dict of alternate spellings for a letter
+        that should be used to make the calculation. Eg: `{"ו": "ואו"}`.
         :return:
         """
+        # Remove non hebrew characters
+        cleaned_string: str = "".join(
+            [c for c in self.string if c in [x.char for x in HEBREW_CHARS] or c == " "]
+        )
+
         if method == GematriaTypes.MISPAR_MUSAFI:
             # Mispar Musafi (Heb: מספר מוספי) adds the number of letters in the word or phrase to the value.
-            value = self.__calculate_simple_gematria(GematriaTypes.MISPAR_HECHRACHI)
-            hebrew_letters = [c for c in self.string if c in [x.char for x in HEBREW_CHARS]]
+            value = self.__calculate_simple_gematria(cleaned_string)
+            hebrew_letters = [c for c in cleaned_string if c != " "]
             return value + len(hebrew_letters)
+
+        elif method == GematriaTypes.MISPAR_KOLEL:
+            # Mispar Kolel (Heb: מספר כלל) is the value plus the number of words in the phrase.
+            value = self.__calculate_simple_gematria(cleaned_string)
+            hebrew_words = cleaned_string.split()
+            return value + len(hebrew_words)
+
+        elif method == GematriaTypes.MISPAR_BONEEH:
+            # Mispar Bone'eh (building value) (Heb: מספר בונה) adds the value of all previous letters in the word to the
+            # value of the current letter as the word is calculated. (ex. Echad is 1 + (1 + 8) + (1 + 8 + 4) = 23).
+            values = [
+                self.__calculate_simple_gematria(c)
+                for c in [x for x in cleaned_string if x != " "]
+            ]
+            total = 0
+            for i, n in enumerate(values):
+                total += sum(values[:i]) + n
+            return total
+
+        elif method == GematriaTypes.MISPAR_HAMERUBAH_HAKLALI:
+            # Mispar HaMerubah HaKlali (Heb: מספר המרובע הכללי) is the standard value squared.
+            return self.__calculate_simple_gematria(cleaned_string) ** 2
+
+        elif method == GematriaTypes.MISPAR_HAACHOR:
+            # Mispar Ha'achor (sometimes called Mispar Meshulash, triangular value) (Heb: מספר האחור) values each letter
+            # as its value multiplied by the position of the letter in the word or phrase.
+            values = [
+                self.__calculate_simple_gematria(c)
+                for c in [x for x in cleaned_string if x != " "]
+            ]
+            total = 0
+            for i, n in enumerate(values):
+                total += n * (i + 1)
+            return total
+
+        elif method == GematriaTypes.MISPAR_KATAN_MISPARI:
+            # Mispar Katan Mispari (integral reduced value) (Heb: מספר קטן מספרי) is the digital root of the standard
+            # value which is obtained by adding all the digits in the number until the number is a single digit.
+            # (ex. Echad (13) --> 1 + 3 --> 4).
+            calculated_value = self.__calculate_simple_gematria(cleaned_string)
+            while calculated_value > 9:
+                calculated_value = sum([int(x) for x in str(calculated_value)])
+            return calculated_value
+
+        elif method == GematriaTypes.MISPAR_SHEMI_MILUI:
+            # Mispar Shemi (Milui, full name value) (Heb: מספר שמי\מילוי) values each letter as the value of the
+            # letter's name. (ex. "Aleph" = Aleph + Lamed + Fey = 1 + 30 + 80 = 111).
+            # [Note: There is more than one way to spell certain letters.]
+
+            # Get list of HebrewChar instances for each letter in string
+            chars: List[HebrewChar] = [
+                CHARS[c] for c in [x for x in cleaned_string if x != " "]
+            ]
+
+            # Convert final letters to non-final since our internal lib naming for final letters
+            # will ruin the calculation.
+            replaced_final_letters = [
+                CHARS[FINAL_MINOR_LETTER_MAPPINGS.get(c.char)] if c.final_letter else c
+                for c in chars
+            ]
+
+            # Get internal or user supplied names, and calculate value off them.
+            values = [
+                self.__calculate_simple_gematria(
+                    get_hebrew_name(c, alt_letter_name_spelling)
+                )
+                for c in replaced_final_letters
+            ]
+            return sum(values)
+
+        elif method == GematriaTypes.MISPAR_NEELAM:
+            # Mispar Ne'elam (hidden value) (Heb: מספר נעלם) values each letter as the value of the letter's name
+            # without the letter itself. (ex. "Aleph" = Lamed + Fey = 30 + 80 = 110).
+
+            # Get list of HebrewChar instances for each letter in string
+            chars: List[HebrewChar] = [
+                CHARS[c] for c in [x for x in cleaned_string if x != " "]
+            ]
+
+            # Convert final letters to non-final since our internal lib naming for final letters
+            # will ruin the calculation.
+            replaced_final_letters = [
+                CHARS[FINAL_MINOR_LETTER_MAPPINGS.get(c.char)] if c.final_letter else c
+                for c in chars
+            ]
+
+            # Get internal or user supplied names.
+            names = [
+                get_hebrew_name(c, alt_letter_name_spelling)
+                for c in replaced_final_letters
+            ]
+
+            # Remove letter from name and calculate value
+            values = [self.__calculate_simple_gematria(c[1:]) for c in names]
+            return sum(values)
+
         else:
             # Simple gematria that can be calculated by simply adding each letters value up to a final number.
-            return self.__calculate_simple_gematria(method)
+            return self.__calculate_simple_gematria(self.string, method)
 
-    def __calculate_simple_gematria(self, method: GematriaTypes):
+    @staticmethod
+    def __calculate_simple_gematria(
+        string: str, method: GematriaTypes = GematriaTypes.MISPAR_HECHRACHI
+    ) -> int:
+        """Calculate Gematria for simple Gematria that use a value map for each letter."""
         chars = [
-            CHARS[c]
-            for c in self.string
-            if CHARS.get(c) and hasattr(CHARS[c], method.value)
+            CHARS[c] for c in string if CHARS.get(c) and hasattr(CHARS[c], method.value)
         ]
         if len(chars) == 0:
             # The list will be 0 if there are no letters in the string or if the letters are not hebrew.
