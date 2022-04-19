@@ -1,5 +1,5 @@
 site_name: Hebrew Documentation
-site_description: A python package with methods to handle the complexities of Hebrew text.
+site_description: A python package with methods to handle the complexities of Hebrew text, calculate Gematria, and more.
 site_url: https://hebrew.aviperl.me/
 repo_name: avi-perl/Hebrew
 repo_url: https://github.com/avi-perl/Hebrew

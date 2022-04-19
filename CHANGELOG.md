@@ -5,6 +5,46 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] - 2022-04-19
+
+### Added
+
+- Added the remaining missing Gematria methods. The complete list of supported methods is: 
+  - `ACHAS_BETA`
+  - `ALBAM`
+  - `ATBASH`
+  - `AVGAD`
+  - `AYAK_BACHAR`
+  - `MISPAR_BONEEH`
+  - `MISPAR_GADOL`
+  - `MISPAR_HAACHOR`
+  - `MISPAR_HAMERUBAH_HAKLALI`
+  - `MISPAR_HECHRACHI`
+  - `MISPAR_KATAN`
+  - `MISPAR_KATAN_MISPARI`
+  - `MISPAR_KIDMI`
+  - `MISPAR_KOLEL`
+  - `MISPAR_MESHULASH`
+  - `MISPAR_MISPARI`
+  - `MISPAR_MUSAFI`
+  - `MISPAR_NEELAM`
+  - `MISPAR_PERATI`
+  - `MISPAR_SHEMI_MILUI`
+  - `MISPAR_SIDURI`
+  - `OFANIM`
+  - `REVERSE_AVGAD`
+  
+  ### Example:
+  ```python
+  from hebrew import Hebrew
+  from hebrew import GematriaTypes
+  
+  hs = Hebrew('בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃')
+  
+  print(hs.gematria())  # 2701
+  print(hs.gematria(GematriaTypes.MISPAR_GADOL))  # 4631
+  ```
+
 ## [0.5.8] - 2022-04-18
 
 ### Added

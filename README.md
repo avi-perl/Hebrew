@@ -1,6 +1,6 @@
 <h1 align="center" style="font-family:'Courier New'">Hebrew("בְּרֵאשִׁ֖ית")</h1>
 <p align="center">
-    <em>A python package with methods to handle the complexities of Hebrew text.</em>
+    <em>A python package with methods to handle the complexities of Hebrew text, calculate Gematria, and more.</em>
 </p>
 <p align="center">
 <a href="https://pypi.org/project/hebrew/" target="_blank">
@@ -60,6 +60,7 @@ from hebrew import Hebrew
 from hebrew import GematriaTypes
 
 hs = Hebrew('בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃')
+
 print(hs.gematria())  # 2701
 print(hs.gematria(GematriaTypes.MISPAR_GADOL))  # 4631
 ```
@@ -76,6 +77,7 @@ hs1 = Hebrew(
     '''
 )
 hs2 = Hebrew('בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃')
+
 assert hs1.gematria() ==  hs2.gematria()  # 2701
 ```
 
