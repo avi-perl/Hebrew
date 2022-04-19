@@ -53,6 +53,35 @@ print(ALEPH)  # HebrewChar(char='א', name='Aleph', hebrew_name='אָלֶף', na
 print(HebrewChar.search('bet'))  # HebrewChar(char='בּ', name='Bet', hebrew_name='בֵּית', name_alts=None, hebrew_name_alts=None, final_letter=False)
 ```
 
+## Gematria
+The `Hebrew` class includes a `gematria` function that can return a value for _23_ different variations of Gematria!
+```python
+from hebrew import Hebrew
+from hebrew import GematriaTypes
+
+hs = Hebrew('בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃')
+print(hs.gematria())  # 2701
+print(hs.gematria(GematriaTypes.MISPAR_GADOL))  # 4631
+```
+
+Messy inputs, such as strings with english text mixed in, is supported. However, do be careful to work with sanitized 
+strings as much as possible.
+```python
+from hebrew import Hebrew
+
+hs1 = Hebrew(
+    '''
+    Text:          "בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃"
+    Translation:   "When God began to create heaven and earth"
+    '''
+)
+hs2 = Hebrew('בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃')
+assert hs1.gematria() ==  hs2.gematria()  # 2701
+```
+
+Major kudos goes to [TorahCalc](https://www.torahcalc.com/gematria/) whose calculator and explanations were critical to 
+the development of this feature.  
+
 ## Grapheme Characters
 Hebrew text comes in different forms, depending on the context. Hebrew text may appear with Niqqudot
 "a system of diacritical signs used to represent vowels or distinguish between alternative pronunciations of letters
