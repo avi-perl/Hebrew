@@ -1,0 +1,3083 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A python package with methods to handle the complexities of Hebrew text, calculate Gematria, and more.">
+      
+      
+      
+        <link rel="canonical" href="https://hebrew.aviperl.me/code_reference/chars/classes_and_functions/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
+    
+    
+      
+        <title>Classes and functions - Hebrew Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.120efc48.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../../css/style.css">
+    
+      <link rel="stylesheet" href="../../../css/material.css">
+    
+      <link rel="stylesheet" href="../../../css/mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hebrew.chars" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Hebrew Documentation" class="md-header__button md-logo" aria-label="Hebrew Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Hebrew Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Classes and functions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/avi-perl/Hebrew" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    avi-perl/Hebrew
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Hebrew Documentation" class="md-nav__button md-logo" aria-label="Hebrew Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Hebrew Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/avi-perl/Hebrew" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    avi-perl/Hebrew
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../changelog/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/" class="md-nav__link">
+        Contributing
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../license/" class="md-nav__link">
+        License
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Code reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Code reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Code reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gematria/" class="md-nav__link">
+        Gematria
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../grapheme_string/" class="md-nav__link">
+        Grapheme string
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hebrew/" class="md-nav__link">
+        Hebrew
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_4">
+          Chars
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Chars" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Chars
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Classes and functions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Classes and functions
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars" class="md-nav__link">
+    hebrew.chars
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.BaseHebrewChar" class="md-nav__link">
+    BaseHebrewChar
+  </a>
+  
+    <nav class="md-nav" aria-label="BaseHebrewChar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.BaseHebrewChar.char" class="md-nav__link">
+    char
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.BaseHebrewChar.hebrew_name" class="md-nav__link">
+    hebrew_name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.BaseHebrewChar.hebrew_name_alts" class="md-nav__link">
+    hebrew_name_alts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.BaseHebrewChar.hebrew_names" class="md-nav__link">
+    hebrew_names
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.BaseHebrewChar.name" class="md-nav__link">
+    name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.BaseHebrewChar.name_alts" class="md-nav__link">
+    name_alts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.BaseHebrewChar.names" class="md-nav__link">
+    names
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar" class="md-nav__link">
+    HebrewChar
+  </a>
+  
+    <nav class="md-nav" aria-label="HebrewChar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.achas_beta" class="md-nav__link">
+    achas_beta
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.albam" class="md-nav__link">
+    albam
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.atbash" class="md-nav__link">
+    atbash
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.avgad" class="md-nav__link">
+    avgad
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.ayak_bachar" class="md-nav__link">
+    ayak_bachar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.base_letter" class="md-nav__link">
+    base_letter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.final_letter" class="md-nav__link">
+    final_letter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.mispar_gadol" class="md-nav__link">
+    mispar_gadol
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.mispar_hechrachi" class="md-nav__link">
+    mispar_hechrachi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.mispar_katan" class="md-nav__link">
+    mispar_katan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.mispar_kidmi" class="md-nav__link">
+    mispar_kidmi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.mispar_meshulash" class="md-nav__link">
+    mispar_meshulash
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.mispar_mispari" class="md-nav__link">
+    mispar_mispari
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.mispar_perati" class="md-nav__link">
+    mispar_perati
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.mispar_siduri" class="md-nav__link">
+    mispar_siduri
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.ofanim" class="md-nav__link">
+    ofanim
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.reverse_avgad" class="md-nav__link">
+    reverse_avgad
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.search" class="md-nav__link">
+    search()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.NiqqudChar" class="md-nav__link">
+    NiqqudChar
+  </a>
+  
+    <nav class="md-nav" aria-label="NiqqudChar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.NiqqudChar.search" class="md-nav__link">
+    search()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.OtherChar" class="md-nav__link">
+    OtherChar
+  </a>
+  
+    <nav class="md-nav" aria-label="OtherChar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.OtherChar.search" class="md-nav__link">
+    search()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TaamimChar" class="md-nav__link">
+    TaamimChar
+  </a>
+  
+    <nav class="md-nav" aria-label="TaamimChar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.TaamimChar.search" class="md-nav__link">
+    search()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.YiddishChar" class="md-nav__link">
+    YiddishChar
+  </a>
+  
+    <nav class="md-nav" aria-label="YiddishChar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.YiddishChar.search" class="md-nav__link">
+    search()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.char_search" class="md-nav__link">
+    char_search()
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../constants/" class="md-nav__link">
+        Constants
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars" class="md-nav__link">
+    hebrew.chars
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.BaseHebrewChar" class="md-nav__link">
+    BaseHebrewChar
+  </a>
+  
+    <nav class="md-nav" aria-label="BaseHebrewChar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.BaseHebrewChar.char" class="md-nav__link">
+    char
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.BaseHebrewChar.hebrew_name" class="md-nav__link">
+    hebrew_name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.BaseHebrewChar.hebrew_name_alts" class="md-nav__link">
+    hebrew_name_alts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.BaseHebrewChar.hebrew_names" class="md-nav__link">
+    hebrew_names
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.BaseHebrewChar.name" class="md-nav__link">
+    name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.BaseHebrewChar.name_alts" class="md-nav__link">
+    name_alts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.BaseHebrewChar.names" class="md-nav__link">
+    names
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar" class="md-nav__link">
+    HebrewChar
+  </a>
+  
+    <nav class="md-nav" aria-label="HebrewChar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.achas_beta" class="md-nav__link">
+    achas_beta
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.albam" class="md-nav__link">
+    albam
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.atbash" class="md-nav__link">
+    atbash
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.avgad" class="md-nav__link">
+    avgad
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.ayak_bachar" class="md-nav__link">
+    ayak_bachar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.base_letter" class="md-nav__link">
+    base_letter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.final_letter" class="md-nav__link">
+    final_letter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.mispar_gadol" class="md-nav__link">
+    mispar_gadol
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.mispar_hechrachi" class="md-nav__link">
+    mispar_hechrachi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.mispar_katan" class="md-nav__link">
+    mispar_katan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.mispar_kidmi" class="md-nav__link">
+    mispar_kidmi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.mispar_meshulash" class="md-nav__link">
+    mispar_meshulash
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.mispar_mispari" class="md-nav__link">
+    mispar_mispari
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.mispar_perati" class="md-nav__link">
+    mispar_perati
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.mispar_siduri" class="md-nav__link">
+    mispar_siduri
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.ofanim" class="md-nav__link">
+    ofanim
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.reverse_avgad" class="md-nav__link">
+    reverse_avgad
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.HebrewChar.search" class="md-nav__link">
+    search()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.NiqqudChar" class="md-nav__link">
+    NiqqudChar
+  </a>
+  
+    <nav class="md-nav" aria-label="NiqqudChar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.NiqqudChar.search" class="md-nav__link">
+    search()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.OtherChar" class="md-nav__link">
+    OtherChar
+  </a>
+  
+    <nav class="md-nav" aria-label="OtherChar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.OtherChar.search" class="md-nav__link">
+    search()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TaamimChar" class="md-nav__link">
+    TaamimChar
+  </a>
+  
+    <nav class="md-nav" aria-label="TaamimChar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.TaamimChar.search" class="md-nav__link">
+    search()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.YiddishChar" class="md-nav__link">
+    YiddishChar
+  </a>
+  
+    <nav class="md-nav" aria-label="YiddishChar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.chars.YiddishChar.search" class="md-nav__link">
+    search()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.char_search" class="md-nav__link">
+    char_search()
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/avi-perl/Hebrew/edit/master/docs/code_reference/chars/classes_and_functions.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+  <h1>Classes and functions</h1>
+
+<div class="doc doc-object doc-module">
+
+<a id="hebrew.chars"></a>
+    <div class="doc doc-contents first">
+
+      <p>Constants for each Hebrew character and classes to represent them, and metadata about them.</p>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h2 id="hebrew.chars.BaseHebrewChar" class="doc doc-heading">
+        <code>
+BaseHebrewChar        </code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#hebrew.chars.BaseHebrewChar" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Base class with the metadata that all Hebrew characters share.
+This class should be used internally by <code>hebrew.Chars</code> only.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>hebrew/chars.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">BaseHebrewChar</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class with the metadata that all Hebrew characters share.</span>
+<span class="sd">    This class should be used internally by `hebrew.Chars` only.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">char</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="sd">&quot;&quot;&quot;Unicode character(s) for this class instance.&quot;&quot;&quot;</span>
+
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="sd">&quot;&quot;&quot;Primary name of the character in English.&quot;&quot;&quot;</span>
+
+    <span class="n">hebrew_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Primary name of the character in Hebrew.</span>
+
+<span class="sd">    The choice of primary name is non trivial as it is used as the primary spelling </span>
+<span class="sd">    for the Mispar Shemi Gematria method.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">name_alts</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="sd">&quot;&quot;&quot;Alternative names of the character in English.&quot;&quot;&quot;</span>
+
+    <span class="n">hebrew_name_alts</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="sd">&quot;&quot;&quot;Alternative names of the character in Hebrew.&quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">hebrew_names</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        All Hebrew names for this character.</span>
+<span class="sd">        :return: A list of all Hebrew names for this character made up of the `hebrew_name` and `hebrew_name_alts`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">hebrew_name</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hebrew_name_alts</span> <span class="ow">or</span> <span class="p">[])</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">names</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        All english names for this character.</span>
+<span class="sd">        :return: A list of all english names for this character made up of the `name` and `name_alts`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name_alts</span> <span class="ow">or</span> <span class="p">[])</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">char</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.BaseHebrewChar.char" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">char</span><span class="p">:</span> <span class="nb">str</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-dataclass-field"><code>dataclass-field</code></small>
+  </span>
+
+<a href="#hebrew.chars.BaseHebrewChar.char" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Unicode character(s) for this class instance.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.BaseHebrewChar.hebrew_name" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">hebrew_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-dataclass-field"><code>dataclass-field</code></small>
+  </span>
+
+<a href="#hebrew.chars.BaseHebrewChar.hebrew_name" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Primary name of the character in Hebrew.</p>
+<p>The choice of primary name is non trivial as it is used as the primary spelling 
+for the Mispar Shemi Gematria method.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.BaseHebrewChar.hebrew_name_alts" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">hebrew_name_alts</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-dataclass-field"><code>dataclass-field</code></small>
+  </span>
+
+<a href="#hebrew.chars.BaseHebrewChar.hebrew_name_alts" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Alternative names of the character in Hebrew.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.BaseHebrewChar.hebrew_names" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">hebrew_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a href="#hebrew.chars.BaseHebrewChar.hebrew_names" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>All Hebrew names for this character.</p>
+
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>List[str]</code></td>
+      <td><p>A list of all Hebrew names for this character made up of the <code>hebrew_name</code> and <code>hebrew_name_alts</code>.</p></td>
+    </tr>
+  </tbody>
+</table>    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.BaseHebrewChar.name" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">name</span><span class="p">:</span> <span class="nb">str</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-dataclass-field"><code>dataclass-field</code></small>
+  </span>
+
+<a href="#hebrew.chars.BaseHebrewChar.name" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Primary name of the character in English.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.BaseHebrewChar.name_alts" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">name_alts</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-dataclass-field"><code>dataclass-field</code></small>
+  </span>
+
+<a href="#hebrew.chars.BaseHebrewChar.name_alts" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Alternative names of the character in English.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.BaseHebrewChar.names" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a href="#hebrew.chars.BaseHebrewChar.names" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>All english names for this character.</p>
+
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>List[str]</code></td>
+      <td><p>A list of all english names for this character made up of the <code>name</code> and <code>name_alts</code>.</p></td>
+    </tr>
+  </tbody>
+</table>    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h2 id="hebrew.chars.HebrewChar" class="doc doc-heading">
+        <code>
+HebrewChar            (<a class="autorefs autorefs-internal" title="hebrew.chars.BaseHebrewChar" href="#hebrew.chars.BaseHebrewChar">BaseHebrewChar</a>)
+        </code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#hebrew.chars.HebrewChar" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A class representing characters that are part of the Hebrew alphabet (to the exclusion of Nekuds, etc).</p>
+
+        <details class="quote">
+          <summary>Source code in <code>hebrew/chars.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">HebrewChar</span><span class="p">(</span><span class="n">BaseHebrewChar</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing characters that are part of the Hebrew alphabet (to the exclusion of Nekuds, etc).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">final_letter</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="sd">&quot;&quot;&quot;Whether or not the letter is a &quot;final&quot; or &quot;Sofit&quot; letter.&quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">base_letter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;HebrewChar&quot;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the base letter of the character.</span>
+
+<span class="sd">        This library provides HebrewChar values for both standard Hebrew letters and user-perceived letters such as &quot;בּ&quot;.</span>
+<span class="sd">        This property will always return the base letter of the HebrewChar instance, in the above example, &quot;ב&quot;.</span>
+
+<span class="sd">        :return: An instance of `HebrewChar` representing a single unicode character; the base letter of</span>
+<span class="sd">         this instance of `HebrewChar`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">CHARS</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">char</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mispar_hechrachi</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: The value of the character for use in the mispar_hechrachi method of gematria.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">MISPAR_HECHRACHI</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_letter</span><span class="o">.</span><span class="n">char</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mispar_gadol</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: The value of the character for use in the mispar_gadol method of gematria.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">MISPAR_GADOL</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_letter</span><span class="o">.</span><span class="n">char</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mispar_siduri</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: The value of the character for use in the mispar_siduri method of gematria.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">MISPAR_SIDURI</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_letter</span><span class="o">.</span><span class="n">char</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mispar_katan</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: The value of the character for use in the mispar_katan method of gematria.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">MISPAR_KATAN</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_letter</span><span class="o">.</span><span class="n">char</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mispar_perati</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: The value of the character for use in the mispar_perati method of gematria.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">MISPAR_PERATI</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_letter</span><span class="o">.</span><span class="n">char</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">atbash</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: The value of the character for use in the AtBash method of gematria.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">ATBASH</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_letter</span><span class="o">.</span><span class="n">char</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">albam</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: The value of the character for use in the AtBash method of gematria.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">ALBAM</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_letter</span><span class="o">.</span><span class="n">char</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mispar_meshulash</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: The value of the character for use in the AtBash method of gematria.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">MISPAR_MESHULASH</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_letter</span><span class="o">.</span><span class="n">char</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mispar_kidmi</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: The value of the character for use in the mispar_kidmi method of gematria.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">MISPAR_KIDMI</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_letter</span><span class="o">.</span><span class="n">char</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mispar_mispari</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: The value of the character for use in the mispar_mispari method of gematria.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">MISPAR_MISPARI</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_letter</span><span class="o">.</span><span class="n">char</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ayak_bachar</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: The value of the character for use in the ayak_bachar method of gematria.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">AYAK_BACHAR</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_letter</span><span class="o">.</span><span class="n">char</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ofanim</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: The value of the character for use in the ofanim method of gematria.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">OFANIM</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_letter</span><span class="o">.</span><span class="n">char</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">achas_beta</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: The value of the character for use in the achas_beta method of gematria.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">ACHAS_BETA</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_letter</span><span class="o">.</span><span class="n">char</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">avgad</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: The value of the character for use in the avgad method of gematria.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">AVGAD</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_letter</span><span class="o">.</span><span class="n">char</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">reverse_avgad</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: The value of the character for use in the reverse_avgad method of gematria.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">REVERSE_AVGAD</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_letter</span><span class="o">.</span><span class="n">char</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">char_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;HebrewChar&quot;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Searches for an instance of `HebrewChar` by name.</span>
+<span class="sd">        The search input is case insensitive and is compared to `names` list for this search.</span>
+
+<span class="sd">        To search for any Hebrew character, use `hebrew.chars.char_search`.</span>
+
+<span class="sd">        :param char_name: A single string representing the name of the character to search for.</span>
+<span class="sd">        :return: An instance of `HebrewChar` representing the character with the given name, or `None` if no</span>
+<span class="sd">        character is found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">char_search</span><span class="p">(</span><span class="n">char_name</span><span class="p">,</span> <span class="n">HEBREW_CHARS</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.HebrewChar.achas_beta" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">achas_beta</span><span class="p">:</span> <span class="nb">int</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a href="#hebrew.chars.HebrewChar.achas_beta" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      
+
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>int</code></td>
+      <td><p>The value of the character for use in the achas_beta method of gematria.</p></td>
+    </tr>
+  </tbody>
+</table>    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.HebrewChar.albam" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">albam</span><span class="p">:</span> <span class="nb">int</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a href="#hebrew.chars.HebrewChar.albam" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      
+
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>int</code></td>
+      <td><p>The value of the character for use in the AtBash method of gematria.</p></td>
+    </tr>
+  </tbody>
+</table>    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.HebrewChar.atbash" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">atbash</span><span class="p">:</span> <span class="nb">int</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a href="#hebrew.chars.HebrewChar.atbash" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      
+
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>int</code></td>
+      <td><p>The value of the character for use in the AtBash method of gematria.</p></td>
+    </tr>
+  </tbody>
+</table>    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.HebrewChar.avgad" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">avgad</span><span class="p">:</span> <span class="nb">int</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a href="#hebrew.chars.HebrewChar.avgad" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      
+
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>int</code></td>
+      <td><p>The value of the character for use in the avgad method of gematria.</p></td>
+    </tr>
+  </tbody>
+</table>    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.HebrewChar.ayak_bachar" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">ayak_bachar</span><span class="p">:</span> <span class="nb">int</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a href="#hebrew.chars.HebrewChar.ayak_bachar" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      
+
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>int</code></td>
+      <td><p>The value of the character for use in the ayak_bachar method of gematria.</p></td>
+    </tr>
+  </tbody>
+</table>    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.HebrewChar.base_letter" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">base_letter</span><span class="p">:</span> <span class="n">HebrewChar</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a href="#hebrew.chars.HebrewChar.base_letter" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Returns the base letter of the character.</p>
+<p>This library provides HebrewChar values for both standard Hebrew letters and user-perceived letters such as "בּ".
+This property will always return the base letter of the HebrewChar instance, in the above example, "ב".</p>
+
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>HebrewChar</code></td>
+      <td><p>An instance of <code>HebrewChar</code> representing a single unicode character; the base letter of this instance of <code>HebrewChar</code>.</p></td>
+    </tr>
+  </tbody>
+</table>    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.HebrewChar.final_letter" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">final_letter</span><span class="p">:</span> <span class="nb">bool</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-dataclass-field"><code>dataclass-field</code></small>
+  </span>
+
+<a href="#hebrew.chars.HebrewChar.final_letter" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Whether or not the letter is a "final" or "Sofit" letter.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.HebrewChar.mispar_gadol" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">mispar_gadol</span><span class="p">:</span> <span class="nb">int</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a href="#hebrew.chars.HebrewChar.mispar_gadol" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      
+
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>int</code></td>
+      <td><p>The value of the character for use in the mispar_gadol method of gematria.</p></td>
+    </tr>
+  </tbody>
+</table>    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.HebrewChar.mispar_hechrachi" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">mispar_hechrachi</span><span class="p">:</span> <span class="nb">int</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a href="#hebrew.chars.HebrewChar.mispar_hechrachi" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      
+
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>int</code></td>
+      <td><p>The value of the character for use in the mispar_hechrachi method of gematria.</p></td>
+    </tr>
+  </tbody>
+</table>    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.HebrewChar.mispar_katan" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">mispar_katan</span><span class="p">:</span> <span class="nb">int</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a href="#hebrew.chars.HebrewChar.mispar_katan" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      
+
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>int</code></td>
+      <td><p>The value of the character for use in the mispar_katan method of gematria.</p></td>
+    </tr>
+  </tbody>
+</table>    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.HebrewChar.mispar_kidmi" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">mispar_kidmi</span><span class="p">:</span> <span class="nb">int</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a href="#hebrew.chars.HebrewChar.mispar_kidmi" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      
+
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>int</code></td>
+      <td><p>The value of the character for use in the mispar_kidmi method of gematria.</p></td>
+    </tr>
+  </tbody>
+</table>    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.HebrewChar.mispar_meshulash" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">mispar_meshulash</span><span class="p">:</span> <span class="nb">int</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a href="#hebrew.chars.HebrewChar.mispar_meshulash" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      
+
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>int</code></td>
+      <td><p>The value of the character for use in the AtBash method of gematria.</p></td>
+    </tr>
+  </tbody>
+</table>    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.HebrewChar.mispar_mispari" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">mispar_mispari</span><span class="p">:</span> <span class="nb">int</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a href="#hebrew.chars.HebrewChar.mispar_mispari" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      
+
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>int</code></td>
+      <td><p>The value of the character for use in the mispar_mispari method of gematria.</p></td>
+    </tr>
+  </tbody>
+</table>    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.HebrewChar.mispar_perati" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">mispar_perati</span><span class="p">:</span> <span class="nb">int</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a href="#hebrew.chars.HebrewChar.mispar_perati" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      
+
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>int</code></td>
+      <td><p>The value of the character for use in the mispar_perati method of gematria.</p></td>
+    </tr>
+  </tbody>
+</table>    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.HebrewChar.mispar_siduri" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">mispar_siduri</span><span class="p">:</span> <span class="nb">int</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a href="#hebrew.chars.HebrewChar.mispar_siduri" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      
+
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>int</code></td>
+      <td><p>The value of the character for use in the mispar_siduri method of gematria.</p></td>
+    </tr>
+  </tbody>
+</table>    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.HebrewChar.ofanim" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">ofanim</span><span class="p">:</span> <span class="nb">int</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a href="#hebrew.chars.HebrewChar.ofanim" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      
+
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>int</code></td>
+      <td><p>The value of the character for use in the ofanim method of gematria.</p></td>
+    </tr>
+  </tbody>
+</table>    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="hebrew.chars.HebrewChar.reverse_avgad" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">reverse_avgad</span><span class="p">:</span> <span class="nb">int</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a href="#hebrew.chars.HebrewChar.reverse_avgad" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      
+
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>int</code></td>
+      <td><p>The value of the character for use in the reverse_avgad method of gematria.</p></td>
+    </tr>
+  </tbody>
+</table>    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="hebrew.chars.HebrewChar.search" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">search</span><span class="p">(</span><span class="n">char_name</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#hebrew.chars.HebrewChar.search" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Searches for an instance of <code>HebrewChar</code> by name.
+The search input is case insensitive and is compared to <code>names</code> list for this search.</p>
+<p>To search for any Hebrew character, use <code>hebrew.chars.char_search</code>.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>char_name</code></td>
+        <td><code>str</code></td>
+        <td><p>A single string representing the name of the character to search for.</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Optional[HebrewChar]</code></td>
+      <td><p>An instance of <code>HebrewChar</code> representing the character with the given name, or <code>None</code> if no character is found.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>hebrew/chars.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">char_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;HebrewChar&quot;</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Searches for an instance of `HebrewChar` by name.</span>
+<span class="sd">    The search input is case insensitive and is compared to `names` list for this search.</span>
+
+<span class="sd">    To search for any Hebrew character, use `hebrew.chars.char_search`.</span>
+
+<span class="sd">    :param char_name: A single string representing the name of the character to search for.</span>
+<span class="sd">    :return: An instance of `HebrewChar` representing the character with the given name, or `None` if no</span>
+<span class="sd">    character is found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">char_search</span><span class="p">(</span><span class="n">char_name</span><span class="p">,</span> <span class="n">HEBREW_CHARS</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h2 id="hebrew.chars.NiqqudChar" class="doc doc-heading">
+        <code>
+NiqqudChar            (<a class="autorefs autorefs-internal" title="hebrew.chars.BaseHebrewChar" href="#hebrew.chars.BaseHebrewChar">BaseHebrewChar</a>)
+        </code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#hebrew.chars.NiqqudChar" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A class representing Niqqud characters used in Hebrew and Yiddish text.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>hebrew/chars.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">NiqqudChar</span><span class="p">(</span><span class="n">BaseHebrewChar</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing Niqqud characters used in Hebrew and Yiddish text.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">char_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;NiqqudChar&quot;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Searches for an instance of `NiqqudChar` by name.</span>
+<span class="sd">        The search input is case insensitive and is compared to `names` list for this search.</span>
+
+<span class="sd">        To search for any Hebrew character, use `hebrew.chars.char_search`.</span>
+
+<span class="sd">        :param char_name: A single string representing the name of the character to search for.</span>
+<span class="sd">        :return: An instance of `NiqqudChar` representing the character with the given name, or `None` if no</span>
+<span class="sd">        character is found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">char_search</span><span class="p">(</span><span class="n">char_name</span><span class="p">,</span> <span class="n">NIQQUD_CHARS</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="hebrew.chars.NiqqudChar.search" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">search</span><span class="p">(</span><span class="n">char_name</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#hebrew.chars.NiqqudChar.search" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Searches for an instance of <code>NiqqudChar</code> by name.
+The search input is case insensitive and is compared to <code>names</code> list for this search.</p>
+<p>To search for any Hebrew character, use <code>hebrew.chars.char_search</code>.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>char_name</code></td>
+        <td><code>str</code></td>
+        <td><p>A single string representing the name of the character to search for.</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Optional[NiqqudChar]</code></td>
+      <td><p>An instance of <code>NiqqudChar</code> representing the character with the given name, or <code>None</code> if no character is found.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>hebrew/chars.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">char_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;NiqqudChar&quot;</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Searches for an instance of `NiqqudChar` by name.</span>
+<span class="sd">    The search input is case insensitive and is compared to `names` list for this search.</span>
+
+<span class="sd">    To search for any Hebrew character, use `hebrew.chars.char_search`.</span>
+
+<span class="sd">    :param char_name: A single string representing the name of the character to search for.</span>
+<span class="sd">    :return: An instance of `NiqqudChar` representing the character with the given name, or `None` if no</span>
+<span class="sd">    character is found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">char_search</span><span class="p">(</span><span class="n">char_name</span><span class="p">,</span> <span class="n">NIQQUD_CHARS</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h2 id="hebrew.chars.OtherChar" class="doc doc-heading">
+        <code>
+OtherChar            (<a class="autorefs autorefs-internal" title="hebrew.chars.BaseHebrewChar" href="#hebrew.chars.BaseHebrewChar">BaseHebrewChar</a>)
+        </code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#hebrew.chars.OtherChar" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A class representing the "other" or "uncharacterized" characters used in Hebrew (and Yiddish) text.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>hebrew/chars.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">OtherChar</span><span class="p">(</span><span class="n">BaseHebrewChar</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing the &quot;other&quot; or &quot;uncharacterized&quot; characters used in Hebrew (and Yiddish) text.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">char_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;OtherChar&quot;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Searches for an instance of `TaamimChar` by name.</span>
+<span class="sd">        The search input is case insensitive and is compared to `names` list for this search.</span>
+
+<span class="sd">        To search for any Hebrew character, use `hebrew.chars.char_search`.</span>
+
+<span class="sd">        :param char_name: A single string representing the name of the character to search for.</span>
+<span class="sd">        :return: An instance of `OtherChar` representing the character with the given name, or `None` if no</span>
+<span class="sd">        character is found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">char_search</span><span class="p">(</span><span class="n">char_name</span><span class="p">,</span> <span class="n">OTHER_CHARS</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="hebrew.chars.OtherChar.search" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">search</span><span class="p">(</span><span class="n">char_name</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#hebrew.chars.OtherChar.search" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Searches for an instance of <code>TaamimChar</code> by name.
+The search input is case insensitive and is compared to <code>names</code> list for this search.</p>
+<p>To search for any Hebrew character, use <code>hebrew.chars.char_search</code>.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>char_name</code></td>
+        <td><code>str</code></td>
+        <td><p>A single string representing the name of the character to search for.</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Optional[OtherChar]</code></td>
+      <td><p>An instance of <code>OtherChar</code> representing the character with the given name, or <code>None</code> if no character is found.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>hebrew/chars.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">char_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;OtherChar&quot;</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Searches for an instance of `TaamimChar` by name.</span>
+<span class="sd">    The search input is case insensitive and is compared to `names` list for this search.</span>
+
+<span class="sd">    To search for any Hebrew character, use `hebrew.chars.char_search`.</span>
+
+<span class="sd">    :param char_name: A single string representing the name of the character to search for.</span>
+<span class="sd">    :return: An instance of `OtherChar` representing the character with the given name, or `None` if no</span>
+<span class="sd">    character is found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">char_search</span><span class="p">(</span><span class="n">char_name</span><span class="p">,</span> <span class="n">OTHER_CHARS</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h2 id="hebrew.chars.TaamimChar" class="doc doc-heading">
+        <code>
+TaamimChar            (<a class="autorefs autorefs-internal" title="hebrew.chars.BaseHebrewChar" href="#hebrew.chars.BaseHebrewChar">BaseHebrewChar</a>)
+        </code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#hebrew.chars.TaamimChar" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A class representing the "Trup" or <a href="https://en.wikipedia.org/wiki/Hebrew_cantillation">Hebrew cantillation</a>
+characters used alongside Hebrew letters.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>hebrew/chars.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">TaamimChar</span><span class="p">(</span><span class="n">BaseHebrewChar</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing the &quot;Trup&quot; or [Hebrew cantillation](https://en.wikipedia.org/wiki/Hebrew_cantillation)</span>
+<span class="sd">    characters used alongside Hebrew letters.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">char_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;TaamimChar&quot;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Searches for an instance of `TaamimChar` by name.</span>
+<span class="sd">        The search input is case insensitive and is compared to `names` list for this search.</span>
+
+<span class="sd">        To search for any Hebrew character, use `hebrew.chars.char_search`.</span>
+
+<span class="sd">        :param char_name: A single string representing the name of the character to search for.</span>
+<span class="sd">        :return: An instance of `TaamimChar` representing the character with the given name, or `None` if no</span>
+<span class="sd">        character is found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">char_search</span><span class="p">(</span><span class="n">char_name</span><span class="p">,</span> <span class="n">TAAMIM_CHARS</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="hebrew.chars.TaamimChar.search" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">search</span><span class="p">(</span><span class="n">char_name</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#hebrew.chars.TaamimChar.search" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Searches for an instance of <code>TaamimChar</code> by name.
+The search input is case insensitive and is compared to <code>names</code> list for this search.</p>
+<p>To search for any Hebrew character, use <code>hebrew.chars.char_search</code>.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>char_name</code></td>
+        <td><code>str</code></td>
+        <td><p>A single string representing the name of the character to search for.</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Optional[TaamimChar]</code></td>
+      <td><p>An instance of <code>TaamimChar</code> representing the character with the given name, or <code>None</code> if no character is found.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>hebrew/chars.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">char_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;TaamimChar&quot;</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Searches for an instance of `TaamimChar` by name.</span>
+<span class="sd">    The search input is case insensitive and is compared to `names` list for this search.</span>
+
+<span class="sd">    To search for any Hebrew character, use `hebrew.chars.char_search`.</span>
+
+<span class="sd">    :param char_name: A single string representing the name of the character to search for.</span>
+<span class="sd">    :return: An instance of `TaamimChar` representing the character with the given name, or `None` if no</span>
+<span class="sd">    character is found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">char_search</span><span class="p">(</span><span class="n">char_name</span><span class="p">,</span> <span class="n">TAAMIM_CHARS</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h2 id="hebrew.chars.YiddishChar" class="doc doc-heading">
+        <code>
+YiddishChar            (<a class="autorefs autorefs-internal" title="hebrew.chars.BaseHebrewChar" href="#hebrew.chars.BaseHebrewChar">BaseHebrewChar</a>)
+        </code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#hebrew.chars.YiddishChar" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A class representing special characters used in Yiddish text.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>hebrew/chars.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">YiddishChar</span><span class="p">(</span><span class="n">BaseHebrewChar</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing special characters used in Yiddish text.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">char_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;YiddishChar&quot;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Searches for an instance of `YiddishChar` by name.</span>
+<span class="sd">        The search input is case insensitive and is compared to `names` list for this search.</span>
+
+<span class="sd">        To search for any Hebrew character, use `hebrew.chars.char_search`.</span>
+
+<span class="sd">        :param char_name: A single string representing the name of the character to search for.</span>
+<span class="sd">        :return: An instance of `YiddishChar` representing the character with the given name, or `None` if no</span>
+<span class="sd">        character is found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">char_search</span><span class="p">(</span><span class="n">char_name</span><span class="p">,</span> <span class="n">YIDDISH_CHARS</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="hebrew.chars.YiddishChar.search" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">search</span><span class="p">(</span><span class="n">char_name</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#hebrew.chars.YiddishChar.search" class="headerlink" title="Permanent link">ל</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Searches for an instance of <code>YiddishChar</code> by name.
+The search input is case insensitive and is compared to <code>names</code> list for this search.</p>
+<p>To search for any Hebrew character, use <code>hebrew.chars.char_search</code>.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>char_name</code></td>
+        <td><code>str</code></td>
+        <td><p>A single string representing the name of the character to search for.</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Optional[YiddishChar]</code></td>
+      <td><p>An instance of <code>YiddishChar</code> representing the character with the given name, or <code>None</code> if no character is found.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>hebrew/chars.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">char_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;YiddishChar&quot;</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Searches for an instance of `YiddishChar` by name.</span>
+<span class="sd">    The search input is case insensitive and is compared to `names` list for this search.</span>
+
+<span class="sd">    To search for any Hebrew character, use `hebrew.chars.char_search`.</span>
+
+<span class="sd">    :param char_name: A single string representing the name of the character to search for.</span>
+<span class="sd">    :return: An instance of `YiddishChar` representing the character with the given name, or `None` if no</span>
+<span class="sd">    character is found.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">char_search</span><span class="p">(</span><span class="n">char_name</span><span class="p">,</span> <span class="n">YIDDISH_CHARS</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="hebrew.chars.char_search" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">char_search</span><span class="p">(</span><span class="n">char_name</span><span class="p">,</span> <span class="n">char_list</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+
+<a href="#hebrew.chars.char_search" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Search for a character by its name.</p>
+<p>Character classes contain alternate names which are supported by this function!
+Currently, only english names are supported.
+TODO: Support search in hebrew, which will need to support hebrew text with or without nikud.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>char_name</code></td>
+        <td><code>str</code></td>
+        <td><p>A string containing the name of the character to search for.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>char_list</code></td>
+        <td><code>Optional[List[Union[hebrew.chars.HebrewChar, hebrew.chars.YiddishChar, hebrew.chars.NiqqudChar, hebrew.chars.TaamimChar, hebrew.chars.OtherChar]]]</code></td>
+        <td><p>A list of <code>BaseHebrewChar</code> characters to use for this search. When None, defaults to all characters (ALL_CHARS).</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Union[hebrew.chars.HebrewChar, hebrew.chars.YiddishChar, hebrew.chars.NiqqudChar, hebrew.chars.TaamimChar, hebrew.chars.OtherChar]</code></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>hebrew/chars.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">char_search</span><span class="p">(</span>
+    <span class="n">char_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">char_list</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span>
+        <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">HebrewChar</span><span class="p">,</span> <span class="n">YiddishChar</span><span class="p">,</span> <span class="n">NiqqudChar</span><span class="p">,</span> <span class="n">TaamimChar</span><span class="p">,</span> <span class="n">OtherChar</span><span class="p">]]</span>
+    <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">HebrewChar</span><span class="p">,</span> <span class="n">YiddishChar</span><span class="p">,</span> <span class="n">NiqqudChar</span><span class="p">,</span> <span class="n">TaamimChar</span><span class="p">,</span> <span class="n">OtherChar</span><span class="p">]]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Search for a character by its name.</span>
+
+<span class="sd">    Character classes contain alternate names which are supported by this function!</span>
+<span class="sd">    Currently, only english names are supported.</span>
+<span class="sd">    TODO: Support search in hebrew, which will need to support hebrew text with or without nikud.</span>
+
+<span class="sd">    :param char_name: A string containing the name of the character to search for.</span>
+<span class="sd">    :param char_list: A list of `BaseHebrewChar` characters to use for this search.</span>
+<span class="sd">    When None, defaults to all characters (ALL_CHARS).</span>
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">char_list</span> <span class="o">=</span> <span class="n">char_list</span> <span class="k">if</span> <span class="n">char_list</span> <span class="k">else</span> <span class="n">ALL_CHARS</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">char_list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">char_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="n">n</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">char</span><span class="o">.</span><span class="n">names</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="n">CHARS</span><span class="p">[</span><span class="n">char</span><span class="o">.</span><span class="n">char</span><span class="p">]</span>
+    <span class="k">return</span> <span class="kc">None</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../hebrew/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Hebrew" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Hebrew
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../constants/" class="md-footer__link md-footer__link--next" aria-label="Next: Constants" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Constants
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/__aviperl__" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/avi-perl" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/avrohomperl/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
+      
+    
+  </body>
+</html>

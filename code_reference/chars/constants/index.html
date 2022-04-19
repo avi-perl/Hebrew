@@ -1,0 +1,7055 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A python package with methods to handle the complexities of Hebrew text, calculate Gematria, and more.">
+      
+      
+      
+        <link rel="canonical" href="https://hebrew.aviperl.me/code_reference/chars/constants/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
+    
+    
+      
+        <title>Constants - Hebrew Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.120efc48.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../../css/style.css">
+    
+      <link rel="stylesheet" href="../../../css/material.css">
+    
+      <link rel="stylesheet" href="../../../css/mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hebrew.chars" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Hebrew Documentation" class="md-header__button md-logo" aria-label="Hebrew Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Hebrew Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Constants
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/avi-perl/Hebrew" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    avi-perl/Hebrew
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Hebrew Documentation" class="md-nav__button md-logo" aria-label="Hebrew Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Hebrew Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/avi-perl/Hebrew" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    avi-perl/Hebrew
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../changelog/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/" class="md-nav__link">
+        Contributing
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../license/" class="md-nav__link">
+        License
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Code reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Code reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Code reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gematria/" class="md-nav__link">
+        Gematria
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../grapheme_string/" class="md-nav__link">
+        Grapheme string
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hebrew/" class="md-nav__link">
+        Hebrew
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_4">
+          Chars
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Chars" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Chars
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classes_and_functions/" class="md-nav__link">
+        Classes and functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Constants
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Constants
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars" class="md-nav__link">
+    hebrew.chars
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ALEF_MAPIQ" class="md-nav__link">
+    ALEF_MAPIQ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ALEF_PATAH" class="md-nav__link">
+    ALEF_PATAH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ALEF_QAMATZ" class="md-nav__link">
+    ALEF_QAMATZ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ALEF_WIDE" class="md-nav__link">
+    ALEF_WIDE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ALEPH" class="md-nav__link">
+    ALEPH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ALEPH_LAMED" class="md-nav__link">
+    ALEPH_LAMED
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ALEPH_SYMBOL" class="md-nav__link">
+    ALEPH_SYMBOL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ALL_CHARS" class="md-nav__link">
+    ALL_CHARS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ALTERNATIVE_PLUS_SIGN" class="md-nav__link">
+    ALTERNATIVE_PLUS_SIGN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ATNAH_HAFUKH" class="md-nav__link">
+    ATNAH_HAFUKH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.AYIN" class="md-nav__link">
+    AYIN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.AYIN_ALT" class="md-nav__link">
+    AYIN_ALT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.AZLA_GERESH" class="md-nav__link">
+    AZLA_GERESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.BES" class="md-nav__link">
+    BES
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.BET" class="md-nav__link">
+    BET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.BET_DAGESH" class="md-nav__link">
+    BET_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.BET_RAFE" class="md-nav__link">
+    BET_RAFE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.BET_SYMBOL" class="md-nav__link">
+    BET_SYMBOL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.CAF" class="md-nav__link">
+    CAF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.CHAF" class="md-nav__link">
+    CHAF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.CHAF_SOFIT" class="md-nav__link">
+    CHAF_SOFIT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.CHARS" class="md-nav__link">
+    CHARS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.CHES" class="md-nav__link">
+    CHES
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.CHET" class="md-nav__link">
+    CHET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.CHIRIK" class="md-nav__link">
+    CHIRIK
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DAGESH" class="md-nav__link">
+    DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DALED" class="md-nav__link">
+    DALED
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DALET" class="md-nav__link">
+    DALET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DALET_DAGESH" class="md-nav__link">
+    DALET_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DALET_SYMBOL" class="md-nav__link">
+    DALET_SYMBOL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DALET_WIDE" class="md-nav__link">
+    DALET_WIDE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DARGA" class="md-nav__link">
+    DARGA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DEHI" class="md-nav__link">
+    DEHI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DOUBLE_VAV" class="md-nav__link">
+    DOUBLE_VAV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DOUBLE_VUV" class="md-nav__link">
+    DOUBLE_VUV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DOUBLE_YOD" class="md-nav__link">
+    DOUBLE_YOD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DOUBLE_YUD" class="md-nav__link">
+    DOUBLE_YUD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ETNAHTA" class="md-nav__link">
+    ETNAHTA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FE" class="md-nav__link">
+    FE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FE_SOFIT" class="md-nav__link">
+    FE_SOFIT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_CHAF" class="md-nav__link">
+    FINAL_CHAF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_FE" class="md-nav__link">
+    FINAL_FE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_KAF" class="md-nav__link">
+    FINAL_KAF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_KAF_DAGESH" class="md-nav__link">
+    FINAL_KAF_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_LETTERS" class="md-nav__link">
+    FINAL_LETTERS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_MEM" class="md-nav__link">
+    FINAL_MEM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_MEM_WIDE" class="md-nav__link">
+    FINAL_MEM_WIDE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_MINOR_LETTER_MAPPINGS" class="md-nav__link">
+    FINAL_MINOR_LETTER_MAPPINGS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_NUN" class="md-nav__link">
+    FINAL_NUN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_PE" class="md-nav__link">
+    FINAL_PE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_PE_DAGESH" class="md-nav__link">
+    FINAL_PE_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_TSADI" class="md-nav__link">
+    FINAL_TSADI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_TZADIK" class="md-nav__link">
+    FINAL_TZADIK
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.GERESH" class="md-nav__link">
+    GERESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.GERESH_MUQDAM" class="md-nav__link">
+    GERESH_MUQDAM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.GERSHAYIM" class="md-nav__link">
+    GERSHAYIM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.GERSHAYIM_2" class="md-nav__link">
+    GERSHAYIM_2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.GIMEL" class="md-nav__link">
+    GIMEL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.GIMEL_DAGESH" class="md-nav__link">
+    GIMEL_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.GIMEL_SYMBOL" class="md-nav__link">
+    GIMEL_SYMBOL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HATAF_PATAH" class="md-nav__link">
+    HATAF_PATAH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HATAF_QAMATS" class="md-nav__link">
+    HATAF_QAMATS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HATAF_SEGOL" class="md-nav__link">
+    HATAF_SEGOL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HE" class="md-nav__link">
+    HE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HEBREW_CHARS" class="md-nav__link">
+    HEBREW_CHARS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HEI" class="md-nav__link">
+    HEI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HET" class="md-nav__link">
+    HET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HEY" class="md-nav__link">
+    HEY
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HE_MAPIQ" class="md-nav__link">
+    HE_MAPIQ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HE_WIDE" class="md-nav__link">
+    HE_WIDE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HIRIQ" class="md-nav__link">
+    HIRIQ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HOLAM" class="md-nav__link">
+    HOLAM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HOLAM_HASER" class="md-nav__link">
+    HOLAM_HASER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ILUY" class="md-nav__link">
+    ILUY
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.INVERTED_NUN" class="md-nav__link">
+    INVERTED_NUN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.JUDEO_SPANISH_VARIKA" class="md-nav__link">
+    JUDEO_SPANISH_VARIKA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.KAF_DAGESH" class="md-nav__link">
+    KAF_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.KAF_RAFE" class="md-nav__link">
+    KAF_RAFE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.KAF_SOFIT" class="md-nav__link">
+    KAF_SOFIT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.KAF_WIDE" class="md-nav__link">
+    KAF_WIDE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.KUBUTZ" class="md-nav__link">
+    KUBUTZ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.KUF" class="md-nav__link">
+    KUF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.KUMATZ" class="md-nav__link">
+    KUMATZ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.LAMED" class="md-nav__link">
+    LAMED
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.LAMED_DAGESH" class="md-nav__link">
+    LAMED_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.LAMED_WIDE" class="md-nav__link">
+    LAMED_WIDE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.LAMID" class="md-nav__link">
+    LAMID
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.LOWER_DOT" class="md-nav__link">
+    LOWER_DOT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.MAHPACH" class="md-nav__link">
+    MAHPACH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.MAQAF" class="md-nav__link">
+    MAQAF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.MASORA" class="md-nav__link">
+    MASORA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.MEM" class="md-nav__link">
+    MEM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.MEM_DAGESH" class="md-nav__link">
+    MEM_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.MEM_SOFIT" class="md-nav__link">
+    MEM_SOFIT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.MERCHA" class="md-nav__link">
+    MERCHA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.MERCHA_KEFULA" class="md-nav__link">
+    MERCHA_KEFULA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.METEG" class="md-nav__link">
+    METEG
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.MUNACH" class="md-nav__link">
+    MUNACH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.NIQQUD_CHARS" class="md-nav__link">
+    NIQQUD_CHARS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.NUN" class="md-nav__link">
+    NUN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.NUN_DAGESH" class="md-nav__link">
+    NUN_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.NUN_HAFUKHA" class="md-nav__link">
+    NUN_HAFUKHA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.NUN_SOFIT" class="md-nav__link">
+    NUN_SOFIT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.OLA" class="md-nav__link">
+    OLA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.OTHER_CHARS" class="md-nav__link">
+    OTHER_CHARS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PASEQ" class="md-nav__link">
+    PASEQ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PASHTA" class="md-nav__link">
+    PASHTA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PASHTA_2" class="md-nav__link">
+    PASHTA_2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PATACH" class="md-nav__link">
+    PATACH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PATAH" class="md-nav__link">
+    PATAH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PAZER" class="md-nav__link">
+    PAZER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PAZER_GADOL" class="md-nav__link">
+    PAZER_GADOL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PE" class="md-nav__link">
+    PE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PE_DAGESH" class="md-nav__link">
+    PE_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PE_RAFE" class="md-nav__link">
+    PE_RAFE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PE_SOFIT" class="md-nav__link">
+    PE_SOFIT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PLAIN_SIN" class="md-nav__link">
+    PLAIN_SIN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.QADMA" class="md-nav__link">
+    QADMA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.QAMATS" class="md-nav__link">
+    QAMATS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.QAMATS_KATAN" class="md-nav__link">
+    QAMATS_KATAN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.QARNEY_PARA" class="md-nav__link">
+    QARNEY_PARA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.QOF" class="md-nav__link">
+    QOF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.QOF_DAGESH" class="md-nav__link">
+    QOF_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.QUBUTS" class="md-nav__link">
+    QUBUTS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.RAFE" class="md-nav__link">
+    RAFE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.RESH" class="md-nav__link">
+    RESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.RESH_DAGESH" class="md-nav__link">
+    RESH_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.RESH_WIDE" class="md-nav__link">
+    RESH_WIDE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.REVIA" class="md-nav__link">
+    REVIA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SAF" class="md-nav__link">
+    SAF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SAMACH" class="md-nav__link">
+    SAMACH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SAMEKH" class="md-nav__link">
+    SAMEKH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SAMEKH_DAGESH" class="md-nav__link">
+    SAMEKH_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SAV" class="md-nav__link">
+    SAV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SEGOL" class="md-nav__link">
+    SEGOL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SEGOL_TOP" class="md-nav__link">
+    SEGOL_TOP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SHALSHELET" class="md-nav__link">
+    SHALSHELET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SHEVA" class="md-nav__link">
+    SHEVA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SHIN" class="md-nav__link">
+    SHIN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SHIN_DAGESH" class="md-nav__link">
+    SHIN_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SHIN_DAGESH_SHIN_DOT" class="md-nav__link">
+    SHIN_DAGESH_SHIN_DOT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SHIN_DAGESH_SIN_DOT" class="md-nav__link">
+    SHIN_DAGESH_SIN_DOT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SHIN_DOT" class="md-nav__link">
+    SHIN_DOT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SHIN_SHIN_DOT" class="md-nav__link">
+    SHIN_SHIN_DOT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SHIN_SIN_DOT" class="md-nav__link">
+    SHIN_SIN_DOT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SHIVAH" class="md-nav__link">
+    SHIVAH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SHURUK" class="md-nav__link">
+    SHURUK
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SIN" class="md-nav__link">
+    SIN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SIN_DOT" class="md-nav__link">
+    SIN_DOT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SOF_PASSUK" class="md-nav__link">
+    SOF_PASSUK
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TAAMIM_CHARS" class="md-nav__link">
+    TAAMIM_CHARS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TAF" class="md-nav__link">
+    TAF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TAV" class="md-nav__link">
+    TAV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TAV_DAGESH" class="md-nav__link">
+    TAV_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TAV_WIDE" class="md-nav__link">
+    TAV_WIDE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TELISHA_GEDOLA" class="md-nav__link">
+    TELISHA_GEDOLA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TELISHA_KETANNAH" class="md-nav__link">
+    TELISHA_KETANNAH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TES" class="md-nav__link">
+    TES
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TET" class="md-nav__link">
+    TET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TET_DAGESH" class="md-nav__link">
+    TET_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TEVIR" class="md-nav__link">
+    TEVIR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TIFCHA" class="md-nav__link">
+    TIFCHA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TSADI" class="md-nav__link">
+    TSADI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TSADI_DAGESH" class="md-nav__link">
+    TSADI_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TSADI_SOFIT" class="md-nav__link">
+    TSADI_SOFIT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TSERE" class="md-nav__link">
+    TSERE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TZADIK" class="md-nav__link">
+    TZADIK
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TZADIK_SOFIT" class="md-nav__link">
+    TZADIK_SOFIT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.UPPER_DOT" class="md-nav__link">
+    UPPER_DOT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.VAV" class="md-nav__link">
+    VAV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.VAV_DAGESH" class="md-nav__link">
+    VAV_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.VAV_HOLAM" class="md-nav__link">
+    VAV_HOLAM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.VAV_YOD" class="md-nav__link">
+    VAV_YOD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.VAV_YUD" class="md-nav__link">
+    VAV_YUD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.VET" class="md-nav__link">
+    VET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.VUV" class="md-nav__link">
+    VUV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.VUV_YOD" class="md-nav__link">
+    VUV_YOD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.VUV_YUD" class="md-nav__link">
+    VUV_YUD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.YERACH_BEN_YOMO" class="md-nav__link">
+    YERACH_BEN_YOMO
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.YETIV" class="md-nav__link">
+    YETIV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.YIDDISH_CHARS" class="md-nav__link">
+    YIDDISH_CHARS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.YOD" class="md-nav__link">
+    YOD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.YOD_DAGESH" class="md-nav__link">
+    YOD_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.YOD_HIRIQ" class="md-nav__link">
+    YOD_HIRIQ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.YOD_TRIANGLE" class="md-nav__link">
+    YOD_TRIANGLE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.YOD_YOD_PATAH" class="md-nav__link">
+    YOD_YOD_PATAH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.YUD" class="md-nav__link">
+    YUD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.YUD_TRIANGLE" class="md-nav__link">
+    YUD_TRIANGLE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ZAQEF_GADOL" class="md-nav__link">
+    ZAQEF_GADOL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ZAQEF_QATAN" class="md-nav__link">
+    ZAQEF_QATAN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ZARQA" class="md-nav__link">
+    ZARQA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ZAYIN" class="md-nav__link">
+    ZAYIN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ZAYIN_DAGESH" class="md-nav__link">
+    ZAYIN_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ZINOR" class="md-nav__link">
+    ZINOR
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars" class="md-nav__link">
+    hebrew.chars
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ALEF_MAPIQ" class="md-nav__link">
+    ALEF_MAPIQ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ALEF_PATAH" class="md-nav__link">
+    ALEF_PATAH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ALEF_QAMATZ" class="md-nav__link">
+    ALEF_QAMATZ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ALEF_WIDE" class="md-nav__link">
+    ALEF_WIDE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ALEPH" class="md-nav__link">
+    ALEPH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ALEPH_LAMED" class="md-nav__link">
+    ALEPH_LAMED
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ALEPH_SYMBOL" class="md-nav__link">
+    ALEPH_SYMBOL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ALL_CHARS" class="md-nav__link">
+    ALL_CHARS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ALTERNATIVE_PLUS_SIGN" class="md-nav__link">
+    ALTERNATIVE_PLUS_SIGN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ATNAH_HAFUKH" class="md-nav__link">
+    ATNAH_HAFUKH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.AYIN" class="md-nav__link">
+    AYIN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.AYIN_ALT" class="md-nav__link">
+    AYIN_ALT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.AZLA_GERESH" class="md-nav__link">
+    AZLA_GERESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.BES" class="md-nav__link">
+    BES
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.BET" class="md-nav__link">
+    BET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.BET_DAGESH" class="md-nav__link">
+    BET_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.BET_RAFE" class="md-nav__link">
+    BET_RAFE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.BET_SYMBOL" class="md-nav__link">
+    BET_SYMBOL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.CAF" class="md-nav__link">
+    CAF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.CHAF" class="md-nav__link">
+    CHAF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.CHAF_SOFIT" class="md-nav__link">
+    CHAF_SOFIT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.CHARS" class="md-nav__link">
+    CHARS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.CHES" class="md-nav__link">
+    CHES
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.CHET" class="md-nav__link">
+    CHET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.CHIRIK" class="md-nav__link">
+    CHIRIK
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DAGESH" class="md-nav__link">
+    DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DALED" class="md-nav__link">
+    DALED
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DALET" class="md-nav__link">
+    DALET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DALET_DAGESH" class="md-nav__link">
+    DALET_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DALET_SYMBOL" class="md-nav__link">
+    DALET_SYMBOL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DALET_WIDE" class="md-nav__link">
+    DALET_WIDE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DARGA" class="md-nav__link">
+    DARGA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DEHI" class="md-nav__link">
+    DEHI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DOUBLE_VAV" class="md-nav__link">
+    DOUBLE_VAV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DOUBLE_VUV" class="md-nav__link">
+    DOUBLE_VUV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DOUBLE_YOD" class="md-nav__link">
+    DOUBLE_YOD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.DOUBLE_YUD" class="md-nav__link">
+    DOUBLE_YUD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ETNAHTA" class="md-nav__link">
+    ETNAHTA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FE" class="md-nav__link">
+    FE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FE_SOFIT" class="md-nav__link">
+    FE_SOFIT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_CHAF" class="md-nav__link">
+    FINAL_CHAF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_FE" class="md-nav__link">
+    FINAL_FE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_KAF" class="md-nav__link">
+    FINAL_KAF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_KAF_DAGESH" class="md-nav__link">
+    FINAL_KAF_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_LETTERS" class="md-nav__link">
+    FINAL_LETTERS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_MEM" class="md-nav__link">
+    FINAL_MEM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_MEM_WIDE" class="md-nav__link">
+    FINAL_MEM_WIDE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_MINOR_LETTER_MAPPINGS" class="md-nav__link">
+    FINAL_MINOR_LETTER_MAPPINGS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_NUN" class="md-nav__link">
+    FINAL_NUN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_PE" class="md-nav__link">
+    FINAL_PE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_PE_DAGESH" class="md-nav__link">
+    FINAL_PE_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_TSADI" class="md-nav__link">
+    FINAL_TSADI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.FINAL_TZADIK" class="md-nav__link">
+    FINAL_TZADIK
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.GERESH" class="md-nav__link">
+    GERESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.GERESH_MUQDAM" class="md-nav__link">
+    GERESH_MUQDAM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.GERSHAYIM" class="md-nav__link">
+    GERSHAYIM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.GERSHAYIM_2" class="md-nav__link">
+    GERSHAYIM_2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.GIMEL" class="md-nav__link">
+    GIMEL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.GIMEL_DAGESH" class="md-nav__link">
+    GIMEL_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.GIMEL_SYMBOL" class="md-nav__link">
+    GIMEL_SYMBOL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HATAF_PATAH" class="md-nav__link">
+    HATAF_PATAH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HATAF_QAMATS" class="md-nav__link">
+    HATAF_QAMATS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HATAF_SEGOL" class="md-nav__link">
+    HATAF_SEGOL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HE" class="md-nav__link">
+    HE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HEBREW_CHARS" class="md-nav__link">
+    HEBREW_CHARS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HEI" class="md-nav__link">
+    HEI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HET" class="md-nav__link">
+    HET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HEY" class="md-nav__link">
+    HEY
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HE_MAPIQ" class="md-nav__link">
+    HE_MAPIQ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HE_WIDE" class="md-nav__link">
+    HE_WIDE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HIRIQ" class="md-nav__link">
+    HIRIQ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HOLAM" class="md-nav__link">
+    HOLAM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.HOLAM_HASER" class="md-nav__link">
+    HOLAM_HASER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ILUY" class="md-nav__link">
+    ILUY
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.INVERTED_NUN" class="md-nav__link">
+    INVERTED_NUN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.JUDEO_SPANISH_VARIKA" class="md-nav__link">
+    JUDEO_SPANISH_VARIKA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.KAF_DAGESH" class="md-nav__link">
+    KAF_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.KAF_RAFE" class="md-nav__link">
+    KAF_RAFE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.KAF_SOFIT" class="md-nav__link">
+    KAF_SOFIT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.KAF_WIDE" class="md-nav__link">
+    KAF_WIDE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.KUBUTZ" class="md-nav__link">
+    KUBUTZ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.KUF" class="md-nav__link">
+    KUF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.KUMATZ" class="md-nav__link">
+    KUMATZ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.LAMED" class="md-nav__link">
+    LAMED
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.LAMED_DAGESH" class="md-nav__link">
+    LAMED_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.LAMED_WIDE" class="md-nav__link">
+    LAMED_WIDE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.LAMID" class="md-nav__link">
+    LAMID
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.LOWER_DOT" class="md-nav__link">
+    LOWER_DOT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.MAHPACH" class="md-nav__link">
+    MAHPACH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.MAQAF" class="md-nav__link">
+    MAQAF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.MASORA" class="md-nav__link">
+    MASORA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.MEM" class="md-nav__link">
+    MEM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.MEM_DAGESH" class="md-nav__link">
+    MEM_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.MEM_SOFIT" class="md-nav__link">
+    MEM_SOFIT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.MERCHA" class="md-nav__link">
+    MERCHA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.MERCHA_KEFULA" class="md-nav__link">
+    MERCHA_KEFULA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.METEG" class="md-nav__link">
+    METEG
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.MUNACH" class="md-nav__link">
+    MUNACH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.NIQQUD_CHARS" class="md-nav__link">
+    NIQQUD_CHARS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.NUN" class="md-nav__link">
+    NUN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.NUN_DAGESH" class="md-nav__link">
+    NUN_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.NUN_HAFUKHA" class="md-nav__link">
+    NUN_HAFUKHA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.NUN_SOFIT" class="md-nav__link">
+    NUN_SOFIT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.OLA" class="md-nav__link">
+    OLA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.OTHER_CHARS" class="md-nav__link">
+    OTHER_CHARS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PASEQ" class="md-nav__link">
+    PASEQ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PASHTA" class="md-nav__link">
+    PASHTA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PASHTA_2" class="md-nav__link">
+    PASHTA_2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PATACH" class="md-nav__link">
+    PATACH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PATAH" class="md-nav__link">
+    PATAH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PAZER" class="md-nav__link">
+    PAZER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PAZER_GADOL" class="md-nav__link">
+    PAZER_GADOL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PE" class="md-nav__link">
+    PE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PE_DAGESH" class="md-nav__link">
+    PE_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PE_RAFE" class="md-nav__link">
+    PE_RAFE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PE_SOFIT" class="md-nav__link">
+    PE_SOFIT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.PLAIN_SIN" class="md-nav__link">
+    PLAIN_SIN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.QADMA" class="md-nav__link">
+    QADMA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.QAMATS" class="md-nav__link">
+    QAMATS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.QAMATS_KATAN" class="md-nav__link">
+    QAMATS_KATAN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.QARNEY_PARA" class="md-nav__link">
+    QARNEY_PARA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.QOF" class="md-nav__link">
+    QOF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.QOF_DAGESH" class="md-nav__link">
+    QOF_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.QUBUTS" class="md-nav__link">
+    QUBUTS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.RAFE" class="md-nav__link">
+    RAFE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.RESH" class="md-nav__link">
+    RESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.RESH_DAGESH" class="md-nav__link">
+    RESH_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.RESH_WIDE" class="md-nav__link">
+    RESH_WIDE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.REVIA" class="md-nav__link">
+    REVIA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SAF" class="md-nav__link">
+    SAF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SAMACH" class="md-nav__link">
+    SAMACH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SAMEKH" class="md-nav__link">
+    SAMEKH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SAMEKH_DAGESH" class="md-nav__link">
+    SAMEKH_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SAV" class="md-nav__link">
+    SAV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SEGOL" class="md-nav__link">
+    SEGOL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SEGOL_TOP" class="md-nav__link">
+    SEGOL_TOP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SHALSHELET" class="md-nav__link">
+    SHALSHELET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SHEVA" class="md-nav__link">
+    SHEVA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SHIN" class="md-nav__link">
+    SHIN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SHIN_DAGESH" class="md-nav__link">
+    SHIN_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SHIN_DAGESH_SHIN_DOT" class="md-nav__link">
+    SHIN_DAGESH_SHIN_DOT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SHIN_DAGESH_SIN_DOT" class="md-nav__link">
+    SHIN_DAGESH_SIN_DOT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SHIN_DOT" class="md-nav__link">
+    SHIN_DOT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SHIN_SHIN_DOT" class="md-nav__link">
+    SHIN_SHIN_DOT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SHIN_SIN_DOT" class="md-nav__link">
+    SHIN_SIN_DOT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SHIVAH" class="md-nav__link">
+    SHIVAH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SHURUK" class="md-nav__link">
+    SHURUK
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SIN" class="md-nav__link">
+    SIN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SIN_DOT" class="md-nav__link">
+    SIN_DOT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.SOF_PASSUK" class="md-nav__link">
+    SOF_PASSUK
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TAAMIM_CHARS" class="md-nav__link">
+    TAAMIM_CHARS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TAF" class="md-nav__link">
+    TAF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TAV" class="md-nav__link">
+    TAV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TAV_DAGESH" class="md-nav__link">
+    TAV_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TAV_WIDE" class="md-nav__link">
+    TAV_WIDE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TELISHA_GEDOLA" class="md-nav__link">
+    TELISHA_GEDOLA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TELISHA_KETANNAH" class="md-nav__link">
+    TELISHA_KETANNAH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TES" class="md-nav__link">
+    TES
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TET" class="md-nav__link">
+    TET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TET_DAGESH" class="md-nav__link">
+    TET_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TEVIR" class="md-nav__link">
+    TEVIR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TIFCHA" class="md-nav__link">
+    TIFCHA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TSADI" class="md-nav__link">
+    TSADI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TSADI_DAGESH" class="md-nav__link">
+    TSADI_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TSADI_SOFIT" class="md-nav__link">
+    TSADI_SOFIT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TSERE" class="md-nav__link">
+    TSERE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TZADIK" class="md-nav__link">
+    TZADIK
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.TZADIK_SOFIT" class="md-nav__link">
+    TZADIK_SOFIT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.UPPER_DOT" class="md-nav__link">
+    UPPER_DOT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.VAV" class="md-nav__link">
+    VAV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.VAV_DAGESH" class="md-nav__link">
+    VAV_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.VAV_HOLAM" class="md-nav__link">
+    VAV_HOLAM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.VAV_YOD" class="md-nav__link">
+    VAV_YOD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.VAV_YUD" class="md-nav__link">
+    VAV_YUD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.VET" class="md-nav__link">
+    VET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.VUV" class="md-nav__link">
+    VUV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.VUV_YOD" class="md-nav__link">
+    VUV_YOD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.VUV_YUD" class="md-nav__link">
+    VUV_YUD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.YERACH_BEN_YOMO" class="md-nav__link">
+    YERACH_BEN_YOMO
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.YETIV" class="md-nav__link">
+    YETIV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.YIDDISH_CHARS" class="md-nav__link">
+    YIDDISH_CHARS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.YOD" class="md-nav__link">
+    YOD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.YOD_DAGESH" class="md-nav__link">
+    YOD_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.YOD_HIRIQ" class="md-nav__link">
+    YOD_HIRIQ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.YOD_TRIANGLE" class="md-nav__link">
+    YOD_TRIANGLE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.YOD_YOD_PATAH" class="md-nav__link">
+    YOD_YOD_PATAH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.YUD" class="md-nav__link">
+    YUD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.YUD_TRIANGLE" class="md-nav__link">
+    YUD_TRIANGLE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ZAQEF_GADOL" class="md-nav__link">
+    ZAQEF_GADOL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ZAQEF_QATAN" class="md-nav__link">
+    ZAQEF_QATAN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ZARQA" class="md-nav__link">
+    ZARQA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ZAYIN" class="md-nav__link">
+    ZAYIN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ZAYIN_DAGESH" class="md-nav__link">
+    ZAYIN_DAGESH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.chars.ZINOR" class="md-nav__link">
+    ZINOR
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/avi-perl/Hebrew/edit/master/docs/code_reference/chars/constants.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+  <h1>Constants</h1>
+
+<div class="doc doc-object doc-module">
+
+<a id="hebrew.chars"></a>
+    <div class="doc doc-contents first">
+
+      <p>Constants for each Hebrew character and classes to represent them, and metadata about them.</p>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.ALEF_MAPIQ" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">ALEF_MAPIQ</span></code>
+
+
+<a href="#hebrew.chars.ALEF_MAPIQ" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'אּ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.ALEF_PATAH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">ALEF_PATAH</span></code>
+
+
+<a href="#hebrew.chars.ALEF_PATAH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'אַ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.ALEF_QAMATZ" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">ALEF_QAMATZ</span></code>
+
+
+<a href="#hebrew.chars.ALEF_QAMATZ" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'אָ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.ALEF_WIDE" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">ALEF_WIDE</span></code>
+
+
+<a href="#hebrew.chars.ALEF_WIDE" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ﬡ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.ALEPH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">ALEPH</span></code>
+
+
+<a href="#hebrew.chars.ALEPH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <code>'א'</code></p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.ALEPH_LAMED" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">ALEPH_LAMED</span></code>
+
+
+<a href="#hebrew.chars.ALEPH_LAMED" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ﭏ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.ALEPH_SYMBOL" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">ALEPH_SYMBOL</span></code>
+
+
+<a href="#hebrew.chars.ALEPH_SYMBOL" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ℵ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.ALL_CHARS" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">ALL_CHARS</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">hebrew</span><span class="o">.</span><span class="n">chars</span><span class="o">.</span><span class="n">HebrewChar</span><span class="p">,</span> <span class="n">hebrew</span><span class="o">.</span><span class="n">chars</span><span class="o">.</span><span class="n">YiddishChar</span><span class="p">,</span> <span class="n">hebrew</span><span class="o">.</span><span class="n">chars</span><span class="o">.</span><span class="n">NiqqudChar</span><span class="p">,</span> <span class="n">hebrew</span><span class="o">.</span><span class="n">chars</span><span class="o">.</span><span class="n">TaamimChar</span><span class="p">,</span> <span class="n">hebrew</span><span class="o">.</span><span class="n">chars</span><span class="o">.</span><span class="n">OtherChar</span><span class="p">]]</span></code>
+
+
+<a href="#hebrew.chars.ALL_CHARS" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Every instance of a character class.
+This is used for defining collections with list comprehensions based on the Chars metadata.
+It can be relied on as being a complete list of Unicode characters used in Hebrew (and Yiddish etc).</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.ALTERNATIVE_PLUS_SIGN" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">ALTERNATIVE_PLUS_SIGN</span></code>
+
+
+<a href="#hebrew.chars.ALTERNATIVE_PLUS_SIGN" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>OtherChar</code> representing the character <strong><code>'﬩'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.ATNAH_HAFUKH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">ATNAH_HAFUKH</span></code>
+
+
+<a href="#hebrew.chars.ATNAH_HAFUKH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֢'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.AYIN" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">AYIN</span></code>
+
+
+<a href="#hebrew.chars.AYIN" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ע'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.AYIN_ALT" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">AYIN_ALT</span></code>
+
+
+<a href="#hebrew.chars.AYIN_ALT" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ﬠ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.AZLA_GERESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">AZLA_GERESH</span></code>
+
+
+<a href="#hebrew.chars.AZLA_GERESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֜'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.BES" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">BES</span></code>
+
+
+<a href="#hebrew.chars.BES" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>BET</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.BET" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">BET</span></code>
+
+
+<a href="#hebrew.chars.BET" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'בּ'</code></strong>.
+<em>This is not strictly a letter, but is included because it is often treated as one.</em></p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.BET_DAGESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">BET_DAGESH</span></code>
+
+
+<a href="#hebrew.chars.BET_DAGESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'בּ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.BET_RAFE" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">BET_RAFE</span></code>
+
+
+<a href="#hebrew.chars.BET_RAFE" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'בֿ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.BET_SYMBOL" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">BET_SYMBOL</span></code>
+
+
+<a href="#hebrew.chars.BET_SYMBOL" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ℶ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.CAF" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">CAF</span></code>
+
+
+<a href="#hebrew.chars.CAF" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'כּ'</code></strong>.
+<em>This is not strictly a letter, but is included because it is often treated as one.</em></p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.CHAF" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">CHAF</span></code>
+
+
+<a href="#hebrew.chars.CHAF" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'כ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.CHAF_SOFIT" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">CHAF_SOFIT</span></code>
+
+
+<a href="#hebrew.chars.CHAF_SOFIT" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ך'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.CHARS" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">CHARS</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="n">hebrew</span><span class="o">.</span><span class="n">chars</span><span class="o">.</span><span class="n">HebrewChar</span><span class="p">,</span> <span class="n">hebrew</span><span class="o">.</span><span class="n">chars</span><span class="o">.</span><span class="n">YiddishChar</span><span class="p">,</span> <span class="n">hebrew</span><span class="o">.</span><span class="n">chars</span><span class="o">.</span><span class="n">NiqqudChar</span><span class="p">,</span> <span class="n">hebrew</span><span class="o">.</span><span class="n">chars</span><span class="o">.</span><span class="n">TaamimChar</span><span class="p">,</span> <span class="n">hebrew</span><span class="o">.</span><span class="n">chars</span><span class="o">.</span><span class="n">OtherChar</span><span class="p">]]</span></code>
+
+
+<a href="#hebrew.chars.CHARS" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A dict of all instances of all supported Char types where the key is the char
+and the value is an instance of BaseHebrewChar.
+This is useful for when you have a hebrew char and want to get its metadata class.</p>
+<pre><code class="language-python">assert CHARS['א'] == ALEPH
+</code></pre>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.CHES" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">CHES</span></code>
+
+
+<a href="#hebrew.chars.CHES" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>CHET</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.CHET" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">CHET</span></code>
+
+
+<a href="#hebrew.chars.CHET" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ז'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.CHIRIK" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">CHIRIK</span></code>
+
+
+<a href="#hebrew.chars.CHIRIK" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>HIRIQ</code></p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.DAGESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">DAGESH</span></code>
+
+
+<a href="#hebrew.chars.DAGESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>NiqqudChar</code> representing the Niqqud <strong><code>'ּ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.DALED" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">DALED</span></code>
+
+
+<a href="#hebrew.chars.DALED" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>DALET</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.DALET" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">DALET</span></code>
+
+
+<a href="#hebrew.chars.DALET" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ד'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.DALET_DAGESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">DALET_DAGESH</span></code>
+
+
+<a href="#hebrew.chars.DALET_DAGESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'דּ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.DALET_SYMBOL" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">DALET_SYMBOL</span></code>
+
+
+<a href="#hebrew.chars.DALET_SYMBOL" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ℸ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.DALET_WIDE" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">DALET_WIDE</span></code>
+
+
+<a href="#hebrew.chars.DALET_WIDE" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ﬢ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.DARGA" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">DARGA</span></code>
+
+
+<a href="#hebrew.chars.DARGA" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֧'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.DEHI" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">DEHI</span></code>
+
+
+<a href="#hebrew.chars.DEHI" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֭'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.DOUBLE_VAV" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">DOUBLE_VAV</span></code>
+
+
+<a href="#hebrew.chars.DOUBLE_VAV" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>YiddishChar</code> representing the letter <strong><code>'װ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.DOUBLE_VUV" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">DOUBLE_VUV</span></code>
+
+
+<a href="#hebrew.chars.DOUBLE_VUV" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>DOUBLE_VAV</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.DOUBLE_YOD" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">DOUBLE_YOD</span></code>
+
+
+<a href="#hebrew.chars.DOUBLE_YOD" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>YiddishChar</code> representing the letter <strong><code>'ײ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.DOUBLE_YUD" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">DOUBLE_YUD</span></code>
+
+
+<a href="#hebrew.chars.DOUBLE_YUD" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>DOUBLE_YOD</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.ETNAHTA" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">ETNAHTA</span></code>
+
+
+<a href="#hebrew.chars.ETNAHTA" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֑'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.FE" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">FE</span></code>
+
+
+<a href="#hebrew.chars.FE" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'פ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.FE_SOFIT" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">FE_SOFIT</span></code>
+
+
+<a href="#hebrew.chars.FE_SOFIT" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ף'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.FINAL_CHAF" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">FINAL_CHAF</span></code>
+
+
+<a href="#hebrew.chars.FINAL_CHAF" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>CHAF_SOFIT</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.FINAL_FE" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">FINAL_FE</span></code>
+
+
+<a href="#hebrew.chars.FINAL_FE" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>FE_SOFIT</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.FINAL_KAF" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">FINAL_KAF</span></code>
+
+
+<a href="#hebrew.chars.FINAL_KAF" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>KAF_SOFIT</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.FINAL_KAF_DAGESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">FINAL_KAF_DAGESH</span></code>
+
+
+<a href="#hebrew.chars.FINAL_KAF_DAGESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ךּ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.FINAL_LETTERS" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">FINAL_LETTERS</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">hebrew</span><span class="o">.</span><span class="n">chars</span><span class="o">.</span><span class="n">HebrewChar</span><span class="p">]</span></code>
+
+
+<a href="#hebrew.chars.FINAL_LETTERS" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A list of all Hebrew characters that are final letters.
+While we do have letters like 'ףּ' defined, they do not return in this array; it contains only the plain final letters.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.FINAL_MEM" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">FINAL_MEM</span></code>
+
+
+<a href="#hebrew.chars.FINAL_MEM" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>MEM_SOFIT</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.FINAL_MEM_WIDE" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">FINAL_MEM_WIDE</span></code>
+
+
+<a href="#hebrew.chars.FINAL_MEM_WIDE" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ﬦ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.FINAL_MINOR_LETTER_MAPPINGS" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">FINAL_MINOR_LETTER_MAPPINGS</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span></code>
+
+
+<a href="#hebrew.chars.FINAL_MINOR_LETTER_MAPPINGS" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A map of final letters to their regular counterparts, and vice versa.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.FINAL_NUN" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">FINAL_NUN</span></code>
+
+
+<a href="#hebrew.chars.FINAL_NUN" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>NUN_SOFIT</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.FINAL_PE" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">FINAL_PE</span></code>
+
+
+<a href="#hebrew.chars.FINAL_PE" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>PE_SOFIT</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.FINAL_PE_DAGESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">FINAL_PE_DAGESH</span></code>
+
+
+<a href="#hebrew.chars.FINAL_PE_DAGESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ףּ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.FINAL_TSADI" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">FINAL_TSADI</span></code>
+
+
+<a href="#hebrew.chars.FINAL_TSADI" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>TSADI_SOFIT</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.FINAL_TZADIK" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">FINAL_TZADIK</span></code>
+
+
+<a href="#hebrew.chars.FINAL_TZADIK" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>TSADI_SOFIT</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.GERESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">GERESH</span></code>
+
+
+<a href="#hebrew.chars.GERESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>OtherChar</code> representing the character <strong><code>'׳'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.GERESH_MUQDAM" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">GERESH_MUQDAM</span></code>
+
+
+<a href="#hebrew.chars.GERESH_MUQDAM" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֝'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.GERSHAYIM" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">GERSHAYIM</span></code>
+
+
+<a href="#hebrew.chars.GERSHAYIM" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>OtherChar</code> representing the character <strong><code>'״'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.GERSHAYIM_2" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">GERSHAYIM_2</span></code>
+
+
+<a href="#hebrew.chars.GERSHAYIM_2" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֞'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.GIMEL" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">GIMEL</span></code>
+
+
+<a href="#hebrew.chars.GIMEL" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ג'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.GIMEL_DAGESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">GIMEL_DAGESH</span></code>
+
+
+<a href="#hebrew.chars.GIMEL_DAGESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'גּ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.GIMEL_SYMBOL" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">GIMEL_SYMBOL</span></code>
+
+
+<a href="#hebrew.chars.GIMEL_SYMBOL" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ℷ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.HATAF_PATAH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">HATAF_PATAH</span></code>
+
+
+<a href="#hebrew.chars.HATAF_PATAH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>NiqqudChar</code> representing the Niqqud <strong><code>'ֲ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.HATAF_QAMATS" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">HATAF_QAMATS</span></code>
+
+
+<a href="#hebrew.chars.HATAF_QAMATS" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>NiqqudChar</code> representing the Niqqud <strong><code>'ֳ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.HATAF_SEGOL" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">HATAF_SEGOL</span></code>
+
+
+<a href="#hebrew.chars.HATAF_SEGOL" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>NiqqudChar</code> representing the Niqqud <strong><code>'ֱ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.HE" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">HE</span></code>
+
+
+<a href="#hebrew.chars.HE" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ה'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.HEBREW_CHARS" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">HEBREW_CHARS</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">hebrew</span><span class="o">.</span><span class="n">chars</span><span class="o">.</span><span class="n">HebrewChar</span><span class="p">]</span></code>
+
+
+<a href="#hebrew.chars.HEBREW_CHARS" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A List of all instances of <code>HebrewChar</code>. This will include letters like 'ףּ'</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.HEI" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">HEI</span></code>
+
+
+<a href="#hebrew.chars.HEI" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>HE</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.HET" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">HET</span></code>
+
+
+<a href="#hebrew.chars.HET" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>CHET</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.HEY" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">HEY</span></code>
+
+
+<a href="#hebrew.chars.HEY" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>HE</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.HE_MAPIQ" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">HE_MAPIQ</span></code>
+
+
+<a href="#hebrew.chars.HE_MAPIQ" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'הּ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.HE_WIDE" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">HE_WIDE</span></code>
+
+
+<a href="#hebrew.chars.HE_WIDE" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ﬣ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.HIRIQ" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">HIRIQ</span></code>
+
+
+<a href="#hebrew.chars.HIRIQ" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>NiqqudChar</code> representing the Niqqud <strong><code>'ִ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.HOLAM" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">HOLAM</span></code>
+
+
+<a href="#hebrew.chars.HOLAM" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>NiqqudChar</code> representing the Niqqud <strong><code>'ֹ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.HOLAM_HASER" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">HOLAM_HASER</span></code>
+
+
+<a href="#hebrew.chars.HOLAM_HASER" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>NiqqudChar</code> representing the Niqqud <strong><code>'ֺ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.ILUY" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">ILUY</span></code>
+
+
+<a href="#hebrew.chars.ILUY" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֬'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.INVERTED_NUN" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">INVERTED_NUN</span></code>
+
+
+<a href="#hebrew.chars.INVERTED_NUN" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>OtherChar</code> representing the letter <strong><code>'׆'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.JUDEO_SPANISH_VARIKA" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">JUDEO_SPANISH_VARIKA</span></code>
+
+
+<a href="#hebrew.chars.JUDEO_SPANISH_VARIKA" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'ﬞ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.KAF_DAGESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">KAF_DAGESH</span></code>
+
+
+<a href="#hebrew.chars.KAF_DAGESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'כּ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.KAF_RAFE" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">KAF_RAFE</span></code>
+
+
+<a href="#hebrew.chars.KAF_RAFE" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'כֿ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.KAF_SOFIT" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">KAF_SOFIT</span></code>
+
+
+<a href="#hebrew.chars.KAF_SOFIT" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ךּ'</code></strong>.
+<em>This is not strictly a letter, but is included because it is often treated as one.</em></p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.KAF_WIDE" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">KAF_WIDE</span></code>
+
+
+<a href="#hebrew.chars.KAF_WIDE" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ﬤ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.KUBUTZ" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">KUBUTZ</span></code>
+
+
+<a href="#hebrew.chars.KUBUTZ" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>QUBUTS</code></p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.KUF" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">KUF</span></code>
+
+
+<a href="#hebrew.chars.KUF" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>TSADI_SOFIT</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.KUMATZ" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">KUMATZ</span></code>
+
+
+<a href="#hebrew.chars.KUMATZ" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>QAMATS</code></p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.LAMED" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">LAMED</span></code>
+
+
+<a href="#hebrew.chars.LAMED" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ל'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.LAMED_DAGESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">LAMED_DAGESH</span></code>
+
+
+<a href="#hebrew.chars.LAMED_DAGESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'לּ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.LAMED_WIDE" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">LAMED_WIDE</span></code>
+
+
+<a href="#hebrew.chars.LAMED_WIDE" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ﬥ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.LAMID" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">LAMID</span></code>
+
+
+<a href="#hebrew.chars.LAMID" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>LAMED</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.LOWER_DOT" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">LOWER_DOT</span></code>
+
+
+<a href="#hebrew.chars.LOWER_DOT" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>NiqqudChar</code> representing the Niqqud <strong><code>'ׅ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.MAHPACH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">MAHPACH</span></code>
+
+
+<a href="#hebrew.chars.MAHPACH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֤'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.MAQAF" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">MAQAF</span></code>
+
+
+<a href="#hebrew.chars.MAQAF" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the character <strong><code>'־'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.MASORA" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">MASORA</span></code>
+
+
+<a href="#hebrew.chars.MASORA" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֯'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.MEM" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">MEM</span></code>
+
+
+<a href="#hebrew.chars.MEM" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'מ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.MEM_DAGESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">MEM_DAGESH</span></code>
+
+
+<a href="#hebrew.chars.MEM_DAGESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'מּ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.MEM_SOFIT" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">MEM_SOFIT</span></code>
+
+
+<a href="#hebrew.chars.MEM_SOFIT" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ם'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.MERCHA" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">MERCHA</span></code>
+
+
+<a href="#hebrew.chars.MERCHA" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֥'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.MERCHA_KEFULA" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">MERCHA_KEFULA</span></code>
+
+
+<a href="#hebrew.chars.MERCHA_KEFULA" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֦'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.METEG" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">METEG</span></code>
+
+
+<a href="#hebrew.chars.METEG" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'ֽ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.MUNACH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">MUNACH</span></code>
+
+
+<a href="#hebrew.chars.MUNACH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֣'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.NIQQUD_CHARS" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">NIQQUD_CHARS</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">hebrew</span><span class="o">.</span><span class="n">chars</span><span class="o">.</span><span class="n">NiqqudChar</span><span class="p">]</span></code>
+
+
+<a href="#hebrew.chars.NIQQUD_CHARS" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A List of all instances of <code>NiqqudChar</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.NUN" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">NUN</span></code>
+
+
+<a href="#hebrew.chars.NUN" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'נ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.NUN_DAGESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">NUN_DAGESH</span></code>
+
+
+<a href="#hebrew.chars.NUN_DAGESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'נּ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.NUN_HAFUKHA" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">NUN_HAFUKHA</span></code>
+
+
+<a href="#hebrew.chars.NUN_HAFUKHA" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>INVERTED_NUN</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.NUN_SOFIT" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">NUN_SOFIT</span></code>
+
+
+<a href="#hebrew.chars.NUN_SOFIT" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ן'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.OLA" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">OLA</span></code>
+
+
+<a href="#hebrew.chars.OLA" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֫'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.OTHER_CHARS" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">OTHER_CHARS</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">hebrew</span><span class="o">.</span><span class="n">chars</span><span class="o">.</span><span class="n">OtherChar</span><span class="p">]</span></code>
+
+
+<a href="#hebrew.chars.OTHER_CHARS" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A List of all instances of <code>OtherChar</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.PASEQ" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">PASEQ</span></code>
+
+
+<a href="#hebrew.chars.PASEQ" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the character <strong><code>'׀'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.PASHTA" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">PASHTA</span></code>
+
+
+<a href="#hebrew.chars.PASHTA" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֙'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.PASHTA_2" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">PASHTA_2</span></code>
+
+
+<a href="#hebrew.chars.PASHTA_2" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֨'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.PATACH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">PATACH</span></code>
+
+
+<a href="#hebrew.chars.PATACH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>PATAH</code></p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.PATAH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">PATAH</span></code>
+
+
+<a href="#hebrew.chars.PATAH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>NiqqudChar</code> representing the Niqqud <strong><code>'ַ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.PAZER" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">PAZER</span></code>
+
+
+<a href="#hebrew.chars.PAZER" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֡'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.PAZER_GADOL" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">PAZER_GADOL</span></code>
+
+
+<a href="#hebrew.chars.PAZER_GADOL" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>QARNEY_PARA</code> since they share the same Unicode character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.PE" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">PE</span></code>
+
+
+<a href="#hebrew.chars.PE" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'פּ'</code></strong>.
+<em>This is not strictly a letter, but is included because it is often treated as one.</em></p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.PE_DAGESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">PE_DAGESH</span></code>
+
+
+<a href="#hebrew.chars.PE_DAGESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'פּ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.PE_RAFE" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">PE_RAFE</span></code>
+
+
+<a href="#hebrew.chars.PE_RAFE" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'פֿ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.PE_SOFIT" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">PE_SOFIT</span></code>
+
+
+<a href="#hebrew.chars.PE_SOFIT" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ףּ'</code></strong>.
+<em>This is not strictly a letter, but is included because it is often treated as one.</em></p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.PLAIN_SIN" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">PLAIN_SIN</span></code>
+
+
+<a href="#hebrew.chars.PLAIN_SIN" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ש'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.QADMA" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">QADMA</span></code>
+
+
+<a href="#hebrew.chars.QADMA" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>PASHTA_2</code> since they share the same Unicode character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.QAMATS" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">QAMATS</span></code>
+
+
+<a href="#hebrew.chars.QAMATS" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>NiqqudChar</code> representing the Niqqud <strong><code>'ָ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.QAMATS_KATAN" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">QAMATS_KATAN</span></code>
+
+
+<a href="#hebrew.chars.QAMATS_KATAN" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>NiqqudChar</code> representing the Niqqud <strong><code>'ׇ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.QARNEY_PARA" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">QARNEY_PARA</span></code>
+
+
+<a href="#hebrew.chars.QARNEY_PARA" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֟'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.QOF" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">QOF</span></code>
+
+
+<a href="#hebrew.chars.QOF" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ק'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.QOF_DAGESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">QOF_DAGESH</span></code>
+
+
+<a href="#hebrew.chars.QOF_DAGESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'קּ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.QUBUTS" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">QUBUTS</span></code>
+
+
+<a href="#hebrew.chars.QUBUTS" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>NiqqudChar</code> representing the Niqqud <strong><code>'ֻ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.RAFE" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">RAFE</span></code>
+
+
+<a href="#hebrew.chars.RAFE" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'ֿ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.RESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">RESH</span></code>
+
+
+<a href="#hebrew.chars.RESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ר'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.RESH_DAGESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">RESH_DAGESH</span></code>
+
+
+<a href="#hebrew.chars.RESH_DAGESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'רּ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.RESH_WIDE" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">RESH_WIDE</span></code>
+
+
+<a href="#hebrew.chars.RESH_WIDE" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ﬧ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.REVIA" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">REVIA</span></code>
+
+
+<a href="#hebrew.chars.REVIA" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֗'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.SAF" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">SAF</span></code>
+
+
+<a href="#hebrew.chars.SAF" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>SAV</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.SAMACH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">SAMACH</span></code>
+
+
+<a href="#hebrew.chars.SAMACH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>SAMEKH</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.SAMEKH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">SAMEKH</span></code>
+
+
+<a href="#hebrew.chars.SAMEKH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ס'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.SAMEKH_DAGESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">SAMEKH_DAGESH</span></code>
+
+
+<a href="#hebrew.chars.SAMEKH_DAGESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'סּ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.SAV" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">SAV</span></code>
+
+
+<a href="#hebrew.chars.SAV" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ת'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.SEGOL" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">SEGOL</span></code>
+
+
+<a href="#hebrew.chars.SEGOL" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>NiqqudChar</code> representing the Niqqud <strong><code>'ֶ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.SEGOL_TOP" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">SEGOL_TOP</span></code>
+
+
+<a href="#hebrew.chars.SEGOL_TOP" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֒'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.SHALSHELET" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">SHALSHELET</span></code>
+
+
+<a href="#hebrew.chars.SHALSHELET" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֓'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.SHEVA" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">SHEVA</span></code>
+
+
+<a href="#hebrew.chars.SHEVA" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>NiqqudChar</code> representing the Niqqud <strong><code>'ְ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.SHIN" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">SHIN</span></code>
+
+
+<a href="#hebrew.chars.SHIN" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'שׁ'</code></strong>.
+<em>This is not strictly a letter, but is included because it is often treated as one.</em></p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.SHIN_DAGESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">SHIN_DAGESH</span></code>
+
+
+<a href="#hebrew.chars.SHIN_DAGESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'שּ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.SHIN_DAGESH_SHIN_DOT" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">SHIN_DAGESH_SHIN_DOT</span></code>
+
+
+<a href="#hebrew.chars.SHIN_DAGESH_SHIN_DOT" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'שּׁ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.SHIN_DAGESH_SIN_DOT" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">SHIN_DAGESH_SIN_DOT</span></code>
+
+
+<a href="#hebrew.chars.SHIN_DAGESH_SIN_DOT" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'שּׂ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.SHIN_DOT" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">SHIN_DOT</span></code>
+
+
+<a href="#hebrew.chars.SHIN_DOT" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>NiqqudChar</code> representing the Niqqud <strong><code>'ׁ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.SHIN_SHIN_DOT" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">SHIN_SHIN_DOT</span></code>
+
+
+<a href="#hebrew.chars.SHIN_SHIN_DOT" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'שׁ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.SHIN_SIN_DOT" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">SHIN_SIN_DOT</span></code>
+
+
+<a href="#hebrew.chars.SHIN_SIN_DOT" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'שׂ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.SHIVAH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">SHIVAH</span></code>
+
+
+<a href="#hebrew.chars.SHIVAH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>SHEVA</code></p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.SHURUK" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">SHURUK</span></code>
+
+
+<a href="#hebrew.chars.SHURUK" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>NiqqudChar</code> representing the Niqqud <strong><code>'וּ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.SIN" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">SIN</span></code>
+
+
+<a href="#hebrew.chars.SIN" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'שׂ'</code></strong>.
+<em>This is not strictly a letter, but is included because it is often treated as one.</em></p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.SIN_DOT" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">SIN_DOT</span></code>
+
+
+<a href="#hebrew.chars.SIN_DOT" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>NiqqudChar</code> representing the Niqqud <strong><code>'ׂ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.SOF_PASSUK" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">SOF_PASSUK</span></code>
+
+
+<a href="#hebrew.chars.SOF_PASSUK" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the character <strong><code>'׃'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.TAAMIM_CHARS" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">TAAMIM_CHARS</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">hebrew</span><span class="o">.</span><span class="n">chars</span><span class="o">.</span><span class="n">TaamimChar</span><span class="p">]</span></code>
+
+
+<a href="#hebrew.chars.TAAMIM_CHARS" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A List of all instances of <code>TaamimChar</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.TAF" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">TAF</span></code>
+
+
+<a href="#hebrew.chars.TAF" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>TAV</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.TAV" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">TAV</span></code>
+
+
+<a href="#hebrew.chars.TAV" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'תּ'</code></strong>.
+<em>This is not strictly a letter, but is included because it is often treated as one.</em></p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.TAV_DAGESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">TAV_DAGESH</span></code>
+
+
+<a href="#hebrew.chars.TAV_DAGESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'תּ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.TAV_WIDE" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">TAV_WIDE</span></code>
+
+
+<a href="#hebrew.chars.TAV_WIDE" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ﬨ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.TELISHA_GEDOLA" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">TELISHA_GEDOLA</span></code>
+
+
+<a href="#hebrew.chars.TELISHA_GEDOLA" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֠'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.TELISHA_KETANNAH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">TELISHA_KETANNAH</span></code>
+
+
+<a href="#hebrew.chars.TELISHA_KETANNAH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֩'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.TES" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">TES</span></code>
+
+
+<a href="#hebrew.chars.TES" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>TET</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.TET" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">TET</span></code>
+
+
+<a href="#hebrew.chars.TET" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ט'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.TET_DAGESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">TET_DAGESH</span></code>
+
+
+<a href="#hebrew.chars.TET_DAGESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'טּ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.TEVIR" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">TEVIR</span></code>
+
+
+<a href="#hebrew.chars.TEVIR" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֛'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.TIFCHA" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">TIFCHA</span></code>
+
+
+<a href="#hebrew.chars.TIFCHA" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֖'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.TSADI" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">TSADI</span></code>
+
+
+<a href="#hebrew.chars.TSADI" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'צ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.TSADI_DAGESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">TSADI_DAGESH</span></code>
+
+
+<a href="#hebrew.chars.TSADI_DAGESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'צּ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.TSADI_SOFIT" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">TSADI_SOFIT</span></code>
+
+
+<a href="#hebrew.chars.TSADI_SOFIT" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ץ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.TSERE" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">TSERE</span></code>
+
+
+<a href="#hebrew.chars.TSERE" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>NiqqudChar</code> representing the Niqqud <strong><code>'ֵ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.TZADIK" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">TZADIK</span></code>
+
+
+<a href="#hebrew.chars.TZADIK" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>TSADI</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.TZADIK_SOFIT" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">TZADIK_SOFIT</span></code>
+
+
+<a href="#hebrew.chars.TZADIK_SOFIT" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>TSADI_SOFIT</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.UPPER_DOT" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">UPPER_DOT</span></code>
+
+
+<a href="#hebrew.chars.UPPER_DOT" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>NiqqudChar</code> representing the Niqqud <strong><code>'ׄ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.VAV" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">VAV</span></code>
+
+
+<a href="#hebrew.chars.VAV" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ו'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.VAV_DAGESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">VAV_DAGESH</span></code>
+
+
+<a href="#hebrew.chars.VAV_DAGESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'וּ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.VAV_HOLAM" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">VAV_HOLAM</span></code>
+
+
+<a href="#hebrew.chars.VAV_HOLAM" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'וֹ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.VAV_YOD" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">VAV_YOD</span></code>
+
+
+<a href="#hebrew.chars.VAV_YOD" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>YiddishChar</code> representing the letter <strong><code>'ױ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.VAV_YUD" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">VAV_YUD</span></code>
+
+
+<a href="#hebrew.chars.VAV_YUD" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>VAV_YOD</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.VET" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">VET</span></code>
+
+
+<a href="#hebrew.chars.VET" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ב'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.VUV" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">VUV</span></code>
+
+
+<a href="#hebrew.chars.VUV" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>VAV</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.VUV_YOD" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">VUV_YOD</span></code>
+
+
+<a href="#hebrew.chars.VUV_YOD" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>VAV_YOD</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.VUV_YUD" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">VUV_YUD</span></code>
+
+
+<a href="#hebrew.chars.VUV_YUD" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>VAV_YOD</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.YERACH_BEN_YOMO" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">YERACH_BEN_YOMO</span></code>
+
+
+<a href="#hebrew.chars.YERACH_BEN_YOMO" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֪'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.YETIV" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">YETIV</span></code>
+
+
+<a href="#hebrew.chars.YETIV" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֚'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.YIDDISH_CHARS" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">YIDDISH_CHARS</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">hebrew</span><span class="o">.</span><span class="n">chars</span><span class="o">.</span><span class="n">YiddishChar</span><span class="p">]</span></code>
+
+
+<a href="#hebrew.chars.YIDDISH_CHARS" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>A List of all instances of <code>YiddishChar</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.YOD" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">YOD</span></code>
+
+
+<a href="#hebrew.chars.YOD" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'י'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.YOD_DAGESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">YOD_DAGESH</span></code>
+
+
+<a href="#hebrew.chars.YOD_DAGESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'יּ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.YOD_HIRIQ" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">YOD_HIRIQ</span></code>
+
+
+<a href="#hebrew.chars.YOD_HIRIQ" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'יִ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.YOD_TRIANGLE" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">YOD_TRIANGLE</span></code>
+
+
+<a href="#hebrew.chars.YOD_TRIANGLE" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ׯ'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.YOD_YOD_PATAH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">YOD_YOD_PATAH</span></code>
+
+
+<a href="#hebrew.chars.YOD_YOD_PATAH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ײַ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.YUD" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">YUD</span></code>
+
+
+<a href="#hebrew.chars.YUD" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>YOD</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.YUD_TRIANGLE" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">YUD_TRIANGLE</span></code>
+
+
+<a href="#hebrew.chars.YUD_TRIANGLE" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Simple pointer to <code>YOD_TRIANGLE</code>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.ZAQEF_GADOL" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">ZAQEF_GADOL</span></code>
+
+
+<a href="#hebrew.chars.ZAQEF_GADOL" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֕'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.ZAQEF_QATAN" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">ZAQEF_QATAN</span></code>
+
+
+<a href="#hebrew.chars.ZAQEF_QATAN" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֔'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.ZARQA" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">ZARQA</span></code>
+
+
+<a href="#hebrew.chars.ZARQA" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֘'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.ZAYIN" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">ZAYIN</span></code>
+
+
+<a href="#hebrew.chars.ZAYIN" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'ז'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.ZAYIN_DAGESH" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">ZAYIN_DAGESH</span></code>
+
+
+<a href="#hebrew.chars.ZAYIN_DAGESH" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>HebrewChar</code> representing the letter <strong><code>'זּ'</code></strong>. This is a rarely used special character.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="hebrew.chars.ZINOR" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">ZINOR</span></code>
+
+
+<a href="#hebrew.chars.ZINOR" class="headerlink" title="Permanent link">ל</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>An instance of <code>TaamimChar</code> representing the Ta'amim <strong><code>'֮'</code></strong>.</p>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../classes_and_functions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Classes and functions" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Classes and functions
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/__aviperl__" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/avi-perl" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/avrohomperl/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
+      
+    
+  </body>
+</html>
