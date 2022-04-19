@@ -1,4 +1,5 @@
 from enum import Enum
+from typing import Dict
 
 
 class GematriaTypes(Enum):
@@ -6,6 +7,7 @@ class GematriaTypes(Enum):
     Types of Gematria supported in this library.
     """
 
+    # Simple methods where the value is calculated off of a value map to each letter
     MISPAR_HECHRACHI = "mispar_hechrachi"
     MISPAR_GADOL = "mispar_gadol"
     MISPAR_SIDURI = "mispar_siduri"
@@ -14,30 +16,31 @@ class GematriaTypes(Enum):
     ATBASH = "atbash"
     ALBAM = "albam"
     MISPAR_MESHULASH = "mispar_meshulash"
+    MISPAR_KIDMI = "mispar_kidmi"
+    MISPAR_MISPARI = "mispar_mispari"
+    AYAK_BACHAR = "ayak_bachar"
+    AYAK_BAKAR = AYAK_BACHAR
+    OFANIM = "ofanim"
+    ACHAS_BETA = "achas_beta"
+    AVGAD = "avgad"
+    REVERSE_AVGAD = "reverse_avgad"
 
+    # Complex methods involving logic on top of MISPAR_HECHRACHI
     MISPAR_MUSAFI = "mispar_musafi"
+    MISPAR_BONEEH = "mispar_boneeh"
+    MISPAR_HAMERUBAH_HAKLALI = "mispar_hamerubah_haklali"
+    MISPAR_HAACHOR = "mispar_haachor"
+    MISPAR_KATAN_MISPARI = "mispar_katan_mispari"
+    MISPAR_KOLEL = "mispar_kolel"
+    MISPAR_SHEMI_MILUI = "mispar_shemi_milui"
+    MISPAR_NEELAM = "mispar_neelam"
 
-
-"""
-List of Gematria methods that can be calculated by simply adding each letters value
-up to a final number. 
-"""
-SIMPLE_GEMATRIA_METHODS = [
-    GematriaTypes.MISPAR_HECHRACHI,
-    GematriaTypes.MISPAR_GADOL,
-    GematriaTypes.MISPAR_SIDURI,
-    GematriaTypes.MISPAR_KATAN,
-    GematriaTypes.MISPAR_PERATI,
-    GematriaTypes.ATBASH,
-    GematriaTypes.ALBAM,
-    GematriaTypes.MISPAR_MESHULASH,
-]
 
 """
 A dictionary of values with each letter of the alphabet as a key, and the numerical value used in the mispar_hechrachi
 gematria method as its value.
 """
-MISPAR_HECHRACHI = {
+MISPAR_HECHRACHI: Dict[str, int] = {
     "א": 1,
     "ב": 2,
     "ג": 3,
@@ -72,7 +75,7 @@ A dictionary of values with each letter of the alphabet as a key, and the numeri
 gematria method as its value. Non-final letter values are all the same, but final kaf/chaf, mem, nun, pe/fe are
 moved to the end of the alphabet and continue on from where tav left off
 """
-MISPAR_GADOL = {
+MISPAR_GADOL: Dict[str, int] = {
     "א": 1,
     "ב": 2,
     "ג": 3,
@@ -106,7 +109,7 @@ MISPAR_GADOL = {
 A dictionary of values with each letter of the alphabet as a key, and the numerical value used in the mispar_siduri
 gematria method as its value. This method assigns each letter a number from 1 to 22 in the order of the alphabet.
 """
-MISPAR_SIDURI = {
+MISPAR_SIDURI: Dict[str, int] = {
     "א": 1,
     "ב": 2,
     "ג": 3,
@@ -141,7 +144,7 @@ A dictionary of values with each letter of the alphabet as a key, and the numeri
 gematria method as its value. This method uses the value of the letters but without the zeros after large numbers. 
 (ex. "Yud" is 1 instead of 10, "Tav" is 4 instead of 400).
 """
-MISPAR_KATAN = {
+MISPAR_KATAN: Dict[str, int] = {
     "א": 1,
     "ב": 2,
     "ג": 3,
@@ -175,7 +178,7 @@ MISPAR_KATAN = {
 A dictionary of values with each letter of the alphabet as a key, and the numerical value used in the mispar_perati
 gematria method as its value. This method assigns each letter its standard value squared. (ex. "Aleph" = 1 x 1 = 1, "Beis" = 2 x 2 = 4).
 """
-MISPAR_PERATI = {
+MISPAR_PERATI: Dict[str, int] = {
     "א": 1,
     "ב": 4,
     "ג": 9,
@@ -210,7 +213,7 @@ A dictionary of values with each letter of the alphabet as a key, and the numeri
 gematria method as its value. This method exchanges each letter's value for its opposite letter's value. 
 (ex. "Aleph" switches values with "Tav", "Beis" switches values with "Shin").
 """
-ATBASH = {
+ATBASH: Dict[str, int] = {
     "א": 400,
     "ב": 300,
     "ג": 200,
@@ -245,7 +248,7 @@ A dictionary of values with each letter of the alphabet as a key, and the numeri
 gematria method as its value. This method splits the alphabet in half and letters from the first half switch 
 values with letters from the second half. (ex. "Aleph" switches values with "Lamed", "Beis" switches values with "Mem").
 """
-ALBAM = {
+ALBAM: Dict[str, int] = {
     "א": 30,
     "ב": 40,
     "ג": 50,
@@ -280,7 +283,7 @@ A dictionary of values with each letter of the alphabet as a key, and the numeri
 gematria method as its value. This method splits the alphabet in half and letters from the first half switch 
 values with letters from the second half. (ex. "Aleph" switches values with "Lamed", "Beis" switches values with "Mem").
 """
-MISPAR_MESHULASH = {
+MISPAR_MESHULASH: Dict[str, int] = {
     "א": 1,
     "ב": 8,
     "ג": 27,
@@ -308,4 +311,254 @@ MISPAR_MESHULASH = {
     "ר": 8_000_000,
     "ש": 27_000_000,
     "ת": 64_000_000,
+}
+
+"""
+A dictionary of values with each letter of the alphabet as a key, and the numerical value used in the Mispar Kidmi
+gematria method as its value. This method adds the value of all preceding letters in the alphabet to each 
+letter's value. (ex. "Aleph" = 1, "Beis" = 1 + 2 = 3, "Gimmel" = 1 + 2 + 3 = 6).
+"""
+MISPAR_KIDMI: Dict[str, int] = {
+    "א": 1,
+    "ב": 3,
+    "ג": 6,
+    "ד": 10,
+    "ה": 15,
+    "ו": 21,
+    "ז": 28,
+    "ח": 36,
+    "ט": 45,
+    "י": 55,
+    "כ": 75,
+    "ך": 75,
+    "ל": 105,
+    "מ": 145,
+    "ם": 145,
+    "נ": 195,
+    "ן": 195,
+    "ס": 255,
+    "ע": 325,
+    "פ": 405,
+    "ף": 405,
+    "צ": 495,
+    "ץ": 495,
+    "ק": 595,
+    "ר": 795,
+    "ש": 1095,
+    "ת": 1495,
+}
+
+"""
+A dictionary of values with each letter of the alphabet as a key, and the numerical value used in the Mispar Mispari
+gematria method as its value. This method spells out the Hebrew name of each of the letter's standard values and adds 
+up their values. (ex. "Aleph" = one (Echad) = 1 + 8 + 4 = 13).
+"""
+MISPAR_MISPARI: Dict[str, int] = {
+    "א": 13,
+    "ב": 760,
+    "ג": 636,
+    "ד": 273,
+    "ה": 348,
+    "ו": 600,
+    "ז": 372,
+    "ח": 401,
+    "ט": 770,
+    "י": 570,
+    "כ": 620,
+    "ך": 620,
+    "ל": 686,
+    "מ": 323,
+    "ם": 323,
+    "נ": 408,
+    "ן": 408,
+    "ס": 660,
+    "ע": 422,
+    "פ": 446,
+    "ף": 446,
+    "צ": 820,
+    "ץ": 820,
+    "ק": 46,
+    "ר": 501,
+    "ש": 1083,
+    "ת": 720,
+}
+
+"""
+A dictionary of values with each letter of the alphabet as a key, and the numerical value used in the Ayak Bachar 
+(or Ayak Bakar) gematria method as its value. This method splits the alphabet into three groups of nine with the final 
+(sofit) letters at the end. The letters in the first group replace the ones in the second group, the letters in the 
+second group replace the ones in the third group, and the letters in the third group replace the ones in 
+the first group. (ex. "Aleph" takes the place of "Yud", "Yud" takes the place of "Kuf", 
+"Kuf" takes the place of "Aleph", "Beis" takes the place of "Chaf" etc.).
+"""
+AYAK_BACHAR: Dict[str, int] = {
+    "א": 10,
+    "ב": 20,
+    "ג": 30,
+    "ד": 40,
+    "ה": 50,
+    "ו": 60,
+    "ז": 70,
+    "ח": 80,
+    "ט": 90,
+    "י": 100,
+    "כ": 200,
+    "ך": 5,
+    "ל": 300,
+    "מ": 400,
+    "ם": 6,
+    "נ": 500,
+    "ן": 7,
+    "ס": 600,
+    "ע": 700,
+    "פ": 800,
+    "ף": 8,
+    "צ": 900,
+    "ץ": 9,
+    "ק": 1,
+    "ר": 2,
+    "ש": 3,
+    "ת": 4,
+}
+
+"""
+A dictionary of values with each letter of the alphabet as a key, and the numerical value used in the Ofanim 
+gematria method as its value. This method replaces each letter with the last letter of its name. (ex. "Aleph" becomes 
+"Fey", "Beis" becomes "Tav").
+"""
+OFANIM: Dict[str, int] = {
+    "א": 80,
+    "ב": 400,
+    "ג": 30,
+    "ד": 400,
+    "ה": 1,
+    "ו": 6,
+    "ז": 50,
+    "ח": 400,
+    "ט": 400,
+    "י": 4,
+    "כ": 80,
+    "ך": 80,
+    "ל": 4,
+    "מ": 40,
+    "ם": 40,
+    "נ": 50,
+    "ן": 50,
+    "ס": 20,
+    "ע": 50,
+    "פ": 1,
+    "ף": 1,
+    "צ": 10,
+    "ץ": 10,
+    "ק": 80,
+    "ר": 300,
+    "ש": 50,
+    "ת": 6,
+}
+
+"""
+A dictionary of values with each letter of the alphabet as a key, and the numerical value used in the Ofanim 
+gematria method as its value. This method splits the alphabet into groups of 7, 7, and 8 letters. 
+The letters in the first group replace the ones in the second group, the letters in the second group replace 
+the ones in the third group, and the letters in the third group replace the ones in the first group. The letter "Tav" 
+does not change.
+"""
+ACHAS_BETA: Dict[str, int] = {
+    "א": 8,
+    "ב": 9,
+    "ג": 10,
+    "ד": 20,
+    "ה": 30,
+    "ו": 40,
+    "ז": 50,
+    "ח": 60,
+    "ט": 70,
+    "י": 80,
+    "כ": 90,
+    "ך": 90,
+    "ל": 100,
+    "מ": 200,
+    "ם": 200,
+    "נ": 300,
+    "ן": 300,
+    "ס": 1,
+    "ע": 2,
+    "פ": 3,
+    "ף": 3,
+    "צ": 4,
+    "ץ": 4,
+    "ק": 5,
+    "ר": 6,
+    "ש": 7,
+    "ת": 400,
+}
+
+"""
+A dictionary of values with each letter of the alphabet as a key, and the numerical value used in the Avgad  
+gematria method as its value. This method replaces each letter with the next one. (ex. "Aleph" becomes "Beis", "Beis" 
+becomes "Gimmel", "Tav" becomes "Aleph").
+"""
+AVGAD: Dict[str, int] = {
+    "א": 2,
+    "ב": 3,
+    "ג": 4,
+    "ד": 5,
+    "ה": 6,
+    "ו": 7,
+    "ז": 8,
+    "ח": 9,
+    "ט": 10,
+    "י": 20,
+    "כ": 30,
+    "ך": 30,
+    "ל": 40,
+    "מ": 50,
+    "ם": 50,
+    "נ": 60,
+    "ן": 60,
+    "ס": 70,
+    "ע": 80,
+    "פ": 90,
+    "ף": 90,
+    "צ": 100,
+    "ץ": 100,
+    "ק": 200,
+    "ר": 300,
+    "ש": 400,
+    "ת": 1,
+}
+
+"""
+A dictionary of values with each letter of the alphabet as a key, and the numerical value used in the Reverse Avgad  
+gematria method as its value. This method replaces each letter with the previous one. (ex. "Beis" becomes "Aleph", 
+"Gimmel" becomes "Beis", "Aleph" becomes "Tav").
+"""
+REVERSE_AVGAD: Dict[str, int] = {
+    "א": 400,
+    "ב": 1,
+    "ג": 2,
+    "ד": 3,
+    "ה": 4,
+    "ו": 5,
+    "ז": 6,
+    "ח": 7,
+    "ט": 8,
+    "י": 9,
+    "כ": 10,
+    "ך": 10,
+    "ל": 20,
+    "מ": 30,
+    "ם": 30,
+    "נ": 40,
+    "ן": 40,
+    "ס": 50,
+    "ע": 60,
+    "פ": 70,
+    "ף": 70,
+    "צ": 80,
+    "ץ": 80,
+    "ק": 90,
+    "ר": 100,
+    "ש": 200,
+    "ת": 300,
 }

@@ -14,6 +14,13 @@ from hebrew.gematria import (
     ATBASH,
     ALBAM,
     MISPAR_MESHULASH,
+    MISPAR_KIDMI,
+    MISPAR_MISPARI,
+    AYAK_BACHAR,
+    OFANIM,
+    ACHAS_BETA,
+    AVGAD,
+    REVERSE_AVGAD,
 )
 
 
@@ -38,7 +45,12 @@ class BaseHebrewChar:
     """Primary name of the character in English."""
 
     hebrew_name: Optional[str] = None
-    """Primary name of the character in Hebrew."""
+    """
+    Primary name of the character in Hebrew.
+    
+    The choice of primary name is non trivial as it is used as the primary spelling 
+    for the Mispar Shemi Gematria method.
+    """
 
     name_alts: Optional[List[str]] = None
     """Alternative names of the character in English."""
@@ -143,6 +155,55 @@ class HebrewChar(BaseHebrewChar):
         :return: The value of the character for use in the AtBash method of gematria.
         """
         return MISPAR_MESHULASH.get(self.base_letter.char)
+
+    @property
+    def mispar_kidmi(self) -> int:
+        """
+        :return: The value of the character for use in the mispar_kidmi method of gematria.
+        """
+        return MISPAR_KIDMI.get(self.base_letter.char)
+
+    @property
+    def mispar_mispari(self) -> int:
+        """
+        :return: The value of the character for use in the mispar_mispari method of gematria.
+        """
+        return MISPAR_MISPARI.get(self.base_letter.char)
+
+    @property
+    def ayak_bachar(self) -> int:
+        """
+        :return: The value of the character for use in the ayak_bachar method of gematria.
+        """
+        return AYAK_BACHAR.get(self.base_letter.char)
+
+    @property
+    def ofanim(self) -> int:
+        """
+        :return: The value of the character for use in the ofanim method of gematria.
+        """
+        return OFANIM.get(self.base_letter.char)
+
+    @property
+    def achas_beta(self) -> int:
+        """
+        :return: The value of the character for use in the achas_beta method of gematria.
+        """
+        return ACHAS_BETA.get(self.base_letter.char)
+
+    @property
+    def avgad(self) -> int:
+        """
+        :return: The value of the character for use in the avgad method of gematria.
+        """
+        return AVGAD.get(self.base_letter.char)
+
+    @property
+    def reverse_avgad(self) -> int:
+        """
+        :return: The value of the character for use in the reverse_avgad method of gematria.
+        """
+        return REVERSE_AVGAD.get(self.base_letter.char)
 
     @classmethod
     def search(cls, char_name: str) -> Optional["HebrewChar"]:
@@ -253,7 +314,7 @@ class OtherChar(BaseHebrewChar):
 ALEPH = HebrewChar(char="א", name="Aleph", hebrew_name="אָלֶף", name_alts=["Alef"])
 """An instance of `HebrewChar` representing the letter `'א'`"""
 
-BET = HebrewChar(char="בּ", name="Bet", hebrew_name="בֵּית")
+BET = HebrewChar(char="בּ", name="Bet", hebrew_name="בֵּית", hebrew_name_alts=["בת"])
 """
 An instance of `HebrewChar` representing the letter **`'בּ'`**.
 *This is not strictly a letter, but is included because it is often treated as one.*
@@ -262,25 +323,45 @@ An instance of `HebrewChar` representing the letter **`'בּ'`**.
 BES = BET
 """Simple pointer to `BET`."""
 
-VET = HebrewChar(char="ב", name="Vet", hebrew_name="בֵית")
+VET = HebrewChar(char="ב", name="Vet", hebrew_name="בֵית", hebrew_name_alts=["בת"])
 """An instance of `HebrewChar` representing the letter **`'ב'`**."""
 
-GIMEL = HebrewChar(char="ג", name="Gimel", hebrew_name="גִימֵל")
+GIMEL = HebrewChar(
+    char="ג", name="Gimel", hebrew_name="גִימֵל", hebrew_name_alts=["גמל"]
+)
 """An instance of `HebrewChar` representing the letter **`'ג'`**."""
 
-DALET = HebrewChar(char="ד", name="Dalet", hebrew_name="דָלֶת", name_alts=["Daled"])
+DALET = HebrewChar(
+    char="ד",
+    name="Dalet",
+    hebrew_name="דָלֶת",
+    hebrew_name_alts=["דלית"],
+    name_alts=["Daled"],
+)
 """An instance of `HebrewChar` representing the letter **`'ד'`**."""
 
 DALED = DALET
 """Simple pointer to `DALET`."""
 
-HE = HebrewChar(char="ה", name="He", hebrew_name="הֵא", name_alts=["Hei", "Hey"])
+HE = HebrewChar(
+    char="ה",
+    name="He",
+    hebrew_name="הֵא",
+    hebrew_name_alts=["הי", "הה"],
+    name_alts=["Hei", "Hey"],
+)
 """An instance of `HebrewChar` representing the letter **`'ה'`**."""
 
 HEI = HEY = HE
 """Simple pointer to `HE`."""
 
-VAV = HebrewChar(char="ו", name="Vav", hebrew_name="וָו", name_alts=["Vuv"])
+VAV = HebrewChar(
+    char="ו",
+    name="Vav",
+    hebrew_name="וָו",
+    hebrew_name_alts=["ויו", "ואו"],
+    name_alts=["Vuv"],
+)
 """An instance of `HebrewChar` representing the letter **`'ו'`**."""
 
 VUV = VAV
@@ -293,6 +374,7 @@ CHET = HebrewChar(
     char="ח",
     name="Chet",
     hebrew_name="חֵית",
+    hebrew_name_alts=["חת"],
     name_alts=["Het", "Ches"],
 )
 """An instance of `HebrewChar` representing the letter **`'ז'`**."""
@@ -300,7 +382,9 @@ CHET = HebrewChar(
 HET = CHES = CHET
 """Simple pointer to `CHET`."""
 
-TET = HebrewChar(char="ט", name="Tet", hebrew_name="טֵית", name_alts=["Tes"])
+TET = HebrewChar(
+    char="ט", name="Tet", hebrew_name="טֵית", hebrew_name_alts=["טת"], name_alts=["Tes"]
+)
 """An instance of `HebrewChar` representing the letter **`'ט'`**."""
 
 TES = TET
@@ -403,13 +487,13 @@ SAMACH = SAMEKH
 AYIN = HebrewChar(char="ע", name="Ayin", hebrew_name="עַיִן")
 """An instance of `HebrewChar` representing the letter **`'ע'`**."""
 
-PE = HebrewChar(char="פּ", name="Pe")
+PE = HebrewChar(char="פּ", name="Pe", hebrew_name_alts=["פי", "פה"])
 """
 An instance of `HebrewChar` representing the letter **`'פּ'`**.
 *This is not strictly a letter, but is included because it is often treated as one.*
 """
 
-FE = HebrewChar(char="פ", name="Fe", hebrew_name="פֵא")
+FE = HebrewChar(char="פ", name="Fe", hebrew_name="פֵא", hebrew_name_alts=["פי", "פה"])
 """An instance of `HebrewChar` representing the letter **`'פ'`**."""
 
 PE_SOFIT = HebrewChar(
@@ -469,29 +553,37 @@ QOF = HebrewChar(char="ק", name="Qof", hebrew_name="קוֹף", name_alts=["Kuf"
 KUF = QOF
 """Simple pointer to `TSADI_SOFIT`."""
 
-RESH = HebrewChar(char="ר", name="Resh", hebrew_name="רֵישׁ")
+RESH = HebrewChar(char="ר", name="Resh", hebrew_name="רֵישׁ", hebrew_name_alts=["רש"])
 """An instance of `HebrewChar` representing the letter **`'ר'`**."""
 
 # TODO: The naming here might need help. We should definitely support all 3 versions as this is likely to be found
 #  in text, but the naming might be unexpected.
-SHIN = HebrewChar(char="שׁ", name="Shin", hebrew_name="שִׁין")
+SHIN = HebrewChar(
+    char="שׁ", name="Shin", hebrew_name="שִׁן", hebrew_name_alts=["שִׁין"]
+)
 """
 An instance of `HebrewChar` representing the letter **`'שׁ'`**.
 *This is not strictly a letter, but is included because it is often treated as one.*
 """
 
-SIN = HebrewChar(char="שׂ", name="Sin", hebrew_name="שִׂין")
+SIN = HebrewChar(char="שׂ", name="Sin", hebrew_name="שִׂן", hebrew_name_alts=["שִׂין"])
 """
 An instance of `HebrewChar` representing the letter **`'שׂ'`**.
 *This is not strictly a letter, but is included because it is often treated as one.*
 """
 
 PLAIN_SIN = HebrewChar(
-    char="ש", name="Plain Sin", hebrew_name="שִׁין", hebrew_name_alts=["שִׂין"]
+    char="ש", name="Plain Sin", hebrew_name="שִׂן", hebrew_name_alts=["שִׂין"]
 )
 """An instance of `HebrewChar` representing the letter **`'ש'`**."""
 
-TAV = HebrewChar(char="תּ", name="Tav", hebrew_name="תּו", name_alts=["Taf"])
+TAV = HebrewChar(
+    char="תּ",
+    name="Tav",
+    hebrew_name="תּו",
+    hebrew_name_alts=["תיו", "תאו"],
+    name_alts=["Taf"],
+)
 """
 An instance of `HebrewChar` representing the letter **`'תּ'`**.
 *This is not strictly a letter, but is included because it is often treated as one.*
@@ -500,7 +592,13 @@ An instance of `HebrewChar` representing the letter **`'תּ'`**.
 TAF = TAV
 """Simple pointer to `TAV`."""
 
-SAV = HebrewChar(char="ת", name="Sav", hebrew_name="תָו", name_alts=["Saf"])
+SAV = HebrewChar(
+    char="ת",
+    name="Sav",
+    hebrew_name="תָו",
+    name_alts=["Saf"],
+    hebrew_name_alts=["תיו", "תאו"],
+)
 """An instance of `HebrewChar` representing the letter **`'ת'`**."""
 
 ALEPH_SYMBOL = HebrewChar("ℵ", name="Aleph Symbol")
@@ -628,7 +726,6 @@ VAV_YOD = YiddishChar(char="ױ", name="Vav Yod")
 
 VAV_YUD = VUV_YOD = VUV_YUD = VAV_YOD
 """Simple pointer to `VAV_YOD`."""
-
 
 YOD_TRIANGLE = HebrewChar(char="ׯ", name="Yod Triangle", name_alts=["Yud Triangle"])
 """An instance of `HebrewChar` representing the letter **`'ׯ'`**."""
@@ -986,6 +1083,20 @@ _NON_LETTER_CHARS: List[Union[NiqqudChar, TaamimChar, OtherChar]] = [
     if not isinstance(c, HebrewChar) and not isinstance(c, YiddishChar)
 ]
 """A List of all chars that are not letters. Used internally for filtering non letter chars."""
+
+FINAL_MINOR_LETTER_MAPPINGS: Dict[str, str] = {
+    "כ": "ך",
+    "ך": "כ",
+    "מ": "ם",
+    "ם": "מ",
+    "נ": "ן",
+    "ן": "נ",
+    "פ": "ף",
+    "ף": "פ",
+    "צ": "ץ",
+    "ץ": "צ",
+}
+"""A map of final letters to their regular counterparts, and vice versa."""
 
 
 def char_search(
