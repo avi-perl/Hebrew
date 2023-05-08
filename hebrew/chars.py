@@ -642,7 +642,9 @@ DALET_SYMBOL = HebrewChar("ℸ", name="Dalet Symbol")
 YOD_HIRIQ = HebrewChar("יִ", name="Yod with Hiriq")
 """An instance of `HebrewChar` representing the letter **`'יִ'`**. This is a rarely used special character."""
 YOD_YOD_PATAH = YiddishChar("ײַ", name="Yod Yod Patah")
-"""An instance of `HebrewChar` representing the letter **`'ײַ'`**. This is a rarely used special character."""
+"""An instance of `YiddishChar` representing the letter **`'ײַ'`**. This is a rarely used special character."""
+YOD_YOD_PATAH2 = YiddishChar("ײַ", name="Yod Yod Patah")
+"""An instance of `YiddishChar` representing the letters **`'ײַ'`**. This is a variation of YOD_YOD_PATAH made up of a double Yud, and a Patah."""
 AYIN_ALT = HebrewChar("ﬠ", name="Alternative Ayin")
 """An instance of `HebrewChar` representing the letter **`'ﬠ'`**. This is a rarely used special character."""
 ALEF_WIDE = HebrewChar("ﬡ", name="Wide Alef")
@@ -1010,6 +1012,7 @@ ALL_CHARS: List[Union[HebrewChar, YiddishChar, NiqqudChar, TaamimChar, OtherChar
     DALET_SYMBOL,
     YOD_HIRIQ,
     YOD_YOD_PATAH,
+    YOD_YOD_PATAH2,
     AYIN_ALT,
     ALEF_WIDE,
     DALET_WIDE,
@@ -1127,6 +1130,32 @@ FINAL_MINOR_LETTER_MAPPINGS: Dict[str, str] = {
     "ץ": "צ",
 }
 """A map of final letters to their regular counterparts, and vice versa."""
+
+SPECIAL_CHARACTER_NORMALIZED_MAPPING: Dict[BaseHebrewChar, list[BaseHebrewChar]] = {
+    ALEPH_SYMBOL: ALEPH,
+    BET_SYMBOL: VET,
+    GIMEL_SYMBOL: GIMEL,
+    DALET_SYMBOL: DALET,
+    YOD_YOD_PATAH: [YOD, PATAH, YOD],
+    YOD_YOD_PATAH2: [YOD, PATAH, YOD],
+    AYIN_ALT: AYIN,
+    ALEF_WIDE: ALEPH,
+    DALET_WIDE: DALET,
+    HE_WIDE: HE,
+    KAF_WIDE: CHAF,
+    LAMED_WIDE: LAMED,
+    FINAL_MEM_WIDE: FINAL_MEM,
+    RESH_WIDE: RESH,
+    TAV_WIDE: SAV,
+    SHIN_SIN_DOT: SIN,
+    SHIN_DAGESH_SHIN_DOT: [SHIN, DAGESH],
+    SHIN_DAGESH_SIN_DOT: [SIN, DAGESH],
+    ALEPH_LAMED: [ALEPH, LAMED],
+    DOUBLE_YOD: [YOD, YOD],
+    DOUBLE_VAV: [VAV, VAV],
+    VAV_YOD: [YOD, VAV],
+}
+"""A map of special characters to their normal spelled out equivalent. For example, ﭏ becomes אל"""
 
 
 def char_search(
