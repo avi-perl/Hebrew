@@ -276,44 +276,20 @@ def test_other_char_search():
 
 
 def test_hebrew_char_hashable():
-    try:
-        hash(HebrewChar(char="א", name="Aleph", hebrew_name="אָלֶף", name_alts=["Alef"]))
-    except TypeError:
-        assert False, "HebrewChar is not hashable"
-    assert True
+    assert hash(HebrewChar(char="א", name="Aleph", hebrew_name="אָלֶף", name_alts=["Alef"]))
 
 
 def test_yiddish_char_hashable():
-    try:
-        hash(YiddishChar(
-            char="ײ",
-            name="Double Yod",
-            name_alts=["Saf"],
-        ))
-    except TypeError:
-        assert False, "YiddishChar is not hashable"
-    assert True
+    assert hash(YiddishChar(char="ײ", name="Double Yod", name_alts=["Saf"]))
 
 
 def test_taamim_char_hashable():
-    try:
-        hash(TaamimChar(char="֧", name="Darga"))
-    except TypeError:
-        assert False, "TaamimChar is not hashable"
-    assert True
+    assert hash(TaamimChar(char="֧", name="Darga"))
 
 
 def test_niqqud_char_hashable():
-    try:
-        hash(NiqqudChar(char="ׂ", name="Sin Dot"))
-    except TypeError:
-        assert False, "NiqqudChar is not hashable"
-    assert True
+    assert hash(NiqqudChar(char="ׂ", name="Sin Dot"))
 
 
 def test_other_char_hashable():
-    try:
-        hash(OtherChar(char="׃", name="Sof Passuk"))
-    except TypeError:
-        assert False, "OtherChar is not hashable"
-    assert True
+    assert hash(OtherChar(char="׃", name="Sof Passuk"))
