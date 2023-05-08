@@ -1,3 +1,4 @@
+import unicodedata
 from functools import reduce
 from typing import List, Optional, TypeVar, Dict, Callable, Tuple
 from operator import add
@@ -16,6 +17,8 @@ from .chars import (
     HEBREW_CHARS,
     FINAL_MINOR_LETTER_MAPPINGS,
     HebrewChar,
+    SPECIAL_CHARACTER_NORMALIZED_MAPPING,
+    YiddishChar,
 )
 from .numerical_conversion.convert import number_to_hebrew_string
 from hebrew.gematria import GematriaTypes
@@ -117,6 +120,37 @@ class Hebrew(GraphemeString):
         for char in [c.char for c in NIQQUD_CHARS]:
             string = string.replace(char, "")
         return Hebrew(string)
+
+    def normalize(self, normalize_yiddish: bool = False) -> HebrewT:
+        """
+        Replaces all non-standard hebrew characters with their equivalent values
+        using normal hebrew letters and symbols. This is important when using hebrew fonts. Some fonts may not
+        support these special characters, normalization helps by changing all the characters to be ones that would be
+        supported.
+
+        :param normalize_yiddish: By default, yiddish characters are left alone since they are typically desired.
+        :return:
+        """
+        normalized = unicodedata.normalize("NFC", self.string)
+        # normalized = self.string
+        special_chars: dict = (
+            SPECIAL_CHARACTER_NORMALIZED_MAPPING
+            if normalize_yiddish
+            else {
+                k: v
+                for k, v in SPECIAL_CHARACTER_NORMALIZED_MAPPING.items()
+                if not isinstance(k, YiddishChar)
+            }
+        )
+        special_chars = {
+            k.char: "".join([val.char for val in v]) if isinstance(v, list) else v.char
+            for k, v in special_chars.items()
+        }
+        if any(char in normalized for char in special_chars):
+            for k, v in special_chars.items():
+                normalized = normalized.replace(k, v)
+        self.string = normalized
+        return self
 
     def no_taamim(
         self, remove_maqaf: bool = False, remove_sof_passuk: bool = False

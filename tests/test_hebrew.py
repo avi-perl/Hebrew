@@ -173,3 +173,71 @@ def test_no_taamim():
     assert hs.no_taamim(remove_maqaf=True, remove_sof_passuk=False).string == nikkud[
         1
     ].replace(MAQAF.char, " ")
+
+
+def test_normalize_single_char():
+    assert Hebrew("ℵ").normalize().string == "א"
+    assert Hebrew("ℶ").normalize().string == "ב"
+    assert Hebrew("ℷ").normalize().string == "ג"
+    assert Hebrew("ℸ").normalize().string == "ד"
+    assert Hebrew("יִ").normalize().string == "יִ"
+    assert Hebrew("ﬠ").normalize().string == "ע"
+    assert Hebrew("ﬡ").normalize().string == "א"
+    assert Hebrew("ﬢ").normalize().string == "ד"
+    assert Hebrew("ﬣ").normalize().string == "ה"
+    assert Hebrew("ﬤ").normalize().string == "כ"
+    assert Hebrew("ﬥ").normalize().string == "ל"
+    assert Hebrew("ﬦ").normalize().string == "ם"
+    assert Hebrew("ﬧ").normalize().string == "ר"
+    assert Hebrew("ﬨ").normalize().string == "ת"
+    assert Hebrew("שׁ").normalize().string == "שׁ"
+    assert Hebrew("שׂ").normalize().string == "שׂ"
+    assert Hebrew("שּׁ").normalize().string == "שּׁ"
+    assert Hebrew("אַ").normalize().string == "אַ"
+    assert Hebrew("אָ").normalize().string == "אָ"
+    assert Hebrew("אּ").normalize().string == "אּ"
+    assert Hebrew("בּ").normalize().string == "בּ"
+    assert Hebrew("גּ").normalize().string == "גּ"
+    assert Hebrew("דּ").normalize().string == "דּ"
+    assert Hebrew("הּ").normalize().string == "הּ"
+    assert Hebrew("וּ").normalize().string == "וּ"
+    assert Hebrew("זּ").normalize().string == "זּ"
+    assert Hebrew("טּ").normalize().string == "טּ"
+    assert Hebrew("יּ").normalize().string == "יּ"
+    assert Hebrew("ךּ").normalize().string == "ךּ"
+    assert Hebrew("כּ").normalize().string == "כּ"
+    assert Hebrew("לּ").normalize().string == "לּ"
+    assert Hebrew("מּ").normalize().string == "מּ"
+    assert Hebrew("נּ").normalize().string == "נּ"
+    assert Hebrew("סּ").normalize().string == "סּ"
+    assert Hebrew("ףּ").normalize().string == "ףּ"
+    assert Hebrew("פּ").normalize().string == "פּ"
+    assert Hebrew("צּ").normalize().string == "צּ"
+    assert Hebrew("קּ").normalize().string == "קּ"
+    assert Hebrew("רּ").normalize().string == "רּ"
+    assert Hebrew("שּ").normalize().string == "שּ"
+    assert Hebrew("תּ").normalize().string == "תּ"
+    assert Hebrew("וֹ").normalize().string == "וֹ"
+    assert Hebrew("בֿ").normalize().string == "בֿ"
+    assert Hebrew("כֿ").normalize().string == "כֿ"
+    assert Hebrew("פֿ").normalize().string == "פֿ"
+    assert Hebrew("ﭏ").normalize().string == "אל"
+
+
+def test_normalize_yiddish_char():
+    assert Hebrew("ײַ").normalize(True).string == "יַי"
+    assert Hebrew("ײ").normalize(True).string == "יי"
+    assert Hebrew("װ").normalize(True).string == "וו"
+    assert Hebrew("ױ").normalize(True).string == "יו"
+    assert Hebrew("ײַ").normalize().string == "ײַ"
+    assert Hebrew("ײ").normalize().string == "ײ"
+    assert Hebrew("װ").normalize().string == "װ"
+    assert Hebrew("ױ").normalize().string == "ױ"
+
+
+def test_normalize_multiple_abnormal_chars():
+    assert Hebrew("זּטּ").normalize().string == "זּטּ"
+
+
+def test_normalize_mixed_chars():
+    assert Hebrew("אזּטּ").normalize().string == "אזּטּ"

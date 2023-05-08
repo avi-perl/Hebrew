@@ -18,7 +18,7 @@ pip install poetry
 Once Poetry is installed, install the dependencies with the following command:
 <!--pytest.mark.skip-->
 ```bash
-poetry install
+poetry install --with=dev
 ```
 
 ### Tests
