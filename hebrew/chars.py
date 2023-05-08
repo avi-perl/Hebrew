@@ -219,6 +219,12 @@ class HebrewChar(BaseHebrewChar):
         """
         return char_search(char_name, HEBREW_CHARS)
 
+    def __hash__(self):
+        return hash(self.char)
+
+    def __eq__(self, other):
+        return self.char == other.char
+
 
 @dataclass
 class YiddishChar(BaseHebrewChar):
@@ -240,6 +246,12 @@ class YiddishChar(BaseHebrewChar):
         """
         return char_search(char_name, YIDDISH_CHARS)
 
+    def __hash__(self):
+        return hash(self.char)
+
+    def __eq__(self, other):
+        return self.char == other.char
+
 
 @dataclass
 class NiqqudChar(BaseHebrewChar):
@@ -260,6 +272,12 @@ class NiqqudChar(BaseHebrewChar):
         character is found.
         """
         return char_search(char_name, NIQQUD_CHARS)
+
+    def __hash__(self):
+        return hash(self.char)
+
+    def __eq__(self, other):
+        return self.char == other.char
 
 
 @dataclass
@@ -283,6 +301,12 @@ class TaamimChar(BaseHebrewChar):
         """
         return char_search(char_name, TAAMIM_CHARS)
 
+    def __hash__(self):
+        return hash(self.char)
+
+    def __eq__(self, other):
+        return self.char == other.char
+
 
 @dataclass
 class OtherChar(BaseHebrewChar):
@@ -303,6 +327,12 @@ class OtherChar(BaseHebrewChar):
         character is found.
         """
         return char_search(char_name, OTHER_CHARS)
+
+    def __hash__(self):
+        return hash(self.char)
+
+    def __eq__(self, other):
+        return self.char == other.char
 
 
 # TODO:
