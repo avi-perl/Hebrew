@@ -109,6 +109,37 @@ print(hs2)  # ב
 
 ```
 
+## Character Normalization
+Hidden among hebrew text can be special characters that are visually identical humans, but are made up of different 
+unicode characters. However, this can cause issues with presentation when there is no support for these characters.
+
+![bad_character_display.png](docs/img/bad_character_display.png)
+
+In this case, the first letter is made up of 2 unicode characters, [sin with a dot](https://en.wiktionary.org/wiki/%D7%A9%D7%82)
+and [qamatz](https://en.wiktionary.org/wiki/%D6%B8). The issue here is the sin. By normalizing the sin with a dot to 2 unicode 
+characters, [ש](https://en.wiktionary.org/wiki/%D7%A9) and the [dot](https://en.wiktionary.org/wiki/%D7%82), the display 
+will look right!
+
+![good_character_display.png](docs/img/good_character_display.png)
+
+To normalize content, use the `Hebrew.normalize` function:
+```python
+from hebrew import Hebrew
+
+hs = Hebrew('שָׂחַקְתִּי כְּמוֹ')
+
+assert len(hs.string) == 14
+assert len(hs.normalize().string) == 18
+```
+
+### Normalizing Yiddish
+
+By default, special yiddish characters such as [ײ](https://en.wiktionary.org/wiki/%D7%B2) (double Yod) are _not_ normalized.
+However, [ײַ](https://en.wiktionary.org/wiki/%EF%AC%9F) (double Yod with a Patah) will be converted to [ײַ](https://en.wiktionary.org/wiki/%D7%B2%D6%B7).
+
+To fully "normalize" yiddish characters, pass `True` to `normalize`.
+
+
 ## Grapheme Characters
 
 Hebrew text comes in different forms, depending on the context. Hebrew text may appear with Niqqudot
