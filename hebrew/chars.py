@@ -1131,7 +1131,7 @@ FINAL_MINOR_LETTER_MAPPINGS: Dict[str, str] = {
 }
 """A map of final letters to their regular counterparts, and vice versa."""
 
-SPECIAL_CHARACTER_NORMALIZED_MAPPING: Dict[BaseHebrewChar, list[BaseHebrewChar]] = {
+SPECIAL_CHARACTER_NORMALIZED_MAPPING: Dict[BaseHebrewChar, List[BaseHebrewChar]] = {
     ALEPH_SYMBOL: ALEPH,
     BET_SYMBOL: VET,
     GIMEL_SYMBOL: GIMEL,
