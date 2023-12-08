@@ -35,3 +35,9 @@ jobs:
       - name: Test with pytest
         run: |
           pytest --codeblocks
+      - name: Build docs
+        run: |
+          pip install mkdocs-material
+          pip install mdx-include
+          pip install mkdocstrings
+          mkdocs build
