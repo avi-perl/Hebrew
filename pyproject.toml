@@ -34,7 +34,7 @@ pytest-cov = "^4.1.0"
 toml = "^0.10.2"
 mkdocs-material = "^9.5.1"
 mdx-include = "^1.4.2"
-mkdocstrings = "^0.24.0"
+mkdocstrings = {extras = ["python"], version = "^0.24.0"}
 pytest-codeblocks = "^0.17.0"
 
 [build-system]
