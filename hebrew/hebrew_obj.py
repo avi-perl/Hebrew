@@ -15,6 +15,7 @@ from .chars import (
     FINAL_MINOR_LETTER_MAPPINGS,
     HebrewChar,
 )
+from .numerical_conversion import number_to_hebrew_string
 from hebrew.gematria import GematriaTypes
 
 HebrewT = TypeVar("HebrewT", bound="Hebrew")
@@ -262,6 +263,30 @@ class Hebrew(GraphemeString):
         else:
             # Simple gematria that can be calculated by simply adding each letters value up to a final number.
             return self.__calculate_simple_gematria(self.string, method)
+
+    @classmethod
+    def from_number(
+        cls,
+        number: int,
+        punctuate: bool = True,
+        geresh: bool = True,
+    ):
+        """
+        Create a new instance of the Hebrew class representing a given number in its Hebrew letter form.
+
+        :param number: The number to convert to Hebrew letters. Must be greater than 0.
+        :param punctuate: Whether to add punctuation in the appropriate places.
+        :param geresh: If punctuate is true, whether to use the unicode geresh or an apostrophe.
+        :return:
+
+        >>> Hebrew.from_number(1, punctuate=True, geresh=True)
+        "א׳"
+        >>> Hebrew.from_number(1, punctuate=False)
+        "א"
+        >>> Hebrew.from_number(1, punctuate=True, geresh=False)
+        "'א"
+        """
+        return cls(number_to_hebrew_string(number, punctuate, geresh))
 
     @staticmethod
     def __calculate_simple_gematria(
