@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "hebrew"
-version = "0.6.1"
+version = "0.6.2"
 description = "A python package with methods to handle the complexities of Hebrew text, calculate Gematria, and more."
 authors = ["Avi Perl <avi@aviperl.me>"]
 license = "MIT"
@@ -14,28 +14,28 @@ classifiers = [
     "Operating System :: Microsoft :: Windows",
     "Operating System :: MacOS",
     "Operating System :: POSIX :: Linux",
-    "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Typing :: Typed",
 ]
 
 [tool.poetry.dependencies]
-python = "^3.7.0"
+python = "^3.8.0"
 grapheme = "^0.6.0"
 
 [tool.poetry.dev-dependencies]
-pytest = "^6.2.5"
-black = "^21.10b0"
-coverage = "^6.1.1"
-pytest-cov = "^3.0.0"
+pytest = "^7.4.3"
+black = "^23.11.0"
+coverage = "^7.3.2"
+pytest-cov = "^4.1.0"
 toml = "^0.10.2"
-mkdocs-material = "^7.3.6"
-mdx-include = "^1.4.1"
-mkdocstrings = "^0.16.2"
-pytest-codeblocks = "^0.11.4"
+mkdocs-material = "^9.5.1"
+mdx-include = "^1.4.2"
+mkdocstrings = "^0.24.0"
+pytest-codeblocks = "^0.17.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
