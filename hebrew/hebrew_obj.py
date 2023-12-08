@@ -278,13 +278,6 @@ class Hebrew(GraphemeString):
         :param punctuate: Whether to add punctuation in the appropriate places.
         :param geresh: If punctuate is true, whether to use the unicode geresh or an apostrophe.
         :return:
-
-        >>> Hebrew.from_number(1, punctuate=True, geresh=True)
-        "א׳"
-        >>> Hebrew.from_number(1, punctuate=False)
-        "א"
-        >>> Hebrew.from_number(1, punctuate=True, geresh=False)
-        "'א"
         """
         return cls(number_to_hebrew_string(number, punctuate, geresh))
 
