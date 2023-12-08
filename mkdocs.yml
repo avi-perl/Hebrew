@@ -19,8 +19,9 @@ theme:
 plugins:
   - search
   - mkdocstrings:
-      watch:
-        - hebrew/
+      handlers:
+        python:
+          paths: hebrew/
 
 extra_css:
 - css/style.css
