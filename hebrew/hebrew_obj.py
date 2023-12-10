@@ -272,7 +272,9 @@ class Hebrew(GraphemeString):
         number: int,
         punctuate: bool = True,
         geresh: bool = True,
-        substitution_functions: Optional[List[Callable[[str], str]]] = Substitutions.DEFAULT,
+        substitution_functions: Optional[
+            List[Callable[[str], str]]
+        ] = Substitutions.DEFAULT,
     ):
         """
         Convert a number into its Hebrew letter form, returning it as an instance of Hebrew.
@@ -285,7 +287,9 @@ class Hebrew(GraphemeString):
         values such as שמד ,רע, and others, use `Substitutions.ALL`.
         :return:
         """
-        return cls(number_to_hebrew_string(number, punctuate, geresh, substitution_functions))
+        return cls(
+            number_to_hebrew_string(number, punctuate, geresh, substitution_functions)
+        )
 
     @staticmethod
     def __calculate_simple_gematria(

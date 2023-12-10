@@ -2468,16 +2468,16 @@ def test_no_negative_input():
 
 @pytest.mark.parametrize("number, expected_output", NO_SUBSTITUTION.items())
 def test_no_substitutions(number, expected_output):
-    assert Hebrew.from_number(number, True, True, substitution_functions=None) == Hebrew(
-        expected_output
-    )
+    assert Hebrew.from_number(
+        number, True, True, substitution_functions=None
+    ) == Hebrew(expected_output)
 
 
 @pytest.mark.parametrize("number, expected_output", POLITE_SUBSTITUTION.items())
 def test_polite_substitutions(number, expected_output):
-    assert Hebrew.from_number(number, False, substitution_functions=Substitutions.ALL) == Hebrew(
-        expected_output
-    )
+    assert Hebrew.from_number(
+        number, False, substitution_functions=Substitutions.ALL
+    ) == Hebrew(expected_output)
     assert (
         number_to_hebrew_string(number, False, substitution_functions=Substitutions.ALL)
         == expected_output

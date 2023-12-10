@@ -16,6 +16,7 @@ def _get_word_substitution_func(bad: str, good: str) -> Callable[[str], str]:
     def word_substitution_func(value: str) -> str:
         """Substitute the first word for the second word"""
         return re.sub(bad, good, value)
+
     return word_substitution_func
 
 
@@ -40,5 +41,7 @@ class Substitutions:
     DEFAULT = _BASIC_FUNCTIONS
     "The default set of substitutions; 'טו' and 'טז'"
 
-    ALL = [_get_word_substitution_func(w[0], w[1]) for w in POLITE_WORD_MAP.items()] + _BASIC_FUNCTIONS
+    ALL = [
+        _get_word_substitution_func(w[0], w[1]) for w in POLITE_WORD_MAP.items()
+    ] + _BASIC_FUNCTIONS
     "All available substitution functions. See `POLITE_WORD_MAP` and `DEFAULT`; 'טו' and 'טז'"

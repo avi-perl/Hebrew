@@ -11,7 +11,9 @@ def number_to_hebrew_string(
     number: int,
     punctuate: bool = True,
     geresh: bool = True,
-    substitution_functions: Optional[List[Callable[[str], str]]] = Substitutions.DEFAULT,
+    substitution_functions: Optional[
+        List[Callable[[str], str]]
+    ] = Substitutions.DEFAULT,
 ) -> str:
     """
     Convert a number into its Hebrew letter form.
