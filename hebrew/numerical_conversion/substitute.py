@@ -1,59 +1,47 @@
 import re
-from typing import Callable, Tuple, Union
-
-SUBSTITUTION = Callable[[str], str]
+from typing import Callable
 
 
-class SubstitutionFlag:
-    def __init__(self, data: Union[SUBSTITUTION, Tuple[SUBSTITUTION, ...]]):
-        if isinstance(data, Tuple):
-            self.flags = data
-        else:
-            self.flags = (data,)
+def yud_hey_to_tes_vav(value: str) -> str:
+    """Used to substitute 'יה' for 'טו' in a string"""
+    return re.sub(r"יה$", "טו", value)
 
-    def __add__(self, other: "SubstitutionFlag") -> "SubstitutionFlag":
-        flags = self.flags + other.flags
-        return SubstitutionFlag(flags)
 
-    def __eq__(self, __value: "SubstitutionFlag") -> bool:
-        return self.flags == __value.flags
+def yud_vav_to_tes_zayen(value: str) -> str:
+    """Used to substitute 'יו' for 'טז' in a string"""
+    return re.sub(r"יו$", "טז", value)
 
-    def __repr__(self):
-        return f"SubstitutionFlag({self.flags})"
+
+def _get_word_substitution_func(bad: str, good: str) -> Callable[[str], str]:
+    def word_substitution_func(value: str) -> str:
+        """Substitute the first word for the second word"""
+        return re.sub(bad, good, value)
+
+    return word_substitution_func
+
+
+POLITE_WORD_MAP = {
+    r"רע$": "ער",
+    r"רעב$": "ערב",
+    r"^רעה$": "ערה",
+    r"רצח$": "רחצ",
+    r"^שד$": "דש",
+    r"שמד$": "שדמ",
+}
+'Map of "impolite" words, and their polite equivalents.'
+
+_BASIC_FUNCTIONS = [yud_hey_to_tes_vav, yud_vav_to_tes_zayen]
 
 
 class Substitutions:
     """
-    A collection of flags to use when converting numbers to Hebrew letters.
-    The logic for each of these flags was sourced from DavkaWriters polite page numbers.
+    Constants containing sets of functions for use in substitution_functions.
     """
 
-    YUD_HEY = SubstitutionFlag(lambda x: re.sub(r"יה$", "טו", x))
-    "Substitute the word 'יה' for 'טו'"
+    DEFAULT = _BASIC_FUNCTIONS
+    "The default set of substitutions; 'טו' and 'טז'"
 
-    YUD_VAV = SubstitutionFlag(lambda x: re.sub(r"יו$", "טז", x))
-    "Substitute the word 'יו' for 'טז'"
-
-    RA = SubstitutionFlag(lambda x: re.sub(r"רע$", "ער", x))
-    "Substitute the word 'רע' for 'ער'"
-
-    RAAV = SubstitutionFlag(lambda x: re.sub(r"רעב$", "ערב", x))
-    "Substitute the word 'רעב' for 'ערב'"
-
-    RAAH = SubstitutionFlag(lambda x: re.sub(r"^רעה$", "ערה", x))
-    "Substitute the word 'רעה' for 'ערה'"
-
-    ROTZEACH = SubstitutionFlag(lambda x: re.sub(r"רצח$", "רחצ", x))
-    "Substitute the word 'רצח' for 'רחצ'"
-
-    SHAID = SubstitutionFlag(lambda x: re.sub(r"^שד$", "דש", x))
-    "Substitute the word 'שד' for 'דש'"
-
-    SHMAAD = SubstitutionFlag(lambda x: re.sub(r"שמד$", "שדמ", x))
-    "Substitute the word 'שמד' for 'שדמ'"
-
-    DEFAULT = YUD_HEY + YUD_VAV
-    "The default flags to use when converting numbers to Hebrew letters. By default, the 'יה' and 'יו' are replaced with 'טו' and 'טז' respectively."
-
-    ALL = YUD_HEY + YUD_VAV + RA + RAAV + RAAH + ROTZEACH + SHAID + SHMAAD
-    "All available flags."
+    ALL = [
+        _get_word_substitution_func(w[0], w[1]) for w in POLITE_WORD_MAP.items()
+    ] + _BASIC_FUNCTIONS
+    "All available substitution functions. See `POLITE_WORD_MAP` and `DEFAULT`; 'טו' and 'טז'"

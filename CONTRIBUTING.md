@@ -10,13 +10,13 @@ to open an issue prior to starting work.
 Rich Tools uses [poetry](https://python-poetry.org/docs/) for packaging and
 dependency management. To start developing with Rich Tools, install Poetry
 using the [recommended method](https://python-poetry.org/docs/#installation) or run:
-<!--pytest-codeblocks:skip-->
+<!--pytest.mark.skip-->
 ```bash
 pip install poetry
 ```
 
 Once Poetry is installed, install the dependencies with the following command:
-<!--pytest-codeblocks:skip-->
+<!--pytest.mark.skip-->
 ```bash
 poetry install
 ```
@@ -24,7 +24,7 @@ poetry install
 ### Tests
 
 Run tests with the following command:
-<!--pytest-codeblocks:skip-->
+<!--pytest.mark.skip-->
 ```bash
 poetry run pytest --codeblocks
 ```
@@ -46,7 +46,7 @@ Rich Tools uses [`black`](https://github.com/psf/black) for code formatting.
 I recommend setting up black in your editor to format on save.
 
 To run black from the command line:
-<!--pytest-codeblocks:skip-->
+<!--pytest.mark.skip-->
 ```bash
 black <path-to-files-changed>
 ```

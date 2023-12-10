@@ -1,6 +1,6 @@
-from typing import Optional
-import re
-from hebrew.numerical_conversion.substitute import Substitutions, SubstitutionFlag
+from typing import Optional, Callable, List
+
+from hebrew.numerical_conversion.substitute import Substitutions
 from hebrew.numerical_conversion.mappings import (
     HEBREW_LETTER_TO_VALUE_MAPPINGS,
     STANDARD_HEBREW_LETTERS_VALUES_REVERSED,
@@ -11,40 +11,44 @@ def number_to_hebrew_string(
     number: int,
     punctuate: bool = True,
     geresh: bool = True,
-    substitutions: Optional[SubstitutionFlag] = Substitutions.DEFAULT,
+    substitution_functions: Optional[
+        List[Callable[[str], str]]
+    ] = Substitutions.DEFAULT,
 ) -> str:
     """
-    Create a new instance of the Hebrew class representing a given number in its Hebrew letter form.
+    Convert a number into its Hebrew letter form.
 
     :param number: The number to convert to Hebrew letters. Must be greater than 0.
     :param punctuate: Whether to add punctuation in the appropriate places.
     :param geresh: If punctuate is true, whether to use the unicode geresh or an apostrophe.
-    :param substitutions: Flags to use when converting the number to Hebrew letters. By default, the "יה" and "יו" are replaced with "טו" and "טז" respectively.
+    :param substitution_functions: A list of functions that replaces some hebrew values in the result with an
+    appropriate equivalent. By default, "יה" and "יו" are replaced with "טו" and "טז" respectively. To replace all
+    values such as שמד ,רע, and others, use `Substitutions.ALL`.
     :return:
     """
     # Handle 0
     if number < 1:
         raise ValueError("Number must be greater than 0")
 
-    result = ""
+    reversed_result = ""
 
     # Prepare the numbers
     ones_value = _ones_column_value(number)
     if ones_value > 0:
-        result += HEBREW_LETTER_TO_VALUE_MAPPINGS[ones_value]
+        reversed_result += HEBREW_LETTER_TO_VALUE_MAPPINGS[ones_value]
     tens_value = _tens_column_value(number)
     if tens_value > 0:
-        result += HEBREW_LETTER_TO_VALUE_MAPPINGS[tens_value]
+        reversed_result += HEBREW_LETTER_TO_VALUE_MAPPINGS[tens_value]
     hundreds_value = _hundreds_and_above_column_value(number)
     if hundreds_value > 0:
-        result += _hundreds_to_letters(hundreds_value)
+        reversed_result += _hundreds_to_letters(hundreds_value)
 
     # Reverse the string
-    result = result[::-1]
+    result = reversed_result[::-1]
 
     # Substitute flags
-    if substitutions:
-        for func in substitutions.flags:
+    if substitution_functions:
+        for func in substitution_functions:
             result = func(result)
 
     # Add Punctuation
@@ -77,7 +81,7 @@ def _tens_column_value(number: int):
 
 def _hundreds_and_above_column_value(number: int):
     """
-    Returns the value of all columns of a number above the tens column.
+    Returns the value of all columns of a number above the ten's column.
     """
     return (number // 100) * 100
 
@@ -86,8 +90,7 @@ def _hundreds_to_letters(number: int) -> str:
     """
     Given a single digit number over 0 and a power of ten, return the Hebrew letters that represent that number.
 
-    :param digit: The digit to convert to Hebrew letters. Must be greater than 0 and less than 10.
-    :param powers_of_ten: The power of ten that the digit should be multiplied by.
+    :param number: The digit to convert to Hebrew letters.
     :return: The Hebrew letters that represent the number.
     """
 
