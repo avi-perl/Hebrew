@@ -2,7 +2,7 @@ from functools import reduce
 from typing import List, Optional, TypeVar, Dict
 from operator import add
 
-from hebrew.numerical_conversion.flags import SubstitutionFlag, SubstitutionFlags
+from hebrew.numerical_conversion.substitute import SubstitutionFlag, Substitutions
 
 from .grapheme_string import GraphemeString
 from .chars import (
@@ -272,7 +272,7 @@ class Hebrew(GraphemeString):
         number: int,
         punctuate: bool = True,
         geresh: bool = True,
-        substitution_flags: Optional[SubstitutionFlag] = SubstitutionFlags.DEFAULT,
+        substitutions: Optional[SubstitutionFlag] = Substitutions.DEFAULT,
     ):
         """
         Create a new instance of the Hebrew class representing a given number in its Hebrew letter form.
@@ -280,12 +280,10 @@ class Hebrew(GraphemeString):
         :param number: The number to convert to Hebrew letters. Must be greater than 0.
         :param punctuate: Whether to add punctuation in the appropriate places.
         :param geresh: If punctuate is true, whether to use the unicode geresh or an apostrophe.
-        :param substitution_flags: Flags to use when converting the number to Hebrew letters. By default, the "יה" and "יו" are replaced with "טו" and "טז" respectively.
+        :param substitutions: Flags to use when converting the number to Hebrew letters. By default, the "יה" and "יו" are replaced with "טו" and "טז" respectively.
         :return:
         """
-        return cls(
-            number_to_hebrew_string(number, punctuate, geresh, substitution_flags)
-        )
+        return cls(number_to_hebrew_string(number, punctuate, geresh, substitutions))
 
     @staticmethod
     def __calculate_simple_gematria(

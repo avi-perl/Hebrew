@@ -2,7 +2,7 @@ import random
 from typing import Optional
 from hebrew.numerical_conversion.convert import number_to_hebrew_string
 from hebrew.hebrew_obj import Hebrew
-from hebrew.numerical_conversion.flags import SubstitutionFlag, SubstitutionFlags
+from hebrew.numerical_conversion.substitute import SubstitutionFlag, Substitutions
 
 
 test_data = {
@@ -6251,8 +6251,7 @@ def _convert(
     number: int,
     geresh: bool = True,
     punctuate: bool = True,
-    substitution_flags: Optional[SubstitutionFlag] = SubstitutionFlags.YUD_HEY
-    + SubstitutionFlags.YUD_VAV,
+    substitutions: Optional[SubstitutionFlag] = Substitutions.DEFAULT,
 ):
     """
     Convert the nuumber while testing that the conversion is the same as the
@@ -6262,14 +6261,14 @@ def _convert(
         number,
         geresh=geresh,
         punctuate=punctuate,
-        substitution_flags=substitution_flags,
+        substitutions=substitutions,
     )
     s2 = str(
         Hebrew.from_number(
             number,
             geresh=geresh,
             punctuate=punctuate,
-            substitution_flags=substitution_flags,
+            substitutions=substitutions,
         )
     )
     assert s1 == s2
@@ -6301,9 +6300,7 @@ def test_numerical_conversion():
         assert _convert(int(number), geresh=False) == expected
     for number, expected in davka_without_punctuation_polite.items():
         assert (
-            _convert(
-                int(number), punctuate=False, substitution_flags=SubstitutionFlags.all()
-            )
+            _convert(int(number), punctuate=False, substitutions=Substitutions.ALL)
             == expected
         )
     for number, expected in davka_without_punctuation.items():
@@ -6325,10 +6322,10 @@ def test_numerical_conversion():
         assert _convert(int(last_three_digits), punctuate=False).endswith(
             davka_without_punctuation[last_three_digits]
         )
-        assert _convert(int(last_three_digits), punctuate=False,  substitution_flags=SubstitutionFlags.all()).endswith(
-            davka_without_punctuation_polite[last_three_digits]
-        )
-        
+        assert _convert(
+            int(last_three_digits), punctuate=False, substitutions=Substitutions.ALL
+        ).endswith(davka_without_punctuation_polite[last_three_digits])
+
         assert _convert(int(last_three_digits), punctuate=False).endswith(
             without_punctuation[last_three_digits]
         )
