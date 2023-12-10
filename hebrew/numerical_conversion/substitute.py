@@ -1,11 +1,11 @@
 import re
-from typing import Callable, Optional, Tuple, TypeVar
+from typing import Callable, Tuple, Union
 
 SUBSTITUTION = Callable[[str], str]
 
 
 class SubstitutionFlag:
-    def __init__(self, data: SUBSTITUTION | Tuple[SUBSTITUTION, ...]):
+    def __init__(self, data: Union[SUBSTITUTION, Tuple[SUBSTITUTION, ...]]):
         if isinstance(data, Tuple):
             self.flags = data
         else:
