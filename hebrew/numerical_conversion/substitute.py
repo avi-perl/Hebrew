@@ -3,12 +3,12 @@ from typing import Callable
 
 
 def yud_hey_to_tes_vav(value: str) -> str:
-    """Substitute 'יה' for 'טו'"""
+    """Used to substitute 'יה' for 'טו' in a string"""
     return re.sub(r"יה$", "טו", value)
 
 
 def yud_vav_to_tes_zayen(value: str) -> str:
-    """Substitute 'יו' for 'טז'"""
+    """Used to substitute 'יו' for 'טז' in a string"""
     return re.sub(r"יו$", "טז", value)
 
 
@@ -27,11 +27,18 @@ POLITE_WORD_MAP = {
     r"^שד$": "דש",
     r"שמד$": "שדמ",
 }
+'Map of "impolite" words, and their polite equivalents.'
 
 _BASIC_FUNCTIONS = [yud_hey_to_tes_vav, yud_vav_to_tes_zayen]
 
 
 class Substitutions:
-    """"""
+    """
+    Constants containing sets of functions for use in substitution_functions.
+    """
+
     DEFAULT = _BASIC_FUNCTIONS
+    "The default set of substitutions; 'טו' and 'טז'"
+
     ALL = [_get_word_substitution_func(w[0], w[1]) for w in POLITE_WORD_MAP.items()] + _BASIC_FUNCTIONS
+    "All available substitution functions. See `POLITE_WORD_MAP` and `DEFAULT`; 'טו' and 'טז'"
