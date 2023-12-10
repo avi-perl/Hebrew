@@ -6325,9 +6325,10 @@ def test_numerical_conversion():
         assert _convert(int(last_three_digits), punctuate=False).endswith(
             davka_without_punctuation[last_three_digits]
         )
-        assert _convert(int(last_three_digits), punctuate=False).endswith(
+        assert _convert(int(last_three_digits), punctuate=False,  substitution_flags=SubstitutionFlags.all()).endswith(
             davka_without_punctuation_polite[last_three_digits]
         )
+        
         assert _convert(int(last_three_digits), punctuate=False).endswith(
             without_punctuation[last_three_digits]
         )
