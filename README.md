@@ -31,7 +31,7 @@
 
 # Installation
 
-<!--pytest-codeblocks:skip-->
+<!--pytest.mark.skip-->
 
 ```bash
 $ pip install hebrew
