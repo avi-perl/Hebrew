@@ -1,4 +1,4 @@
-from typing import Optional, Callable, List
+from typing import Optional, Callable, Tuple
 
 from hebrew.numerical_conversion.substitute import Substitutions
 from hebrew.numerical_conversion.mappings import (
@@ -12,7 +12,7 @@ def number_to_hebrew_string(
     punctuate: bool = True,
     geresh: bool = True,
     substitution_functions: Optional[
-        List[Callable[[str], str]]
+        Tuple[Callable[[str], str], ...]
     ] = Substitutions.DEFAULT,
 ) -> str:
     """
@@ -21,7 +21,7 @@ def number_to_hebrew_string(
     :param number: The number to convert to Hebrew letters. Must be greater than 0.
     :param punctuate: Whether to add punctuation in the appropriate places.
     :param geresh: If punctuate is true, whether to use the unicode geresh or an apostrophe.
-    :param substitution_functions: A list of functions that replaces some hebrew values in the result with an
+    :param substitution_functions: A tuple of functions that replaces some hebrew values in the result with an
     appropriate equivalent. By default, "יה" and "יו" are replaced with "טו" and "טז" respectively. To replace all
     values such as שמד ,רע, and others, use `Substitutions.ALL`.
     :return:
