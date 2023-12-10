@@ -14,7 +14,7 @@ def number_to_hebrew_string(
     substitutions: Optional[SubstitutionFlag] = Substitutions.DEFAULT,
 ) -> str:
     """
-    Create a new instance of the Hebrew class representing a given number in its Hebrew letter form.
+    Convert a number into its Hebrew letter form.
 
     :param number: The number to convert to Hebrew letters. Must be greater than 0.
     :param punctuate: Whether to add punctuation in the appropriate places.
@@ -26,21 +26,21 @@ def number_to_hebrew_string(
     if number < 1:
         raise ValueError("Number must be greater than 0")
 
-    result = ""
+    reversed_result = ""
 
     # Prepare the numbers
     ones_value = _ones_column_value(number)
     if ones_value > 0:
-        result += HEBREW_LETTER_TO_VALUE_MAPPINGS[ones_value]
+        reversed_result += HEBREW_LETTER_TO_VALUE_MAPPINGS[ones_value]
     tens_value = _tens_column_value(number)
     if tens_value > 0:
-        result += HEBREW_LETTER_TO_VALUE_MAPPINGS[tens_value]
+        reversed_result += HEBREW_LETTER_TO_VALUE_MAPPINGS[tens_value]
     hundreds_value = _hundreds_and_above_column_value(number)
     if hundreds_value > 0:
-        result += _hundreds_to_letters(hundreds_value)
+        reversed_result += _hundreds_to_letters(hundreds_value)
 
     # Reverse the string
-    result = result[::-1]
+    result = reversed_result[::-1]
 
     # Substitute flags
     if substitutions:
@@ -77,7 +77,7 @@ def _tens_column_value(number: int):
 
 def _hundreds_and_above_column_value(number: int):
     """
-    Returns the value of all columns of a number above the tens column.
+    Returns the value of all columns of a number above the ten's column.
     """
     return (number // 100) * 100
 
@@ -86,8 +86,7 @@ def _hundreds_to_letters(number: int) -> str:
     """
     Given a single digit number over 0 and a power of ten, return the Hebrew letters that represent that number.
 
-    :param digit: The digit to convert to Hebrew letters. Must be greater than 0 and less than 10.
-    :param powers_of_ten: The power of ten that the digit should be multiplied by.
+    :param number: The digit to convert to Hebrew letters.
     :return: The Hebrew letters that represent the number.
     """
 
