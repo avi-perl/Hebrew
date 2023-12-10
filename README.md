@@ -89,7 +89,7 @@ assert hs1.gematria() ==  hs2.gematria()  # 2701
 Major kudos goes to [TorahCalc](https://www.torahcalc.com/gematria/) whose calculator and explanations were critical to
 the development of this feature.
 
-### Hebrew Numberical Conversions
+## Numerical Conversions
 
 You can create a Hebrew object that represents a number using the `from_number` method. This is handy for displaying numbers in Hebrew form.
 
@@ -103,7 +103,7 @@ print(hs1)  # ב׳
 hs2 = Hebrew.from_number(2, geresh=False)
 print(hs2)  # 'ב
 
-# Dont add punctuation
+# Do not add punctuation
 hs2 = Hebrew.from_number(2, geresh=False)
 print(hs2)  # ב
 
