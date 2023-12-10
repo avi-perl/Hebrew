@@ -2452,6 +2452,14 @@ POLITE_SUBSTITUTION = {
 }
 
 
+def test_no_less_1_input():
+    with pytest.raises(ValueError):
+        Hebrew.from_number(0)
+        Hebrew.from_number(-1)
+        number_to_hebrew_string(0)
+        number_to_hebrew_string(-1)
+
+
 @pytest.mark.parametrize("number, expected_output", NO_SUBSTITUTION.items())
 def test_no_substitutions(number, expected_output):
     assert Hebrew.from_number(number, True, True, substitutions=None) == Hebrew(
