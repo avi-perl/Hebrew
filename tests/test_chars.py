@@ -295,3 +295,51 @@ def test_niqqud_char_hashable():
 
 def test_other_char_hashable():
     assert hash(OtherChar(char="׃", name="Sof Passuk"))
+
+
+def test_hebrew_char_eq():
+    hebrew_one = HebrewChar(
+        char="א", name="Aleph", hebrew_name="אָלֶף", name_alts=["Alef"]
+    )
+    hebrew_two = HebrewChar(
+        char="בּ", name="Bet", hebrew_name="בֵּית", hebrew_name_alts=["בת"]
+    )
+    assert hebrew_one == hebrew_one
+    assert hebrew_one != hebrew_two
+    assert hebrew_one != 5
+
+
+def test_yiddish_char_eq():
+    yiddish_one = YiddishChar(char="ױ", name="Vav Yod")
+    yiddish_two = YiddishChar(
+        char="װ",
+        name="Double Vav",
+        name_alts=["Double Vuv"],
+    )
+    assert yiddish_one == yiddish_one
+    assert yiddish_one != yiddish_two
+    assert yiddish_one != 5
+
+
+def test_niqqud_char_eq():
+    niqqud_one = NiqqudChar(char="ׂ", name="Sin Dot")
+    niqqud_two = NiqqudChar(char="ׁ", name="Shin Dot")
+    assert niqqud_one == niqqud_one
+    assert niqqud_one != niqqud_two
+    assert niqqud_one != 5
+
+
+def test_taamim_char_eq():
+    taamim_one = TaamimChar(char="֙", name="Pashta")
+    taamim_two = TaamimChar(char="֚", name="Yetiv")
+    assert taamim_one == taamim_one
+    assert taamim_one != taamim_two
+    assert taamim_one != 5
+
+
+def test_other_char_eq():
+    other_one = OtherChar(char="־", name="Maqaf")
+    other_two = OtherChar(char="׀", name="Paseq")
+    assert other_one == other_one
+    assert other_one != other_two
+    assert other_one != 5
