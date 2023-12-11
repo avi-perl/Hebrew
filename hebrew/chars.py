@@ -222,9 +222,6 @@ class HebrewChar(BaseHebrewChar):
     def __hash__(self):
         return hash(self.char)
 
-    def __eq__(self, other):
-        return self.char == other.char
-
 
 @dataclass
 class YiddishChar(BaseHebrewChar):
@@ -249,9 +246,6 @@ class YiddishChar(BaseHebrewChar):
     def __hash__(self):
         return hash(self.char)
 
-    def __eq__(self, other):
-        return self.char == other.char
-
 
 @dataclass
 class NiqqudChar(BaseHebrewChar):
@@ -275,9 +269,6 @@ class NiqqudChar(BaseHebrewChar):
 
     def __hash__(self):
         return hash(self.char)
-
-    def __eq__(self, other):
-        return self.char == other.char
 
 
 @dataclass
@@ -304,9 +295,6 @@ class TaamimChar(BaseHebrewChar):
     def __hash__(self):
         return hash(self.char)
 
-    def __eq__(self, other):
-        return self.char == other.char
-
 
 @dataclass
 class OtherChar(BaseHebrewChar):
@@ -330,9 +318,6 @@ class OtherChar(BaseHebrewChar):
 
     def __hash__(self):
         return hash(self.char)
-
-    def __eq__(self, other):
-        return self.char == other.char
 
 
 # TODO:
