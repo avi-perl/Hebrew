@@ -276,7 +276,9 @@ def test_other_char_search():
 
 
 def test_hebrew_char_hashable():
-    assert hash(HebrewChar(char="א", name="Aleph", hebrew_name="אָלֶף", name_alts=["Alef"]))
+    assert hash(
+        HebrewChar(char="א", name="Aleph", hebrew_name="אָלֶף", name_alts=["Alef"])
+    )
 
 
 def test_yiddish_char_hashable():
