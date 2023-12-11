@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "hebrew"
-version = "0.8.0"
+version = "0.8.1"
 description = "A python package with methods to handle the complexities of Hebrew text, calculate Gematria, and more."
 authors = ["Avi Perl <avi@aviperl.me>"]
 license = "MIT"
