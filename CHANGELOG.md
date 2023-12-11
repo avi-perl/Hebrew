@@ -11,18 +11,18 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - New function `Hebrew.from_number` converts an int into its hebrew form
 
-  ### Example:
-  ```python
-  from hebrew import Hebrew
-  
-  hs1 = Hebrew.from_number(2)
-  print(hs1)  # ב׳
-  
-  # Do not add punctuation
-  hs2 = Hebrew.from_number(2, geresh=False)
-  print(hs2)  # ב
-  
-  ```
+### Example:
+
+``` python
+from hebrew import Hebrew
+
+hs1 = Hebrew.from_number(2)
+print(hs1)  # ב׳
+
+# Do not add punctuation
+hs2 = Hebrew.from_number(2, geresh=False)
+print(hs2)  # ב
+```
 
 ## [0.6.2] - 2023-12-08
 
