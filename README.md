@@ -56,7 +56,9 @@ print(HebrewChar.search('bet'))  # HebrewChar(char='בּ', name='Bet', hebrew_na
 ```
 
 ## Gematria
+
 The `Hebrew` class includes a `gematria` function that can return a value for _23_ different variations of Gematria!
+
 ```python
 from hebrew import Hebrew
 from hebrew import GematriaTypes
@@ -67,8 +69,9 @@ print(hs.gematria())  # 2701
 print(hs.gematria(GematriaTypes.MISPAR_GADOL))  # 4631
 ```
 
-Messy inputs, such as strings with english text mixed in, is supported. However, do be careful to work with sanitized 
+Messy inputs, such as strings with english text mixed in, is supported. However, do be careful to work with sanitized
 strings as much as possible.
+
 ```python
 from hebrew import Hebrew
 
@@ -83,10 +86,31 @@ hs2 = Hebrew('בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥�
 assert hs1.gematria() ==  hs2.gematria()  # 2701
 ```
 
-Major kudos goes to [TorahCalc](https://www.torahcalc.com/gematria/) whose calculator and explanations were critical to 
-the development of this feature.  
+Major kudos goes to [TorahCalc](https://www.torahcalc.com/gematria/) whose calculator and explanations were critical to
+the development of this feature.
+
+## Numerical Conversions
+
+You can create a Hebrew object that represents a number using the `from_number` method. This is handy for displaying numbers in Hebrew form.
+
+```python
+from hebrew import Hebrew
+
+hs1 = Hebrew.from_number(2)
+print(hs1)  # ב׳
+
+# Add an apostrophe instead of a the unicode geresh
+hs2 = Hebrew.from_number(2, geresh=False)
+print(hs2)  # 'ב
+
+# Do not add punctuation
+hs2 = Hebrew.from_number(2, geresh=False)
+print(hs2)  # ב
+
+```
 
 ## Grapheme Characters
+
 Hebrew text comes in different forms, depending on the context. Hebrew text may appear with Niqqudot
 "a system of diacritical signs used to represent vowels or distinguish between alternative pronunciations of letters
 of the Hebrew alphabet". [^1] Additionally, Hebrew text may appear with extensive punctuation characters that connect
@@ -94,37 +118,46 @@ words, separate them, and cantillation marks "used as a guide for chanting the t
 in the case of the public reading of the Torah" [^2].
 
 Because of the above, from the perspective of a hebrew reader, the following 3 words are the same:
+
 1. **בְּרֵאשִׁ֖ית**
 2. **בְּרֵאשִׁית**
 3. **בראשית**
 
 However, as a unicode string, they are entirely different because of the additional characters.
+
 ```python
 assert len("בְּרֵאשִׁ֖ית") == 12
 assert len("בְּרֵאשִׁית") == 11
 assert len("בראשית") == 6
 ```
+
 This impacts the user is a number of other ways. For example, if I want to get the root of this hebrew word using a slice:
 _Expected: `רֵאשִׁ֖ית`_
+
 ```python
 he = "בְּרֵאשִׁ֖ית"
 assert he[-5:] == 'ִׁ֖ית'
 ```
+
 The solution to this is to handle the unicode string as a list of grapheme[^3] characters, where each letter and its
 accompanying characters are treated as a single unit.
 
 ### Working with Grapheme Characters
+
 Using the [grapheme](https://github.com/alvinlindstam/grapheme) library for python, we can work with the grapheme
 characters as units. This allows us to get the right number of characters, slice the string correctly, and more.
+
 ```python
 import grapheme
 
 assert grapheme.length("בְּרֵאשִׁ֖ית") == 6
 assert grapheme.slice("בְּרֵאשִׁ֖ית", start=1, end=6) == 'רֵאשִׁ֖ית'
 ```
+
 This library includes 2 classes. `GraphemeString` is a class that supports all the functions made available by `grapheme`.
 The 2nd class `Hebrew` subclasses `GraphemeString` and adds methods for handling Hebrew text. This allows us to
 interact with the text like so:
+
 ```python
 from hebrew import Hebrew
 
@@ -139,6 +172,7 @@ print(v2.words(split_maqaf=True))  # [וְהָאָ֗רֶץ, הָיְתָ֥ה, ת
 The text in these examples and used in testing were sourced from [Sefaria](https://github.com/Sefaria/Sefaria-Export).
 
 ## `hebrew.chars` and Character Constants
+
 `hebrew.Chars` contains constants for every letter as well as lists by character category's.
 Each value is an instance of a class that represents a character in the Hebrew character set with relevant properties.
 Since this library seeks to support the use of the Hebrew language in the way it is used, characters such as "בּ" can be
@@ -153,14 +187,18 @@ assert {c.name: c.char for c in FINAL_LETTERS} == {'Chaf Sofit': 'ך', 'Mem Sofi
 
 assert [c.char for c in YIDDISH_CHARS] == ['ײ', 'װ', 'ױ']
 ```
+
 A letter can be retrieved using the `CHARS` dict; A dict of all instances of all supported Char types where the key is
 the char and the value is an instance of BaseHebrewChar.
+
 ```python
 from hebrew.chars import CHARS
 
 print(CHARS.get('בּ'))  # HebrewChar(char='בּ', name='Bet', hebrew_name='בֵּית', name_alts=None, hebrew_name_alts=None, final_letter=False)
 ```
+
 Search is also supported so that letters can be retrieved by their name.
+
 ```python
 from hebrew.chars import HebrewChar
 
@@ -168,6 +206,7 @@ print(HebrewChar.search('bet'))  # HebrewChar(char='בּ', name='Bet', hebrew_na
 ```
 
 ## Contributing
+
 Contributions in the form of pull requests are very welcome! I'm sure many more helpful methods related to hebrew text
 could be helpful. More information and instructions for contributing can be found [here](CONTRIBUTING).
 

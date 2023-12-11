@@ -1,6 +1,8 @@
 from functools import reduce
-from typing import List, TypeVar, Dict
+from typing import List, Optional, TypeVar, Dict, Callable, Tuple
 from operator import add
+
+from hebrew.numerical_conversion.substitute import Substitutions
 
 from .grapheme_string import GraphemeString
 from .chars import (
@@ -15,6 +17,7 @@ from .chars import (
     FINAL_MINOR_LETTER_MAPPINGS,
     HebrewChar,
 )
+from .numerical_conversion.convert import number_to_hebrew_string
 from hebrew.gematria import GematriaTypes
 
 HebrewT = TypeVar("HebrewT", bound="Hebrew")
@@ -262,6 +265,31 @@ class Hebrew(GraphemeString):
         else:
             # Simple gematria that can be calculated by simply adding each letters value up to a final number.
             return self.__calculate_simple_gematria(self.string, method)
+
+    @classmethod
+    def from_number(
+        cls,
+        number: int,
+        punctuate: bool = True,
+        geresh: bool = True,
+        substitution_functions: Optional[
+            Tuple[Callable[[str], str], ...]
+        ] = Substitutions.DEFAULT,
+    ):
+        """
+        Convert a number into its Hebrew letter form, returning it as an instance of Hebrew.
+
+        :param number: The number to convert to Hebrew letters. Must be greater than 0...
+        :param punctuate: Whether to add punctuation in the appropriate places.
+        :param geresh: If punctuate is true, whether to use the unicode geresh or an apostrophe.
+        :param substitution_functions: A tuple of functions that replaces some hebrew values in the result with an
+        appropriate equivalent. By default, "יה" and "יו" are replaced with "טו" and "טז" respectively. To replace all
+        values such as שמד ,רע, and others, use `Substitutions.ALL`.
+        :return:
+        """
+        return cls(
+            number_to_hebrew_string(number, punctuate, geresh, substitution_functions)
+        )
 
     @staticmethod
     def __calculate_simple_gematria(
