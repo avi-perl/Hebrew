@@ -1,4 +1,4 @@
-from typing import Iterator, TypeVar
+from typing import Iterator, TypeVar, Optional
 
 import grapheme
 from grapheme.finder import GraphemeIterator
@@ -18,7 +18,7 @@ class GraphemeString:
         self.string = string
 
     @property
-    def graphemes(self) -> Iterator[GraphemeIterator]:
+    def graphemes(self) -> GraphemeIterator:
         """
         Returns an iterator of all graphemes of given string.
 
@@ -84,7 +84,7 @@ class GraphemeString:
         """
         return grapheme.grapheme_lengths(self.string)
 
-    def slice(self, start: int = None, end: int = None) -> str:
+    def slice(self, start: Optional[int] = None, end: Optional[int] = None) -> str:
         """
         Returns a substring of the given string, counting graphemes instead of codepoints.
 
@@ -192,8 +192,8 @@ class GraphemeString:
     def __repr__(self) -> str:
         return self.__str__()
 
-    def __add__(self, other) -> GraphemeStringT:
-        return GraphemeString(self.string + str(other))
+    def __add__(self: GraphemeStringT, other: GraphemeStringT) -> GraphemeStringT:
+        return self.__class__(self.string + str(other))
 
     def __key(self) -> str:
         return self.string

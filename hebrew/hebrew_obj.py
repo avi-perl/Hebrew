@@ -38,7 +38,7 @@ def get_hebrew_name(letter: HebrewChar, name_dict) -> str:
         name_dict = {}
 
     if name_dict and letter.char in name_dict.keys():
-        name = name_dict.get(letter.char)
+        name = name_dict[letter.char]
         clean_name = Hebrew(name).text_only()
         if clean_name not in [Hebrew(nm).text_only() for nm in letter.hebrew_names]:
             raise ValueError(f"{name} is not a valid name for {letter}")
@@ -63,7 +63,7 @@ class Hebrew(GraphemeString):
     def __repr__(self) -> str:
         return self.__str__()
 
-    def no_maqaf(self) -> HebrewT:
+    def no_maqaf(self: HebrewT) -> HebrewT:
         """
         Replaces all maqafs with spaces.
 
@@ -72,17 +72,17 @@ class Hebrew(GraphemeString):
 
         :return:
         """
-        return Hebrew(self.string.replace(MAQAF.char, " "))
+        return self.__class__(self.string.replace(MAQAF.char, " "))
 
-    def no_sof_passuk(self) -> HebrewT:
+    def no_sof_passuk(self: HebrewT) -> HebrewT:
         """
         Removes all sof_passuk chars.
 
         :return:
         """
-        return Hebrew(self.string.replace(SOF_PASSUK.char, ""))
+        return self.__class__(self.string.replace(SOF_PASSUK.char, ""))
 
-    def words(self, split_maqaf: bool = False) -> List[HebrewT]:
+    def words(self: HebrewT, split_maqaf: bool = False) -> List[HebrewT]:
         """
         Splits the string into a list of words.
 
@@ -90,9 +90,9 @@ class Hebrew(GraphemeString):
         :return:
         """
         string = self.string if not split_maqaf else self.no_maqaf().string
-        return [Hebrew(s) for s in string.split()]
+        return [self.__class__(s) for s in string.split()]
 
-    def text_only(self, remove_maqaf: bool = False) -> HebrewT:
+    def text_only(self: HebrewT, remove_maqaf: bool = False) -> HebrewT:
         """
         Returns a string with all non-letter characters removed.
         This will remove both niqqud and punctuation.
@@ -107,9 +107,9 @@ class Hebrew(GraphemeString):
         )  # Handled separately to avoid double spaces.
         for char in chars_to_remove:
             string = string.replace(char, "")
-        return Hebrew(string)
+        return self.__class__(string)
 
-    def no_niqqud(self) -> HebrewT:
+    def no_niqqud(self: HebrewT) -> HebrewT:
         """
         Removes all niqqud characters.
         This may be useful to practice reading from the torah.
@@ -119,9 +119,9 @@ class Hebrew(GraphemeString):
         string = self.string
         for char in [c.char for c in NIQQUD_CHARS]:
             string = string.replace(char, "")
-        return Hebrew(string)
+        return self.__class__(string)
 
-    def normalize(self, normalize_yiddish: bool = False) -> HebrewT:
+    def normalize(self: HebrewT, normalize_yiddish: bool = False) -> HebrewT:
         """
         Replaces all non-standard hebrew characters with their equivalent values
         using normal hebrew letters and symbols. This is important when using hebrew fonts. Some fonts may not
@@ -153,7 +153,7 @@ class Hebrew(GraphemeString):
         return self
 
     def no_taamim(
-        self, remove_maqaf: bool = False, remove_sof_passuk: bool = False
+        self: HebrewT, remove_maqaf: bool = False, remove_sof_passuk: bool = False
     ) -> HebrewT:
         """
         Removes all [Ta'amim](https://en.wikipedia.org/wiki/Hebrew_cantillation) characters.
@@ -173,12 +173,12 @@ class Hebrew(GraphemeString):
         )  # Handled separately to avoid double spaces.
         for char in chars_to_remove:
             string = string.replace(char, "")
-        return Hebrew(string)
+        return self.__class__(string)
 
     def gematria(
         self,
         method: GematriaTypes = GematriaTypes.MISPAR_HECHRACHI,
-        alt_letter_name_spelling: Dict[str, str] = None,
+        alt_letter_name_spelling: Optional[Dict[str, str]] = None,
     ) -> int:
         """
         Returns the gematria of the string.
@@ -250,14 +250,12 @@ class Hebrew(GraphemeString):
             # [Note: There is more than one way to spell certain letters.]
 
             # Get list of HebrewChar instances for each letter in string
-            chars: List[HebrewChar] = [
-                CHARS[c] for c in [x for x in cleaned_string if x != " "]
-            ]
+            chars = [CHARS[c] for c in [x for x in cleaned_string if x != " "]]
 
             # Convert final letters to non-final since our internal lib naming for final letters
             # will ruin the calculation.
-            replaced_final_letters = [
-                CHARS[FINAL_MINOR_LETTER_MAPPINGS.get(c.char)] if c.final_letter else c
+            replaced_final_letters: List[HebrewChar] = [
+                CHARS[FINAL_MINOR_LETTER_MAPPINGS[c.char]] if c.final_letter else c  # type: ignore
                 for c in chars
             ]
 
@@ -275,14 +273,12 @@ class Hebrew(GraphemeString):
             # without the letter itself. (ex. "Aleph" = Lamed + Fey = 30 + 80 = 110).
 
             # Get list of HebrewChar instances for each letter in string
-            chars: List[HebrewChar] = [
-                CHARS[c] for c in [x for x in cleaned_string if x != " "]
-            ]
+            chars = [CHARS[c] for c in [x for x in cleaned_string if x != " "]]
 
             # Convert final letters to non-final since our internal lib naming for final letters
             # will ruin the calculation.
             replaced_final_letters = [
-                CHARS[FINAL_MINOR_LETTER_MAPPINGS.get(c.char)] if c.final_letter else c
+                CHARS[FINAL_MINOR_LETTER_MAPPINGS[c.char]] if c.final_letter else c  # type: ignore
                 for c in chars
             ]
 

@@ -3,7 +3,7 @@ Constants for each Hebrew character and classes to represent them, and metadata 
 """
 
 from dataclasses import dataclass
-from typing import Optional, List, Dict, Union
+from typing import Optional, List, Dict, Sequence, TypeVar, Union
 
 from hebrew.gematria import (
     MISPAR_HECHRACHI,
@@ -64,7 +64,12 @@ class BaseHebrewChar:
         All Hebrew names for this character.
         :return: A list of all Hebrew names for this character made up of the `hebrew_name` and `hebrew_name_alts`.
         """
-        return [self.hebrew_name] + (self.hebrew_name_alts or [])
+        names = []
+        if self.hebrew_name:
+            names.append(self.hebrew_name)
+        if self.hebrew_name_alts:
+            names.extend(self.hebrew_name_alts)
+        return names
 
     @property
     def names(self) -> List[str]:
@@ -87,6 +92,14 @@ class HebrewChar(BaseHebrewChar):
     final_letter: bool = False
     """Whether or not the letter is a "final" or "Sofit" letter."""
 
+    hebrew_name: str
+    """
+    Primary name of the character in Hebrew.
+    
+    The choice of primary name is non trivial as it is used as the primary spelling 
+    for the Mispar Shemi Gematria method.
+    """
+
     @property
     def base_letter(self) -> "HebrewChar":
         """
@@ -98,112 +111,112 @@ class HebrewChar(BaseHebrewChar):
         :return: An instance of `HebrewChar` representing a single unicode character; the base letter of
          this instance of `HebrewChar`.
         """
-        return CHARS[self.char[0]]
+        return CHARS[self.char[0]]  # type: ignore
 
     @property
     def mispar_hechrachi(self) -> int:
         """
         :return: The value of the character for use in the mispar_hechrachi method of gematria.
         """
-        return MISPAR_HECHRACHI.get(self.base_letter.char)
+        return MISPAR_HECHRACHI[self.base_letter.char]
 
     @property
     def mispar_gadol(self) -> int:
         """
         :return: The value of the character for use in the mispar_gadol method of gematria.
         """
-        return MISPAR_GADOL.get(self.base_letter.char)
+        return MISPAR_GADOL[self.base_letter.char]
 
     @property
     def mispar_siduri(self) -> int:
         """
         :return: The value of the character for use in the mispar_siduri method of gematria.
         """
-        return MISPAR_SIDURI.get(self.base_letter.char)
+        return MISPAR_SIDURI[self.base_letter.char]
 
     @property
     def mispar_katan(self) -> int:
         """
         :return: The value of the character for use in the mispar_katan method of gematria.
         """
-        return MISPAR_KATAN.get(self.base_letter.char)
+        return MISPAR_KATAN[self.base_letter.char]
 
     @property
     def mispar_perati(self) -> int:
         """
         :return: The value of the character for use in the mispar_perati method of gematria.
         """
-        return MISPAR_PERATI.get(self.base_letter.char)
+        return MISPAR_PERATI[self.base_letter.char]
 
     @property
     def atbash(self) -> int:
         """
         :return: The value of the character for use in the AtBash method of gematria.
         """
-        return ATBASH.get(self.base_letter.char)
+        return ATBASH[self.base_letter.char]
 
     @property
     def albam(self) -> int:
         """
         :return: The value of the character for use in the AtBash method of gematria.
         """
-        return ALBAM.get(self.base_letter.char)
+        return ALBAM[self.base_letter.char]
 
     @property
     def mispar_meshulash(self) -> int:
         """
         :return: The value of the character for use in the AtBash method of gematria.
         """
-        return MISPAR_MESHULASH.get(self.base_letter.char)
+        return MISPAR_MESHULASH[self.base_letter.char]
 
     @property
     def mispar_kidmi(self) -> int:
         """
         :return: The value of the character for use in the mispar_kidmi method of gematria.
         """
-        return MISPAR_KIDMI.get(self.base_letter.char)
+        return MISPAR_KIDMI[self.base_letter.char]
 
     @property
     def mispar_mispari(self) -> int:
         """
         :return: The value of the character for use in the mispar_mispari method of gematria.
         """
-        return MISPAR_MISPARI.get(self.base_letter.char)
+        return MISPAR_MISPARI[self.base_letter.char]
 
     @property
     def ayak_bachar(self) -> int:
         """
         :return: The value of the character for use in the ayak_bachar method of gematria.
         """
-        return AYAK_BACHAR.get(self.base_letter.char)
+        return AYAK_BACHAR[self.base_letter.char]
 
     @property
     def ofanim(self) -> int:
         """
         :return: The value of the character for use in the ofanim method of gematria.
         """
-        return OFANIM.get(self.base_letter.char)
+        return OFANIM[self.base_letter.char]
 
     @property
     def achas_beta(self) -> int:
         """
         :return: The value of the character for use in the achas_beta method of gematria.
         """
-        return ACHAS_BETA.get(self.base_letter.char)
+        return ACHAS_BETA[self.base_letter.char]
 
     @property
     def avgad(self) -> int:
         """
         :return: The value of the character for use in the avgad method of gematria.
         """
-        return AVGAD.get(self.base_letter.char)
+        return AVGAD[self.base_letter.char]
 
     @property
     def reverse_avgad(self) -> int:
         """
         :return: The value of the character for use in the reverse_avgad method of gematria.
         """
-        return REVERSE_AVGAD.get(self.base_letter.char)
+        return REVERSE_AVGAD[self.base_letter.char]
 
     @classmethod
     def search(cls, char_name: str) -> Optional["HebrewChar"]:
@@ -895,7 +908,9 @@ JUDEO_SPANISH_VARIKA = TaamimChar(char="ﬞ", name="Judeo-Spanish Varika")
 ATNAH_HAFUKH = TaamimChar(char="֢", name="Atnah Hafukh")
 """An instance of `TaamimChar` representing the Ta'amim **`'֢'`**."""
 
-ALL_CHARS: List[Union[HebrewChar, YiddishChar, NiqqudChar, TaamimChar, OtherChar]] = [
+ALL_CHARS: Sequence[
+    Union[HebrewChar, YiddishChar, NiqqudChar, TaamimChar, OtherChar]
+] = [
     ALEPH,
     BET,
     VET,
@@ -1144,13 +1159,16 @@ SPECIAL_CHARACTER_NORMALIZED_MAPPING: Dict[
 }
 """A map of special characters to their normal spelled out equivalent. For example, ﭏ becomes אל"""
 
+CharType = TypeVar(
+    "CharType",
+    bound=Union[HebrewChar, YiddishChar, NiqqudChar, TaamimChar, OtherChar],
+)
+
 
 def char_search(
     char_name: str,
-    char_list: Optional[
-        List[Union[HebrewChar, YiddishChar, NiqqudChar, TaamimChar, OtherChar]]
-    ] = None,
-) -> Optional[Union[HebrewChar, YiddishChar, NiqqudChar, TaamimChar, OtherChar]]:
+    char_list: Sequence[CharType] = ALL_CHARS,
+) -> Optional[CharType]:
     """
     Search for a character by its name.
 
@@ -1163,8 +1181,7 @@ def char_search(
     When None, defaults to all characters (ALL_CHARS).
     :return:
     """
-    char_list = char_list if char_list else ALL_CHARS
     for char in char_list:
         if char_name.lower() in [n.lower() for n in char.names]:
-            return CHARS[char.char]
+            return char
     return None

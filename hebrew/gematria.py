@@ -19,7 +19,7 @@ class GematriaTypes(Enum):
     MISPAR_KIDMI = "mispar_kidmi"
     MISPAR_MISPARI = "mispar_mispari"
     AYAK_BACHAR = "ayak_bachar"
-    AYAK_BAKAR = AYAK_BACHAR
+    AYAK_BAKAR: str = AYAK_BACHAR  # type: ignore
     OFANIM = "ofanim"
     ACHAS_BETA = "achas_beta"
     AVGAD = "avgad"
