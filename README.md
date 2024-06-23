@@ -97,15 +97,15 @@ You can create a Hebrew object that represents a number using the `from_number` 
 from hebrew import Hebrew
 
 hs1 = Hebrew.from_number(2)
-assert hs1 == 'ב׳'
+assert hs1.string == "ב׳"
 
 # Add an apostrophe instead of the unicode geresh
 hs2 = Hebrew.from_number(2, geresh=False)
-assert hs2 ==  "'ב"
+assert hs2.string == "ב'"
 
 # Do not add punctuation
 hs2 = Hebrew.from_number(2, punctuate=False)
-assert hs2 == 'ב'
+assert hs2.string == 'ב'
 ```
 
 ## Character Normalization
@@ -192,11 +192,12 @@ interact with the text like so:
 from hebrew import Hebrew
 
 v2 = Hebrew('מוֹדֶה אֲנִי לְפָנֶֽיךָ')
-assert v2.no_taamim() == 'מודה אני לפנֽיך'
-assert v2.text_only() == 'מודה אני לפניך'
+print(v2.no_taamim())
+assert v2.no_taamim().string == 'מוֹדֶה אֲנִי לְפָנֶיךָ'
+assert v2.text_only().string == 'מודה אני לפניך'
 
-assert v2.length == 14_44
-print(v2.words())  # [מוֹדֶה, אֲנִי, לְפָנֶֽיךָ]
+assert v2.length == 14
+assert v2.words() == [Hebrew('מוֹדֶה'), Hebrew('אֲנִי'), Hebrew('לְפָנֶֽיךָ')]
 ```
 
 The text in these examples and used in testing were sourced from [Sefaria](https://github.com/Sefaria/Sefaria-Export).
