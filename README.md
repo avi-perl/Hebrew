@@ -63,10 +63,10 @@ The `Hebrew` class includes a `gematria` function that can return a value for _2
 from hebrew import Hebrew
 from hebrew import GematriaTypes
 
-hs = Hebrew('בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃')
+hs = Hebrew(':מוֹדֶה אֲנִי לְפָנֶֽיךָ מֶֽלֶךְ חַי וְקַיָּם שֶׁהֶחֱזַֽרְתָּ בִּי נִשְׁמָתִי בְּחֶמְלָה, רַבָּה אֱמוּנָתֶֽךָ')
 
-print(hs.gematria())  # 2701
-print(hs.gematria(GematriaTypes.MISPAR_GADOL))  # 4631
+assert hs.gematria() == 3111
+assert hs.gematria(GematriaTypes.MISPAR_GADOL) == 5111
 ```
 
 Messy inputs, such as strings with english text mixed in, is supported. However, do be careful to work with sanitized
@@ -77,11 +77,11 @@ from hebrew import Hebrew
 
 hs1 = Hebrew(
     '''
-    Text:          "בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃"
-    Translation:   "When God began to create heaven and earth"
+    Text:          ":מוֹדֶה אֲנִי לְפָנֶֽיךָ מֶֽלֶךְ חַי וְקַיָּם שֶׁהֶחֱזַֽרְתָּ בִּי נִשְׁמָתִי בְּחֶמְלָה, רַבָּה אֱמוּנָתֶֽךָ"
+    Translation:   "I give thanks to You living and everlasting King for You have restored my soul with mercy. Great is Your faithfulness."
     '''
 )
-hs2 = Hebrew('בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃')
+hs2 = Hebrew(':מוֹדֶה אֲנִי לְפָנֶֽיךָ מֶֽלֶךְ חַי וְקַיָּם שֶׁהֶחֱזַֽרְתָּ בִּי נִשְׁמָתִי בְּחֶמְלָה, רַבָּה אֱמוּנָתֶֽךָ')
 
 assert hs1.gematria() ==  hs2.gematria()  # 2701
 ```
@@ -192,12 +192,12 @@ interact with the text like so:
 ```python
 from hebrew import Hebrew
 
-v2 = Hebrew("וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֙הוּ֙ וָבֹ֔הוּ וְחֹ֖שֶׁךְ עַל־פְּנֵ֣י תְה֑וֹם וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־פְּנֵ֥י הַמָּֽיִם׃")
-print(v2.no_taamim())  # "וְהָאָרֶץ הָיְתָה תֹהוּ וָבֹהוּ וְחֹשֶׁךְ עַל־פְּנֵי תְהוֹם וְרוּחַ אֱלֹהִים מְרַחֶפֶת עַל־פְּנֵי הַמָּיִם׃"
-print(v2.text_only())  # והארץ היתה תהו ובהו וחשך על־פני תהום ורוח אלהים מרחפת על־פני המים
+v2 = Hebrew('מוֹדֶה אֲנִי לְפָנֶֽיךָ')
+assert v2.no_taamim() == 'מודה אני לפנֽיך'
+assert v2.text_only() == 'מודה אני לפניך'
 
-assert v2.length == 66
-print(v2.words(split_maqaf=True))  # [וְהָאָ֗רֶץ, הָיְתָ֥ה, תֹ֙הוּ֙, וָבֹ֔הוּ, וְחֹ֖שֶׁךְ, עַל, פְּנֵ֣י, תְה֑וֹם, וְר֣וּחַ, אֱלֹהִ֔ים, מְרַחֶ֖פֶת, עַל, פְּנֵ֥י, הַמָּֽיִם׃]
+assert v2.length == 14_44
+print(v2.words())  # [מוֹדֶה, אֲנִי, לְפָנֶֽיךָ]
 ```
 
 The text in these examples and used in testing were sourced from [Sefaria](https://github.com/Sefaria/Sefaria-Export).
