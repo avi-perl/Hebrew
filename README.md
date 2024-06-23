@@ -97,16 +97,15 @@ You can create a Hebrew object that represents a number using the `from_number` 
 from hebrew import Hebrew
 
 hs1 = Hebrew.from_number(2)
-print(hs1)  # ב׳
+assert hs1 == 'ב׳'
 
-# Add an apostrophe instead of a the unicode geresh
+# Add an apostrophe instead of the unicode geresh
 hs2 = Hebrew.from_number(2, geresh=False)
-print(hs2)  # 'ב
+assert hs2 ==  "'ב"
 
 # Do not add punctuation
-hs2 = Hebrew.from_number(2, geresh=False)
-print(hs2)  # ב
-
+hs2 = Hebrew.from_number(2, punctuate=False)
+assert hs2 == 'ב'
 ```
 
 ## Character Normalization
