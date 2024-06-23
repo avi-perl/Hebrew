@@ -7,8 +7,8 @@ to open an issue prior to starting work.
 
 ## Development Environment
 
-Rich Tools uses [poetry](https://python-poetry.org/docs/) for packaging and
-dependency management. To start developing with Rich Tools, install Poetry
+Hebrew uses [poetry](https://python-poetry.org/docs/) for packaging and
+dependency management. To start developing with Hebrew, install Poetry
 using the [recommended method](https://python-poetry.org/docs/#installation) or run:
 <!--pytest.mark.skip-->
 ```bash
@@ -42,7 +42,7 @@ Please add type annotations for all new code.
 
 ### Code Formatting
 
-Rich Tools uses [`black`](https://github.com/psf/black) for code formatting.
+This repo uses [`black`](https://github.com/psf/black) for code formatting.
 I recommend setting up black in your editor to format on save.
 
 To run black from the command line:
