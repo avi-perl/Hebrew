@@ -1,0 +1,2670 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A python package with methods to handle the complexities of Hebrew text, calculate Gematria, and more.">
+      
+      
+      
+        <link rel="canonical" href="https://hebrew.aviperl.me/code_reference/hebrew/">
+      
+      
+        <link rel="prev" href="../grapheme_string/">
+      
+      
+        <link rel="next" href="../chars/classes_and_functions/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
+    
+    
+      
+        <title>Hebrew - Hebrew Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../css/style.css">
+    
+      <link rel="stylesheet" href="../../css/material.css">
+    
+      <link rel="stylesheet" href="../../css/mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hebrew.hebrew_obj" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Hebrew Documentation" class="md-header__button md-logo" aria-label="Hebrew Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Hebrew Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Hebrew
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/avi-perl/Hebrew" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    avi-perl/Hebrew
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Hebrew Documentation" class="md-nav__button md-logo" aria-label="Hebrew Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Hebrew Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/avi-perl/Hebrew" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    avi-perl/Hebrew
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing to Hebrew
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Code reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Code reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gematria/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gematria
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grapheme_string/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Grapheme string
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Hebrew
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Hebrew
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj" class="md-nav__link">
+    <span class="md-ellipsis">
+      hebrew_obj
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj.Hebrew" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hebrew
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hebrew">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj.Hebrew.from_number" class="md-nav__link">
+    <span class="md-ellipsis">
+      from_number
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj.Hebrew.gematria" class="md-nav__link">
+    <span class="md-ellipsis">
+      gematria
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj.Hebrew.no_maqaf" class="md-nav__link">
+    <span class="md-ellipsis">
+      no_maqaf
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj.Hebrew.no_niqqud" class="md-nav__link">
+    <span class="md-ellipsis">
+      no_niqqud
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj.Hebrew.no_sof_passuk" class="md-nav__link">
+    <span class="md-ellipsis">
+      no_sof_passuk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj.Hebrew.no_taamim" class="md-nav__link">
+    <span class="md-ellipsis">
+      no_taamim
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj.Hebrew.normalize" class="md-nav__link">
+    <span class="md-ellipsis">
+      normalize
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj.Hebrew.text_only" class="md-nav__link">
+    <span class="md-ellipsis">
+      text_only
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj.Hebrew.words" class="md-nav__link">
+    <span class="md-ellipsis">
+      words
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj.get_hebrew_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_hebrew_name
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chars
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chars
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chars/classes_and_functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classes and functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chars/constants/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Constants
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Numerical conversions
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Numerical conversions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../numerical_conversions/convert/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Convert
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../numerical_conversions/substitute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Substitute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj" class="md-nav__link">
+    <span class="md-ellipsis">
+      hebrew_obj
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj.Hebrew" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hebrew
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hebrew">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj.Hebrew.from_number" class="md-nav__link">
+    <span class="md-ellipsis">
+      from_number
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj.Hebrew.gematria" class="md-nav__link">
+    <span class="md-ellipsis">
+      gematria
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj.Hebrew.no_maqaf" class="md-nav__link">
+    <span class="md-ellipsis">
+      no_maqaf
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj.Hebrew.no_niqqud" class="md-nav__link">
+    <span class="md-ellipsis">
+      no_niqqud
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj.Hebrew.no_sof_passuk" class="md-nav__link">
+    <span class="md-ellipsis">
+      no_sof_passuk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj.Hebrew.no_taamim" class="md-nav__link">
+    <span class="md-ellipsis">
+      no_taamim
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj.Hebrew.normalize" class="md-nav__link">
+    <span class="md-ellipsis">
+      normalize
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj.Hebrew.text_only" class="md-nav__link">
+    <span class="md-ellipsis">
+      text_only
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj.Hebrew.words" class="md-nav__link">
+    <span class="md-ellipsis">
+      words
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hebrew.hebrew_obj.get_hebrew_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_hebrew_name
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Hebrew</h1>
+
+<div class="doc doc-object doc-module">
+
+
+
+<a id="hebrew.hebrew_obj"></a>
+    <div class="doc doc-contents first">
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="hebrew.hebrew_obj.Hebrew" class="doc doc-heading">
+            <code>Hebrew</code>
+
+
+<a href="#hebrew.hebrew_obj.Hebrew" class="headerlink" title="Permanent link">ל</a></h2>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="hebrew.grapheme_string.GraphemeString" href="../grapheme_string/#hebrew.grapheme_string.GraphemeString">GraphemeString</a></code></p>
+
+
+      <p>A class representing a Hebrew String.</p>
+<p>A <code>Hebrew</code> string can contain pure Hebrew letters, or can be composed of any additional characters.</p>
+
+              <details class="quote">
+                <summary>Source code in <code>hebrew/hebrew_obj.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Hebrew</span><span class="p">(</span><span class="n">GraphemeString</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing a Hebrew String.</span>
+
+<span class="sd">    A `Hebrew` string can contain pure Hebrew letters, or can be composed of any additional characters.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">string</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">no_maqaf</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HebrewT</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Replaces all maqafs with spaces.</span>
+
+<span class="sd">        This is useful for splitting a string into words when you want words connected by maqafs to be considered as one word.</span>
+<span class="sd">        Example: You may think of &quot;עַל־פְּנֵ֥י&quot; as one word in some cases but want to split it into &quot;עַל&quot; and &quot;פְּנֵי&quot; in other cases.</span>
+
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Hebrew</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">MAQAF</span><span class="o">.</span><span class="n">char</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">no_sof_passuk</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HebrewT</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Removes all sof_passuk chars.</span>
+
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Hebrew</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">SOF_PASSUK</span><span class="o">.</span><span class="n">char</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">words</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">split_maqaf</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">HebrewT</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Splits the string into a list of words.</span>
+
+<span class="sd">        :param split_maqaf: Whether to split a single word such as &quot;עַל־פְּנֵ֥י&quot; into &quot;עַל&quot; and &quot;פְּנֵי&quot; when a maqaf is encountered.</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">string</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">string</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">split_maqaf</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">no_maqaf</span><span class="p">()</span><span class="o">.</span><span class="n">string</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">Hebrew</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+
+    <span class="k">def</span> <span class="nf">text_only</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">remove_maqaf</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HebrewT</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string with all non-letter characters removed.</span>
+<span class="sd">        This will remove both niqqud and punctuation.</span>
+
+<span class="sd">        :param remove_maqaf: Whether to remove the maqaf characters if they are encountered</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">string</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">no_maqaf</span><span class="p">()</span><span class="o">.</span><span class="n">string</span> <span class="k">if</span> <span class="n">remove_maqaf</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">string</span>
+        <span class="n">chars_to_remove</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">char</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">_NON_LETTER_CHARS</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="n">MAQAF</span><span class="p">,</span> <span class="n">PASEQ</span><span class="p">)]</span>
+        <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">PASEQ</span><span class="o">.</span><span class="n">char</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span>
+        <span class="p">)</span>  <span class="c1"># Handled separately to avoid double spaces.</span>
+        <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">chars_to_remove</span><span class="p">:</span>
+            <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Hebrew</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">no_niqqud</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HebrewT</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Removes all niqqud characters.</span>
+<span class="sd">        This may be useful to practice reading from the torah.</span>
+
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">string</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">string</span>
+        <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">char</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">NIQQUD_CHARS</span><span class="p">]:</span>
+            <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Hebrew</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize_yiddish</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HebrewT</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Replaces all non-standard hebrew characters with their equivalent values</span>
+<span class="sd">        using normal hebrew letters and symbols. This is important when using hebrew fonts. Some fonts may not</span>
+<span class="sd">        support these special characters, normalization helps by changing all the characters to be ones that would be</span>
+<span class="sd">        supported.</span>
+
+<span class="sd">        :param normalize_yiddish: By default, yiddish characters are left alone since they are typically desired.</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">normalized</span> <span class="o">=</span> <span class="n">unicodedata</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="s2">&quot;NFC&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>
+        <span class="c1"># normalized = self.string</span>
+        <span class="n">special_chars</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">SPECIAL_CHARACTER_NORMALIZED_MAPPING</span>
+            <span class="k">if</span> <span class="n">normalize_yiddish</span>
+            <span class="k">else</span> <span class="p">{</span>
+                <span class="n">k</span><span class="p">:</span> <span class="n">v</span>
+                <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">SPECIAL_CHARACTER_NORMALIZED_MAPPING</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">YiddishChar</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+        <span class="n">special_chars</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">k</span><span class="o">.</span><span class="n">char</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">val</span><span class="o">.</span><span class="n">char</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">v</span><span class="p">])</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="n">v</span><span class="o">.</span><span class="n">char</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">special_chars</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">char</span> <span class="ow">in</span> <span class="n">normalized</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">special_chars</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">special_chars</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">normalized</span> <span class="o">=</span> <span class="n">normalized</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">string</span> <span class="o">=</span> <span class="n">normalized</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">no_taamim</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">remove_maqaf</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">remove_sof_passuk</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HebrewT</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Removes all [Ta&#39;amim](https://en.wikipedia.org/wiki/Hebrew_cantillation) characters.</span>
+<span class="sd">        Result is a string with just letters and Niqqud characters.</span>
+
+<span class="sd">        :param remove_maqaf: Whether to remove the maqaf characters if they are encountered.</span>
+<span class="sd">        :param remove_sof_passuk: Whether to remove the remove_sof_passuk character if they are encountered.</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">string</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">no_maqaf</span><span class="p">()</span><span class="o">.</span><span class="n">string</span> <span class="k">if</span> <span class="n">remove_maqaf</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">string</span>
+        <span class="n">string</span> <span class="o">=</span> <span class="n">Hebrew</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">.</span><span class="n">no_sof_passuk</span><span class="p">()</span><span class="o">.</span><span class="n">string</span> <span class="k">if</span> <span class="n">remove_sof_passuk</span> <span class="k">else</span> <span class="n">string</span>
+        <span class="n">chars_to_remove</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">p</span><span class="o">.</span><span class="n">char</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">TAAMIM_CHARS</span> <span class="k">if</span> <span class="n">p</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="n">MAQAF</span><span class="p">,</span> <span class="n">PASEQ</span><span class="p">,</span> <span class="n">SOF_PASSUK</span><span class="p">)</span>
+        <span class="p">]</span>
+        <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">PASEQ</span><span class="o">.</span><span class="n">char</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span>
+        <span class="p">)</span>  <span class="c1"># Handled separately to avoid double spaces.</span>
+        <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">chars_to_remove</span><span class="p">:</span>
+            <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Hebrew</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">gematria</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">method</span><span class="p">:</span> <span class="n">GematriaTypes</span> <span class="o">=</span> <span class="n">GematriaTypes</span><span class="o">.</span><span class="n">MISPAR_HECHRACHI</span><span class="p">,</span>
+        <span class="n">alt_letter_name_spelling</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the gematria of the string.</span>
+
+<span class="sd">        If the contains no hebrew characters, the value returned is 0. Mixing hebrew and english characters is ok!</span>
+
+<span class="sd">        :param method: The method to use for calculating the gematria.</span>
+<span class="sd">        :param alt_letter_name_spelling: Used only with MISPAR_SHEMI_MILUI: A dict of alternate spellings for a letter</span>
+<span class="sd">        that should be used to make the calculation. Eg: `{&quot;ו&quot;: &quot;ואו&quot;}`.</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Remove non hebrew characters</span>
+        <span class="n">cleaned_string</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">string</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">char</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">HEBREW_CHARS</span><span class="p">]</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">==</span> <span class="s2">&quot; &quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="n">GematriaTypes</span><span class="o">.</span><span class="n">MISPAR_MUSAFI</span><span class="p">:</span>
+            <span class="c1"># Mispar Musafi (Heb: מספר מוספי) adds the number of letters in the word or phrase to the value.</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__calculate_simple_gematria</span><span class="p">(</span><span class="n">cleaned_string</span><span class="p">)</span>
+            <span class="n">hebrew_letters</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cleaned_string</span> <span class="k">if</span> <span class="n">c</span> <span class="o">!=</span> <span class="s2">&quot; &quot;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">value</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">hebrew_letters</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="n">GematriaTypes</span><span class="o">.</span><span class="n">MISPAR_KOLEL</span><span class="p">:</span>
+            <span class="c1"># Mispar Kolel (Heb: מספר כלל) is the value plus the number of words in the phrase.</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__calculate_simple_gematria</span><span class="p">(</span><span class="n">cleaned_string</span><span class="p">)</span>
+            <span class="n">hebrew_words</span> <span class="o">=</span> <span class="n">cleaned_string</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">value</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">hebrew_words</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="n">GematriaTypes</span><span class="o">.</span><span class="n">MISPAR_BONEEH</span><span class="p">:</span>
+            <span class="c1"># Mispar Bone&#39;eh (building value) (Heb: מספר בונה) adds the value of all previous letters in the word to the</span>
+            <span class="c1"># value of the current letter as the word is calculated. (ex. Echad is 1 + (1 + 8) + (1 + 8 + 4) = 23).</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__calculate_simple_gematria</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cleaned_string</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s2">&quot; &quot;</span><span class="p">]</span>
+            <span class="p">]</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+                <span class="n">total</span> <span class="o">+=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">[:</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="n">n</span>
+            <span class="k">return</span> <span class="n">total</span>
+
+        <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="n">GematriaTypes</span><span class="o">.</span><span class="n">MISPAR_HAMERUBAH_HAKLALI</span><span class="p">:</span>
+            <span class="c1"># Mispar HaMerubah HaKlali (Heb: מספר המרובע הכללי) is the standard value squared.</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__calculate_simple_gematria</span><span class="p">(</span><span class="n">cleaned_string</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+
+        <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="n">GematriaTypes</span><span class="o">.</span><span class="n">MISPAR_HAACHOR</span><span class="p">:</span>
+            <span class="c1"># Mispar Ha&#39;achor (sometimes called Mispar Meshulash, triangular value) (Heb: מספר האחור) values each letter</span>
+            <span class="c1"># as its value multiplied by the position of the letter in the word or phrase.</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__calculate_simple_gematria</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cleaned_string</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s2">&quot; &quot;</span><span class="p">]</span>
+            <span class="p">]</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+                <span class="n">total</span> <span class="o">+=</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">total</span>
+
+        <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="n">GematriaTypes</span><span class="o">.</span><span class="n">MISPAR_KATAN_MISPARI</span><span class="p">:</span>
+            <span class="c1"># Mispar Katan Mispari (integral reduced value) (Heb: מספר קטן מספרי) is the digital root of the standard</span>
+            <span class="c1"># value which is obtained by adding all the digits in the number until the number is a single digit.</span>
+            <span class="c1"># (ex. Echad (13) --&gt; 1 + 3 --&gt; 4).</span>
+            <span class="n">calculated_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__calculate_simple_gematria</span><span class="p">(</span><span class="n">cleaned_string</span><span class="p">)</span>
+            <span class="k">while</span> <span class="n">calculated_value</span> <span class="o">&gt;</span> <span class="mi">9</span><span class="p">:</span>
+                <span class="n">calculated_value</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">calculated_value</span><span class="p">)])</span>
+            <span class="k">return</span> <span class="n">calculated_value</span>
+
+        <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="n">GematriaTypes</span><span class="o">.</span><span class="n">MISPAR_SHEMI_MILUI</span><span class="p">:</span>
+            <span class="c1"># Mispar Shemi (Milui, full name value) (Heb: מספר שמי\מילוי) values each letter as the value of the</span>
+            <span class="c1"># letter&#39;s name. (ex. &quot;Aleph&quot; = Aleph + Lamed + Fey = 1 + 30 + 80 = 111).</span>
+            <span class="c1"># [Note: There is more than one way to spell certain letters.]</span>
+
+            <span class="c1"># Get list of HebrewChar instances for each letter in string</span>
+            <span class="n">chars</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">HebrewChar</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">CHARS</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cleaned_string</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s2">&quot; &quot;</span><span class="p">]</span>
+            <span class="p">]</span>
+
+            <span class="c1"># Convert final letters to non-final since our internal lib naming for final letters</span>
+            <span class="c1"># will ruin the calculation.</span>
+            <span class="n">replaced_final_letters</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">CHARS</span><span class="p">[</span><span class="n">FINAL_MINOR_LETTER_MAPPINGS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">char</span><span class="p">)]</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">final_letter</span> <span class="k">else</span> <span class="n">c</span>
+                <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">chars</span>
+            <span class="p">]</span>
+
+            <span class="c1"># Get internal or user supplied names, and calculate value off them.</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__calculate_simple_gematria</span><span class="p">(</span>
+                    <span class="n">get_hebrew_name</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">alt_letter_name_spelling</span><span class="p">)</span>
+                <span class="p">)</span>
+                <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">replaced_final_letters</span>
+            <span class="p">]</span>
+            <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="n">GematriaTypes</span><span class="o">.</span><span class="n">MISPAR_NEELAM</span><span class="p">:</span>
+            <span class="c1"># Mispar Ne&#39;elam (hidden value) (Heb: מספר נעלם) values each letter as the value of the letter&#39;s name</span>
+            <span class="c1"># without the letter itself. (ex. &quot;Aleph&quot; = Lamed + Fey = 30 + 80 = 110).</span>
+
+            <span class="c1"># Get list of HebrewChar instances for each letter in string</span>
+            <span class="n">chars</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">HebrewChar</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">CHARS</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cleaned_string</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s2">&quot; &quot;</span><span class="p">]</span>
+            <span class="p">]</span>
+
+            <span class="c1"># Convert final letters to non-final since our internal lib naming for final letters</span>
+            <span class="c1"># will ruin the calculation.</span>
+            <span class="n">replaced_final_letters</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">CHARS</span><span class="p">[</span><span class="n">FINAL_MINOR_LETTER_MAPPINGS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">char</span><span class="p">)]</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">final_letter</span> <span class="k">else</span> <span class="n">c</span>
+                <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">chars</span>
+            <span class="p">]</span>
+
+            <span class="c1"># Get internal or user supplied names.</span>
+            <span class="n">names</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">get_hebrew_name</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">alt_letter_name_spelling</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">replaced_final_letters</span>
+            <span class="p">]</span>
+
+            <span class="c1"># Remove letter from name and calculate value</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__calculate_simple_gematria</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">names</span><span class="p">]</span>
+            <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Simple gematria that can be calculated by simply adding each letters value up to a final number.</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__calculate_simple_gematria</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">string</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_number</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">punctuate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">geresh</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">substitution_functions</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span>
+            <span class="n">Tuple</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">],</span> <span class="o">...</span><span class="p">]</span>
+        <span class="p">]</span> <span class="o">=</span> <span class="n">Substitutions</span><span class="o">.</span><span class="n">DEFAULT</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert a number into its Hebrew letter form, returning it as an instance of Hebrew.</span>
+
+<span class="sd">        :param number: The number to convert to Hebrew letters. Must be greater than 0...</span>
+<span class="sd">        :param punctuate: Whether to add punctuation in the appropriate places.</span>
+<span class="sd">        :param geresh: If punctuate is true, whether to use the unicode geresh or an apostrophe.</span>
+<span class="sd">        :param substitution_functions: A tuple of functions that replaces some hebrew values in the result with an</span>
+<span class="sd">        appropriate equivalent. By default, &quot;יה&quot; and &quot;יו&quot; are replaced with &quot;טו&quot; and &quot;טז&quot; respectively. To replace all</span>
+<span class="sd">        values such as שמד ,רע, and others, use `Substitutions.ALL`.</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">number_to_hebrew_string</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">punctuate</span><span class="p">,</span> <span class="n">geresh</span><span class="p">,</span> <span class="n">substitution_functions</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">__calculate_simple_gematria</span><span class="p">(</span>
+        <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">method</span><span class="p">:</span> <span class="n">GematriaTypes</span> <span class="o">=</span> <span class="n">GematriaTypes</span><span class="o">.</span><span class="n">MISPAR_HECHRACHI</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate Gematria for simple Gematria that use a value map for each letter.&quot;&quot;&quot;</span>
+        <span class="n">chars</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">CHARS</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">string</span> <span class="k">if</span> <span class="n">CHARS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">CHARS</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">method</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">chars</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># The list will be 0 if there are no letters in the string or if the letters are not hebrew.</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">reduce</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">method</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">chars</span><span class="p">])</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="hebrew.hebrew_obj.Hebrew.from_number" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">from_number</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">punctuate</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">geresh</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">substitution_functions</span><span class="o">=</span><span class="n">Substitutions</span><span class="o">.</span><span class="n">DEFAULT</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#hebrew.hebrew_obj.Hebrew.from_number" class="headerlink" title="Permanent link">ל</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Convert a number into its Hebrew letter form, returning it as an instance of Hebrew.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code>number</code></b>
+              (<code>int</code>)
+          –
+          <div class="doc-md-description">
+            <p>The number to convert to Hebrew letters. Must be greater than 0...</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code>punctuate</code></b>
+              (<code>bool</code>, default:
+                  <code>True</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>Whether to add punctuation in the appropriate places.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code>geresh</code></b>
+              (<code>bool</code>, default:
+                  <code>True</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>If punctuate is true, whether to use the unicode geresh or an apostrophe.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code>substitution_functions</code></b>
+              (<code><span title="typing.Optional">Optional</span>[<span title="typing.Tuple">Tuple</span>[<span title="typing.Callable">Callable</span>[[str], str], ...]]</code>, default:
+                  <code><a class="autorefs autorefs-internal" title="hebrew.numerical_conversion.substitute.Substitutions.DEFAULT" href="../numerical_conversions/substitute/#hebrew.numerical_conversion.substitute.Substitutions.DEFAULT">DEFAULT</a></code>
+)
+          –
+          <div class="doc-md-description">
+            <p>A tuple of functions that replaces some hebrew values in the result with an appropriate equivalent. By default, "יה" and "יו" are replaced with "טו" and "טז" respectively. To replace all values such as שמד ,רע, and others, use <code>Substitutions.ALL</code>.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          –
+          <div class="doc-md-description">
+            
+          </div>
+        </li>
+    </ul>
+
+            <details class="quote">
+              <summary>Source code in <code>hebrew/hebrew_obj.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">from_number</span><span class="p">(</span>
+    <span class="bp">cls</span><span class="p">,</span>
+    <span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">punctuate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">geresh</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">substitution_functions</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span>
+        <span class="n">Tuple</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">],</span> <span class="o">...</span><span class="p">]</span>
+    <span class="p">]</span> <span class="o">=</span> <span class="n">Substitutions</span><span class="o">.</span><span class="n">DEFAULT</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert a number into its Hebrew letter form, returning it as an instance of Hebrew.</span>
+
+<span class="sd">    :param number: The number to convert to Hebrew letters. Must be greater than 0...</span>
+<span class="sd">    :param punctuate: Whether to add punctuation in the appropriate places.</span>
+<span class="sd">    :param geresh: If punctuate is true, whether to use the unicode geresh or an apostrophe.</span>
+<span class="sd">    :param substitution_functions: A tuple of functions that replaces some hebrew values in the result with an</span>
+<span class="sd">    appropriate equivalent. By default, &quot;יה&quot; and &quot;יו&quot; are replaced with &quot;טו&quot; and &quot;טז&quot; respectively. To replace all</span>
+<span class="sd">    values such as שמד ,רע, and others, use `Substitutions.ALL`.</span>
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+        <span class="n">number_to_hebrew_string</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">punctuate</span><span class="p">,</span> <span class="n">geresh</span><span class="p">,</span> <span class="n">substitution_functions</span><span class="p">)</span>
+    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="hebrew.hebrew_obj.Hebrew.gematria" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">gematria</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">GematriaTypes</span><span class="o">.</span><span class="n">MISPAR_HECHRACHI</span><span class="p">,</span> <span class="n">alt_letter_name_spelling</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#hebrew.hebrew_obj.Hebrew.gematria" class="headerlink" title="Permanent link">ל</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Returns the gematria of the string.</p>
+<p>If the contains no hebrew characters, the value returned is 0. Mixing hebrew and english characters is ok!</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code>method</code></b>
+              (<code><a class="autorefs autorefs-internal" title="hebrew.gematria.GematriaTypes" href="../gematria/#hebrew.gematria.GematriaTypes">GematriaTypes</a></code>, default:
+                  <code><span title="hebrew.gematria.GematriaTypes.MISPAR_HECHRACHI">MISPAR_HECHRACHI</span></code>
+)
+          –
+          <div class="doc-md-description">
+            <p>The method to use for calculating the gematria.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code>alt_letter_name_spelling</code></b>
+              (<code><span title="typing.Dict">Dict</span>[str, str]</code>, default:
+                  <code>None</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>Used only with MISPAR_SHEMI_MILUI: A dict of alternate spellings for a letter that should be used to make the calculation. Eg: <code>{"ו": "ואו"}</code>.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code>int</code>
+          –
+          <div class="doc-md-description">
+            
+          </div>
+        </li>
+    </ul>
+
+            <details class="quote">
+              <summary>Source code in <code>hebrew/hebrew_obj.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">gematria</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">method</span><span class="p">:</span> <span class="n">GematriaTypes</span> <span class="o">=</span> <span class="n">GematriaTypes</span><span class="o">.</span><span class="n">MISPAR_HECHRACHI</span><span class="p">,</span>
+    <span class="n">alt_letter_name_spelling</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the gematria of the string.</span>
+
+<span class="sd">    If the contains no hebrew characters, the value returned is 0. Mixing hebrew and english characters is ok!</span>
+
+<span class="sd">    :param method: The method to use for calculating the gematria.</span>
+<span class="sd">    :param alt_letter_name_spelling: Used only with MISPAR_SHEMI_MILUI: A dict of alternate spellings for a letter</span>
+<span class="sd">    that should be used to make the calculation. Eg: `{&quot;ו&quot;: &quot;ואו&quot;}`.</span>
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Remove non hebrew characters</span>
+    <span class="n">cleaned_string</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">string</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">char</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">HEBREW_CHARS</span><span class="p">]</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">==</span> <span class="s2">&quot; &quot;</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="n">GematriaTypes</span><span class="o">.</span><span class="n">MISPAR_MUSAFI</span><span class="p">:</span>
+        <span class="c1"># Mispar Musafi (Heb: מספר מוספי) adds the number of letters in the word or phrase to the value.</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__calculate_simple_gematria</span><span class="p">(</span><span class="n">cleaned_string</span><span class="p">)</span>
+        <span class="n">hebrew_letters</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cleaned_string</span> <span class="k">if</span> <span class="n">c</span> <span class="o">!=</span> <span class="s2">&quot; &quot;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">value</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">hebrew_letters</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="n">GematriaTypes</span><span class="o">.</span><span class="n">MISPAR_KOLEL</span><span class="p">:</span>
+        <span class="c1"># Mispar Kolel (Heb: מספר כלל) is the value plus the number of words in the phrase.</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__calculate_simple_gematria</span><span class="p">(</span><span class="n">cleaned_string</span><span class="p">)</span>
+        <span class="n">hebrew_words</span> <span class="o">=</span> <span class="n">cleaned_string</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">value</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">hebrew_words</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="n">GematriaTypes</span><span class="o">.</span><span class="n">MISPAR_BONEEH</span><span class="p">:</span>
+        <span class="c1"># Mispar Bone&#39;eh (building value) (Heb: מספר בונה) adds the value of all previous letters in the word to the</span>
+        <span class="c1"># value of the current letter as the word is calculated. (ex. Echad is 1 + (1 + 8) + (1 + 8 + 4) = 23).</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__calculate_simple_gematria</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cleaned_string</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s2">&quot; &quot;</span><span class="p">]</span>
+        <span class="p">]</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">[:</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="n">n</span>
+        <span class="k">return</span> <span class="n">total</span>
+
+    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="n">GematriaTypes</span><span class="o">.</span><span class="n">MISPAR_HAMERUBAH_HAKLALI</span><span class="p">:</span>
+        <span class="c1"># Mispar HaMerubah HaKlali (Heb: מספר המרובע הכללי) is the standard value squared.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__calculate_simple_gematria</span><span class="p">(</span><span class="n">cleaned_string</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+
+    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="n">GematriaTypes</span><span class="o">.</span><span class="n">MISPAR_HAACHOR</span><span class="p">:</span>
+        <span class="c1"># Mispar Ha&#39;achor (sometimes called Mispar Meshulash, triangular value) (Heb: מספר האחור) values each letter</span>
+        <span class="c1"># as its value multiplied by the position of the letter in the word or phrase.</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__calculate_simple_gematria</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cleaned_string</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s2">&quot; &quot;</span><span class="p">]</span>
+        <span class="p">]</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">total</span>
+
+    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="n">GematriaTypes</span><span class="o">.</span><span class="n">MISPAR_KATAN_MISPARI</span><span class="p">:</span>
+        <span class="c1"># Mispar Katan Mispari (integral reduced value) (Heb: מספר קטן מספרי) is the digital root of the standard</span>
+        <span class="c1"># value which is obtained by adding all the digits in the number until the number is a single digit.</span>
+        <span class="c1"># (ex. Echad (13) --&gt; 1 + 3 --&gt; 4).</span>
+        <span class="n">calculated_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__calculate_simple_gematria</span><span class="p">(</span><span class="n">cleaned_string</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">calculated_value</span> <span class="o">&gt;</span> <span class="mi">9</span><span class="p">:</span>
+            <span class="n">calculated_value</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">calculated_value</span><span class="p">)])</span>
+        <span class="k">return</span> <span class="n">calculated_value</span>
+
+    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="n">GematriaTypes</span><span class="o">.</span><span class="n">MISPAR_SHEMI_MILUI</span><span class="p">:</span>
+        <span class="c1"># Mispar Shemi (Milui, full name value) (Heb: מספר שמי\מילוי) values each letter as the value of the</span>
+        <span class="c1"># letter&#39;s name. (ex. &quot;Aleph&quot; = Aleph + Lamed + Fey = 1 + 30 + 80 = 111).</span>
+        <span class="c1"># [Note: There is more than one way to spell certain letters.]</span>
+
+        <span class="c1"># Get list of HebrewChar instances for each letter in string</span>
+        <span class="n">chars</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">HebrewChar</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">CHARS</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cleaned_string</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s2">&quot; &quot;</span><span class="p">]</span>
+        <span class="p">]</span>
+
+        <span class="c1"># Convert final letters to non-final since our internal lib naming for final letters</span>
+        <span class="c1"># will ruin the calculation.</span>
+        <span class="n">replaced_final_letters</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">CHARS</span><span class="p">[</span><span class="n">FINAL_MINOR_LETTER_MAPPINGS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">char</span><span class="p">)]</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">final_letter</span> <span class="k">else</span> <span class="n">c</span>
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">chars</span>
+        <span class="p">]</span>
+
+        <span class="c1"># Get internal or user supplied names, and calculate value off them.</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__calculate_simple_gematria</span><span class="p">(</span>
+                <span class="n">get_hebrew_name</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">alt_letter_name_spelling</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">replaced_final_letters</span>
+        <span class="p">]</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="n">GematriaTypes</span><span class="o">.</span><span class="n">MISPAR_NEELAM</span><span class="p">:</span>
+        <span class="c1"># Mispar Ne&#39;elam (hidden value) (Heb: מספר נעלם) values each letter as the value of the letter&#39;s name</span>
+        <span class="c1"># without the letter itself. (ex. &quot;Aleph&quot; = Lamed + Fey = 30 + 80 = 110).</span>
+
+        <span class="c1"># Get list of HebrewChar instances for each letter in string</span>
+        <span class="n">chars</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">HebrewChar</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">CHARS</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cleaned_string</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s2">&quot; &quot;</span><span class="p">]</span>
+        <span class="p">]</span>
+
+        <span class="c1"># Convert final letters to non-final since our internal lib naming for final letters</span>
+        <span class="c1"># will ruin the calculation.</span>
+        <span class="n">replaced_final_letters</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">CHARS</span><span class="p">[</span><span class="n">FINAL_MINOR_LETTER_MAPPINGS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">char</span><span class="p">)]</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">final_letter</span> <span class="k">else</span> <span class="n">c</span>
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">chars</span>
+        <span class="p">]</span>
+
+        <span class="c1"># Get internal or user supplied names.</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">get_hebrew_name</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">alt_letter_name_spelling</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">replaced_final_letters</span>
+        <span class="p">]</span>
+
+        <span class="c1"># Remove letter from name and calculate value</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__calculate_simple_gematria</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">names</span><span class="p">]</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Simple gematria that can be calculated by simply adding each letters value up to a final number.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__calculate_simple_gematria</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">string</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="hebrew.hebrew_obj.Hebrew.no_maqaf" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">no_maqaf</span><span class="p">()</span></code>
+
+<a href="#hebrew.hebrew_obj.Hebrew.no_maqaf" class="headerlink" title="Permanent link">ל</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Replaces all maqafs with spaces.</p>
+<p>This is useful for splitting a string into words when you want words connected by maqafs to be considered as one word.
+Example: You may think of "עַל־פְּנֵ֥י" as one word in some cases but want to split it into "עַל" and "פְּנֵי" in other cases.</p>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="hebrew.hebrew_obj.HebrewT">HebrewT</span></code>
+          –
+          <div class="doc-md-description">
+            
+          </div>
+        </li>
+    </ul>
+
+            <details class="quote">
+              <summary>Source code in <code>hebrew/hebrew_obj.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">no_maqaf</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HebrewT</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Replaces all maqafs with spaces.</span>
+
+<span class="sd">    This is useful for splitting a string into words when you want words connected by maqafs to be considered as one word.</span>
+<span class="sd">    Example: You may think of &quot;עַל־פְּנֵ֥י&quot; as one word in some cases but want to split it into &quot;עַל&quot; and &quot;פְּנֵי&quot; in other cases.</span>
+
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">Hebrew</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">MAQAF</span><span class="o">.</span><span class="n">char</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="hebrew.hebrew_obj.Hebrew.no_niqqud" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">no_niqqud</span><span class="p">()</span></code>
+
+<a href="#hebrew.hebrew_obj.Hebrew.no_niqqud" class="headerlink" title="Permanent link">ל</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Removes all niqqud characters.
+This may be useful to practice reading from the torah.</p>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="hebrew.hebrew_obj.HebrewT">HebrewT</span></code>
+          –
+          <div class="doc-md-description">
+            
+          </div>
+        </li>
+    </ul>
+
+            <details class="quote">
+              <summary>Source code in <code>hebrew/hebrew_obj.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">no_niqqud</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HebrewT</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Removes all niqqud characters.</span>
+<span class="sd">    This may be useful to practice reading from the torah.</span>
+
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">string</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">char</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">NIQQUD_CHARS</span><span class="p">]:</span>
+        <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Hebrew</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="hebrew.hebrew_obj.Hebrew.no_sof_passuk" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">no_sof_passuk</span><span class="p">()</span></code>
+
+<a href="#hebrew.hebrew_obj.Hebrew.no_sof_passuk" class="headerlink" title="Permanent link">ל</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Removes all sof_passuk chars.</p>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="hebrew.hebrew_obj.HebrewT">HebrewT</span></code>
+          –
+          <div class="doc-md-description">
+            
+          </div>
+        </li>
+    </ul>
+
+            <details class="quote">
+              <summary>Source code in <code>hebrew/hebrew_obj.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">no_sof_passuk</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HebrewT</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Removes all sof_passuk chars.</span>
+
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">Hebrew</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">SOF_PASSUK</span><span class="o">.</span><span class="n">char</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="hebrew.hebrew_obj.Hebrew.no_taamim" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">no_taamim</span><span class="p">(</span><span class="n">remove_maqaf</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">remove_sof_passuk</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+
+<a href="#hebrew.hebrew_obj.Hebrew.no_taamim" class="headerlink" title="Permanent link">ל</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Removes all <a href="https://en.wikipedia.org/wiki/Hebrew_cantillation">Ta'amim</a> characters.
+Result is a string with just letters and Niqqud characters.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code>remove_maqaf</code></b>
+              (<code>bool</code>, default:
+                  <code>False</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>Whether to remove the maqaf characters if they are encountered.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code>remove_sof_passuk</code></b>
+              (<code>bool</code>, default:
+                  <code>False</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>Whether to remove the remove_sof_passuk character if they are encountered.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="hebrew.hebrew_obj.HebrewT">HebrewT</span></code>
+          –
+          <div class="doc-md-description">
+            
+          </div>
+        </li>
+    </ul>
+
+            <details class="quote">
+              <summary>Source code in <code>hebrew/hebrew_obj.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">no_taamim</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span> <span class="n">remove_maqaf</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">remove_sof_passuk</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HebrewT</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Removes all [Ta&#39;amim](https://en.wikipedia.org/wiki/Hebrew_cantillation) characters.</span>
+<span class="sd">    Result is a string with just letters and Niqqud characters.</span>
+
+<span class="sd">    :param remove_maqaf: Whether to remove the maqaf characters if they are encountered.</span>
+<span class="sd">    :param remove_sof_passuk: Whether to remove the remove_sof_passuk character if they are encountered.</span>
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">no_maqaf</span><span class="p">()</span><span class="o">.</span><span class="n">string</span> <span class="k">if</span> <span class="n">remove_maqaf</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">string</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="n">Hebrew</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">.</span><span class="n">no_sof_passuk</span><span class="p">()</span><span class="o">.</span><span class="n">string</span> <span class="k">if</span> <span class="n">remove_sof_passuk</span> <span class="k">else</span> <span class="n">string</span>
+    <span class="n">chars_to_remove</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">char</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">TAAMIM_CHARS</span> <span class="k">if</span> <span class="n">p</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="n">MAQAF</span><span class="p">,</span> <span class="n">PASEQ</span><span class="p">,</span> <span class="n">SOF_PASSUK</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">PASEQ</span><span class="o">.</span><span class="n">char</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span>
+    <span class="p">)</span>  <span class="c1"># Handled separately to avoid double spaces.</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">chars_to_remove</span><span class="p">:</span>
+        <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Hebrew</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="hebrew.hebrew_obj.Hebrew.normalize" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">normalize</span><span class="p">(</span><span class="n">normalize_yiddish</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+
+<a href="#hebrew.hebrew_obj.Hebrew.normalize" class="headerlink" title="Permanent link">ל</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Replaces all non-standard hebrew characters with their equivalent values
+using normal hebrew letters and symbols. This is important when using hebrew fonts. Some fonts may not
+support these special characters, normalization helps by changing all the characters to be ones that would be
+supported.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code>normalize_yiddish</code></b>
+              (<code>bool</code>, default:
+                  <code>False</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>By default, yiddish characters are left alone since they are typically desired.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="hebrew.hebrew_obj.HebrewT">HebrewT</span></code>
+          –
+          <div class="doc-md-description">
+            
+          </div>
+        </li>
+    </ul>
+
+            <details class="quote">
+              <summary>Source code in <code>hebrew/hebrew_obj.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize_yiddish</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HebrewT</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Replaces all non-standard hebrew characters with their equivalent values</span>
+<span class="sd">    using normal hebrew letters and symbols. This is important when using hebrew fonts. Some fonts may not</span>
+<span class="sd">    support these special characters, normalization helps by changing all the characters to be ones that would be</span>
+<span class="sd">    supported.</span>
+
+<span class="sd">    :param normalize_yiddish: By default, yiddish characters are left alone since they are typically desired.</span>
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">normalized</span> <span class="o">=</span> <span class="n">unicodedata</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="s2">&quot;NFC&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>
+    <span class="c1"># normalized = self.string</span>
+    <span class="n">special_chars</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">SPECIAL_CHARACTER_NORMALIZED_MAPPING</span>
+        <span class="k">if</span> <span class="n">normalize_yiddish</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="n">k</span><span class="p">:</span> <span class="n">v</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">SPECIAL_CHARACTER_NORMALIZED_MAPPING</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">YiddishChar</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">special_chars</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">k</span><span class="o">.</span><span class="n">char</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">val</span><span class="o">.</span><span class="n">char</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">v</span><span class="p">])</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="n">v</span><span class="o">.</span><span class="n">char</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">special_chars</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">char</span> <span class="ow">in</span> <span class="n">normalized</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">special_chars</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">special_chars</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">normalized</span> <span class="o">=</span> <span class="n">normalized</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">string</span> <span class="o">=</span> <span class="n">normalized</span>
+    <span class="k">return</span> <span class="bp">self</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="hebrew.hebrew_obj.Hebrew.text_only" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">text_only</span><span class="p">(</span><span class="n">remove_maqaf</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+
+<a href="#hebrew.hebrew_obj.Hebrew.text_only" class="headerlink" title="Permanent link">ל</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Returns a string with all non-letter characters removed.
+This will remove both niqqud and punctuation.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code>remove_maqaf</code></b>
+              (<code>bool</code>, default:
+                  <code>False</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>Whether to remove the maqaf characters if they are encountered</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="hebrew.hebrew_obj.HebrewT">HebrewT</span></code>
+          –
+          <div class="doc-md-description">
+            
+          </div>
+        </li>
+    </ul>
+
+            <details class="quote">
+              <summary>Source code in <code>hebrew/hebrew_obj.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">text_only</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">remove_maqaf</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HebrewT</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a string with all non-letter characters removed.</span>
+<span class="sd">    This will remove both niqqud and punctuation.</span>
+
+<span class="sd">    :param remove_maqaf: Whether to remove the maqaf characters if they are encountered</span>
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">no_maqaf</span><span class="p">()</span><span class="o">.</span><span class="n">string</span> <span class="k">if</span> <span class="n">remove_maqaf</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">string</span>
+    <span class="n">chars_to_remove</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">char</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">_NON_LETTER_CHARS</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="n">MAQAF</span><span class="p">,</span> <span class="n">PASEQ</span><span class="p">)]</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">PASEQ</span><span class="o">.</span><span class="n">char</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span>
+    <span class="p">)</span>  <span class="c1"># Handled separately to avoid double spaces.</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">chars_to_remove</span><span class="p">:</span>
+        <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Hebrew</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="hebrew.hebrew_obj.Hebrew.words" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">words</span><span class="p">(</span><span class="n">split_maqaf</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+
+<a href="#hebrew.hebrew_obj.Hebrew.words" class="headerlink" title="Permanent link">ל</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Splits the string into a list of words.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code>split_maqaf</code></b>
+              (<code>bool</code>, default:
+                  <code>False</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>Whether to split a single word such as "עַל־פְּנֵ֥י" into "עַל" and "פְּנֵי" when a maqaf is encountered.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="typing.List">List</span>[<span title="hebrew.hebrew_obj.HebrewT">HebrewT</span>]</code>
+          –
+          <div class="doc-md-description">
+            
+          </div>
+        </li>
+    </ul>
+
+            <details class="quote">
+              <summary>Source code in <code>hebrew/hebrew_obj.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">words</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">split_maqaf</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">HebrewT</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Splits the string into a list of words.</span>
+
+<span class="sd">    :param split_maqaf: Whether to split a single word such as &quot;עַל־פְּנֵ֥י&quot; into &quot;עַל&quot; and &quot;פְּנֵי&quot; when a maqaf is encountered.</span>
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">string</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">split_maqaf</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">no_maqaf</span><span class="p">()</span><span class="o">.</span><span class="n">string</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">Hebrew</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="hebrew.hebrew_obj.get_hebrew_name" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_hebrew_name</span><span class="p">(</span><span class="n">letter</span><span class="p">,</span> <span class="n">name_dict</span><span class="p">)</span></code>
+
+<a href="#hebrew.hebrew_obj.get_hebrew_name" class="headerlink" title="Permanent link">ל</a></h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Helper function to get the letters name from the library definition
+or from the alts provided by the user.</p>
+<p>The name value passed <em>must</em> be a name that is defined in the characters <code>HebrewChar</code> instance or a
+ValueError will be thrown. This is done to make sure that only valid naming is used.</p>
+
+            <details class="quote">
+              <summary>Source code in <code>hebrew/hebrew_obj.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_hebrew_name</span><span class="p">(</span><span class="n">letter</span><span class="p">:</span> <span class="n">HebrewChar</span><span class="p">,</span> <span class="n">name_dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Helper function to get the letters name from the library definition</span>
+<span class="sd">    or from the alts provided by the user.</span>
+
+<span class="sd">    The name value passed *must* be a name that is defined in the characters `HebrewChar` instance or a</span>
+<span class="sd">    ValueError will be thrown. This is done to make sure that only valid naming is used.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">name_dict</span><span class="p">:</span>
+        <span class="n">name_dict</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">if</span> <span class="n">name_dict</span> <span class="ow">and</span> <span class="n">letter</span><span class="o">.</span><span class="n">char</span> <span class="ow">in</span> <span class="n">name_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">name_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">letter</span><span class="o">.</span><span class="n">char</span><span class="p">)</span>
+        <span class="n">clean_name</span> <span class="o">=</span> <span class="n">Hebrew</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">text_only</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">clean_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="n">Hebrew</span><span class="p">(</span><span class="n">nm</span><span class="p">)</span><span class="o">.</span><span class="n">text_only</span><span class="p">()</span> <span class="k">for</span> <span class="n">nm</span> <span class="ow">in</span> <span class="n">letter</span><span class="o">.</span><span class="n">hebrew_names</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> is not a valid name for </span><span class="si">{</span><span class="n">letter</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">clean_name</span><span class="o">.</span><span class="n">string</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">letter</span><span class="o">.</span><span class="n">hebrew_name</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/__aviperl__" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/avi-perl" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/avrohomperl/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+    
+  </body>
+</html>
