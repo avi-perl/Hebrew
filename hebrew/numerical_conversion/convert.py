@@ -24,93 +24,87 @@ def number_to_hebrew_string(
     :param substitution_functions: A tuple of functions that replaces some hebrew values in the result with an
     appropriate equivalent. By default, "יה" and "יו" are replaced with "טו" and "טז" respectively. To replace all
     values such as שמד ,רע, and others, use `Substitutions.ALL`.
-    :return:
+    :return: The Hebrew letter representation of the number.
     """
-    # Handle 0
     if number < 1:
         raise ValueError("Number must be greater than 0")
 
-    reversed_result = ""
+    # Decompose number into place-value components
+    ones, tens, hundreds = _decompose_number(number)
 
-    # Prepare the numbers
-    ones_value = _ones_column_value(number)
-    if ones_value > 0:
-        reversed_result += HEBREW_LETTER_TO_VALUE_MAPPINGS[ones_value]
-    tens_value = _tens_column_value(number)
-    if tens_value > 0:
-        reversed_result += HEBREW_LETTER_TO_VALUE_MAPPINGS[tens_value]
-    hundreds_value = _hundreds_and_above_column_value(number)
-    if hundreds_value > 0:
-        reversed_result += _hundreds_to_letters(hundreds_value)
-
-    # Reverse the string
+    # Build the Hebrew letter string (in reverse, then flip)
+    reversed_result = _build_letter_components(ones, tens, hundreds)
     result = reversed_result[::-1]
 
-    # Substitute flags
+    # Apply substitution rules (e.g., יה → טו, יו → טז)
     if substitution_functions:
         for func in substitution_functions:
             result = func(result)
 
-    # Add Punctuation
+    # Add geresh/gershayim punctuation
     if punctuate:
-        if len(result) > 1:
-            punctuation = "״" if geresh else '"'
-            result = result[:-1] + punctuation + result[-1]
-        else:
-            punctuation = "׳" if geresh else "'"
-            result += punctuation
+        result = _add_punctuation(result, geresh)
 
     return result
 
 
-def _ones_column_value(number: int):
-    """
-    Return the value of the ones column of a number.
-    """
-    return number % 10
+def _decompose_number(number: int) -> Tuple[int, int, int]:
+    """Split a number into ones, tens, and hundreds-and-above components."""
+    ones = number % 10
+    tens = ((number % 100) // 10) * 10 if number >= 10 else 0
+    hundreds = (number // 100) * 100
+    return ones, tens, hundreds
 
 
-def _tens_column_value(number: int):
-    """
-    Return the value of the tens column of a number.
-    """
-    if number < 10:
-        return 0
-    return ((number % 100) // 10) * 10
-
-
-def _hundreds_and_above_column_value(number: int):
-    """
-    Returns the value of all columns of a number above the ten's column.
-    """
-    return (number // 100) * 100
+def _build_letter_components(ones: int, tens: int, hundreds: int) -> str:
+    """Build reversed Hebrew letter string from decomposed number components."""
+    reversed_result = ""
+    if ones > 0:
+        reversed_result += HEBREW_LETTER_TO_VALUE_MAPPINGS[ones]
+    if tens > 0:
+        reversed_result += HEBREW_LETTER_TO_VALUE_MAPPINGS[tens]
+    if hundreds > 0:
+        reversed_result += _hundreds_to_letters(hundreds)
+    return reversed_result
 
 
 def _hundreds_to_letters(number: int) -> str:
     """
-    Given a single digit number over 0 and a power of ten, return the Hebrew letters that represent that number.
+    Convert a hundreds-and-above value to Hebrew letters (in reverse order).
 
-    :param number: The digit to convert to Hebrew letters.
-    :return: The Hebrew letters that represent the number.
+    :param number: The value to convert (must be a multiple of 100).
+    :return: Hebrew letters representing the number, in reverse order.
     """
-
     # Check if the number maps directly to a letter
     if number in HEBREW_LETTER_TO_VALUE_MAPPINGS:
         return HEBREW_LETTER_TO_VALUE_MAPPINGS[number]
+
+    # Get the largest letter value that fits into the number
+    max_letter_value = next(
+        i for i in STANDARD_HEBREW_LETTERS_VALUES_REVERSED if i <= number
+    )
+    max_letter = HEBREW_LETTER_TO_VALUE_MAPPINGS[max_letter_value]
+
+    # Calculate how many times the letter goes into the number
+    letter_count, remainder = divmod(number, max_letter_value)
+
+    if remainder == 0:
+        return max_letter * letter_count
     else:
-        # Get the largest letter and value that is less or equal to the number
-        max_letter_value = next(
-            i for i in STANDARD_HEBREW_LETTERS_VALUES_REVERSED if i <= number
-        )
-        max_letter = HEBREW_LETTER_TO_VALUE_MAPPINGS[max_letter_value]
+        # Recursively handle the remainder
+        remainder_letters = _hundreds_to_letters(remainder)
+        return remainder_letters + max_letter * letter_count
 
-        # Calculate the number of times the letter goes into the number
-        letter_count, remainder = divmod(number, max_letter_value)
 
-        # If the remainder is 0, we can just return the letter times the letter count
-        if remainder == 0:
-            return max_letter * letter_count
-        else:
-            # Otherwise we need to further break down the remainder
-            remainder_letters = _hundreds_to_letters(remainder)
-            return remainder_letters + max_letter * letter_count
+def _add_punctuation(result: str, geresh: bool) -> str:
+    """Add geresh (׳) or gershayim (״) punctuation to a Hebrew number string."""
+    if len(result) > 1:
+        punctuation = "״" if geresh else '"'
+        result = result[:-1] + punctuation + result[-1]
+    else:
+        punctuation = "׳" if geresh else "'"
+        result += punctuation
+    return result
+
+
+
